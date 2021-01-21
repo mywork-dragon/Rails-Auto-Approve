@@ -60,6 +60,10 @@
   margin: 0 0 40px 0;
   @apply p-0;
 
+  .ready-bg {
+    background: url(../images/background/ready-bg.jpg) no-repeat;
+    background-size: cover;
+  }
   .heading-div {
     padding: 0 0 15px 0;
     z-index: 2;
@@ -121,6 +125,59 @@
           word-break: break-word;
           margin: 0 0 25px 0;
           @apply block font-normal text-center text-custom-color2;
+        }
+      }
+    }
+  }
+}
+
+.ready-section {
+  margin: 0 0 40px 0;
+  background: url(../images/background/ready-bg.jpg) no-repeat;
+  background-size: cover;
+  @apply p-0;
+
+  .heading-div {
+    padding: 0 0 15px 0;
+    z-index: 2;
+    margin: 0 auto;
+    @apply relative;
+
+    h2 {
+      font-size: 50px;
+      line-height: 1.5;
+      margin: 0 0 15px 0;
+      color: white !important;
+      @apply relative;
+    }
+  }
+
+  .our-story-div {
+    padding: 65px 0 35px 0;
+    margin: 0 auto;
+    @apply relative;
+
+    .center-container {
+      margin: 0 auto 30px auto;
+      max-width: 950px;
+      @apply w-full p-4;
+
+      .center-text-div {
+        &.small-text {
+          p {
+            font-size: 12px;
+            font-weight: 700;
+          }
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 27px;
+          word-break: break-word;
+          margin: 0 auto 25px auto;
+          max-width: 75%;
+          color: white !important;
+          @apply block font-normal text-center;
         }
       }
     }

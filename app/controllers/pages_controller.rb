@@ -12,6 +12,9 @@ class PagesController < ApplicationController
 
   def motorcycle_refinance
   end
+  
+  def why_auto_approve
+  end
 
   def faq
   end
