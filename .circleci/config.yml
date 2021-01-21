@@ -1,0 +1,45 @@
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/trainable
+    docker:
+      - image: circleci/ruby:2.6.5
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: trainable
+          RAILS_ENV: test
+      - image: circleci/postgres:11
+        environment:
+          POSTGRES_USER: trainable
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: trainable_test
+      - image: docker.elastic.co/elasticsearch/elasticsearch:7.8.1
+        environment:
+          - cluster.name: es-test-cluster
+          - xpack.security.enabled: false
+          - transport.host: localhost
+          - network.host: 127.0.0.1
+          - http.port: 9200
+          - discovery.type: single-node
+      - image: circleci/redis:6.0.6
+    parallelism: 1
+    steps:
+      - checkout
+      - type: cache-restore
+        name: Restore bundle cache
+        key: trainable-{{checksum "Gemfile.lock" }}
+      - run: gem update --system
+      - run: gem install bundler
+      - run: bundle install --path vendor/bundle
+
+      - type: cache-save
+        name: Store bundle cache
+        key: trainable-{{checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: dockerize -wait tcp://localhost:9200 -timeout 1m
+      - run: dockerize -wait tcp://localhost:6379 -timeout 1m
+      - run: bundle exec rails db:setup
+      - run: bundle exec rails test

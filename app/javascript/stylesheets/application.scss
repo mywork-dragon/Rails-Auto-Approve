@@ -1,0 +1,13 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./components/tailwind";
+@import "./components/style";
+@import "./components/footer";
+@import "./components/header";
+
+@import "./components/home";
+@import "./components/products";
+@import "./components/faq";
+@import "./components/careers";

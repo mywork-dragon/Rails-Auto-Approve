@@ -1,0 +1,148 @@
+.contact-us-section {
+  @apply m-0 relative;
+
+  .contact-us-div {
+    padding: 100px 0;
+    @apply relative;
+  }
+
+  .contact-us-info-div {
+    .header-txt-div {
+      h1 {
+        font-size: 60px;
+        line-height: 75px;
+        @apply font-normal text-blue-dark p-0 mb-9 block;
+      }
+    }
+
+    .info-text-div {
+      max-width: 400px;
+
+      .info-text-row {
+        p {
+          font-size: 21px;
+          line-height: 32px;
+          color: rgba(32, 10, 82, 0.8);
+          @apply font-normal;
+        }
+      }
+
+      .info-text-icon-div {
+        @apply flex flex-wrap items-center w-full mb-5;
+
+        .icon-div {
+          width: 24px;
+          @apply flex flex-wrap;
+        }
+
+        .text-div {
+          width: calc(100% - 24px);
+          padding: 0 0 0 12px;
+        }
+
+        .link {
+          font-size: 18px;
+          line-height: 22px;
+          letter-spacing: 0.01em;
+          @apply text-blue-dark;
+
+          &.small-txt {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-us-right {
+    .form-div {
+      .btn-secondary {
+        .bg-custom-icon {
+          margin: 0 0 0 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-us-section {
+    .contact-us-div {
+      padding: 60px 0;
+
+      .header-txt-div {
+        h1 {
+          font-size: 36px;
+          line-height: 48px;
+          @apply mb-8;
+        }
+      }
+
+      .contact-us-info-div {
+        @apply mb-12;
+
+        .info-text-div {
+          .info-text-row {
+            p {
+              font-size: 18px;
+              line-height: 28px;
+            }
+          }
+
+          .info-text-icon-div {
+            @apply mb-4;
+
+            .link {
+              font-size: 16px;
+
+              &.small-txt {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-us-section {
+    .contact-us-div {
+      padding: 60px 20px;
+
+      .header-txt-div {
+        h1 {
+          font-size: 36px;
+          line-height: 48px;
+          @apply mb-8;
+        }
+      }
+
+      .contact-us-info-div {
+        @apply mb-12;
+
+        .info-text-div {
+          .info-text-row {
+            p {
+              font-size: 18px;
+              line-height: 28px;
+            }
+          }
+
+          .info-text-icon-div {
+            @apply mb-4;
+
+            .link {
+              font-size: 16px;
+
+              &.small-txt {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

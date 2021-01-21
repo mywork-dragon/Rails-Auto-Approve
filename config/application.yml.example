@@ -1,0 +1,7 @@
+base_email: 'support@domain.com'
+base_host: 'http://localhost:3000/'
+cloudinary_cloud_name: 'pinefall'
+cloudinary_api_key: '1234567890'
+cloudinary_api_secret: '1234567890'
+lead_endpoint_url: 'https://sf-uat01.approveengine.com/leadmanagement/api/leads/landing'
+lead_endpoint_path: '/leadmanagement/api/leads/landing'

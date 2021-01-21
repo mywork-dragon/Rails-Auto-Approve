@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="45px" viewBox="0 0 44 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>smile-icon</title>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="smile-icon">
+            <circle id="Oval" fill="#44E0B7" fill-rule="nonzero" cx="22" cy="22.7793" r="22"></circle>
+            <circle id="Oval" fill="#200A52" fill-rule="nonzero" cx="15.6666" cy="17.541" r="2.09524"></circle>
+            <path d="M10.4762,25.9221 L10.4762,25.9221 C14.4111,36.6536 29.5889,36.6536 33.5238,25.9221 L33.5238,25.9221" id="Path" stroke="#200A52" stroke-width="2.09524" stroke-linecap="round"></path>
+            <path d="M31,18.0649 L31,18.0649 C29.8696,15.4274 26.1304,15.4274 25,18.0649 L25,18.0649" id="Path" stroke="#200A52" stroke-width="1.56308"></path>
+        </g>
+    </g>
+</svg>

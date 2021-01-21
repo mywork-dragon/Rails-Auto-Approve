@@ -1,0 +1,242 @@
+.faq-main-section {
+  @apply m-0 relative;
+
+  .faq-main-div {
+    padding: 70px 0 40px 0;
+    @apply m-0 relative;
+
+    .max-930px {
+      max-width: 930px;
+    }
+
+    .heading-div {
+      margin: 0 0 50px 0;
+      @apply p-0 relative;
+
+      h1 {
+        font-size: 60px;
+        line-height: 75px;
+        margin: 0 0 30px 0;
+        @apply font-normal text-custom-color2 p-0 block text-center;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 29px;
+        margin: 0 0 20px 0;
+        @apply font-normal text-custom-color6 p-0 block text-center;
+      }
+    }
+  }
+}
+
+.faq-collapsable-main-root {
+  @apply p-4 mb-5 relative;
+
+  .faq-collapsable-box {
+    .collapsable-slide-new {
+      padding: 10px 0;
+      border-top: 1px solid #d3d3d4;
+
+      &:first-child {
+        border-top: 0 solid #d3d3d4;
+      }
+
+      h5.ca-control {
+        font-size: 21px;
+        line-height: 35px;
+        color: #232529;
+        padding: 12px 32px 12px 0;
+        @apply font-normal flex flex-wrap justify-start items-center relative;
+
+        .ca-link {
+          color: inherit;
+          @apply w-full;
+        }
+
+        span.bg-custom-icon {
+          position: absolute;
+          right: 0;
+          top: 25px;
+        }
+
+        .text {
+          @apply relative w-full flex flex-wrap items-start;
+
+          .left-text {
+            @apply relative inline-block;
+            line-height: 25px;
+            width: 27px;
+            top: 4px;
+          }
+
+          span.text-right-span {
+            padding: 0 0 0 0;
+            width: calc(100% - 27px);
+          }
+        }
+      }
+
+      .content-collapsable-inner-div {
+        p {
+          font-size: 16px;
+          line-height: 28px;
+          color: #232529;
+          @apply relative mb-4;
+
+          .left-text {
+            font-size: 21px;
+            line-height: 27px;
+            padding: 0 0 0 3px;
+            @apply absolute left-0 top-0;
+          }
+        }
+
+        .heading-prag {
+          padding: 0 0 0 27px;
+        }
+
+        ul {
+          li {
+            font-size: 16px;
+            line-height: 28px;
+            color: #232529;
+            @apply relative mb-1;
+          }
+        }
+
+        .text-div {
+          padding: 0 0 0 26px;
+
+          p.prag-text {
+            @apply relative flex flex-wrap items-start;
+
+            span.font-left {
+              width: 62px;
+              padding: 0 12px 0 0;
+              @apply font-bold;
+            }
+
+            .txt {
+              width: calc(100% - 62px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.card-faq-botom-div {
+  margin: 0 0 40px 0;
+  @apply p-0 relative;
+
+  .card-faq-botom-div-inner {
+    padding: 40px 45px 40px 45px;
+    @apply m-0 relative bg-custom-color3 rounded-2xl;
+
+    h4 {
+      font-size: 21px;
+      line-height: 35px;
+      @apply text-blue-dark font-bold block mb-2;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 24px;
+      @apply text-blue-dark font-normal block;
+
+      .link {
+        @apply text-green;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .faq-main-section {
+    .faq-main-div {
+      padding: 55px 0 30px 0;
+
+      .heading-div {
+        h1 {
+          font-size: 36px;
+          line-height: 1.4;
+          @apply mb-5;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 27px;
+        }
+      }
+    }
+  }
+
+  .faq-collapsable-main-root {
+    @apply p-0;
+
+    .faq-collapsable-box {
+      .collapsable-slide-new {
+        h5.ca-control {
+          font-size: 16px;
+          line-height: 27px;
+          padding: 8px 28px 8px 0;
+
+          .text {
+            .left-text {
+              line-height: 18px;
+            }
+          }
+
+          span.bg-custom-icon {
+            top: 18px;
+            width: 12px;
+          }
+        }
+
+        .content-collapsable-inner-div {
+          p {
+            font-size: 14px;
+            line-height: 25px;
+            @apply mb-3;
+
+            .left-text {
+              font-size: 16px;
+              line-height: 23px;
+            }
+          }
+
+          .text-div {
+            p.prag-text {
+              span.font-left {
+                width: 55px;
+                padding: 0 10px 0 0;
+              }
+
+              .txt {
+                width: calc(100% - 55px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .card-faq-botom-div {
+    .card-faq-botom-div-inner {
+      padding: 30px 25px 30px 25px;
+
+      h4 {
+        font-size: 18px;
+        line-height: 28px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 21px;
+      }
+    }
+  }
+}

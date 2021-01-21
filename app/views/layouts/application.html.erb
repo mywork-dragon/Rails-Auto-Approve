@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AutoApprove</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Auto Approve</title>
+    <meta content='initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' name='viewport' />
+    <meta name="theme-color" content="#5230A2">
+    <meta name="msapplication-navbutton-color" content="#5230A2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5230A2">
+
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+  </head>
+
+  <body>
+    <div id="wrapper" class="wrapper <%= @body_class %>">
+      <%= render "shared/header" %>
+      <div class="main-middle-area">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </div>
+  </body>
+</html>
