@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/auto-refinance' => 'pages#auto_refinance', as: :auto_refinance
   get '/auto-lease-purchase' => 'pages#auto_lease_purchase', as: :auto_lease_purchase
   get '/motorcycle-refinance' => 'pages#motorcycle_refinance', as: :motorcycle_refinance
+  get '/why-auto-approve' => 'pages#why_auto_approve', as: :why_auto_approve
   get '/faq' => 'pages#faq', as: :faq
  
   get '*id', to: 'landings#show', as: :landing
