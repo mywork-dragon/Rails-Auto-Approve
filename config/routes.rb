@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/faq' => 'pages#faq', as: :faq
   get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
   get '/legal-stuff' => 'pages#legal_stuff', as: :legal_stuff
+  get '/page-not-found' => 'pages#page_not_found', as: :page_not_found
 
   get '*id', to: 'landings#show', as: :landing
   root 'pages#index'

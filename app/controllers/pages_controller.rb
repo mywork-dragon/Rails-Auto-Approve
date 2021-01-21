@@ -24,4 +24,7 @@ class PagesController < ApplicationController
 
   def legal_stuff
   end
+
+  def page_not_found
+  end
 end
