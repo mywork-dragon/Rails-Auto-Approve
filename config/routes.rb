@@ -23,7 +23,10 @@ Rails.application.routes.draw do
   get '/motorcycle-refinance' => 'pages#motorcycle_refinance', as: :motorcycle_refinance
   get '/why-auto-approve' => 'pages#why_auto_approve', as: :why_auto_approve
   get '/faq' => 'pages#faq', as: :faq
- 
+  get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
+  get '/legal-stuff' => 'pages#legal_stuff', as: :legal_stuff
+  get '/page-not-found' => 'pages#page_not_found', as: :page_not_found
+
   get '*id', to: 'landings#show', as: :landing
   root 'pages#index'
 end

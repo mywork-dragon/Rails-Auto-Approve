@@ -18,4 +18,13 @@ class PagesController < ApplicationController
 
   def faq
   end
+
+  def terms_of_service
+  end
+
+  def legal_stuff
+  end
+
+  def page_not_found
+  end
 end
