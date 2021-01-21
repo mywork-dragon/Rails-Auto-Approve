@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/why-auto-approve' => 'pages#why_auto_approve', as: :why_auto_approve
   get '/faq' => 'pages#faq', as: :faq
   get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
+  get '/legal-stuff' => 'pages#legal_stuff', as: :legal_stuff
 
   get '*id', to: 'landings#show', as: :landing
   root 'pages#index'
