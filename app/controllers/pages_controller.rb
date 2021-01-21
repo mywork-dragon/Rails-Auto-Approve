@@ -18,4 +18,7 @@ class PagesController < ApplicationController
 
   def faq
   end
+
+  def terms_of_service
+  end
 end
