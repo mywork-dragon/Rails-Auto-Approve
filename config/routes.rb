@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/auto-lease-purchase' => 'pages#auto_lease_purchase', as: :auto_lease_purchase
   get '/motorcycle-refinance' => 'pages#motorcycle_refinance', as: :motorcycle_refinance
   get '/faq' => 'pages#faq', as: :faq
+  get '/contact-us' => 'pages#contact_us', as: :contact_us
  
   get '*id', to: 'landings#show', as: :landing
   root 'pages#index'
