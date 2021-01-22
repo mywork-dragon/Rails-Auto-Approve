@@ -14,9 +14,11 @@ global.$ = require("jquery")
 require("jquery.collapsable/dist/jquery.collapsable")
 require("sweet-dropdown/dist/dev/jquery.sweet-dropdown")
 require("rangeslider.js/dist/rangeslider")
+import "rangeslider.js/dist/rangeslider.css"
 
 import owlCarousel from "owl.carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
+
 import "../scr/get-owl-slider"
 import "../scr/custom"
 import "../scr/range-slider"
