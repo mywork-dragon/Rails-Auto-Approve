@@ -455,3 +455,7 @@
         </div>    
       </div>
     </div>
+
+<%= content_for :page_scripts do %>
+  <%= javascript_pack_tag "page_scripts/calculate-savings", 'data-turbolinks-track': "reload" %>
+<% end %>
