@@ -29,7 +29,31 @@
                         <div class="left-side animation-left-fade">
                           <ul class="nav ullist-inline" id="nav-res">
                             <li><a href="why-auto-approve.html" class="nav-link">Why Auto Approve</a></li>
-                            <li><a href="#" class="nav-link">Products</a></li>
+                            <li class="relative">
+                              <a href="#" class="nav-link" data-dropdown="#basic">Products</a>
+
+                              <div class="sweet-dropdown-menu dropdown-anchor-top-left dropdown-has-anchor" id="basic">
+                                <ul>
+                                  <li class="flex">
+                                    <a href="get-a-quote.html" class="flex flex-wrap">
+                                      <%= image_pack_tag "icons/dropdown/taxi.svg" %>
+                                      Vehicle Refinance</a>
+                                  </li>
+                                  <li>
+                                    <a href="get-a-quote.html" class="flex flex-wrap">
+                                      <%= image_pack_tag "icons/dropdown/percentage.svg" %>
+                                      Lease Purchase
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="get-a-quote.html" class="flex flex-wrap">
+                                      <%= image_pack_tag "icons/dropdown/motorcycle.svg" %>
+                                      Motorcycle Refinance
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
                             <li><a href="resources.html" class="nav-link">Resources</a></li>
                             <li><a href="faq.html" class="nav-link">FAQ</a></li>
                           </ul>
