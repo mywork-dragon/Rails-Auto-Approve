@@ -8,12 +8,15 @@ require("turbolinks").start()
 
 require("jquery.collapsable/dist/jquery.collapsable")
 require("sweet-dropdown/dist/dev/jquery.sweet-dropdown")
+require("rangeslider.js/dist/rangeslider")
 
 import "stylesheets/application"
 
 global.$ = require("jquery")
 
 import "../scr/custom"
+import "../scr/range-slider"
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
