@@ -83,6 +83,7 @@
       </div>
     </section>
 
+
     <section class="calculate-custom-section py-20 xl:bg-contain bg-top bg-no-repeat">
       <div class="container container-1170 px-4 mx-auto px-24-xs">
         <div class="calculate-custom-div">
@@ -99,28 +100,28 @@
                   <div class="form-calculate-div">
                     <div class="form-calculate-box">
                       <p>Loan Amount</p>  
-                      <div class="text-number"> <h3><sup>$</sup> <span class="text">20,000</span> </h3> </div>
+                      <div class="text-number"> <h3><sup>$</sup> <span class="text" id="demo"></span> </h3> </div>
                       
                       <div class="slider-box slider-box-custom">
 
-                        <input type="range" min="10" max="50" class="range-slider-input" />
+                        <input type="range" min="5000" max="200000" class="range-slider-input" id="myRange" onchange="current_rate_cal()"/>
 
                         <div class="range-slider-txt-row">
-                          <span class="range-slider-left-txt">$0</span> 
-                          <span class="range-slider-right-txt">$ 2 million</span> 
+                          <span class="range-slider-left-txt">$5,000</span>
+                          <span class="range-slider-right-txt">$200,000</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="form-calculate-box">
                       <p>Loan Term</p>  
-                      <div class="text-number"> <h3> <span class="txt">6</span> <span class="text-small">months</span> </h3> </div>
+                      <div class="text-number"> <h3> <span class="txt" id="month_demo"></span> <span class="text-small">months</span> </h3> </div>
                       
                       <div class="slider-box slider-box-custom">
-                        <input type="range" min="10" max="50" class="range-slider-input" />
+                        <input type="range" min="48" max="84" step="12" class="range-slider-input" id="month_range" onchange="current_rate_cal()">
                         <div class="range-slider-txt-row">
-                          <span class="range-slider-left-txt">1 month</span> 
-                          <span class="range-slider-right-txt">48 months</span> 
+                          <span class="range-slider-left-txt">48 months</span>
+                          <span class="range-slider-right-txt">84 months</span>
                         </div>
                       </div>
                     </div>
@@ -131,7 +132,8 @@
                         <div class="form-group pr-4">
                           <label class="block text-color mb-3" for="">Current Rate (APR)</label>
                           <div class="form-control-row">
-                            <input class="form-control appearance-none w-full rounded outline-none" type="text" name="field-name" placeholder="" value="10">
+                            <input class="form-control appearance-none w-full rounded outline-none" type="text" name="field-name" placeholder="" value="10" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" onkeyup="current_rate_cal()" id="rate1">
+							<input type="hidden" id="interest1">
                             <div class="text-right-per absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">%</div>
                           </div>
                         </div>
@@ -141,7 +143,8 @@
                         <div class="form-group pl-4">
                           <label class="block text-color mb-3" for="">New Rate (APR)</label>
                           <div class="form-control-row">
-                            <input class="form-control appearance-none w-full rounded outline-none" type="text" name="field-name" placeholder="" value="10">
+                            <input class="form-control appearance-none w-full rounded outline-none" type="text" name="field-name" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" placeholder="" value="10" onkeyup="new_rate_cal()" id="rate2">
+							<input type="hidden" id="interest2">
                             <div class="text-right-per absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">%</div>
                           </div>
                         </div>
@@ -157,13 +160,13 @@
                 <div class="card-custom-save-inner">
                   <div class="card-white-rounded">
                     <p>You could save</p>
-                    <h2 class="big-text">$4,515</h2>
+                    <h2 class="big-text">$<span id="saving"></span></h2>
                     <div class="text-color-div">
                       <p>In Interest</p>
                     </div>
                   </div>
                   <div class="flex btn-up-div">
-                    <a href="#" class="btn btn-primary btn-big">Start saving today</a>
+                    <a href="get-a-quote.html" class="btn btn-primary btn-big">Start saving today</a>
                   </div>
                 </div>
               </div>
