@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 
 require("jquery.collapsable/dist/jquery.collapsable")
+require("sweet-dropdown/dist/dev/jquery.sweet-dropdown")
 
 import "stylesheets/application"
 
