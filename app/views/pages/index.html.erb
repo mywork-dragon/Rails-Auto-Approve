@@ -455,36 +455,3 @@
         </div>    
       </div>
     </div>
-
-<%= content_for :scripts do %>
-  <script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-
-    // Init values
-    $("#myRange").val(20000);
-    $("#month_range").val(48);
-    $("#rate2").val(2.25);
-
-    output.innerHTML = slider.value;
-
-    slider.oninput = function() {
-      output.innerHTML = this.value;
-    }
-
-    var slider2 = document.getElementById("month_range");
-    var output2 = document.getElementById("month_demo");
-    output2.innerHTML = slider2.value;
-
-    slider2.oninput = function() {
-      output2.innerHTML = this.value;
-    }
-
-    $(document).ready(function () {
-        current_rate_cal();
-    } );
-
-
-  <script>
-<% end %>
-
