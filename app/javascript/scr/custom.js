@@ -1,4 +1,4 @@
-function openNav() {
+window.openNav = function() {
   $("#mySidenav").addClass("width80");
   $("#nav-res").addClass("opacityon");
   $(".cd-shadow-layer").addClass("displayblock");
@@ -6,7 +6,7 @@ function openNav() {
   $("body").addClass("overflow-fixed");
 }
 
-function closeNav() {
+window.closeNav = function() {
   $("#mySidenav").removeClass("width80");
   $("#nav-res").removeClass("opacityon");
   $(".cd-shadow-layer").removeClass("displayblock");
