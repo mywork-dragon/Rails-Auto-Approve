@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     
     resources :categories
     resources :faq
-    #TODO - remove this and convert mockup to show/edit actions
-    get 'landings/google-landing-page' => 'landings#google_landing_page', as: :google_landing_page
-    get 'landings/google-landing-page-edit' => 'landings#google_landing_page_edit', as: :google_landing_page_edit
     resources :landings do
       collection do 
         get '/theme/:theme_name' => 'landings#selected_theme_index', as: :theme_landings

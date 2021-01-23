@@ -8,14 +8,6 @@ class Admin::LandingsController < AdminController
     @landings = Landing.where(theme: (params[:theme_name]))
   end
 
-  #TODO - remove this and use the show action instead
-  def google_landing_page
-  end
-
-  #TODO - remove this and use the edit action instead
-  def google_landing_page_edit
-  end
-
   def show
     @landing = Landing.find(params[:id])
   end
