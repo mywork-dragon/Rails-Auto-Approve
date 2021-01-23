@@ -1,4 +1,6 @@
-<div class="w-full my-6">
+<% content_for :section_class, "py-4 lg:py-10 cool-transition" %>
+
+<%= content_for :topbar do %>
   <label>
     <%= link_to "Landing Pages", admin_landings_path, class: "text-blue font-semibold" %>
     <span class="mx-1 text-lg text-blue font-semibold">/</span>
@@ -8,7 +10,7 @@
     <span class="mx-1 text-lg">/</span>
     <span> #update to Landing Page name here</span>
   </label>
-</div>
+<% end %>
 
 <%= simple_form_for @landing, url: admin_landing_path(@landing) do |f| %>
 

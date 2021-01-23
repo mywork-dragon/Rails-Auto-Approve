@@ -15,7 +15,7 @@
 
   <body>
     <%= render 'admin/shared/sidebar' %>
-    <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4" id="dashboard-content">
+    <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
     <%= yield :mobile_navbar %>
       <div class="w-full">
         <%= yield :topbar %>
