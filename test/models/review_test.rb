@@ -6,6 +6,7 @@ describe Review do
   end
 
   context 'validations' do
+    should_not allow_value(nil).for(:review_site)
     should allow_value('John').for(:name)
     should_not allow_value(nil).for(:name)
     should allow_value('Seattle, WA').for(:location)

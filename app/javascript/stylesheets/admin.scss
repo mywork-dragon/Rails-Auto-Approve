@@ -2,5 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "./components/admin";
+@import "./admin-components/style.css";
+@import "./admin-components/dashboard-sidebar.css";
+@import "./admin-components/dashboard-table.css";
+@import "./admin-components/landing-page.css";
+@import "./admin-components/landing-page-edit.css";
+@import "./admin-components/dashboard-reviews.css";
+// @import "./admin-components/admin";
 // @import "./components/icons";

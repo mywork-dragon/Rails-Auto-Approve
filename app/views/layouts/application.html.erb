@@ -18,11 +18,11 @@
 
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
-    <%= yield :page_scripts%>
+    <%= yield :page_scripts %>
   </head>
 
   <body>
-    <div id="wrapper" class="wrapper <%= @body_class %>">
+    <div id="wrapper" class="wrapper">
       <%= render "shared/header" %>
       <div class="main-middle-area">
         <%= yield %>

@@ -1,0 +1,12 @@
+<h1>Details</h1>
+<table>
+  <tr>
+    <td>Name</td><td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td>Email</td><td><%= mail_to @user.email, @user.email %></td>
+  </tr>
+  <tr>
+    <td>Role</td><td><%= @user.role %></td>
+  </tr>
+</table>

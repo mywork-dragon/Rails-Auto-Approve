@@ -1,23 +1,30 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    path: '',
+    path_names: { sign_in: 'sign_in', sign_out: 'sign_out'}
 
   namespace :admin do
-    resource :dashboard, only: :show
+    
     resources :categories
     resources :faq
-    resources :landings
+    resources :landings do
+      collection do 
+        get '/theme/:theme_name' => 'landings#selected_theme_index', as: :theme_landings
+      end
+    end
     resources :leads, only: [:index, :show] do
       post :sync, on: :member
     end
     resources :positions
     resources :reviews
-    resources :themes, only: [:index]
+    resources :themes, only: [:index, :show]
     resources :users
   end
 
   resources :leads, only: :create
   resources :careers, path: 'join-our-team', only: [:index, :show]
 
+  get '/admin' => 'admin/dashboard#show', as: :admin
   get '/auto-refinance' => 'pages#auto_refinance', as: :auto_refinance
   get '/auto-lease-purchase' => 'pages#auto_lease_purchase', as: :auto_lease_purchase
   get '/motorcycle-refinance' => 'pages#motorcycle_refinance', as: :motorcycle_refinance

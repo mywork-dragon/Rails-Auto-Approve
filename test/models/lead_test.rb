@@ -3,12 +3,10 @@ require "test_helper"
 describe Lead do
   context 'associations' do
     should belong_to(:landing)
-    should belong_to(:vehicle)
   end
 
   context 'validations' do
     should_not allow_value(nil).for(:landing)
-    should_not allow_value(nil).for(:vehicle)
 
     # Personal
     should allow_value('John').for(:first_name)

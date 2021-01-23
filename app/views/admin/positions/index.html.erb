@@ -1,1 +1,15 @@
-<%= @positions.inspect %>
+<h2>Jobs</h2>
+<%= link_to "New", new_admin_position_path %>
+<%= page_entries_info @positions %>
+<table>
+  <% @positions.each do |position| %>
+    <tr>
+      <td><%= position.title %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_position_path(position) %>
+        <%= link_to "Destroy", admin_position_path(position), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate @positions %>

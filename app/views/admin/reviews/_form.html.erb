@@ -1,0 +1,6 @@
+<%= f.association :review_site %>
+<%= f.input :name %>
+<%= f.input :location %>
+<%= f.input :content %>
+<%= f.input :url %>
+<%= f.input :rating, collection: Review::RATINGS %>
