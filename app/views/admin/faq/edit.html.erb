@@ -1,5 +1,4 @@
-<h2>Edit</h2>
+<%= render 'mobile_sidebar_non_index' %>
 <%= simple_form_for @faq, url: admin_faq_path(@faq) do |f| %>
   <%= render "form", f: f %>
-  <%= f.submit "Save" %>
 <% end %>
