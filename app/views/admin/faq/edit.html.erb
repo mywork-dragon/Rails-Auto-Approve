@@ -1,4 +1,11 @@
 <%= render 'mobile_sidebar_non_index' %>
+<div class="w-full my-5">
+  <label>
+    <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
+    <span class="mx-1">/</span>
+    <span>Edit Faq</span>
+  </label>
+</div>
 <%= simple_form_for @faq, url: admin_faq_path(@faq) do |f| %>
   <%= render "form", f: f %>
 <% end %>
