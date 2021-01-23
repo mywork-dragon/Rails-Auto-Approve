@@ -1,28 +1,26 @@
-<div class="dashboard_righttop flex">
-  <div class="flex-1">
-    <h1>Landign Page</h1>
-  </div>
-  <div class="flex-1 flex items-center justify-end">
-    <img src="images/search.png" alt="search-icon">
-    <button class="hover">Create New Template +</button>
-  </div>
-</div>
-<!----content bottom section-->
-<div class="dashboard_rightcontent flex justify-start ">
-  <div class="dashboard_rightlist p-4">
-    <div class="dashboard_rightlistin">
-      <img src="images/google-landing.png">
-      <a href="google-landing.html">View Details</a>
+<div class="flex md:flex-nowrap flex-wrap items-start">
+  <div class="lg:w-1/4 md:w-1/2 w-full relative md:my-0 my-10 md:mr-16 mr-0">
+    <div class="relative overflow-hidden landing-img rounded-xl mb-5 shadow-lg cursor-pointer">
+      <%= image_pack_tag "google-landing.png", class: "w-full" %>
+      <a
+        href="./google-landing-page.html"
+        class="text-white font-regular absolute -left-full top-0 w-full h-full bg-blue flex items-center justify-center text-center capitalize text-xl rounded-xl cool-transition landing-img-link opacity-80"
+        >view details
+      </a>
     </div>
-    <h2>Google Landing Page</h2>
-    <p>Jan 1 2021</p>
+    <p class="capitalize text-xl">google landing page</p>
+    <p class="text-sm font-light">Jan 1, 2021</p>
   </div>
-  <div class="dashboard_rightlist p-4">
-    <div class="dashboard_rightlistin">
-      <img src="images/being-landing.png">
-      <a href="bing-landing.html">View Details</a>
+  <div class="lg:w-1/4 md:w-1/2 w-full relative md:mb-0 mb-10">
+    <div class="relative overflow-hidden landing-img rounded-xl mb-5 shadow-lg cursor-pointer">
+      <%= image_pack_tag "bing-landing.png", class: "w-full" %>
+      <a
+        href="#"
+        class="text-white font-regular absolute -left-full top-0 w-full h-full bg-blue flex items-center justify-center text-center capitalize text-xl rounded-xl cool-transition landing-img-link opacity-80"
+        >view details
+      </a>
     </div>
-    <h2>Bing Landing Page</h2>
-    <p>Jan 1 2021</p>
+    <p class="capitalize text-xl">bing landing page</p>
+    <p class="text-sm font-light">Dec 1, 2021</p>
   </div>
 </div>
