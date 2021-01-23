@@ -1,8 +1,6 @@
 <div class="w-full my-6">
   <label>
-    <a href="./index.html" class="text-blue font-semibold"
-      >Landing page</a
-    >
+    <%= link_to "Landing Pages", admin_landings_path, class: "text-blue font-semibold" %>
     <span class="mx-1 text-lg text-blue font-semibold">/</span>
     <%= link_to @landing.theme, theme_landings_admin_landings_path(@landing.theme),
       class:"text-blue font-semibold"
