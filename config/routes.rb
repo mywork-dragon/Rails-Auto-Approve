@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resource :dashboard, only: :show
     resources :categories
     resources :faq
+    #TODO - remove this and convert the show action instead
+    get 'landings/google-landing-page' => 'landings#google_landing_page', as: :google_landing_page
     resources :landings
     resources :leads, only: [:index, :show] do
       post :sync, on: :member
