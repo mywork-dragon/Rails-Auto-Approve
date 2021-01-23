@@ -1,3 +1,32 @@
+<%= content_for :mobile_navbar do %>
+  <div class="xl:hidden flex items-center">
+    <div class="w-1/2 pt-4">
+      <button
+        id="sidebar-toggle"
+        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+      >
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      </button>
+    </div>
+
+    <div class="w-1/2 pt-4 flex justify-end">
+      <button
+        class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none"
+      >
+        <%= image_pack_tag "dashboard/search.svg", width: "20" %>
+      </button>
+      <a
+        href="./create-new-faq.html"
+        class="capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center"
+      >
+        <%= image_pack_tag "dashboard/plus.svg", width: "15" %>
+      </a>
+    </div>
+  </div>
+<% end %>
+
 <h2>Faq</h2>
 <%= link_to "New", new_admin_faq_path %>
 <%= page_entries_info @faq %>
