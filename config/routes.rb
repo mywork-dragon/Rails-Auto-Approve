@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'landings/google-landing-page-edit' => 'landings#google_landing_page_edit', as: :google_landing_page_edit
     resources :landings do
       collection do 
-        get '/theme/:name' => 'landings#selected_theme_index', as: :theme_landings
+        get '/theme/:theme_name' => 'landings#selected_theme_index', as: :theme_landings
       end
     end
     resources :leads, only: [:index, :show] do
