@@ -1,2 +1,16 @@
-<%= f.input :path %>
-<%= f.input :state, collection: Landing.states.keys %>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :path, class: "text-xl px-2" %>
+      <%= f.input_field :path, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", placeholder: "Enter Path" %>
+    </div>
+  </div>
+</div>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :state, class: "text-xl px-2" %>
+      <%= f.input_field :state, collection: Landing.states.keys, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg" %>
+    </div>
+  </div>
+</div>
