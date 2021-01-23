@@ -1,215 +1,215 @@
 <div>
-          <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
-            <thead>
-              <tr class="border-b border-gray border-solid">
-                <th class="text-left px-2 align-middle">
-                  <input type="checkbox" />
-                </th>
-                <th
-                  class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color ml-4"
-                >
-                  Page Name
-                </th>
-                <th
-                  class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color"
-                ></th>
-                <th
-                  class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color"
-                >
-                  Date created
-                </th>
-                <th
-                  class="align-middle text-left px-2 py-4 w-1/12 font-normal th-color"
-                >
-                  Live
-                </th>
-                <th
-                  class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color"
-                >
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody id="googleTableBody">
-              <tr class="border-b border-gray border-solid">
-                <td class="px-2 py-4 align-middle">
-                  <input type="checkbox" id="table-checkbox" />
-                </td>
-                <td class="px-2 py-4 align-middle">
-                  <%= image_pack_tag "google-landing.png", class: "w-full" %>
-                </td>
-                <td class="px-2 py-4 align-middle">
-                    Google Landing Page Version 5 (duplicate)
-                </td>
-                <td class="px-2 py-4 align-middle">Dec 1 2021</td>
-                <td class="align-middle">
-                  <span
-                    class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold capitalize"
-                    >yes</span
-                  >
-                </td>
-                <td class="align-middle">
-                  <div class="flex flex-wrap items-center">
-                    <a
-                      href="./google-landing-page-edit.html"
-                      class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
-                      id="google-table-edit"
-                    >
-                      Edit
-                  </a>
-                    <button
-                      class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-                      id="google-table-page-duplicate"
-                    >
-                      <%= image_pack_tag "dashboard/table-action-1.png" %>
-                    </button>
-                    <button
-                      class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete"
-                    >
-                      <%= image_pack_tag "dashboard/table-action-2.png" %>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="px-2 py-4 align-middle">
-                  <input type="checkbox" id="table-checkbox" />
-                </td>
-                <td class="px-2 py-4 align-middle">
-                  <%= image_pack_tag "google-landing.png", class: "w-full" %>
-                </td>
-                <td class="px-2 py-4 align-middle">
-                    Google Landing Page Version 5
-                </td>
-                <td class="px-2 py-4 align-middle">Jan 1 2021</td>
-                <td class="align-middle">
-                  <span
-                    class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold capitalize"
-                    >yes</span
-                  >
-                </td>
-                <td class="align-middle">
-                  <div class="flex flex-wrap items-center">
-                    <a
-                      href="./google-landing-page-edit.html"
-                      class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
-                      id="google-table-edit"
-                    >
-                      Edit
-                  </a>
-                    <button
-                      class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-                      id="google-table-page-duplicate"
-                    >
-                      <%= image_pack_tag "dashboard/table-action-1.png" %>
-                    </button>
-                    <button
-                      class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete"
-                    >
-                      <%= image_pack_tag "dashboard/table-action-2.png" %>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="md:hidden flex flex-wrap my-6">
-            <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
-              <input type="checkbox" class="mb-3" />
-              <p class="th-color truncate">
-                Page Name:
-                <span class="text-black font-semibold ml-3"
-                  >Google Landing Page Version 5</span
-                >
-              </p>
-              <p class="th-color my-4">
-                Date created:
-                <span class="text-black font-medium ml-3">Jan 1 2021</span>
-              </p>
-              <p class="th-color my-4">
-                Live:
-                <span
-                  class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold ml-3 capitalize"
-                  >yes</span
-                >
-              </p>
-              <div class="th-color my-4 flex items-center">
-                <span class="mr-3">Actions:</span>
-                <button
-                  href="#"
-                  class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
-                  id="google-table-edit-mobile"
-                >
-                  Edit
-                </button>
-                <button
-                  class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-                  id="google-table-page-duplicate-mobile"
-                >
-                  <img
-                    src="../assets/images/dashboard/table-action-1.png"
-                    alt=""
-                  />
-                </button>
-                <button
-                  class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none"
-                  id="google-table-page-delete-mobile"
-                >
-                  <img
-                    src="../assets/images/dashboard/table-action-2.png"
-                    alt=""
-                  />
-                </button>
-              </div>
-            </div>
-            <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
-              <input type="checkbox" class="mb-3" />
-              <p class="th-color truncate">
-                Page Name:
-                <span class="text-black font-semibold ml-3"
-                  >Google Landing Page Version 5 (Duplicate)</span
-                >
-              </p>
-              <p class="th-color my-4">
-                Date created:
-                <span class="text-black font-medium ml-3">Dec 1 2021</span>
-              </p>
-              <p class="th-color my-4">
-                Live:
-                <span
-                  class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold ml-3 capitalize"
-                  >yes</span
-                >
-              </p>
-              <div class="th-color my-4 flex items-center">
-                <span class="mr-3">Actions:</span>
-                <button
-                  href="#"
-                  class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
-                  id="google-table-edit-mobile"
-                >
-                  Edit
-                </button>
-                <button
-                  class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-                  id="google-table-page-duplicate-mobile"
-                >
-                  <img
-                    src="../assets/images/dashboard/table-action-1.png"
-                    alt=""
-                  />
-                </button>
-                <button
-                  class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none"
-                  id="google-table-page-delete-mobile"
-                >
-                  <img
-                    src="../assets/images/dashboard/table-action-2.png"
-                    alt=""
-                  />
-                </button>
-              </div>
-            </div>
+  <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
+    <thead>
+      <tr class="border-b border-gray border-solid">
+        <th class="text-left px-2 align-middle">
+          <input type="checkbox" />
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color ml-4"
+        >
+          Page Name
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color"
+        ></th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color"
+        >
+          Date created
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/12 font-normal th-color"
+        >
+          Live
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color"
+        >
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody id="googleTableBody">
+      <tr class="border-b border-gray border-solid">
+        <td class="px-2 py-4 align-middle">
+          <input type="checkbox" id="table-checkbox" />
+        </td>
+        <td class="px-2 py-4 align-middle">
+          <%= image_pack_tag "google-landing.png", class: "w-full" %>
+        </td>
+        <td class="px-2 py-4 align-middle">
+            Google Landing Page Version 5 (duplicate)
+        </td>
+        <td class="px-2 py-4 align-middle">Dec 1 2021</td>
+        <td class="align-middle">
+          <span
+            class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold capitalize"
+            >yes</span
+          >
+        </td>
+        <td class="align-middle">
+          <div class="flex flex-wrap items-center">
+            <a
+              href="./google-landing-page-edit.html"
+              class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
+              id="google-table-edit"
+            >
+              Edit
+          </a>
+            <button
+              class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+              id="google-table-page-duplicate"
+            >
+              <%= image_pack_tag "dashboard/table-action-1.png" %>
+            </button>
+            <button
+              class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete"
+            >
+              <%= image_pack_tag "dashboard/table-action-2.png" %>
+            </button>
           </div>
-        </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="px-2 py-4 align-middle">
+          <input type="checkbox" id="table-checkbox" />
+        </td>
+        <td class="px-2 py-4 align-middle">
+          <%= image_pack_tag "google-landing.png", class: "w-full" %>
+        </td>
+        <td class="px-2 py-4 align-middle">
+            Google Landing Page Version 5
+        </td>
+        <td class="px-2 py-4 align-middle">Jan 1 2021</td>
+        <td class="align-middle">
+          <span
+            class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold capitalize"
+            >yes</span
+          >
+        </td>
+        <td class="align-middle">
+          <div class="flex flex-wrap items-center">
+            <a
+              href="./google-landing-page-edit.html"
+              class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
+              id="google-table-edit"
+            >
+              Edit
+          </a>
+            <button
+              class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+              id="google-table-page-duplicate"
+            >
+              <%= image_pack_tag "dashboard/table-action-1.png" %>
+            </button>
+            <button
+              class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete"
+            >
+              <%= image_pack_tag "dashboard/table-action-2.png" %>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="md:hidden flex flex-wrap my-6">
+    <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
+      <input type="checkbox" class="mb-3" />
+      <p class="th-color truncate">
+        Page Name:
+        <span class="text-black font-semibold ml-3"
+          >Google Landing Page Version 5</span
+        >
+      </p>
+      <p class="th-color my-4">
+        Date created:
+        <span class="text-black font-medium ml-3">Jan 1 2021</span>
+      </p>
+      <p class="th-color my-4">
+        Live:
+        <span
+          class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold ml-3 capitalize"
+          >yes</span
+        >
+      </p>
+      <div class="th-color my-4 flex items-center">
+        <span class="mr-3">Actions:</span>
+        <button
+          href="#"
+          class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
+          id="google-table-edit-mobile"
+        >
+          Edit
+        </button>
+        <button
+          class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+          id="google-table-page-duplicate-mobile"
+        >
+          <img
+            src="../assets/images/dashboard/table-action-1.png"
+            alt=""
+          />
+        </button>
+        <button
+          class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none"
+          id="google-table-page-delete-mobile"
+        >
+          <img
+            src="../assets/images/dashboard/table-action-2.png"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+    <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
+      <input type="checkbox" class="mb-3" />
+      <p class="th-color truncate">
+        Page Name:
+        <span class="text-black font-semibold ml-3"
+          >Google Landing Page Version 5 (Duplicate)</span
+        >
+      </p>
+      <p class="th-color my-4">
+        Date created:
+        <span class="text-black font-medium ml-3">Dec 1 2021</span>
+      </p>
+      <p class="th-color my-4">
+        Live:
+        <span
+          class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold ml-3 capitalize"
+          >yes</span
+        >
+      </p>
+      <div class="th-color my-4 flex items-center">
+        <span class="mr-3">Actions:</span>
+        <button
+          href="#"
+          class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white"
+          id="google-table-edit-mobile"
+        >
+          Edit
+        </button>
+        <button
+          class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+          id="google-table-page-duplicate-mobile"
+        >
+          <img
+            src="../assets/images/dashboard/table-action-1.png"
+            alt=""
+          />
+        </button>
+        <button
+          class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none"
+          id="google-table-page-delete-mobile"
+        >
+          <img
+            src="../assets/images/dashboard/table-action-2.png"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
