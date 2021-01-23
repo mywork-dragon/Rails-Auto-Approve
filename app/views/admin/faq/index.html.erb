@@ -1,0 +1,15 @@
+<h2>Faq</h2>
+<%= link_to "New", new_admin_faq_path %>
+<%= page_entries_info @faq %>
+<table>
+  <% @faq.each do |faq| %>
+    <tr>
+      <td><%= faq.question %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_faq_path(faq) %>
+        <%= link_to "Destroy", admin_faq_path(faq), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate @faq %>

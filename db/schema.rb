@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_022050) do
+ActiveRecord::Schema.define(version: 2021_01_21_034106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_01_14_022050) do
 
   create_table "leads", force: :cascade do |t|
     t.bigint "landing_id", null: false
-    t.bigint "vehicle_id", null: false
     t.string "source"
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -89,10 +88,13 @@ ActiveRecord::Schema.define(version: 2021_01_14_022050) do
     t.integer "synced_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "vehicle_make_id", null: false
+    t.string "vehicle_make_name", null: false
+    t.integer "vehicle_model_id", null: false
+    t.string "vehicle_model_name", null: false
     t.index ["landing_id", "state"], name: "index_leads_on_landing_id_and_state"
     t.index ["state"], name: "index_leads_on_state"
     t.index ["synced_at"], name: "index_leads_on_synced_at"
-    t.index ["vehicle_id", "state"], name: "index_leads_on_vehicle_id_and_state"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -182,7 +184,6 @@ ActiveRecord::Schema.define(version: 2021_01_14_022050) do
   add_foreign_key "category_posts", "categories"
   add_foreign_key "category_posts", "posts"
   add_foreign_key "leads", "landings"
-  add_foreign_key "leads", "vehicles"
   add_foreign_key "posts", "users"
   add_foreign_key "reviews", "review_sites"
 end

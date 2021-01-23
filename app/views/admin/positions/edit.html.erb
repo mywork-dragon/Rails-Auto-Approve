@@ -1,11 +1,6 @@
 <h2>Edit Position</h2>
 
 <%= simple_form_for @position, url: admin_position_path(@position) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :location %>
-  <%= f.input :url %>
-  <%= f.input :email %>
-  <%= f.input :state, collection: Position.states.keys %>
+  <%= render "form", f: f %>
   <%= f.submit "Save" %>
 <% end %>

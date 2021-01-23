@@ -1,5 +1,5 @@
 class Lead < ApplicationRecord
-  DESIRED_TERMS = [38, 48, 60, 72, 84].freeze
+  DESIRED_TERMS = [36, 48, 60, 72, 84].freeze
   VEHICLE_TYPES = ['Car/SUV/Truck', 'Motorcycle'].freeze
 
   belongs_to :landing
