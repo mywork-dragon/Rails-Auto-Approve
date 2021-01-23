@@ -1,6 +1,6 @@
 class Admin::LandingsController < AdminController
   def index
-    @landing = Landing.page(params[:page])
+    @landings = Landing.page(params[:page])
   end
 
   #TODO - remove this and use the show action instead
@@ -52,8 +52,6 @@ class Admin::LandingsController < AdminController
   private
 
   def landing_params
-    params.require(:landing).permit(
-      :title, :content, :location, :url, :email, :state
-    )
+    params.require(:landing).permit(:theme, :path, :state, config: {})
   end
 end

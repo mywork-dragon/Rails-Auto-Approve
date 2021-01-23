@@ -24,3 +24,20 @@
     <p class="text-sm font-light">Dec 1, 2021</p>
   </div>
 </div>
+<h2>Landings</h2>
+<%= link_to "New", new_admin_landing_path %>
+<p><%= page_entries_info @landings %></p>
+<table>
+  <% @landings.each do |landing| %>
+    <tr>
+      <td><%= landing.theme %></td>
+      <td><%= landing.path %></td>
+      <td><%= landing.state %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_landing_path(landing) %>
+        <%= link_to "Destroy", admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate @landings %>

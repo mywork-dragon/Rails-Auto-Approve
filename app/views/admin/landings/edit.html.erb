@@ -1,0 +1,10 @@
+<h2>Edit Landing</h2>
+<%= simple_form_for @landing, url: admin_landing_path(@landing) do |f| %>
+  <%= render "form", f: f %>
+  <%= f.simple_fields_for :config do |sf| %>
+    <% @landing.config.each do |field, val| %>
+      <%= sf.input field.to_sym, input_html: { value: val } %>
+    <% end %>
+  <% end %>
+  <%= f.submit "Save" %>
+<% end %>

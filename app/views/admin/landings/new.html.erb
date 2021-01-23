@@ -1,0 +1,18 @@
+<h2>Add Landing</h2>
+<%= simple_form_for @landing, url: admin_landings_path do |f| %>
+  <%= f.input :theme, collection: Theme.available, input_html: { id: "theme_select" } %>
+  <%= render "form", f: f %>
+  <div id="fields"></div>
+  <%= f.submit "Create" %>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#theme_select').on('change', function(event) {
+    const theme = $(event.target).find('option:selected').text()
+    $.get(`/admin/themes/${theme}`).then(function(result) {
+      console.log(result)
+    })
+  })
+})
+</script>

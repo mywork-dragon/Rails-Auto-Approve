@@ -1,1 +1,21 @@
-<%= @position.inspect %>
+<h2>Details</h2>
+<table>
+  <tr>
+    <td>Title</td><td><%= @position.title %></td>
+  </tr>
+  <tr>
+    <td>Content</td><td><%= raw @position.content %></td>
+  </tr>
+  <tr>
+    <td>Location</td><td><%= @position.location %></td>
+  </tr>
+  <tr>
+    <td>URL</td><td><%= @position.url %></td>
+  </tr>
+  <tr>
+    <td>Email</td><td><%= @position.email %></td>
+  </tr>
+  <tr>
+    <td>State</td><td><%= @position.state %></td>
+  </tr>
+</table>

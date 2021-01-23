@@ -1,0 +1,17 @@
+<h2>Reviews</h2>
+<%= link_to "New", new_admin_review_path %>
+<p><%= page_entries_info @reviews %></p>
+<table>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.name %></td>
+      <td><%= review.location %></td>
+      <td><%= review.rating %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_review_path(review) %>
+        <%= link_to "Destroy", admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate @reviews %>

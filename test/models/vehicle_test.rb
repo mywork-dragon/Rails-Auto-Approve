@@ -2,7 +2,6 @@ require "test_helper"
 
 describe Vehicle do
   context 'associations' do
-    should have_many(:leads)
   end
 
   context 'validations' do
