@@ -1,9 +1,32 @@
-<h2>Details</h2>
-<table>
-  <tr>
-    <td>Question</td><td><%= raw @faq.question %></td>
-  </tr>
-  <tr>
-    <td>Answer</td><td><%= raw @faq.answer %></td>
-  </tr>
-</table>
+<%= render 'mobile_sidebar_non_index' %>
+<div class="w-full my-5">
+  <label>
+    <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
+    <span class="mx-1">/</span>
+    <span>Show Faq</span>
+  </label>
+</div>
+
+<div class="flex  mt-10">
+  <div class="w-full">
+    <p class="text-2xl mb-4 tracking-wide">Question:</p>
+    <div class="flex md:flex-nowrap flex-wrap items-center justify-between" >
+      <div class=" w-full md:mb-0 mb-1 md:mr-6">
+        <%= raw @faq.question %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex mt-10">
+  <div class="w-full">
+    <p class="text-2xl mb-4 tracking-wide">Answer:</p>
+    <div class="flex md:flex-nowrap flex-wrap items-center justify-between" >
+      <div class=" w-full md:mb-0 mb-1 md:mr-6">
+        <%= raw @faq.answer %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
