@@ -1,6 +1,11 @@
 class Admin::LandingsController < AdminController
   def index
+    @themes = Theme.all
     @landings = Landing.page(params[:page])
+  end
+
+  def selected_theme_index
+    @landings = Landing.all#.page(params[:page])
   end
 
   #TODO - remove this and use the show action instead

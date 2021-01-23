@@ -1,43 +1,16 @@
 <div class="flex md:flex-nowrap flex-wrap items-start">
-  <div class="lg:w-1/4 md:w-1/2 w-full relative md:my-0 my-10 md:mr-16 mr-0">
-    <div class="relative overflow-hidden landing-img rounded-xl mb-5 shadow-lg cursor-pointer">
-      <%= image_pack_tag "google-landing.png", class: "w-full" %>
-      <a
-        href="./landings/google-landing-page.html"
-        class="text-white font-regular absolute -left-full top-0 w-full h-full bg-blue flex items-center justify-center text-center capitalize text-xl rounded-xl cool-transition landing-img-link opacity-80"
-        >view details
-      </a>
+  <% @themes.each do |theme| %>
+    <div class="lg:w-1/4 md:w-1/2 w-full relative md:my-0 my-10 md:mr-16 mr-0">
+      <div class="relative overflow-hidden landing-img rounded-xl mb-5 shadow-lg cursor-pointer">
+        <%= image_pack_tag "google-landing.png", class: "w-full" %>
+        <%= link_to 'view details', theme_landings_admin_landings_path(theme.name),
+          class:"text-white font-regular absolute -left-full top-0 w-full h-full bg-blue flex items-center justify-center text-center capitalize text-xl rounded-xl cool-transition landing-img-link opacity-80"
+        %>
+
+      </div>
+      <p class="capitalize text-xl"><%= theme.name %></p>
+      <p class="text-sm font-light">Dec 1, 2021(mockup date, change-me)</p>
     </div>
-    <p class="capitalize text-xl">google landing page</p>
-    <p class="text-sm font-light">Jan 1, 2021</p>
-  </div>
-  <div class="lg:w-1/4 md:w-1/2 w-full relative md:mb-0 mb-10">
-    <div class="relative overflow-hidden landing-img rounded-xl mb-5 shadow-lg cursor-pointer">
-      <%= image_pack_tag "bing-landing.png", class: "w-full" %>
-      <a
-        href="./landings/google-landing-page.html"
-        class="text-white font-regular absolute -left-full top-0 w-full h-full bg-blue flex items-center justify-center text-center capitalize text-xl rounded-xl cool-transition landing-img-link opacity-80"
-        >view details
-      </a>
-    </div>
-    <p class="capitalize text-xl">bing landing page</p>
-    <p class="text-sm font-light">Dec 1, 2021</p>
-  </div>
-</div>
-<h2>Landings</h2>
-<%= link_to "New", new_admin_landing_path %>
-<p><%= page_entries_info @landings %></p>
-<table>
-  <% @landings.each do |landing| %>
-    <tr>
-      <td><%= landing.theme %></td>
-      <td><%= landing.path %></td>
-      <td><%= landing.state %></td>
-      <td>
-        <%= link_to "Edit", edit_admin_landing_path(landing) %>
-        <%= link_to "Destroy", admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" } %>
-      </td>
-    </tr>
   <% end %>
-</table>
-<%= paginate @landings %>
+</div>
+

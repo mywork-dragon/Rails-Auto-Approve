@@ -1,0 +1,126 @@
+<h2>Landings</h2>
+<%= link_to "New", new_admin_landing_path %>
+
+<div>
+<%#= page_entries_info @landings %>
+  <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
+    <thead>
+      <tr class="border-b border-gray border-solid">
+        <th class="text-left px-2 align-middle">
+          <input type="checkbox" />
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color ml-4"
+        >
+          Image
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color"
+        >Theme</th>
+        <th class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color">
+          Path
+        </th>
+        <th class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color">
+          Status
+        </th>
+        <th
+          class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color"
+        >
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody id="googleTableBody">
+      <% @landings.each do |landing| %>
+        <tr class="border-b border-gray border-solid">
+          <td class="px-2 py-4 align-middle">
+            <input type="checkbox" id="table-checkbox" />
+          </td>
+          <td class="px-2 py-4 align-middle">
+            <%= image_pack_tag "google-landing.png", class: "w-full" %>
+          </td>
+          <td class="px-2 py-4 align-middle"><%= landing.theme %></td>
+          <td class="px-2 py-4 align-middle"><%= landing.path %></td>
+          <td class="align-middle">
+            <span class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold capitalize">
+              <%= landing.state %>
+            </span>
+          </td>
+          <td class="align-middle">
+            <div class="flex flex-wrap items-center">
+              <%= link_to "Edit", edit_admin_landing_path(landing), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
+              <button
+                class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+                id="google-table-page-duplicate"
+              >
+                <%= image_pack_tag "dashboard/table-action-1.png" %>
+              </button>
+              <%= link_to admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete" do %>
+                <%= image_pack_tag "dashboard/table-action-2.png" %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%#= paginate @landings %>
+
+  <div class="md:hidden flex flex-wrap my-6">
+    <% @landings.each do |landing| %>
+      <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
+
+        <input type="checkbox" class="mb-3" />
+        <p class="th-color truncate">
+          theme:
+          <span class="text-black font-semibold ml-3"><%= landing.theme %></span>
+        </p>
+        <p class="th-color my-4">
+          Path:
+          <span class="text-black font-medium ml-3"><%= landing.path %></span>
+        </p>
+        <p class="th-color my-4">
+          Status:
+          <span
+            class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold ml-3 capitalize"
+            ><%= landing.state %></span
+          >
+        </p>
+        <div class="th-color my-4 flex items-center">
+          <span class="mr-3">Actions:</span>
+          <%= link_to "Edit", edit_admin_landing_path(landing), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
+
+          <button
+            class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+            id="google-table-page-duplicate"
+          >
+            <%= image_pack_tag "dashboard/table-action-1.png" %>
+          </button>
+          <%= link_to admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none" do %>
+            <%= image_pack_tag "dashboard/table-action-2.png" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--
+  <h2>Landings</h2>
+  <%#= link_to "New", new_admin_landing_path %>
+  <p><%#= page_entries_info @landings %></p>
+  <table>
+    <% @landings.each do |landing| %>
+      <tr>
+        <td><%= landing.theme %></td>
+        <td><%= landing.path %></td>
+        <td><%= landing.state %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_landing_path(landing) %>
+          <%= link_to "Destroy", admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%#= paginate @landings %>
+-->

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     #TODO - remove this and convert mockup to show/edit actions
     get 'landings/google-landing-page' => 'landings#google_landing_page', as: :google_landing_page
     get 'landings/google-landing-page-edit' => 'landings#google_landing_page_edit', as: :google_landing_page_edit
-    resources :landings
+    resources :landings do
+      collection do 
+        get '/theme/:name' => 'landings#selected_theme_index', as: :theme_landings
+      end
+    end
     resources :leads, only: [:index, :show] do
       post :sync, on: :member
     end
