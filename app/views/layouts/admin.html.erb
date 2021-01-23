@@ -15,12 +15,13 @@
 
   <body>
     <%= render 'admin/shared/sidebar' %>
-
-
-
     <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4" id="dashboard-content">
-      <%= yield %>
+      <div class="w-full">
+        <%= render 'admin/shared/topbar' %>
+        <%= yield %>
+      </div>
     </section>
+
 
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/custom.js"></script>
