@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     resource :dashboard, only: :show
     resources :categories
     resources :faq
-    #TODO - remove this and convert the show action instead
+    #TODO - remove this and convert mockup to show/edit actions
     get 'landings/google-landing-page' => 'landings#google_landing_page', as: :google_landing_page
+    get 'landings/google-landing-page-edit' => 'landings#google_landing_page_edit', as: :google_landing_page_edit
     resources :landings
     resources :leads, only: [:index, :show] do
       post :sync, on: :member

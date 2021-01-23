@@ -3,8 +3,12 @@ class Admin::LandingsController < AdminController
     @landing = Landing.page(params[:page])
   end
 
-  #TODO - remove this and convert the show action instead
+  #TODO - remove this and use the show action instead
   def google_landing_page
+  end
+
+  #TODO - remove this and use the edit action instead
+  def google_landing_page_edit
   end
 
   def show
