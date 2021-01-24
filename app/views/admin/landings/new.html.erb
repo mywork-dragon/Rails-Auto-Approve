@@ -1,28 +1,83 @@
+<% content_for :section_class, "py-4 lg:py-10 cool-transition" %>
+
 <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
   <div class="w-full">
-  <label>
+    <label>
       <%= link_to "Landing Pages", admin_landings_path, class: "text-blue font-semibold" %>
       <span class="mx-1 text-lg text-blue font-semibold">/</span>
-        <span>new landing page</span>
+      <span> Add Landing page</span>
     </label>
-    <h2>Add Landing</h2>
     <%= simple_form_for @landing, url: admin_landings_path do |f| %>
-      <%= f.input :theme, collection: Theme.available, input_html: { id: "theme_select" } %>
+      <div class="flex flex-wrap items-center md:mb-0 mb-5">
+        <div class="w-full lg:hidden flex items-center pt-4">
+          <button
+        id="sidebar-toggle"
+        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+      >
+            <span class="bg-blue h-1 w-6 mb-1 block"></span>
+            <span class="bg-blue h-1 w-6 mb-1 block"></span>
+            <span class="bg-blue h-1 w-6 mb-1 block"></span>
+          </button>
+        </div>
+        <div class="w-full lg:hidden flex items-center pt-4 justify-end">
+          <label class="switch">
+            <input type="checkbox" id="live-check" />
+            <span class="slider round"></span>
+          </label>
+          <span class="ml-2 live-text cool-transition">#Live</span>
+          <a
+        href="#"
+        class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
+        >#Preview</a
+      >
+          <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <div class="md:w-1/2 w-full">
+          <h1 class="text-4xl">Add Landing Page</h1>
+        </div>
+        <div class="w-1/2 lg:flex hidden items-center justify-end">
+          <label class="switch">
+            <input type="checkbox" id="live-check" />
+            <span class="slider round"></span>
+          </label>
+          <span class="ml-2 live-text cool-transition">#Live</span>
+          <a
+        href="#"
+        class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
+        >#Preview</a
+      >
+          <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
+        </div>
+      </div>
+
+      <div class="flex my-16">
+        <div class="w-full">
+          <div class="md:w-1/2 w-full">
+            <%= f.label :theme, class: "text-xl px-2" %>
+            <%= f.input_field :theme, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", collection: Theme.available, input_html: { id: "theme_select" } %>
+          </div>
+        </div>
+      </div>
       <%= render "form", f: f %>
       <div id="fields"></div>
-      <%= f.submit "Create" %>
+      <%= f.simple_fields_for :config do |sf| %>
+        <% @landing.config.each do |field, val| %>
+          <%= sf.input field.to_sym, input_html: { value: val } %>
+        <% end %>
+      <% end %>
     <% end %>
-
   </div>
 </section>
 
 <script type="text/javascript">
-$(document).ready(function() {
-  $('#theme_select').on('change', function(event) {
-    const theme = $(event.target).find('option:selected').text()
-    $.get(`/admin/themes/${theme}`).then(function(result) {
-      console.log(result)
+  $(document).ready(function() {
+    $('#theme_select').on('change', function(event) {
+      const theme = $(event.target).find('option:selected').text()
+      $.get(`/admin/themes/${theme}`).then(function(result) {
+        console.log(result)
+      })
     })
   })
-})
 </script>

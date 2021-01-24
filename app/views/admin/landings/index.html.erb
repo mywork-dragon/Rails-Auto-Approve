@@ -1,13 +1,6 @@
 <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
   <div class="w-full">
     <div class="flex flex-wrap items-center md:py-16 py-4">
-      <div class="w-full">
-        <label>
-          <%= link_to "Landing Pages", admin_landings_path, class: "text-blue font-semibold" %>
-          <span class="mx-1 text-lg">/</span>
-          <span> <%= params[:theme_name] %> Landing Pages</span>
-        </label>
-      </div>
       <div class="md:w-1/2 w-full">
         <h1 class="md:text-4xl text-2xl font-regular">Landing Pages</h1>
       </div>
@@ -17,17 +10,12 @@
       >
           <%= image_pack_tag "dashboard/search.svg", width: "20" %>
         </button>
-        <a
-        href="#"
-        class="capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center"
-      >
-          <span class="mr-3 md:inline hidden">create new template</span>
+        <%= link_to new_admin_landing_path, class:"capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center" do %>
+          <span class="mr-3 md:inline hidden">Create New Landing</span>
           <%= image_pack_tag "dashboard/plus.svg", width: "10" %>
-        </a>
+        <% end %>
       </div>
     </div>
-    <h2>Landings</h2>
-    <%= link_to "New", new_admin_landing_path %>
     <div>
       <%#= page_entries_info @landings %>
       <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
