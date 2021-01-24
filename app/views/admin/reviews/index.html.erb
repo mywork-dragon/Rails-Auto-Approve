@@ -1,17 +1,118 @@
-<h2>Reviews</h2>
-<%= link_to "New", new_admin_review_path %>
-<p><%= page_entries_info @reviews %></p>
-<table>
-  <% @reviews.each do |review| %>
+<section class="dashboard_wrapper">
+  <div class="dashboard_right">
+  <!-- topbar -->
+    <div class="dashboard_righttop flex review_wrapper">
+      <div class="flex-1">
+        <h1>Reviews</h1>
+      </div>
+      <div class="flex-1 flex items-center justify-end">
+        <%= image_pack_tag "dashboard/search.svg" %>
+        <%= link_to new_admin_review_path do %>
+          <button class="hover">Create New Reviews +</button>
+        <% end %>
+      </div>
+    </div>
+    <div class="dashboard_rightbot">
+      <ul class="flex">
+        <li><a class="active" href="reviews.html">Reviews</a></li>
+        <li><a href="review-sites.html">Review Sites</a></li>
+      </ul>
+    </div>
+    <!-- end topbar -->
+
+    <!----content bottom section-->
+<div class="dashboard_rightcontent ">
+<table class="table-fixed googlelan_tbl">
+  <thead>
     <tr>
-      <td><%= review.name %></td>
-      <td><%= review.location %></td>
-      <td><%= review.rating %></td>
+      <th class="w-1/1 ..."><input type="checkbox"></th>     
+	  <th class="w-1/2 ...">Review</th>
+	  <th class="w-1/5 ...">Reviewer</th>
+	   <th class="w-1/5 ...">Rating</th>
+      <th class="w-1/5 ...">Source</th>
+      <th class="w-1/2 ...">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+     <tr>
+      <td><input type="checkbox"></td>     
+      <td><%= review.content %></td>
+      <td><label><%= review.name %></label></td>
+      <td><label class="flex"><%= review.rating %><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></label></td>
+      <td><%= review.review_site.name %><%= review.review_site.logo %></td>
       <td>
-        <%= link_to "Edit", edit_admin_review_path(review) %>
-        <%= link_to "Destroy", admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+        <div class="editcross_icon">
+          <a href="">Edit</a> <img class="docimg" src="images/export.png"><button><img src="images/cross.png"></button>
+        </div>
       </td>
     </tr>
   <% end %>
+  </tbody>
 </table>
-<%= paginate @reviews %>
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="pagination bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+  
+  <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-center">
+    <%= paginate @reviews %>
+   Page
+    <div>
+      <nav class="relative z-0 inline-flex shadow-sm -space-x-px" aria-label="Pagination">
+        <!--<a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          <span class="sr-only">Previous</span>
+          
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </a>-->
+        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+          1
+        </a>
+        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+          2
+        </a>
+        <a href="#" class="hidden md:inline-flex relative items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+          3
+        </a>
+        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+          ...
+        </span>
+        <a href="#" class="hidden md:inline-flex relative items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+          6
+        </a>
+       
+        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+          <span class="sr-only">Next</span>
+          <!-- Heroicon name: chevron-right -->
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+</div>
+
+    <%= link_to "New", new_admin_review_path %>
+
+      <p><%= page_entries_info @reviews %></p>
+      <table>
+        <% @reviews.each do |review| %>
+          <tr>
+            <td><%= review.name %></td>
+            <td><%= review.location %></td>
+            <td><%= review.rating %></td>
+            <td><%= review.review_site.name %></td>
+            <td><%= review.url %></td>
+            <td><%= review.content %></td>
+            <td>
+              <%= link_to "Edit", edit_admin_review_path(review) %>
+              <%= link_to "Destroy", admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate @reviews %>
+    </section>
