@@ -1,5 +1,16 @@
-<h2>Add Review</h2>
-<%= simple_form_for @review, url: admin_reviews_path do |f| %>
-  <%= render "form", f: f %>
-  <%= f.submit "Create" %>
-<% end %>
+<section class="dashboard_wrapper">
+  <div class="dashboard_right">
+    <%= simple_form_for @review, url: admin_reviews_path do |f| %>
+      <div class="dashboard_righttop flex review_wrapper">
+        <div class="flex-1">
+          <label><a href="review-sites.html">Reviews</a>/ Add Review</label>
+          <h1>Add Review </h1>
+        </div>
+        <div class="flex-1 flex items-center justify-end">
+          <%= button_tag 'Save', type: 'submit', class: 'hover'%>
+        </div>
+      </div>
+
+      <%= render "form", f: f %>
+    <% end %>
+</section>
