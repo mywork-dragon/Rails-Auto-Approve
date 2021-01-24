@@ -7,9 +7,9 @@
               <div class="header-container">
 
                 <div class="logo-div animation-right-fade">
-                  <a class="logo_link clearfix" href="index.html">
+                  <%= link_to root_path, class: "logo_link clearfix" do %>
                     <%= image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo", alt: "logo" %>
-                  </a>
+                  <% end %>
                 </div>
 
                 <nav class="nav-center-div">
@@ -28,34 +28,35 @@
 
                         <div class="left-side animation-left-fade">
                           <ul class="nav ullist-inline" id="nav-res">
-                            <li><a href="why-auto-approve.html" class="nav-link">Why Auto Approve</a></li>
+                            <li><%= link_to "Why Auto Approve", why_auto_approve_path, class: "nav-link" %></li>
                             <li class="relative">
                               <a href="#" class="nav-link" data-dropdown="#basic">Products</a>
 
                               <div class="sweet-dropdown-menu dropdown-anchor-top-left dropdown-has-anchor" id="basic">
                                 <ul>
                                   <li class="flex">
-                                    <a href="get-a-quote.html" class="flex flex-wrap">
+                                    <%= link_to auto_refinance_path, class: "flex flex-wrap" do %>
                                       <%= image_pack_tag "icons/dropdown/taxi.svg" %>
-                                      Vehicle Refinance</a>
+                                      Vehicle Refinance
+                                    <% end %>
                                   </li>
                                   <li>
-                                    <a href="get-a-quote.html" class="flex flex-wrap">
+                                    <%= link_to auto_lease_purchase_path, class: "flex flex-wrap" do %>
                                       <%= image_pack_tag "icons/dropdown/percentage.svg" %>
                                       Lease Purchase
-                                    </a>
+                                    <% end %>
                                   </li>
                                   <li>
-                                    <a href="get-a-quote.html" class="flex flex-wrap">
+                                    <%= link_to motorcycle_refinance_path, class: "flex flex-wrap" do %>
                                       <%= image_pack_tag "icons/dropdown/motorcycle.svg" %>
                                       Motorcycle Refinance
-                                    </a>
+                                    <% end %>
                                   </li>
                                 </ul>
                               </div>
                             </li>
                             <li><a href="resources.html" class="nav-link">Resources</a></li>
-                            <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                            <li><%= link_to "FAQ", faq_path, class: "nav-link" %></li>
                           </ul>
                         </div>
 
