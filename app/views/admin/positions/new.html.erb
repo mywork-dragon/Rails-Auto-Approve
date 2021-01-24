@@ -1,56 +1,41 @@
 <% content_for :section_class, "xl:ml-80 ml-0 bg-custom-color3 md:h-screen h-full xl:px-16 xl:py-8 px-4 cool-transition" %>
 <section class="<%= yield (:section_class) %>" id="dashboard-content">
-  <div class="w-full">
+  <div class="xl:hidden flex items-center">
+    <div class="w-1/2 pt-4">
+      <button
+        id="sidebar-toggle"
+        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+      >
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="w-full my-5">
     <label>
-      <%= link_to "Positions", admin_positions_path, class: "text-blue font-semibold" %>
-      <span class="mx-1 text-lg text-blue font-semibold">/</span>
-      <span> Add Job</span>
+      <%= link_to "Jobs", admin_positions_path, class: "text-blue font-semibold" %>
+      <span class="mx-1">/</span>
+      <span>New Job</span>
     </label>
-    <%= simple_form_for @position, url: admin_positions_path do |f| %>
-      <div class="flex flex-wrap items-center md:mb-0 mb-5">
-        <div class="w-full lg:hidden flex items-center pt-4">
-          <button
-            id="sidebar-toggle"
-            class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
-          >
-            <span class="bg-blue h-1 w-6 mb-1 block"></span>
-            <span class="bg-blue h-1 w-6 mb-1 block"></span>
-            <span class="bg-blue h-1 w-6 mb-1 block"></span>
-          </button>
-        </div>
-        <div class="w-full lg:hidden flex items-center pt-4 justify-end">
-          <label class="switch">
-            <input type="checkbox" id="live-check" />
-            <span class="slider round"></span>
-          </label>
-          <span class="ml-2 live-text cool-transition">#Live</span>
-          <a
-            href="#"
-            class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
-            >#Preview</a
-          >
-          <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
-        </div>
-      </div>
-      <div class="flex items-center">
-        <div class="md:w-1/2 w-full">
-          <h1 class="text-4xl">Add Job</h1>
-        </div>
-        <div class="w-1/2 lg:flex hidden items-center justify-end">
-          <label class="switch">
-            <input type="checkbox" id="live-check" />
-            <span class="slider round"></span>
-          </label>
-          <span class="ml-2 live-text cool-transition">#Live</span>
-          <a
-            href="#"
-            class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
-            >#Preview</a
-          >
-          <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
-        </div>
-      </div>
-      <%= render "form", f: f %>
-    <% end %>
+  </div>
+  <%= simple_form_for @position, url: admin_positions_path do |f| %>
+  <div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
+    <div class="md:w-1/2 w-full">
+      <h1 class="md:text-5xl text-xl">New Job</h1>
+    </div>
+
+    <div class="md:w-1/2 w-full flex items-center justify-end">
+      <label class="switch">
+        <input type="checkbox" id="live-check" />
+        <span class="slider round"></span>
+      </label>
+      <span class="ml-2 live-text cool-transition">Live</span>
+      <%= f.submit "Create", class:"capitalize bg-custom-color1 text-white px-6 py-2 rounded-full flex ml-4 items-center" %>
+    </div>
+  </div>
+  <%= render "form", f: f %>
+  <% end %>
   </div>
 </section>
