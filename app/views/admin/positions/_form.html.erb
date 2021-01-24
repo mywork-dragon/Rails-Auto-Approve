@@ -1,6 +1,51 @@
-<%= f.input :title %>
-<%= f.input :content %>
-<%= f.input :location %>
-<%= f.input :url %>
-<%= f.input :email %>
-<%= f.input :state, collection: Position.states.keys %>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :title, class: "text-xl px-2" %>
+      <%= f.input_field :title, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", placeholder: "Enter Title" %>
+    </div>
+  </div>
+</div>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :content, class: "text-xl px-2" %>
+      <%= f.input_field :content, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", placeholder: "Enter Content" %>
+    </div>
+  </div>
+</div>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :location, class: "text-xl px-2" %>
+      <%= f.input_field :location, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", placeholder: "Enter Location" %>
+    </div>
+  </div>
+</div>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :url, class: "text-xl px-2" %>
+      <%= f.input_field :url, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", placeholder: "Enter url" %>
+    </div>
+  </div>
+</div>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :email, class: "text-xl px-2" %>
+      <%= f.input_field :email, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", placeholder: "Enter email" %>
+    </div>
+  </div>
+</div>
+<div class="flex my-16">
+  <div class="w-full">
+    <div class="md:w-1/2 w-full">
+      <%= f.label :state, class: "text-xl px-2" %>
+      <%= f.input_field :state, collection: Position.states.keys, 
+        class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", 
+        placeholder: "Enter State" 
+      %>
+    </div>
+  </div>
+</div>
