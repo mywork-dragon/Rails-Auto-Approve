@@ -1,6 +1,7 @@
 class Admin::ThemesController < AdminController
   def index
-    @themes = Landing.group(:theme).count
+    # @themes = Landing.group(:theme).count
+    @themes = Theme.all
   end
 
   def show

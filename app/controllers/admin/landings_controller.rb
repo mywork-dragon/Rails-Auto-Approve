@@ -1,11 +1,6 @@
 class Admin::LandingsController < AdminController
   def index
-    @themes = Theme.all
     @landings = Landing.page(params[:page])
-  end
-
-  def selected_theme_index
-    @landings = Landing.where(theme: (params[:theme_name]))
   end
 
   def show
