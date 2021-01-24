@@ -1,14 +1,16 @@
-<%= render 'mobile_sidebar_non_index' %>
-
-<div class="w-full my-5">
-  <label>
-    <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
-    <span class="mx-1">/</span>
-    <span>New Faq</span>
-  </label>
-</div>
-
-<%= simple_form_for @faq, url: admin_faq_index_path do |f| %>
-  <%= render "form", f: f %>
-  <%= f.submit "Create" %>
-<% end %>
+<section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
+  <div class="w-full">
+    <%= render 'mobile_sidebar_non_index' %>
+    <div class="w-full my-5">
+      <label>
+        <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
+        <span class="mx-1">/</span>
+        <span>New Faq</span>
+      </label>
+    </div>
+    <%= simple_form_for @faq, url: admin_faq_index_path do |f| %>
+      <%= render "form", f: f %>
+      <%= f.submit "Create" %>
+    <% end %>
+  </div>
+</section>
