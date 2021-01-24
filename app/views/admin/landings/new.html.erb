@@ -1,5 +1,4 @@
 <% content_for :section_class, "py-4 lg:py-10 cool-transition" %>
-
 <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
   <div class="w-full">
     <label>
@@ -11,9 +10,9 @@
       <div class="flex flex-wrap items-center md:mb-0 mb-5">
         <div class="w-full lg:hidden flex items-center pt-4">
           <button
-        id="sidebar-toggle"
-        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
-      >
+            id="sidebar-toggle"
+            class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+          >
             <span class="bg-blue h-1 w-6 mb-1 block"></span>
             <span class="bg-blue h-1 w-6 mb-1 block"></span>
             <span class="bg-blue h-1 w-6 mb-1 block"></span>
@@ -26,10 +25,10 @@
           </label>
           <span class="ml-2 live-text cool-transition">#Live</span>
           <a
-        href="#"
-        class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
-        >#Preview</a
-      >
+            href="#"
+            class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
+            >#Preview</a
+          >
           <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
         </div>
       </div>
@@ -44,19 +43,21 @@
           </label>
           <span class="ml-2 live-text cool-transition">#Live</span>
           <a
-        href="#"
-        class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
-        >#Preview</a
-      >
+            href="#"
+            class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
+            >#Preview</a
+          >
           <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
         </div>
       </div>
-
       <div class="flex my-16">
         <div class="w-full">
           <div class="md:w-1/2 w-full">
             <%= f.label :theme, class: "text-xl px-2" %>
-            <%= f.input_field :theme, class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", collection: Theme.available, input_html: { id: "theme_select" } %>
+            <%= f.input_field :theme, 
+                class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", 
+                collection: Theme.available, input_html: { id: "theme_select" } 
+            %>
           </div>
         </div>
       </div>
@@ -70,7 +71,6 @@
     <% end %>
   </div>
 </section>
-
 <script type="text/javascript">
   $(document).ready(function() {
     $('#theme_select').on('change', function(event) {
