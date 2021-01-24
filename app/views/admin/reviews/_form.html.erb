@@ -1,6 +1,93 @@
-<%= f.association :review_site %>
-<%= f.input :name %>
-<%= f.input :location %>
-<%= f.input :content %>
-<%= f.input :url %>
-<%= f.input :rating, collection: Review::RATINGS %>
+<div class="flex flex-wrap items-center mt-10">
+  <div class="md:w-3/5 w-full md:mb-0 mb-6 relative">
+    <%= f.input_field :name,
+      class:"w-full py-2 px-4 border-custom-color1 border border-solid rounded-lg text-custom-color1 md:text-lg outline-none focus:outline-none",
+      placeholder:"Add Customer Name" 
+    %>
+    <p class="text-2xl font-light mt-8 mb-3">Star Rating</p>
+    <%= f.input_field :rating, collection: Review::RATINGS %>
+
+    <div class="rating-stars">
+      <ul id="stars">
+        <li class="star" title="Poor" data-value="1">
+          <i class="fa fa-star fa-fw"></i>
+        </li>
+        <li class="star" title="Fair" data-value="2">
+          <i class="fa fa-star fa-fw"></i>
+        </li>
+        <li class="star" title="Good" data-value="3">
+          <i class="fa fa-star fa-fw"></i>
+        </li>
+        <li class="star" title="Excellent" data-value="4">
+          <i class="fa fa-star fa-fw"></i>
+        </li>
+        <li class="star" title="WOW!!!" data-value="5">
+          <i class="fa fa-star fa-fw"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="mt-8">
+      <p class="text-2xl font-light mb-3">Select Source</p>
+      <%= f.association :review_site %>
+
+      <ul class="flex flex-wrap items-center justify-between">
+        <li
+          class="border border-custom-color1 border-solid bg-white p-6 rounded-xl select-source md:w-1/5 w-2/5 md:mb-0 mb-5"
+        >
+          <img
+            src="../assets/images/dashboard/google-color.png"
+            alt=""
+            width="80"
+            class="mx-auto"
+          />
+        </li>
+        <li
+          class="md:w-1/5 w-2/5 border border-custom-color1 border-solid bg-white p-6 rounded-xl select-source md:mb-0 mb-5"
+        >
+          <img
+            src="../assets/images/dashboard/trustpilot-color.png"
+            alt=""
+            width="100"
+            class="mx-auto"
+          />
+        </li>
+        <li
+          class="md:w-1/5 w-2/5 border-2 border-green border-solid bg-white p-6 rounded-xl select-source no-black-img"
+        >
+          <img
+            src="../assets/images/dashboard/google-color.png"
+            alt=""
+            width="80"
+            class="mx-auto"
+          />
+        </li>
+        <li
+          class="md:w-1/5 w-2/5 border border-custom-color1 border-solid bg-white p-6 rounded-xl select-source"
+        >
+          <img
+            src="../assets/images/dashboard/trustpilot-color.png"
+            alt=""
+            width="100"
+            class="mx-auto"
+          />
+        </li>
+      </ul>
+    </div>
+    <%= f.input_field :url,
+      class:"w-full py-2 px-4 border-custom-color1 border border-solid rounded-lg text-custom-color1 md:text-lg my-6 outline-none focus:outline-none",
+      placeholder:"Source Link"
+    %>
+    <%= f.input_field :location,
+      class:"w-full py-2 px-4 border-custom-color1 border border-solid rounded-lg text-custom-color1 md:text-lg my-6 outline-none focus:outline-none",
+      placeholder:"Location"
+    %>
+    <%= f.input_field :content,
+      class:"w-full py-3 px-4 border-custom-color1 border border-solid rounded-lg text-custom-color1 md:text-lg my-1 outline-none focus:outline-none",
+      placeholder:"Type Review...",
+      rows:"10"
+    %>
+  </div>
+  <div class="md:w-2/5 w-full">
+    <%= image_pack_tag "dashboard/review-card.svg", class: "w-full mx-auto" %>
+  </div>
+</div>
