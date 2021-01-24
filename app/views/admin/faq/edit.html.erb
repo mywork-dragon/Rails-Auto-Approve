@@ -1,6 +1,6 @@
 <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
   <div class="w-full">
-    <%= render 'mobile_sidebar_non_index' %>
+    <%= render 'admin/shared/mobile_sidebar_non_index' %>
     <div class="w-full my-5">
       <label>
         <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>

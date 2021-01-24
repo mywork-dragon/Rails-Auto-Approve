@@ -1,17 +1,6 @@
 <% content_for :section_class, "xl:ml-80 ml-0 bg-custom-color3 md:h-screen h-full xl:px-16 xl:py-8 px-4 cool-transition" %>
 <section class="<%= yield (:section_class) %>" id="dashboard-content">
-  <div class="xl:hidden flex items-center">
-    <div class="w-1/2 pt-4">
-      <button
-        id="sidebar-toggle"
-        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
-      >
-        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
-        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
-        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
-      </button>
-    </div>
-  </div>
+  <%= render 'admin/shared/mobile_sidebar_non_index' %>
 
   <div class="w-full my-5">
     <label>
