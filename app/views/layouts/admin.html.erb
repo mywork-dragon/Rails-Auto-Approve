@@ -15,7 +15,8 @@
 
   <body>
     <%= render 'admin/shared/sidebar' %>
-    <%= yield :mobile_navbar %>
-    <%= yield %>
+    <section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 xl:py-8 <%= yield (:section_class) %> cool-transition" id="dashboard-content">
+      <%= yield %>
+    </section>
   </body>
 </html>

@@ -1,100 +1,108 @@
-<section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
-  <div class="w-full">
-    <div class="flex flex-wrap items-center md:py-16 py-4">
-      <div class="md:w-1/2 w-full">
-        <h1 class="md:text-4xl text-2xl font-regular">Jobs</h1>
-      </div>
-      <div class="w-1/2 md:flex hidden items-center text-right justify-end">
-        <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
-          <%= image_pack_tag "dashboard/search.svg", width: "20" %>
-        </button>
-        <%= link_to new_admin_position_path, class:"capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center" do %>
-          <span class="mr-3 md:inline hidden">Create New Job</span>
-          <%= image_pack_tag "dashboard/plus.svg", width: "10" %>
-        <% end %>
-      </div>
+<div class="xl:hidden flex items-center">
+  <div class="w-1/2 pt-4">
+    <button
+      id="sidebar-toggle"
+      class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+    >
+      <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+    </button>
+  </div>
+  <div class="w-1/2 pt-4 flex justify-end">
+    <button
+      class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none"
+    >
+      <%= image_pack_tag "dashboard/search.svg", width: "20" %>
+    </button>
+    <%= link_to new_admin_position_path, class: "capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center" do %>
+      <%= image_pack_tag "dashboard/plus.svg", width: "15" %>
+    <% end %>
+  </div>
+</div>
+<div class="w-full">
+  <div class="flex flex-wrap items-center md:py-16 py-4">
+    <div class="md:w-1/2 w-full">
+      <h1 class="md:text-5xl text-xl">Jobs</h1>
     </div>
-    <div>
-      <%#= page_entries_info @positions %>
-      <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
-        <thead>
-          <tr class="border-b border-gray border-solid">
-            <th class="text-left px-2 align-middle">
-              <input type="checkbox" />
-            </th>
-            <th class="align-middle text-left px-2 py-4 w-3/4 font-normal th-color ml-4" >
-              title
-            </th>
-            <th class="align-middle text-left px-2 py-4 w-1/4 font-normal th-color">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody id="googleTableBody">
-          <% @positions.each do |position| %>
-            <tr class="border-b border-gray border-solid">
-              <td class="px-2 py-4 align-middle">
-                <input type="checkbox" id="table-checkbox" />
-              </td>
-              <td class="px-2 py-4 align-middle"><%= position.title %></td>
-              <td class="align-middle">
-                <div class="flex flex-wrap items-center">
-                  <%= link_to "Edit", edit_admin_position_path(position), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
-                  <button
-                    class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-                    id="google-table-page-duplicate"
-                  >
-                    <%= image_pack_tag "dashboard/table-action-1.png" %>
-                  </button>
-                  <%= link_to admin_position_path(position), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete" do %>
-                    <%= image_pack_tag "dashboard/table-action-2.png" %>
-                  <% end %>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%#= paginate @positions %>
-      <div class="md:hidden flex flex-wrap my-6">
-        <% @positions.each do |position| %>
-          <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
-            <input type="checkbox" class="mb-3" />
-            <p class="th-color truncate">
-              title:
-              <span class="text-black font-semibold ml-3"><%= position.title %></span>
-            </p>
-            <div class="th-color my-4 flex items-center">
-              <span class="mr-3">Actions:</span>
-              <%= link_to "Edit", edit_admin_position_path(position), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
-              <button
-                class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-                id="google-table-page-duplicate"
-              >
-                <%= image_pack_tag "dashboard/table-action-1.png" %>
-              </button>
-              <%= link_to admin_position_path(position), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none" do %>
-                <%= image_pack_tag "dashboard/table-action-2.png" %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="w-1/2 md:flex hidden items-center text-right justify-end">
+      <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
+        <%= image_pack_tag "dashboard/search.svg", width: "20" %>
+      </button>
+      <%= link_to new_admin_position_path, class:"capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center" do %>
+        <span class="mr-3 md:inline hidden">Create New Job</span>
+        <%= image_pack_tag "dashboard/plus.svg", width: "10" %>
+      <% end %>
     </div>
   </div>
-</section>
-<h2>Jobs</h2>
-<%= link_to "New", new_admin_position_path %>
-<%= page_entries_info @positions %>
-<table>
-  <% @positions.each do |position| %>
-    <tr>
-      <td><%= position.title %></td>
-      <td>
-        <%= link_to "Edit", edit_admin_position_path(position) %>
-        <%= link_to "Destroy", admin_position_path(position), method: :delete, data: { confirm: "Are you sure?" } %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+  <div>
+    <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
+      <thead>
+        <tr class="border-b border-gray border-solid">
+          <th class="text-left px-2 align-middle">
+            <input type="checkbox" />
+          </th>
+          <th class="align-middle text-left px-2 py-4 w-3/4 font-normal th-color ml-4" >
+            title
+          </th>
+          <th class="align-middle text-left px-2 py-4 w-1/4 font-normal th-color">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody id="googleTableBody">
+        <% @positions.each do |position| %>
+          <tr class="border-b border-gray border-solid">
+            <td class="px-2 py-4 align-middle">
+              <input type="checkbox" id="table-checkbox" />
+            </td>
+            <td class="px-2 py-4 align-middle"><%= position.title %></td>
+            <td class="align-middle">
+              <div class="flex flex-wrap items-center">
+                <%= link_to "Edit", edit_admin_position_path(position), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
+                <button
+                  class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+                  id="google-table-page-duplicate"
+                >
+                  <%= image_pack_tag "dashboard/table-action-1.png" %>
+                </button>
+                <%= link_to admin_position_path(position), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete" do %>
+                  <%= image_pack_tag "dashboard/table-action-2.png" %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <%= page_entries_info @positions %>
+
+    <div class="md:hidden flex flex-wrap my-6">
+      <% @positions.each do |position| %>
+        <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
+          <input type="checkbox" class="mb-3" />
+          <p class="th-color truncate">
+            title:
+            <span class="text-black font-semibold ml-3"><%= position.title %></span>
+          </p>
+          <div class="th-color my-4 flex items-center">
+            <span class="mr-3">Actions:</span>
+            <%= link_to "Edit", edit_admin_position_path(position), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
+            <button
+              class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
+              id="google-table-page-duplicate"
+            >
+              <%= image_pack_tag "dashboard/table-action-1.png" %>
+            </button>
+            <%= link_to admin_position_path(position), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none" do %>
+              <%= image_pack_tag "dashboard/table-action-2.png" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%= paginate @positions %>
