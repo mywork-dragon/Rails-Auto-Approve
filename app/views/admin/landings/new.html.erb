@@ -1,42 +1,18 @@
-<% content_for :section_class, "py-4 lg:py-10 cool-transition" %>
-<section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
-  <div class="w-full">
-    <label>
-      <%= link_to "Landing Pages", admin_landings_path, class: "text-blue font-semibold" %>
-      <span class="mx-1 text-lg text-blue font-semibold">/</span>
-      <span> Add Landing Page</span>
-    </label>
+<%= render 'admin/shared/mobile_sidebar_non_index' %>
+<div class="w-full my-5">
+  <label>
+    <%= link_to "Landinds", admin_landings_path, class: "text-blue font-semibold" %>
+    <span class="mx-1">/</span>
+    <span>New Landing</span>
+  </label>
+</div>
     <%= simple_form_for @landing, url: admin_landings_path do |f| %>
-      <div class="flex flex-wrap items-center md:mb-0 mb-5">
-        <div class="w-full lg:hidden flex items-center pt-4">
-          <button
-            id="sidebar-toggle"
-            class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
-          >
-            <span class="bg-blue h-1 w-6 mb-1 block"></span>
-            <span class="bg-blue h-1 w-6 mb-1 block"></span>
-            <span class="bg-blue h-1 w-6 mb-1 block"></span>
-          </button>
-        </div>
-        <div class="w-full lg:hidden flex items-center pt-4 justify-end">
-          <label class="switch">
-            <input type="checkbox" id="live-check" />
-            <span class="slider round"></span>
-          </label>
-          <span class="ml-2 live-text cool-transition">#Live</span>
-          <a
-            href="#"
-            class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
-            >#Preview</a
-          >
-          <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
-        </div>
-      </div>
-      <div class="flex items-center">
+        <div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
         <div class="md:w-1/2 w-full">
-          <h1 class="text-4xl">Add Landing Page</h1>
+          <h1 class="md:text-5xl text-xl">New Landing</h1>
         </div>
-        <div class="w-1/2 lg:flex hidden items-center justify-end">
+
+        <div class="md:w-1/2 w-full flex items-center justify-end">
           <label class="switch">
             <input type="checkbox" id="live-check" />
             <span class="slider round"></span>
@@ -50,17 +26,16 @@
           <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
         </div>
       </div>
-      <div class="flex my-16">
-        <div class="w-full">
-          <div class="md:w-1/2 w-full">
-            <%= f.label :theme, class: "text-xl px-2" %>
-            <%= f.input_field :theme, 
-                class: "border-solid border border-custom-color5 p-3 text-xl rounded-lg", 
-                collection: Theme.available, input_html: { id: "theme_select" } 
-            %>
-          </div>
+      <p class="text-2xl mb-4 tracking-wide">Theme</p>
+      <div class="flex md:flex-nowrap flex-wrap items-center justify-between mb-5">
+        <div class="md:w-1/2 w-full md:mb-0 mb-1 md:mr-6">
+          <%= f.input_field :theme, 
+              class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-5 focus:text-black", 
+              collection: Theme.available, input_html: { id: "theme_select" } 
+          %>
         </div>
       </div>
+
       <%= render "form", f: f %>
       <div id="fields"></div>
       <%= f.simple_fields_for :config do |sf| %>
@@ -70,14 +45,14 @@
       <% end %>
     <% end %>
   </div>
-</section>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#theme_select').on('change', function(event) {
-      const theme = $(event.target).find('option:selected').text()
-      $.get(`/admin/themes/${theme}`).then(function(result) {
-        console.log(result)
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#theme_select').on('change', function(event) {
+        const theme = $(event.target).find('option:selected').text()
+        $.get(`/admin/themes/${theme}`).then(function(result) {
+          console.log(result)
+        })
       })
     })
-  })
-</script>
+  </script>
