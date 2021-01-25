@@ -1,32 +1,33 @@
-<section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
+<%= render 'admin/shared/mobile_sidebar_non_index' %>
+
+<div class="w-full my-5">
+  <label>
+    <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
+    <span class="mx-1">/</span>
+    <span>View Faq</span>
+  </label>
+</div>
+
+<div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
+  <div class="md:w-1/2 w-full">
+    <h1 class="md:text-5xl text-xl">FAQ <%= @faq.id %></h1>
+  </div>
+
+  <div class="md:w-1/2 w-full flex items-center justify-end">
+    <%= link_to "Edit", edit_admin_faq_path(@faq), class:"capitalize bg-custom-color1 text-white px-6 py-2 rounded-full flex ml-4 items-center" %>
+  </div>
+</div>
+
+
+<div class="flex md:mt-0 mt-10">
   <div class="w-full">
-    <%= render 'mobile_sidebar_non_index' %>
-    <div class="w-full my-5">
-      <label>
-        <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
-        <span class="mx-1">/</span>
-        <span>Show Faq</span>
-      </label>
+
+    <div class="w-full px-5 py-3 text-xl mb-2 focus:text-black">
+      Question: <%= raw @faq.question %>
     </div>
-    <div class="flex  mt-10">
-      <div class="w-full">
-        <p class="text-2xl mb-4 tracking-wide">Question:</p>
-        <div class="flex md:flex-nowrap flex-wrap items-center justify-between" >
-          <div class=" w-full md:mb-0 mb-1 md:mr-6">
-            <%= raw @faq.question %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex mt-10">
-      <div class="w-full">
-        <p class="text-2xl mb-4 tracking-wide">Answer:</p>
-        <div class="flex md:flex-nowrap flex-wrap items-center justify-between" >
-          <div class=" w-full md:mb-0 mb-1 md:mr-6">
-            <%= raw @faq.answer %>
-          </div>
-        </div>
-      </div>
+    <div class="w-full px-5 py-3 text-xl rounded-lg mb-2 focus:text-black">
+      Answer: <%= raw @faq.answer %>
     </div>
   </div>
-</section>
+</div>
+

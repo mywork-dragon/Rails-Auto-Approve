@@ -1,5 +1,3 @@
-<% content_for :section_class, "cool-transition" %>
-<section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
   <div class="xl:hidden flex items-center">
     <div class="w-1/2 pt-4">
       <button
@@ -12,9 +10,7 @@
       </button>
     </div>
     <div class="w-1/2 pt-4 flex justify-end">
-      <button
-        class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none"
-      >
+      <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
         <%= image_pack_tag "dashboard/search.svg", width: "20" %>
       </button>
       <%= link_to new_admin_faq_path, class: "capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center" do %>
@@ -45,24 +41,16 @@
             <th class="text-left px-2 align-middle">
               <input type="checkbox" />
             </th>
-            <th
-              class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4"
-            >
+            <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4">
               Question
             </th>
-            <th
-              class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color"
-            >
+            <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color">
               Answer
             </th>
-            <th
-              class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color"
-            >
+            <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
               Date Created
             </th>
-            <th
-              class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color"
-            >
+            <th class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color">
               Actions
             </th>
           </tr>
@@ -99,6 +87,9 @@
         <% end %>
       </tbody>
     </table>
+    <div class="py-2 px-2">
+      <%= page_entries_info @faq %>
+    </div>
     <div class="lg:hidden flex flex-wrap my-6">
       <% @faq.each do |faq| %>
         <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
@@ -128,9 +119,8 @@
       <% end %>
     </div>
   </div>
-  <div class="py-3 px-2">
-    <%= page_entries_info @faq %>
-    <%= paginate @faq %>
-  </div>
 </div>
-</section>
+<div class="py-3 px-2">
+
+  <%= paginate @faq %>
+</div>

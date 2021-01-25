@@ -1,6 +1,5 @@
-<section class="lg:ml-80 ml-0 bg-custom-color3 h-screen lg:px-16 px-4 <%= yield (:section_class) %>" id="dashboard-content">
-  <div class="w-full">
-    <%= render 'mobile_sidebar_non_index' %>
+<%= render 'admin/shared/mobile_sidebar_non_index' %>
+
     <div class="w-full my-5">
       <label>
         <%= link_to "FAQ", admin_faq_index_path, class: "text-blue font-semibold" %>
@@ -9,8 +8,14 @@
       </label>
     </div>
     <%= simple_form_for @faq, url: admin_faq_index_path do |f| %>
+    <div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
+      <div class="md:w-1/2 w-full">
+        <h1 class="md:text-5xl text-xl">New Faq</h1>
+      </div>
+      <div class="md:w-1/2 w-full flex items-center justify-end">
+        <%= f.submit "Create", class:"capitalize bg-custom-color1 text-white px-6 py-2 rounded-full flex ml-4 items-center" %>
+      </div>
+    </div>
       <%= render "form", f: f %>
-      <%= f.submit "Create" %>
     <% end %>
   </div>
-</section>
