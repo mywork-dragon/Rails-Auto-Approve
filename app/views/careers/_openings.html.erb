@@ -1,0 +1,19 @@
+  <section class="open-roles-section">
+    <div class="container container-customize px-4 mx-auto px-24-xs">
+      <div class="open-roles-div">
+
+        <div class="heading-div mx-auto mb-12 text-center">
+          <h2>Open Roles</h2>
+        </div>
+
+        <% if open_positions.present? %>
+          <div class="flex flex-wrap -mx-3">
+            <%= render collection: open_positions, partial: "position", as: :position %>
+          </div>
+        <% else %>
+          <p class="text-center">There are currently no open positions</p>
+        <% end %>
+
+      </div>
+    </div>
+  </section>

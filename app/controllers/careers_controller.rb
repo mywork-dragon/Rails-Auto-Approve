@@ -1,5 +1,5 @@
 class CareersController < ApplicationController
   def show
-    @careers = Position.active
+    @position = Position.active.find(params[:id])
   end
 end

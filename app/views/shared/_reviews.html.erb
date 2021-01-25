@@ -7,87 +7,41 @@
 
     <div class="owl-slider-main-slider mb-12">
       <div class="owl-carousel owl-theme customers-customers-owl-div" id="customers-customers-owl">
+        <% recent_reviews(9).each do |review| %>
+          <div class="item">
+            <div class="card-custom-customers-reviews w-full mb-6">
+              <div class="card-custom-customers-reviews-inner">
+                <div class="card-custom-top">
+                  <div class="left-text-div">
+                    <div class="img-div flex">
+                      <%= image_pack_tag "icons/custom/quote-left-icon.svg", class: "object-contain img-quote" %>
+                    </div>
+                    <div class="left-user-div">
+                      <h5><%= review.name %></h5>
+                      <p>
+                        <% review_stars(review)[:active].times do %>
+                          <span class="review-star-active"></span>
+                        <% end %>
 
-        <div class="item">
-          <div class="card-custom-customers-reviews w-full mb-6">
-            <div class="card-custom-customers-reviews-inner">
-              <div class="card-custom-top">
-                <div class="left-text-div">
-                  <div class="img-div flex">
-                    <%= image_pack_tag "icons/custom/quote-left-icon.svg", class: "object-contain img-quote" %>
+                        <% review_stars(review)[:blank].times do %>
+                          <span class="review-star"></span>
+                        <% end %>
+                      </p>
+                    </div>
                   </div>
-                  <div class="left-user-div">
-                    <h5>Full Name</h5>
-                    <p>jjackyliang</p>
+                  <div class="img-right-div flex">
+                    <%= cl_image_tag review.review_site.logo, class: "object-contain img-fluid" %>
                   </div>
                 </div>
-                <div class="img-right-div flex">
-                  <%= image_pack_tag "google.png", class: "object-contain img-fluid" %>
+                
+                <div class="text-desc-div">
+                  <p><%= review.content %></p>
                 </div>
-              </div>
-              
-              <div class="text-desc-div">
-                <p>Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.</p>
               </div>
             </div>
           </div>
-        </div>    
-
-        <div class="item">
-          <div class="card-custom-customers-reviews w-full mb-6">
-            <div class="card-custom-customers-reviews-inner">
-              <div class="card-custom-top">
-                <div class="left-text-div">
-                  <div class="img-div flex">
-                    <%= image_pack_tag "icons/custom/quote-left-icon.svg", class: "object-contain img-quote" %>
-                  </div>
-                  <div class="left-user-div">
-                    <h5>Full Name</h5>
-                    <p>jjackyliang</p>
-                  </div>
-                </div>
-                <div class="img-right-div flex">
-                  <%= image_pack_tag "trustpilot_logo.png", class: "object-contain img-fluid" %>
-                </div>
-              </div>
-              
-              <div class="text-desc-div">
-                <p>Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="card-custom-customers-reviews w-full mb-6">
-            <div class="card-custom-customers-reviews-inner">
-              <div class="card-custom-top">
-                <div class="left-text-div">
-                  <div class="img-div flex">
-                    <%= image_pack_tag "icons/custom/quote-left-icon.svg", class: "object-contain img-quote" %>
-                  </div>
-                  <div class="left-user-div">
-                    <h5>Full Name</h5>
-                    <p>jjackyliang</p>
-                  </div>
-                </div>
-                <div class="img-right-div flex">
-                  <%= image_pack_tag "trustpilot_logo.png", class: "object-contain img-fluid" %>
-                </div>
-              </div>
-              
-              <div class="text-desc-div">
-                <p>Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <% end %>
       </div>
-    </div>
-
-    <div class="btn-div flex justify-center text-center">
-      <a href="#" class="btn btn-secondary">Reviews</a>
     </div>
   </div>
 </section>

@@ -18,228 +18,22 @@
 
                   <div class="faq-collapsable-box">
 
-                    <div id="faq-list-01" class="collapsable collapsable-slide-new ca-default-expanded">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">How does refinancing my vehicle work?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
+                    <% @faq.each_with_index do |faq, index| %>
+                      <div id="faq-list-02" class="collapsable collapsable-slide-new ca-collapsed <%= "ca-default-expanded" if index.eql?(0) %>">
+                        <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span"><%= faq.question %></span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
+                        <div class="ca-box">
+                          <div class="content-collapsable-inner-div">
+                            <div class="content-collapsable-inner-row">
 
-                            <p class="heading-prag"> <span class="left-text">A:</span> All we need is a little information from you to get started. Then our team takes care of the rest: </p>
+                              <div class="text-div">
+                                <p class="prag-text"><%= raw faq.answer %></p>
+                              </div>
 
-                            <div class="text-div">
-                              <p class="prag-text"> 
-                                <span class="font-left">Step 1</span>
-                                <span class="txt">Provide your personal, vehicle and employment information.</span>
-                              </p>
-                              <p class="prag-text"> 
-                                <span class="font-left">Step 2</span>
-                                <span class="txt">Our loan consultants will determine which loans you qualify for and walk you through your options.</span>
-                              </p>
-                              <p class="prag-text"> 
-                                <span class="font-left">Step 3</span>
-                                <span class="txt">We’ll submit your application to your chosen lender.</span>
-                              </p>
-                              <p class="prag-text"> 
-                                <span class="font-left">Step 4</span>
-                                <span class="txt">Auto Approve will generate all of your new loan and title documents. We’ll send them to you for an e-signature.</span>
-                              </p>
-                              <p class="prag-text"> 
-                                <span class="font-left">Step 5</span>
-                                <span class="txt">Auto Approve will handle the rest and get your loan funded. We’ll also work with the DMV to take care of the vehicle title.</span>
-                              </p>
-                              <p class="prag-text"> 
-                                <span class="font-left">Step 6</span>
-                                <span class="txt">You’ll begin to make your payments to the new lender.</span>
-                              </p>
-                              <p class="prag-text">
-                                It’s that simple and fast!
-                              </p>
                             </div>
-
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div id="faq-list-02" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">What do I need to get started?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-03" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Does refinancing affect my credit score?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-04" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">What are the benefits of refinancing my car? </span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-05" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Why should I choose Auto Approve?</span></span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-06" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Do you only refinance cars?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-07" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span><span class="text-right-span"> Why does my offer expire?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-08" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Does Auto Approve charge an application fee? </span></span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-09" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Can I add or remove a co-borrower?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-10" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Will my information be secure?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-11" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">What are the terms of Auto Approve loans?</span></span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-12" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Can I buyout/refinance my lease with Auto Approve?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div id="faq-list-13" class="collapsable collapsable-slide-new ca-collapsed">
-                      <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span">Who are the lenders Auto Approve works with?</span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
-                      <div class="ca-box">
-                        <div class="content-collapsable-inner-div">
-                          <div class="content-collapsable-inner-row">
-
-                            <div class="text-div">
-                              <p class="prag-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde quis voluptates corrupti distinctio facere nemo magnam dolorum voluptate quisquam!</p>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <% end %>
 
                   </div>
 
@@ -249,7 +43,9 @@
               <div class="card-faq-botom-div">
                 <div class="card-faq-botom-div-inner">
                   <h4>Don’t see the answer you’re looking for?</h4>
-                  <p>Check out our resources page for more topics or simply <a href="#" class="link">contact us</a>. Our answer gurus are waiting.</p>
+                  <p>Check out our resources page for more topics or simply
+                  <%= link_to "contact us", contact_us_path, class: "link" %>.
+                  Our answer gurus are waiting.</p>
                 </div>    
               </div>
               

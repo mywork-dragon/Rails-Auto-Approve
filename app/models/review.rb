@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   # Permitted ratings
   RATINGS = [1, 2, 3, 4, 5].freeze
 
+  scope :recent, -> { order(created_at: :desc) }
+
   validates :review_site, presence: true
   validates :name, :location, length: { maximum: 50 }, presence: true
   validates :content, length: { maximum: 100 }, presence: true

@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   end
 
   def faq
+    @faq = Faq.all
   end
 
   def contact_us
