@@ -1,5 +1,16 @@
-<h2>Add Review</h2>
+<%= render 'admin/shared/mobile_sidebar_non_index' %>
+<div class="w-full my-5">
+  <label>
+    <%= link_to "Reviews", admin_positions_path, class: "text-blue font-semibold" %>
+    <span class="mx-1">/</span>
+    <span>Edit Review</span>
+  </label>
+</div>
 <%= simple_form_for @review, url: admin_review_path(@review) do |f| %>
+  <div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
+    <div class="md:w-1/2 w-full">
+      <h1 class="md:text-5xl text-xl">Edit Review</h1>
+    </div>
+  </div>
   <%= render "form", f: f %>
-  <%= f.submit "Save" %>
 <% end %>

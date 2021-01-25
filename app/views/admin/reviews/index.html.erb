@@ -1,118 +1,147 @@
-<section class="dashboard_wrapper">
-  <div class="dashboard_right">
-  <!-- topbar -->
-    <div class="dashboard_righttop flex review_wrapper">
-      <div class="flex-1">
-        <h1>Reviews</h1>
+  <div class="xl:hidden flex items-center">
+    <div class="w-1/2 pt-4">
+      <button
+        id="sidebar-toggle"
+        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+      >
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      </button>
+    </div>
+    <div class="w-1/2 pt-4 flex justify-end">
+      <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
+        <%= image_pack_tag "dashboard/search.svg", width: "20" %>
+      </button>
+      <%= link_to new_admin_review_path, class: "capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center" do %>
+        <%= image_pack_tag "dashboard/plus.svg", width: "15" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="w-full">
+    <div class="flex mt-5 md:mb-12">
+      <div class="w-1/2">
+        <h1 class="md:text-5xl text-xl">Reviews</h1>
       </div>
-      <div class="flex-1 flex items-center justify-end">
-        <%= image_pack_tag "dashboard/search.svg" %>
-        <%= link_to new_admin_review_path do %>
-          <button class="hover">Create New Reviews +</button>
+      <div class="w-1/2 xl:flex hidden items-center justify-end">
+        <button
+          class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none"
+        >
+          <%= image_pack_tag "dashboard/search.svg", width: "20" %>
+        </button>
+        <%= link_to new_admin_review_path, class: "capitalize bg-blue-light text-white px-6 py-2 rounded-full flex ml-4 items-center" do %>
+          <span class="font-semibold mr-3">Create New Reviews</span><%= image_pack_tag "dashboard/plus.svg", width: "15" %>
         <% end %>
       </div>
     </div>
-    <div class="dashboard_rightbot">
-      <ul class="flex">
-        <li><a class="active" href="reviews.html">Reviews</a></li>
-        <li><a href="review-sites.html">Review Sites</a></li>
-      </ul>
+  <!-- Tabs -->
+    <div class="dashboard_righttop flex review_wrapper">
+      <div class="dashboard_rightbot">
+        <ul class="flex">
+          <li><a class="active" href="reviews.html">Reviews</a></li>
+          <li><a href="review-sites.html">Review Sites</a></li>
+        </ul>
+      </div>
     </div>
-    <!-- end topbar -->
-
-    <!----content bottom section-->
-<div class="dashboard_rightcontent ">
-<table class="table-fixed googlelan_tbl">
-  <thead>
-    <tr>
-      <th class="w-1/1 ..."><input type="checkbox"></th>     
-	  <th class="w-1/2 ...">Review</th>
-	  <th class="w-1/5 ...">Reviewer</th>
-	   <th class="w-1/5 ...">Rating</th>
-      <th class="w-1/5 ...">Source</th>
-      <th class="w-1/2 ...">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @reviews.each do |review| %>
-     <tr>
-      <td><input type="checkbox"></td>     
-      <td><%= review.content %></td>
-      <td><label><%= review.name %></label></td>
-      <td><label class="flex"><%= review.rating %><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></label></td>
-      <td><%= review.review_site.name %><%= review.review_site.logo %></td>
-      <td>
-        <div class="editcross_icon">
-          <a href="">Edit</a> <img class="docimg" src="images/export.png"><button><img src="images/cross.png"></button>
-        </div>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="pagination bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-  
-  <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-center">
-    <%= paginate @reviews %>
-   Page
+  <!-- end Tabs -->
     <div>
-      <nav class="relative z-0 inline-flex shadow-sm -space-x-px" aria-label="Pagination">
-        <!--<a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-          <span class="sr-only">Previous</span>
-          
-          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-          </svg>
-        </a>-->
-        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-          1
-        </a>
-        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-          2
-        </a>
-        <a href="#" class="hidden md:inline-flex relative items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-          3
-        </a>
-        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-          ...
-        </span>
-        <a href="#" class="hidden md:inline-flex relative items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-          6
-        </a>
-       
-        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-          <span class="sr-only">Next</span>
-          <!-- Heroicon name: chevron-right -->
-          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-          </svg>
-        </a>
-      </nav>
-    </div>
-  </div>
-</div>
-
-</div>
-
-    <%= link_to "New", new_admin_review_path %>
-
-      <p><%= page_entries_info @reviews %></p>
-      <table>
-        <% @reviews.each do |review| %>
-          <tr>
-            <td><%= review.name %></td>
-            <td><%= review.location %></td>
-            <td><%= review.rating %></td>
-            <td><%= review.review_site.name %></td>
-            <td><%= review.url %></td>
-            <td><%= review.content %></td>
-            <td>
-              <%= link_to "Edit", edit_admin_review_path(review) %>
-              <%= link_to "Destroy", admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+      <table class="table-fixed lg:block hidden bg-white p-4 rounded-xl">
+        <thead>
+          <tr class="border-b border-gray border-solid">
+            <th class="text-left px-2 align-middle">
+              <input type="checkbox" />
+            </th>
+            <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4">
+              Review
+            </th>
+            <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color">
+              Reviewer
+            </th>
+            <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
+              Rating
+            </th>
+            <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
+              Source
+            </th>
+            <th class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody id="googleTableBody">
+          <% @reviews.each do |review| %>
+            <tr class="border-b border-gray border-solid">
+              <td class="px-2 py-4 align-middle">
+                <input type="checkbox" id="table-checkbox" />
+              </td>
+              <td class="px-2 py-4 align-middle font-medium">
+                <%= review.content %>
+              </td>
+              <td class="px-2 py-4 align-middle font-light">
+                <%= review.name %>
+              </td>
+              <td class="px-2 py-4 align-middle font-light">
+                <%= review.rating %>
+              </td>
+              <td class="px-2 py-4 align-middle">
+                <span class="font-light"><%= review.review_site.name %><%= review.review_site.logo %></span>
+              </td>
+              <td class="align-middle">
+                <div class="flex flex-wrap items-center">
+                  <%= link_to "Edit", edit_admin_review_path(review), 
+                    class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", 
+                    id:"google-table-edit" 
+                  %>
+                  <%= link_to admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" }, 
+                    class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete ml-4" do 
+                  %>
+                  <%= image_pack_tag "dashboard/table-action-2.png" %>
+                <% end %>
+              </div>
             </td>
           </tr>
         <% end %>
-      </table>
-      <%= paginate @reviews %>
-    </section>
+      </tbody>
+    </table>
+    <div class="py-2 px-2">
+      <%= page_entries_info @reviews %>
+    </div>
+    <div class="lg:hidden flex flex-wrap my-6">
+      <% @reviews.each do |review| %>
+        <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
+          <input type="checkbox" class="mb-3" />
+          <p class="th-color truncate">
+            Review:
+            <span class="text-black font-semibold ml-3"
+                ><%= review.content %></span
+              >
+          </p>
+          <p class="th-color my-4 truncate">
+            Reviewer:
+            <span class="text-black font-light ml-3"><%= review.name %></span>
+          </p>
+          <p class="th-color my-4">
+            Rating:
+            <span class="text-black font-light ml-3"><%= review.rating %></span>
+          </p>
+          <p class="th-color my-4">
+            Source:
+            <span class="text-black font-light ml-3"><%= review.review_site.name %></span>
+          </p>
+          <div class="th-color my-4 flex items-center">
+            <span class="mr-3">Actions:</span>
+            <%= link_to "Edit", edit_admin_review_path(review), class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", id:"google-table-edit-mobile" %>
+            <%= link_to admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none ml-4",  id:"google-table-page-delete-mobile" do %>
+              <%= image_pack_tag "dashboard/table-action-2.png" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="py-3 px-2">
+  <%= paginate @reviews %>
+</div>
+
+
