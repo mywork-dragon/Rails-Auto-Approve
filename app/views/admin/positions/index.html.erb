@@ -10,9 +10,7 @@
     </button>
   </div>
   <div class="w-1/2 pt-4 flex justify-end">
-    <button
-      class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none"
-    >
+    <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
       <%= image_pack_tag "dashboard/search.svg", width: "20" %>
     </button>
     <%= link_to new_admin_position_path, class: "capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center" do %>
@@ -75,9 +73,9 @@
         <% end %>
       </tbody>
     </table>
-    
-    <%= page_entries_info @positions %>
-
+    <div class="py-2 px-2">
+      <%= page_entries_info @positions %>
+    </div>
     <div class="md:hidden flex flex-wrap my-6">
       <% @positions.each do |position| %>
         <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
