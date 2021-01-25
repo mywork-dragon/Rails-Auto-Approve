@@ -1,124 +1,123 @@
-  <div class="xl:hidden flex items-center">
-    <div class="w-1/2 pt-4">
-      <button
-        id="sidebar-toggle"
-        class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
-      >
-        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
-        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
-        <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
-      </button>
+<div class="xl:hidden flex items-center">
+  <div class="w-1/2 pt-4">
+    <button
+      id="sidebar-toggle"
+      class="bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none"
+    >
+      <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+      <span class="bg-blue-light h-1 w-6 mb-1 block"></span>
+    </button>
+  </div>
+  <div class="w-1/2 pt-4 flex justify-end">
+    <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
+      <%= image_pack_tag "dashboard/search.svg", width: "20" %>
+    </button>
+    <%= link_to new_admin_faq_path, class: "capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center" do %>
+      <%= image_pack_tag "dashboard/plus.svg", width: "15" %>
+    <% end %>
+  </div>
+</div>
+<div class="w-full">
+  <div class="flex flex-wrap items-center md:py-16 py-4">
+    <div class="md:w-1/2 w-full">
+      <h1 class="md:text-5xl text-xl">FAQ</h1>
     </div>
-    <div class="w-1/2 pt-4 flex justify-end">
+    <div class="w-1/2 md:flex hidden items-center text-right justify-end">
       <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
         <%= image_pack_tag "dashboard/search.svg", width: "20" %>
       </button>
-      <%= link_to new_admin_faq_path, class: "capitalize bg-blue-light text-white p-2 rounded-full flex ml-4 items-center" do %>
-        <%= image_pack_tag "dashboard/plus.svg", width: "15" %>
+      <%= link_to new_admin_faq_path, class:"capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center" do %>
+        <span class="mr-3 md:inline hidden">Create New FAQ</span>
+        <%= image_pack_tag "dashboard/plus.svg", width: "10" %>
       <% end %>
     </div>
   </div>
-  <div class="w-full">
-    <div class="flex mt-5 md:mb-12">
-      <div class="w-1/2">
-        <h1 class="md:text-5xl text-xl">FAQ</h1>
-      </div>
-      <div class="w-1/2 xl:flex hidden items-center justify-end">
-        <button
-          class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none"
-        >
-          <%= image_pack_tag "dashboard/search.svg", width: "20" %>
-        </button>
-        <%= link_to new_admin_faq_path, class: "capitalize bg-blue-light text-white px-6 py-2 rounded-full flex ml-4 items-center" do %>
-          <span class="font-semibold mr-3">Create New FAQ</span><%= image_pack_tag "dashboard/plus.svg", width: "15" %>
-        <% end %>
-      </div>
-    </div>
-    <div>
-      <table class="table-fixed lg:block hidden bg-white p-4 rounded-xl">
-        <thead>
+  <div>
+    <table class="table-fixed lg:block hidden bg-white p-4 rounded-xl">
+      <thead>
+        <tr class="border-b border-gray border-solid">
+          <th class="text-left px-2 align-middle">
+            <input type="checkbox" />
+          </th>
+          <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4">
+            Question
+          </th>
+          <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color">
+            Answer
+          </th>
+          <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
+            Date Created
+          </th>
+          <th class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody id="googleTableBody">
+        <% @faq.each do |faq| %>
           <tr class="border-b border-gray border-solid">
-            <th class="text-left px-2 align-middle">
-              <input type="checkbox" />
-            </th>
-            <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4">
-              Question
-            </th>
-            <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color">
-              Answer
-            </th>
-            <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
-              Date Created
-            </th>
-            <th class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody id="googleTableBody">
-          <% @faq.each do |faq| %>
-            <tr class="border-b border-gray border-solid">
-              <td class="px-2 py-4 align-middle">
-                <input type="checkbox" id="table-checkbox" />
-              </td>
-              <td class="px-2 py-4 align-middle font-medium">
-                <%= faq.question %>
-              </td>
-              <td class="px-2 py-4 align-middle font-light">
-                <%= faq.answer %>
-              </td>
-              <td class="px-2 py-4 align-middle">
-                <span class="font-light"><%= faq.created_at %></span>
-              </td>
-              <td class="align-middle">
-                <div class="flex flex-wrap items-center">
-                  <%= link_to "Edit", edit_admin_faq_path(faq), 
-                    class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", 
-                    id:"google-table-edit" 
-                  %>
-                  <%= link_to admin_faq_path(faq), method: :delete, data: { confirm: "Are you sure?" }, 
-                    class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete ml-4" do 
-                  %>
-                  <%= image_pack_tag "dashboard/table-action-2.png" %>
-                <% end %>
-              </div>
+            <td class="px-2 py-4 align-middle">
+              <input type="checkbox" id="table-checkbox" />
             </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <div class="py-2 px-2">
-      <%= page_entries_info @faq %>
-    </div>
-    <div class="lg:hidden flex flex-wrap my-6">
-      <% @faq.each do |faq| %>
-        <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
-          <input type="checkbox" class="mb-3" />
-          <p class="th-color truncate">
-            Question:
-            <span class="text-black font-semibold ml-3"
-                ><%= faq.question %></span
-              >
-          </p>
-          <p class="th-color my-4 truncate">
-            Answer:
-            <span class="text-black font-light ml-3"><%= faq.answer %></span>
-          </p>
-          <p class="th-color my-4">
-            Date created:
-            <span class="text-black font-light ml-3"><%= faq.created_at %></span>
-          </p>
-          <div class="th-color my-4 flex items-center">
-            <span class="mr-3">Actions:</span>
-            <%= link_to "Edit", edit_admin_faq_path(faq), class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", id:"google-table-edit-mobile" %>
-            <%= link_to admin_faq_path(faq), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none ml-4",  id:"google-table-page-delete-mobile" do %>
-              <%= image_pack_tag "dashboard/table-action-2.png" %>
-            <% end %>
-          </div>
-        </div>
+            <td class="px-2 py-4 align-middle font-medium">
+              <%= faq.question %>
+            </td>
+            <td class="px-2 py-4 align-middle font-light">
+              <%= faq.answer %>
+            </td>
+            <td class="px-2 py-4 align-middle">
+              <span class="font-light"><%= faq.created_at %></span>
+            </td>
+            <td class="align-middle">
+              <div class="flex flex-wrap items-center">
+                <%= link_to "Edit", edit_admin_faq_path(faq), 
+                  class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", 
+                  id:"google-table-edit" 
+                %>
+                <%= link_to admin_faq_path(faq), method: :delete, data: { confirm: "Are you sure?" }, 
+                  class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete ml-4" do 
+                %>
+                <%= image_pack_tag "dashboard/table-action-2.png" %>
+              <% end %>
+            </div>
+          </td>
+        </tr>
       <% end %>
-    </div>
+    </tbody>
+  </table>
+  <div class="py-2 px-2">
+    <%= page_entries_info @faq %>
   </div>
+  <div class="lg:hidden flex flex-wrap my-6">
+    <% @faq.each do |faq| %>
+      <div class="w-full bg-white shadow-lg p-5 rounded-xl mb-4">
+        <input type="checkbox" class="mb-3" />
+        <p class="th-color truncate">
+          Question:
+          <span class="text-black font-semibold ml-3"
+              ><%= faq.question %></span
+            >
+        </p>
+        <p class="th-color my-4 truncate">
+          Answer:
+          <span class="text-black font-light ml-3"><%= faq.answer %></span>
+        </p>
+        <p class="th-color my-4">
+          Date created:
+          <span class="text-black font-light ml-3"><%= faq.created_at %></span>
+        </p>
+        <div class="th-color my-4 flex items-center">
+          <span class="mr-3">Actions:</span>
+          <%= link_to "Edit", edit_admin_faq_path(faq), class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", id:"google-table-edit-mobile" %>
+          <%= link_to admin_faq_path(faq), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none ml-4",  id:"google-table-page-delete-mobile" do %>
+            <%= image_pack_tag "dashboard/table-action-2.png" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>
 <div class="py-3 px-2">
   <%= paginate @faq %>
