@@ -858,3 +858,19 @@ body {
     padding-top: 70px;
   }
 }
+
+.review-star-active {
+  background: url("../images/icons/star-active.svg") center no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}
+
+.review-star {
+  background: url("../images/icons/star.svg") center no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+}

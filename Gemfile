@@ -31,6 +31,10 @@ group :development, :test do
 end
 
 group :development do
+  gem "capistrano"
+  gem "capistrano-passenger"
+  gem "capistrano-rails"
+  gem "capistrano-rvm"
   gem "listen", "~> 3.2"
   gem "guard"
   gem "guard-minitest"

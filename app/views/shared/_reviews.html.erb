@@ -18,7 +18,15 @@
                     </div>
                     <div class="left-user-div">
                       <h5><%= review.name %></h5>
-                      <p><%= review.rating %></p>
+                      <p>
+                        <% review_stars(review)[:active].times do %>
+                          <span class="review-star-active"></span>
+                        <% end %>
+
+                        <% review_stars(review)[:blank].times do %>
+                          <span class="review-star"></span>
+                        <% end %>
+                      </p>
                     </div>
                   </div>
                   <div class="img-right-div flex">
