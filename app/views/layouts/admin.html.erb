@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Auto Approve</title>
     <meta content='initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' name='viewport' />
+    <%= stylesheet_pack_tag "admin", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "admin", 'data-turbolinks-track': "reload" %>
   </head>
 
@@ -19,5 +20,6 @@
       <%= render 'admin/shared/mobile_sidebar_toggle' if action_name != "index" %>
       <%= yield %>
     </section>
+    <%= yield :end_page_scripts %>
   </body>
 </html>
