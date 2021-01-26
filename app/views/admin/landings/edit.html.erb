@@ -17,13 +17,18 @@
           <span class="slider round"></span>
         </label>
         <span class="ml-2 live-text cool-transition">Live</span>
-        <%= f.submit "Save", class:"capitalize bg-custom-color1 text-white px-6 py-2 rounded-full flex ml-4 items-center" %>
+        <%= f.submit "Save", class: "capitalize bg-custom-color1 text-white px-6 py-2 rounded-full flex ml-4 items-center" %>
       </div>
     </div>
     <%= render "form", f: f %>
     <%= f.simple_fields_for :config do |sf| %>
       <% @landing.config.each do |field, val| %>
-        <%= sf.input field.to_sym, input_html: { value: val } %>
+        <p class="text-2xl mb-4 tracking-wide"><%= field %></p>
+        <div class="flex md:mt-0 mt-10">
+          <div class="md:w-1/2 w-full md:mb-0 mb-1 md:mr-6">
+            <%= sf.input_field field.to_sym, value: val, class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-10 focus:text-black" %>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% end %>

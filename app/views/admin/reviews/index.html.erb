@@ -1,5 +1,5 @@
 <div class="xl:hidden flex items-center">
-  <%= render 'admin/shared/mobile_sidebar_toggle_index' %>
+  <%= render "admin/shared/mobile_sidebar_toggle_index" %>
   <div class="w-1/2 pt-4 flex justify-end">
     <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
       <%= image_pack_tag "dashboard/search.svg", width: "20" %>
@@ -18,7 +18,7 @@
       <button class="shadow-none outline-none border-none border-0 focus:outline-none focus:shadow-none">
         <%= image_pack_tag "dashboard/search.svg", width: "20" %>
       </button>
-      <%= link_to new_admin_review_path, class:"capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center" do %>
+      <%= link_to new_admin_review_path, class: "capitalize bg-blue text-white px-4 py-2 rounded-full flex ml-4 items-center" do %>
         <span class="mr-3 md:inline hidden">Create New Review</span>
         <%= image_pack_tag "dashboard/plus.svg", width: "10" %>
       <% end %>
@@ -74,17 +74,15 @@
               <%= review.rating %>
             </td>
             <td class="px-2 py-4 align-middle">
-              <span class="font-light"><%= review.review_site.name %><%= review.review_site.logo %></span>
+              <span class="font-light"><%= cl_image_tag review.review_site.logo %></span>
             </td>
             <td class="align-middle">
               <div class="flex flex-wrap items-center">
-                <%= link_to "Edit", edit_admin_review_path(review), 
-                  class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", 
-                  id:"google-table-edit" 
-                %>
-                <%= link_to admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" }, 
-                  class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete ml-4" do 
-                %>
+                <%= link_to "Edit", edit_admin_review_path(review),
+                            class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white",
+                            id: "google-table-edit" %>
+                <%= link_to admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" },
+                                                       class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete ml-4" do %>
                   <%= image_pack_tag "dashboard/table-action-2.png" %>
                 <% end %>
               </div>
@@ -120,8 +118,8 @@
           </p>
           <div class="th-color my-4 flex items-center">
             <span class="mr-3">Actions:</span>
-            <%= link_to "Edit", edit_admin_review_path(review), class:"bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", id:"google-table-edit-mobile" %>
-            <%= link_to admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none ml-4",  id:"google-table-page-delete-mobile" do %>
+            <%= link_to "Edit", edit_admin_review_path(review), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white", id: "google-table-edit-mobile" %>
+            <%= link_to admin_review_path(review), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none ml-4", id: "google-table-page-delete-mobile" do %>
               <%= image_pack_tag "dashboard/table-action-2.png" %>
             <% end %>
           </div>

@@ -23,16 +23,15 @@
             class="border-blue border border-solid px-6 py-2 rounded-full text-blue mx-4"
             >#Preview</a
           >
-          <%= f.submit "Create", class:"bg-custom-color5 px-6 py-2 rounded-full text-white" %>
+          <%= f.submit "Create", class: "bg-custom-color5 px-6 py-2 rounded-full text-white" %>
         </div>
       </div>
       <p class="text-2xl mb-4 tracking-wide">Theme</p>
       <div class="flex md:flex-nowrap flex-wrap items-center justify-between mb-5">
         <div class="md:w-1/2 w-full md:mb-0 mb-1 md:mr-6">
-          <%= f.input_field :theme, 
-              class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-5 focus:text-black", 
-              collection: Theme.available, input_html: { id: "theme_select" } 
-          %>
+          <%= f.input_field :theme,
+                            class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-5 focus:text-black",
+                            collection: Theme.available, id: "theme_select" %>
         </div>
       </div>
 
@@ -45,14 +44,3 @@
       <% end %>
     <% end %>
   </div>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#theme_select').on('change', function(event) {
-        const theme = $(event.target).find('option:selected').text()
-        $.get(`/admin/themes/${theme}`).then(function(result) {
-          console.log(result)
-        })
-      })
-    })
-  </script>
