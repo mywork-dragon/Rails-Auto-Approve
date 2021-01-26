@@ -17,6 +17,7 @@
         <%= image_pack_tag "dashboard/dashboard.svg", class: "-ml-4", width: "25" %>
         <p class="text-blue capitalize text-lg ml-6">Dashboard</p>
       </li>
+      <%= sidebar_link(admin_themes_path, "Themes", "dashboard/dash-landing.svg") %>
       <%= sidebar_link(admin_landings_path, "Landing Pages", "dashboard/dash-landing.svg") %>
       <%= sidebar_link("#", "Resources", "dashboard/dash-resources.svg") %>
       <%= sidebar_link(admin_reviews_path, "Reviews", "dashboard/dash-reviews.svg") %>
