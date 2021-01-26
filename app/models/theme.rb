@@ -11,7 +11,7 @@ class Theme
   def initialize(name)
     validate_theme_exists!(name)
     @name = name
-    @path = Rails.root.join('app/themes', name)
+    @path = Rails.root.join('lib/themes', name)
     @config = YAML.load_file(File.join(@path, 'config.yml'))
   end
 
@@ -42,7 +42,7 @@ class Theme
   #
   # @return [Array<String>]
   def self.available
-    Dir[Rails.root.join('app', 'themes', '*')].map do |path|
+    Dir[Rails.root.join('lib', 'themes', '*')].map do |path|
       File.basename(path)
     end
   end
