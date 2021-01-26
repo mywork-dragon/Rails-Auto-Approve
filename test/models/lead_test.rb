@@ -29,7 +29,15 @@ describe Lead do
     should_not allow_value(nil).for(:zipcode)
 
     # Vehicle
-    should allow_value(*Lead::VEHICLE_TYPES).for(:vehicle_type)
+    should allow_value(1).for(:vehicle_make_id)
+    should_not allow_value(nil).for(:vehicle_make_id)
+    should allow_value(1).for(:vehicle_model_id)
+    should_not allow_value(nil).for(:vehicle_model_id)
+    should allow_value('BMW').for(:vehicle_make_name)
+    should_not allow_value(nil).for(:vehicle_make_name)
+    should allow_value('2 Series').for(:vehicle_model_name)
+    should_not allow_value(nil).for(:vehicle_model_name)
+    should allow_value(*Mappings::VehicleTypes.types).for(:vehicle_type)
     should_not allow_value(nil, 'invalid-type').for(:vehicle_type)
     should allow_value(nil, 1000).for(:vehicle_mileage)
     should allow_value(2020).for(:vehicle_year)

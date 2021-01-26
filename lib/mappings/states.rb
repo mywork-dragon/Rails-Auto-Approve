@@ -59,7 +59,7 @@ class Mappings::States
 
   # Get all state codes
   #
-  # @return [Array<Symbol>]
+  # @return [Array<String>]
   def self.codes
     MAPPING.keys.map(&:to_s)
   end

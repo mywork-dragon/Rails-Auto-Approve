@@ -24,5 +24,11 @@ module AutoApprove
       g.test_framework :minitest, spec: true, fixture_replacement: :fabrication
       g.fixture_replacement :fabrication, dir: "test/fabricators"
     end
+    config.to_prepare do
+      Devise::SessionsController.layout 'sessions'
+      Devise::ConfirmationsController.layout 'sessions'
+      Devise::UnlocksController.layout 'sessions'
+      Devise::PasswordsController.layout 'sessions'
+    end
   end
 end

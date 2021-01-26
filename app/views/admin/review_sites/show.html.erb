@@ -1,0 +1,21 @@
+<h1>Details</h1>
+<table>
+  <tr>
+    <td>Site</td><td><%= cl_image_tag @review.review_site.logo %></td>
+  </tr>
+  <tr>
+    <td>Name</td><td><%= @review.name %></td>
+  </tr>
+  <tr>
+    <td>Location</td><td><%= @review.location %></td>
+  </tr>
+  <tr>
+    <td>Content</td><td><%= @review.content %></td>
+  </tr>
+  <tr>
+    <td>URL</td><td><%= @review.url %></td>
+  </tr>
+  <tr>
+    <td>Rating</td><td><%= @review.rating %></td>
+  </tr>
+</table>

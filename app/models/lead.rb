@@ -1,9 +1,7 @@
 class Lead < ApplicationRecord
-  DESIRED_TERMS = [36, 48, 60, 72, 84].freeze
-  VEHICLE_TYPES = ['Car/SUV/Truck', 'Motorcycle'].freeze
+  DESIRED_TERMS = [38, 48, 60, 72, 84].freeze
 
   belongs_to :landing
-  belongs_to :vehicle
 
   monetize :lien_payment_cents
   monetize :lien_payoff_cents
@@ -19,8 +17,10 @@ class Lead < ApplicationRecord
   validates :state_code, inclusion: Mappings::States.codes
   validates :zipcode, length: { is: 5 }
   validates :vehicle_year, presence: true
+  validates :vehicle_make_name, :vehicle_make_id, presence: true
+  validates :vehicle_model_name, :vehicle_model_id, presence: true
   validates :vehicle_vin, length: { maximum: 100 }
-  validates :vehicle_type, inclusion: VEHICLE_TYPES
+  validates :vehicle_type, inclusion: Mappings::VehicleTypes.types
   validates :desired_term, inclusion: DESIRED_TERMS
   validates :lien_name, length: { maximum: 50 }, presence: true
   validates :lien_rate, numericality: { greater_than: -1 }

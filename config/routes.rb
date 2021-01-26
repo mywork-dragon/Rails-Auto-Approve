@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :positions
     resources :reviews
+    resources :review_sites
     resources :themes, only: [:index, :show]
     resources :users
   end

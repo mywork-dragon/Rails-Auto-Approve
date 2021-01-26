@@ -1,16 +1,33 @@
+require 'crm/client/lead'
+require 'crm/client/preapproval'
+require 'crm/client/response'
+
 module Crm
   class Client
-    include HTTParty
-    base_uri ENV['lead_endpoint_url']
+    # Initialize the client
+    #
+    # @param lead [Lead]
+    def initialize(lead)
+      @lead = lead
+    end
 
-    def submit(lead)
-      exporter = LeadExporter.new(lead)
+    # Submit a lead
+    #
+    # @return [OpenStruct]
+    def submit
+      creation = create_lead
+      return creation if !creation.success?
+      create_preapproval(creation.body['id'])
+    end
 
-      self.class.post(
-        ENV['lead_endpoint_path'],
-        headers: { 'Content-Type'=>'application/json' },
-        body: exporter.export.to_json
-      )
+    private
+
+    def create_lead
+      Crm::Client::Lead.new(@lead).submit
+    end
+
+    def create_preapproval(id)
+      Crm::Client::Preapproval.new(id).submit
     end
   end
 end

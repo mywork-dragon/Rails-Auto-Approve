@@ -11,18 +11,22 @@ class LeadExporter
   # @return [Hash]
   def export
     {
-      source: @lead.source,
+      source: 'AutoApprove',
+      landingPageUrls: ['/'],
       primaryBorrower: {
         firstName: @lead.first_name,
         lastName: @lead.last_name,
         email: @lead.email,
         homePhone: @lead.phone,
-        dateOfBirth: @lead.date_of_birth,
+        dateOfBirth: @lead.date_of_birth.iso8601,
         address: {
           street1: @lead.street1,
           street2: @lead.street2,
           city: @lead.city,
-          state: @lead.state_code,
+          state: {
+            id: @lead.state_code,
+            name: Mappings::States::MAPPING[@lead.state_code.to_sym]
+          },
           zip: @lead.zipcode
         },
         employer: {
@@ -35,10 +39,19 @@ class LeadExporter
       },
       vehicles: [
         {
-          vehicleType: @lead.vehicle_type,
-          make: { name: @lead.vehicle.make },
-          model: { name: @lead.vehicle.model },
-          year: { name: @lead.vehicle_year.to_s },
+          vehicleType: Mappings::VehicleTypes::MAPPING[@lead.vehicle_type],
+          make: {
+            nadaId: @lead.vehicle_make_id,
+            name: @lead.vehicle_make_name,
+          },
+          model: {
+            nadaId: @lead.vehicle_model_id,
+            name: @lead.vehicle_model_name
+          },
+          year: {
+            nadaId: @lead.vehicle_year.to_s,
+            name: @lead.vehicle_year.to_s
+          },
           mileage: @lead.vehicle_mileage,
           vin: @lead.vehicle_vin,
           requestedLoanTermsInMonths: @lead.desired_term,

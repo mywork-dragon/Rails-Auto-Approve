@@ -1,3 +1,4 @@
-module Crm
-  
+require 'crm/client'
+
+module Crm  
 end

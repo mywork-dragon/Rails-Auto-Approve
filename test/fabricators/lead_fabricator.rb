@@ -1,6 +1,5 @@
 Fabricator(:lead) do
   landing
-  vehicle
 
   first_name { FFaker::Name.first_name }
   last_name { FFaker::Name.last_name }
@@ -20,8 +19,13 @@ Fabricator(:lead) do
   job_years 4
   job_months 1
 
+  vehicle_make_id 1
+  vehicle_make_name 'BMW'
+  vehicle_model_id 1
+  vehicle_model_name '2 Series'
   vehicle_year 2010
   vehicle_vin 'XXXXXXXXXXX'
+  vehicle_make_name 'Honda'
   vehicle_mileage 1000
   vehicle_type { Lead::VEHICLE_TYPES.sample }
   desired_term 72
