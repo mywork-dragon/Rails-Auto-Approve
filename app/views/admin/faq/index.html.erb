@@ -25,19 +25,19 @@
     </div>
   </div>
   <div>
-    <table class="table-fixed lg:block hidden bg-white p-4 rounded-xl">
+    <table class="table-fixed md:block hidden bg-white p-4 rounded-xl">
       <thead>
         <tr class="border-b border-gray border-solid">
           <th class="text-left px-2 align-middle">
             <input type="checkbox" />
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4">
+          <th class="align-middle text-left px-2 py-4 w-2/5 font-normal th-color ml-4">
             Question
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color">
+          <th class="align-middle text-left px-2 py-4 w-2/5 font-normal th-color">
             Answer
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color">
+          <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
             Actions
           </th>
         </tr>
@@ -49,10 +49,10 @@
               <input type="checkbox" id="table-checkbox" />
             </td>
             <td class="px-2 py-4 align-middle font-medium">
-              <%= faq.question %>
+              <%= raw faq.question.truncate(75) %>
             </td>
             <td class="px-2 py-4 align-middle font-light">
-              <%= faq.answer %>
+              <%= raw faq.answer.truncate(75) %>
             </td>
             <td class="align-middle">
               <div class="flex flex-wrap items-center">
@@ -78,13 +78,11 @@
         <input type="checkbox" class="mb-3" />
         <p class="th-color truncate">
           Question:
-          <span class="text-black font-semibold ml-3"
-              ><%= faq.question %></span
-            >
+          <span class="text-black font-semibold ml-3"><%= raw faq.question.truncate(75) %></span>
         </p>
         <p class="th-color my-4 truncate">
           Answer:
-          <span class="text-black font-light ml-3"><%= faq.answer %></span>
+          <span class="text-black font-light ml-3"><%= raw faq.answer.truncate(75) %></span>
         </p>
         <p class="th-color my-4">
           Date created:
