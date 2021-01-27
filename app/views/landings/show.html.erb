@@ -2,5 +2,5 @@
 
 <%= content_for :page_scripts do %>
   <%= javascript_pack_tag "themes/#{@landing.theme}", "data-turbolinks-track": "reload" %>
-  <%= stylesheet_pack_tag "#{@landing.theme}", "data-turbolinks-track": "reload" %>
+  <%= stylesheet_pack_tag "themes/#{@landing.theme}", "data-turbolinks-track": "reload" %>
 <% end %>

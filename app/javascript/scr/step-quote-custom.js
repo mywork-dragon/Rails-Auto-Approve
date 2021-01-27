@@ -100,7 +100,7 @@ document.addEventListener("turbolinks:load", () => {
 
           ul.html(items);
           // getmdlSelect.init('#makeSelect');  
-          $("#make").on('change', makeHandler);
+          // $("#make").on('change', makeHandler);
         }
         validate(currentStep);
       })
@@ -109,9 +109,11 @@ document.addEventListener("turbolinks:load", () => {
       });
   });
 
-  function makeHandler() {
+  $("#make").on('change', function () {
     var year = $("#year").val();
     var value = $("input[name='make']").val();
+
+    console.log('well shit')
 
     var jqxhr = $.ajax("https://aa-uat-function-nada.azurewebsites.net/api/years/"+ year + "/makes/" + value + "/models")
       .done(function(response) {
@@ -127,7 +129,7 @@ document.addEventListener("turbolinks:load", () => {
 
           ul.html(items);
           // getmdlSelect.init('#modelSelect');
-          $("#model").on('change', modelHandler);
+          // $("#model").on('change', modelHandler);
 
           validate(currentStep);
         }
@@ -135,13 +137,13 @@ document.addEventListener("turbolinks:load", () => {
       .fail(function(error) {
         console.log('error', error)
       });
-  };
+  });
 
-  function modelHandler() {
+  $("#model").on('change', function () {
     var value = $("input[name='model']").val();
 
     validate(currentStep);
-  }
+  });
 
   $("#next-step-2").click(function () {
     if (!validate(1)) return;

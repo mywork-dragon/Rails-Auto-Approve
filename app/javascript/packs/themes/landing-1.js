@@ -1,4 +1,4 @@
-import "../../stylesheets/landing-1.scss";
+import "../../stylesheets/themes/landing-1.scss";
 import "../../scr/flatpickr"
 
 global.getmdlSelect = require("../../scr/getmdl-select");

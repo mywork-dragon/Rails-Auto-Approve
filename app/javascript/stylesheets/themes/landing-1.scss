@@ -1,3 +1,10 @@
+@import "../theme-components/landing.css";
+@import "../theme-components/material.css";
+@import "../theme-components/mdl-selectfield.min.css";
+@import "../theme-components/getmdl-select.scss";
+// @import "getmdl-select/src/scss/getmdl-select.scss";
+// @import "material-design-lite/material.min.css";
+
 @keyframes animation-step {
   0% {
     opacity: 0;
@@ -31,7 +38,7 @@
 }
 
 .congratulation-bg {
-  background: url(../images/background/congratulations-bg.svg) no-repeat;
+  background: url(../../images/background/congratulations-bg.svg) no-repeat;
   background-position: top center;
 }
 
