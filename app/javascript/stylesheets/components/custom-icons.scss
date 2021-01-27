@@ -49,6 +49,7 @@
 .arrow-left-long-blue {
   height: 8px;
   width: 12px;
+  transform: rotate(180deg);
   background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='12px' height='8px' viewBox='0 0 12 8' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3Earrow-right-long%3C/title%3E%3Cg id='Page-3' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='arrow-right-long' fill='%235230A2'%3E%3Cpath d='M7.00986,1.74749 C6.72509,1.46092 6.72509,0.9982 7.00986,0.71163 L7.17909,0.54133 C7.56088,0.15712 8.18246,0.15712 8.56426,0.54133 L12.0011,3.99993 C12.0011,3.99994 12.0011,3.99995 12.0011,3.99996 C12.0011,3.99996 12.0011,3.99997 12.0011,3.99998 C12.0011,3.99999 12.0011,4 12.0011,4.00001 L8.56426,7.45861 C8.18246,7.84282 7.56088,7.84282 7.17909,7.45861 L7.00972,7.28817 C6.72503,7.00167 6.72503,6.53908 7.00972,6.25259 C7.47024,5.78916 7.14199,5.00021 6.48866,5.00021 L1,5.00021 C0.447715,5.00021 0,4.5525 0,4.00021 C0,3.44793 0.447715,3.00021 1,3.00021 L6.48866,3.00021 C7.14217,3.00021 7.47051,2.21105 7.00986,1.74749 Z' id='Path'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 
   &.blue-dark-icon {
