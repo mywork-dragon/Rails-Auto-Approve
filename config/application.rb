@@ -18,6 +18,7 @@ module AutoApprove
     config.load_defaults 6.0
     config.autoload_paths += [Rails.root.join('lib')]
     config.action_mailer.default_url_options = { host: ENV['base_host'] }
+    config.exceptions_app = self.routes
     config.generators do |g|
       g.assets false
       g.helper false

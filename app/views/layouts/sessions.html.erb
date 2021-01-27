@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AutoApprove</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Auto Approve</title>
+    <meta content='initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' name='viewport' />
+    <%= javascript_pack_tag "admin", 'data-turbolinks-track': "reload" %>
+  </head>
+
+  <body class="bg-gray">
+    <div class="signin_wrapper min-h-screen flex items-center justify-center">
+      <div class="signin_inner max-w-md w-full space-y-8">
+        <%= image_pack_tag "logo_small.png", class: "mx-auto w-auto" %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

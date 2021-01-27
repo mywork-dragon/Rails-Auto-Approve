@@ -120,9 +120,9 @@ body {
 	.signin_inner h1{	font-size: 37px;text-align: center;	color: #181A1D;	margin-top: 10px !important;}
 	.forgot_inner h1{	font-size: 28px;text-align: center;	color: #181A1D;	margin-top: 10px !important;}
 	.forgot_inner p {font-size: 14px;text-align: center;color: #232529;margin-top: 5px !important;}
-.signin_wrapper form input{font-size:16px;color:#000;margin-bottom:15px;border:0;border-bottom:1px solid #BDBEBF;border-radius:0;width: 100%;padding: 10px 15px;}
+.signin_wrapper form input{font-size:16px;margin-bottom:15px;border:0;border-bottom:1px solid #BDBEBF;border-radius:0;width: 100%;padding: 10px 15px;}
 .signin_wrapper form input::placeholder{color:#65676A;font-size:16px;}
-.signin_wrapper form button {	background-color: #5230A2;	border-radius: 37px;	font-size: 16px;
+.signin_wrapper form input[type="submit"] {	background-color: #5230A2;	border-radius: 37px;	font-size: 16px;
 	color: #fff;	height: 48px;	display: flex;align-items: center;padding: 0 !important;width: 100%;
 text-align: center;margin-top: 15px;
 justify-content: center;}

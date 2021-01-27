@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function () {
   $('#theme_select').on('change', function(event) {
     const theme = $(event.target).find('option:selected').text()
-    $.get(`/admin/themes/${theme}`).then(function(result) {
+    $.get(`/admin/themes/${theme}/fields`).then(function(result) {
       var el = $('#fields')
       el.html('')
       Object.keys(result).forEach(function (key) {
