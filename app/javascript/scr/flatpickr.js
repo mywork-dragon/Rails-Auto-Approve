@@ -1,4 +1,7 @@
-$(document).ready( function () {
+import flatpickr from "flatpickr"
+require("flatpickr/dist/flatpickr.css")
+
+document.addEventListener("turbolinks:load", () => {
   var startdate;
   startdate = flatpickr("#datetime-picker1",{
     altInput: true,
@@ -11,4 +14,4 @@ $(document).ready( function () {
   $("#dob-click").click(function() {
     startdate.toggle()
   });
-});
+})
