@@ -1,8 +1,4 @@
-global.getmdlSelect = require("getmdl-select/getmdl-select.min.js")
-require("getmdl-select/src/scss/getmdl-select.scss")
-
-
-document.addEventListener("turbolinks:load", () => {
+$(document).ready(function () {
   $(document).on({
     ajaxStart: function(){
       $("body").addClass("loading");
@@ -13,7 +9,6 @@ document.addEventListener("turbolinks:load", () => {
   });
 
   var slider = document.getElementById("credit_score");
-  
   var output = document.getElementById("demo");
 
   if (slider) {
@@ -78,7 +73,7 @@ document.addEventListener("turbolinks:load", () => {
     });
 
     ul.html(items);
-    // getmdlSelect.init('#yearSelect'); 
+    getmdlSelect.init('#yearSelect');
   }
 
   init();
@@ -99,8 +94,8 @@ document.addEventListener("turbolinks:load", () => {
           });
 
           ul.html(items);
-          // getmdlSelect.init('#makeSelect');  
-          // $("#make").on('change', makeHandler);
+          getmdlSelect.init('#makeSelect');
+          $("#make").on('change', makeHandler);
         }
         validate(currentStep);
       })
@@ -109,11 +104,9 @@ document.addEventListener("turbolinks:load", () => {
       });
   });
 
-  $("#make").on('change', function () {
+  function makeHandler() {
     var year = $("#year").val();
     var value = $("input[name='make']").val();
-
-    console.log('well shit')
 
     var jqxhr = $.ajax("https://aa-uat-function-nada.azurewebsites.net/api/years/"+ year + "/makes/" + value + "/models")
       .done(function(response) {
@@ -128,8 +121,8 @@ document.addEventListener("turbolinks:load", () => {
           });
 
           ul.html(items);
-          // getmdlSelect.init('#modelSelect');
-          // $("#model").on('change', modelHandler);
+          getmdlSelect.init('#modelSelect');
+          $("#model").on('change', modelHandler);
 
           validate(currentStep);
         }
@@ -137,13 +130,13 @@ document.addEventListener("turbolinks:load", () => {
       .fail(function(error) {
         console.log('error', error)
       });
-  });
+  };
 
-  $("#model").on('change', function () {
+  function modelHandler() {
     var value = $("input[name='model']").val();
 
     validate(currentStep);
-  });
+  }
 
   $("#next-step-2").click(function () {
     if (!validate(1)) return;

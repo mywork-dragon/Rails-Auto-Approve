@@ -1,6 +1,10 @@
 <%= raw @landing.render(binding) %>
 
 <%= content_for :page_scripts do %>
-  <%= javascript_pack_tag "themes/#{@landing.theme}", "data-turbolinks-track": "reload" %>
-  <%= stylesheet_pack_tag "themes/#{@landing.theme}", "data-turbolinks-track": "reload" %>
+  <%= javascript_pack_tag "#{@landing.theme}", "data-turbolinks-track": "reload" %>
+  <%= stylesheet_pack_tag "#{@landing.theme}", "data-turbolinks-track": "reload" %>
+<% end %>
+
+<%= content_for :end_page_scripts do %>
+  <script src='/getmdl-select.js'></script>
 <% end %>
