@@ -1,25 +1,6 @@
 <%= raw @landing.render(binding) %>
 
 <%= content_for :page_scripts do %>
-  <%= javascript_pack_tag "themes-landing-1", 'data-turbolinks-track': "reload" %>
-  <%= stylesheet_pack_tag "themes-landing-1", "data-turbolinks-track": "reload" %>
-<% end %>
-
-<%= content_for :end_page_scrips do %>
-  <script>
-    $(document).ready( function () {
-      var startdate;
-      startdate = flatpickr("#datetime-picker1",{
-        altInput: true,
-        disableMobile: "true",
-        enableTime: false,
-        altInput: true,
-        // altFormat: "j F Y",
-        dateFormat: "Y-m-d H:i",
-      });
-      $("#dob-click").click(function() {
-        startdate.toggle()
-      });
-    });
-  </script>
+  <%= javascript_pack_tag "themes/#{@landing.theme}", "data-turbolinks-track": "reload" %>
+  <%= stylesheet_pack_tag "#{@landing.theme}", "data-turbolinks-track": "reload" %>
 <% end %>
