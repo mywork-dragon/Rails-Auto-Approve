@@ -1,12 +1,4 @@
 $(document).ready(function () {
-  $(document).on({
-    ajaxStart: function(){
-      $("body").addClass("loading");
-    },
-    ajaxStop: function(){
-      $("body").removeClass("loading");
-    }
-  });
 
   var slider = document.getElementById("credit_score");
   var output = document.getElementById("demo");
@@ -66,17 +58,34 @@ $(document).ready(function () {
     var ul = $("#yearSelect").find("ul");
     var items = "";
 
-    var data = new Array(20).fill(1).map(function(item, index){return 2020 - index});
+    var jqxhr = $.ajax("https://aa-uat-function-nada.azurewebsites.net/api/years")
+      .done(function(response) {
+        const data = response && response.value;
 
-    data.forEach(function (item) {
-      items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
-    });
-
-    ul.html(items);
-    getmdlSelect.init('#yearSelect');
+        if (data) {
+        const yearsFromApi = data.map( year => year.nadaId);
+        yearsFromApi.forEach(function (item) {
+          items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
+        });
+        ul.html(items);
+        getmdlSelect.init('#yearSelect');
+        }
+      })
+      .fail(function(error) {
+        console.log('error', error)
+      });
   }
 
   init();
+
+  $(document).on({
+    ajaxStart: function(){
+      $("body").addClass("loading");
+    },
+    ajaxStop: function(){
+      $("body").removeClass("loading");
+    }
+  });
 
   $("#year").on('change', function () {
     var value = $(this).val();
