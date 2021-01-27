@@ -4,7 +4,7 @@
 @import "./theme-components/header.css";
 @import "./theme-components/footer.css";
 @import "./theme-components/get-a-quote.css";
-@import "./theme-components/landing.css";
+// @import "./theme-components/landing.css"; // causing errors on bannerheight
 @import "./theme-components/rangeslider.min";
 @import "./theme-components/range-custom-style.css";
 @import "./theme-components/flatpickr.min";
@@ -15,7 +15,6 @@
 
 @import "./components/jquery.sweet-dropdown";
 @import "./components/style";
-
 
 @keyframes animation-step {
   0% {
