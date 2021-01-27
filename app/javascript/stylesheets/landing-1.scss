@@ -1,9 +1,22 @@
-@import "../theme-components/landing.css";
-@import "../theme-components/material.css";
-@import "../theme-components/mdl-selectfield.min.css";
-@import "../theme-components/getmdl-select.scss";
-// @import "getmdl-select/src/scss/getmdl-select.scss";
-// @import "material-design-lite/material.min.css";
+// @import "./theme-components/all.min.css";
+@import "./theme-components/material.min.css";
+@import "./theme-components/custom-icons.css";
+@import "./theme-components/tailwind.css";
+@import "./theme-components/header.css";
+@import "./theme-components/footer.css";
+@import "./theme-components/get-a-quote.css";
+@import "./theme-components/landing.css";
+@import "./theme-components/rangeslider.min";
+@import "./theme-components/range-custom-style.css";
+@import "./theme-components/flatpickr.min";
+@import "./theme-components/custom-forms-style";
+@import "./theme-components/home-style.css";
+@import "./theme-components/mdl-selectfield.min.css";
+@import "./theme-components/getmdl-select.css";
+
+@import "./components/jquery.sweet-dropdown";
+@import "./components/style";
+
 
 @keyframes animation-step {
   0% {
@@ -38,7 +51,7 @@
 }
 
 .congratulation-bg {
-  background: url(../../images/background/congratulations-bg.svg) no-repeat;
+  background: url(../images/background/congratulations-bg.svg) no-repeat;
   background-position: top center;
 }
 
