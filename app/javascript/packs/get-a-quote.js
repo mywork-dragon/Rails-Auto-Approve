@@ -2,8 +2,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 
 import "stylesheets/get-a-quote";
-require("../scr/themes/modernizr")
-
 global.$ = require("../scr/themes/jquery.min")
 require("../scr/themes/material.min")
 require("../scr/themes/mdl-selectfield.min")
