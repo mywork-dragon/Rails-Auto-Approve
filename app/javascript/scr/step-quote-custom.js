@@ -1,4 +1,8 @@
-$(document).on('turbolinks:load', function () {
+global.getmdlSelect = require("getmdl-select/getmdl-select.min.js")
+require("getmdl-select/src/scss/getmdl-select.scss")
+
+
+document.addEventListener("turbolinks:load", () => {
   $(document).on({
     ajaxStart: function(){
       $("body").addClass("loading");
@@ -63,22 +67,21 @@ $(document).on('turbolinks:load', function () {
     validate(currentStep);
   });
 
-  
-  // function init() { // Init years
-  //   var ul = $("#yearSelect").find("ul");
-  //   var items = "";
+  function init() { // Init years
+    var ul = $("#yearSelect").find("ul");
+    var items = "";
 
-  //   var data = new Array(20).fill(1).map(function(item, index){return 2020 - index});
+    var data = new Array(20).fill(1).map(function(item, index){return 2020 - index});
 
-  //   data.forEach(function (item) {
-  //     items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
-  //   });
+    data.forEach(function (item) {
+      items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
+    });
 
-  //   ul.html(items);
-  //   getmdlSelect.init('#yearSelect');  componentHandler.upgradeDom();
-  // }
+    ul.html(items);
+    // getmdlSelect.init('#yearSelect'); 
+  }
 
-  // init();
+  init();
 
   $("#year").on('change', function () {
     var value = $(this).val();
@@ -96,7 +99,7 @@ $(document).on('turbolinks:load', function () {
           });
 
           ul.html(items);
-          getmdlSelect.init('#makeSelect');  componentHandler.upgradeDom();
+          // getmdlSelect.init('#makeSelect');  
           $("#make").on('change', makeHandler);
         }
         validate(currentStep);
@@ -123,7 +126,7 @@ $(document).on('turbolinks:load', function () {
           });
 
           ul.html(items);
-          getmdlSelect.init('#modelSelect');  componentHandler.upgradeDom();
+          // getmdlSelect.init('#modelSelect');
           $("#model").on('change', modelHandler);
 
           validate(currentStep);
