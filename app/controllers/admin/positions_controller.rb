@@ -1,4 +1,6 @@
 class Admin::PositionsController < AdminController
+  before_action :authorize_marketer!
+
   def index
     @positions = Position.page(params[:page])
   end

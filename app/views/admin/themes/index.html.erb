@@ -27,7 +27,7 @@
         <div class="lg:w-1/4 md:w-1/2 w-full relative md:my-0 my-10 md:mr-16 mr-0">
           <div class="relative overflow-hidden landing-img rounded-xl mb-5 shadow-lg cursor-pointer">
             <%= image_tag theme.cover, class: "w-full" %>
-            <%= link_to "view details", admin_theme_path(theme),
+            <%= link_to "view details", admin_theme_path(id: theme.name),
                         class: "text-white font-regular absolute -left-full top-0 w-full h-full bg-blue flex items-center justify-center text-center capitalize text-xl rounded-xl cool-transition landing-img-link opacity-80" %>
             <span class="rounded-tr-xl bg-green bottom-0 left-0 absolute px-6 py-1"><%= @stats.fetch(theme.name, 0) %></span>
           </div>

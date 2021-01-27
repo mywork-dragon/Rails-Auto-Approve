@@ -18,11 +18,14 @@ Rails.application.routes.draw do
     resources :positions
     resources :reviews
     resources :review_sites
-    resources :themes, only: [:index, :show]
+    resources :themes, only: [:index, :show] do
+      get :fields, on: :member
+    end
     resources :users
   end
 
   resources :leads, only: :create
+  resources :contacts, only: :create
   resources :careers, path: 'join-our-team', only: [:index, :show]
 
   get '/admin' => 'admin/dashboard#show', as: :admin
@@ -35,6 +38,9 @@ Rails.application.routes.draw do
   get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
   get '/legal-stuff' => 'pages#legal_stuff', as: :legal_stuff
   get '/page-not-found' => 'pages#page_not_found', as: :page_not_found
+
+  match "/404", to: "errors#not_found", via: :all, as: :not_found
+  match "/500", to: "errors#internal_server_error", via: :all, as: :internal_error
 
   get '*id', to: 'landings#show', as: :landing
   root 'pages#index'

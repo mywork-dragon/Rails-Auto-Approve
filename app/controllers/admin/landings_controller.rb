@@ -1,4 +1,6 @@
 class Admin::LandingsController < AdminController
+  before_action :authorize_marketer!
+
   def index
     @landings = Landing.page(params[:page])
   end

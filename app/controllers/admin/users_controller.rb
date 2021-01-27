@@ -1,4 +1,6 @@
 class Admin::UsersController < AdminController
+  before_action :authorize_admin!
+
   def index
     @users = User.page(params[:page])
   end
