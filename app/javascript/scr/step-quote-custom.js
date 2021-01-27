@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $(document).on({
     ajaxStart: function(){
       $("body").addClass("loading");
@@ -9,6 +9,7 @@ $(document).ready(function () {
   });
 
   var slider = document.getElementById("credit_score");
+  
   var output = document.getElementById("demo");
 
   if (slider) {
@@ -62,21 +63,22 @@ $(document).ready(function () {
     validate(currentStep);
   });
 
-  function init() { // Init years
-    var ul = $("#yearSelect").find("ul");
-    var items = "";
+  
+  // function init() { // Init years
+  //   var ul = $("#yearSelect").find("ul");
+  //   var items = "";
 
-    var data = new Array(20).fill(1).map(function(item, index){return 2020 - index});
+  //   var data = new Array(20).fill(1).map(function(item, index){return 2020 - index});
 
-    data.forEach(function (item) {
-      items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
-    });
+  //   data.forEach(function (item) {
+  //     items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
+  //   });
 
-    ul.html(items);
-    getmdlSelect.init('#yearSelect');
-  }
+  //   ul.html(items);
+  //   getmdlSelect.init('#yearSelect');  componentHandler.upgradeDom();
+  // }
 
-  init();
+  // init();
 
   $("#year").on('change', function () {
     var value = $(this).val();
@@ -94,7 +96,7 @@ $(document).ready(function () {
           });
 
           ul.html(items);
-          getmdlSelect.init('#makeSelect');
+          getmdlSelect.init('#makeSelect');  componentHandler.upgradeDom();
           $("#make").on('change', makeHandler);
         }
         validate(currentStep);
@@ -121,7 +123,7 @@ $(document).ready(function () {
           });
 
           ul.html(items);
-          getmdlSelect.init('#modelSelect');
+          getmdlSelect.init('#modelSelect');  componentHandler.upgradeDom();
           $("#model").on('change', modelHandler);
 
           validate(currentStep);
