@@ -291,7 +291,7 @@
       </div>
     </section>
 
-    <%= render 'shared/why' %>
+    <%= render "shared/why" %>
 
     <section class="rpsm-section py-20 xl:bg-contain bg-top bg-no-repeat">
       <div class="container container-1170 px-4 mx-auto px-24-xs">
@@ -312,7 +312,7 @@
                     <p>Looking to refinance your car? We make lowering your monthly payments easy as 1, 2, 3.</p>
                   </div>  
                   <div class="link-div">
-                    <a href="#" class="link">Learn More</a>
+                    <%= link_to "Learn More", auto_refinance_path, class: :link %>
                   </div>
                 </div>
               </div>
@@ -332,7 +332,7 @@
                   </div>
                   
                   <div class="link-div">
-                    <a href="#" class="link">Learn More</a>
+                    <%= link_to "Learn More", motorcycle_refinance_path, class: :link %>
                   </div>
                 </div>
               </div>
@@ -348,6 +348,5 @@
     </section>
 
     <%= render "shared/reviews" %>
-    <%#= render "shared/resources" %>
     <%= render "shared/clients" %>
   </div>
