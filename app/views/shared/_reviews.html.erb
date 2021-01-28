@@ -8,9 +8,8 @@
     <div class="owl-slider-main-slider mb-12">
       <div class="owl-carousel owl-theme customers-customers-owl-div" id="customers-customers-owl">
         <% recent_reviews(9).each do |review| %>
-          <%= link_to review.url, target: :_blank do %>
             <div class="item">
-              <div class="card-custom-customers-reviews w-full mb-6">
+              <div class="card-custom-customers-reviews w-full mb-6" >
                 <div class="card-custom-customers-reviews-inner">
                   <div class="card-custom-top">
                     <div class="left-text-div">
@@ -37,11 +36,17 @@
                   
                   <div class="text-desc-div">
                     <p><%= review.content.truncate(100) %></p>
+                    <% if review.content.length > 100 %>
+                      <%= link_to review.url, target: :_blank do %>
+                      <div class="text-right">
+                        <p>Read More</p>
+                      </div>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>
             </div>
-          <% end %>
         <% end %>
       </div>
     </div>
