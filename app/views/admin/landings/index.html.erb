@@ -66,7 +66,7 @@
             </td>
             <td class="align-middle">
               <div class="flex flex-wrap items-center">
-                <%= link_to "Edit", edit_admin_landing_path(landing), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
+                <%= link_to "Edit", edit_admin_landing_path(landing), class: "mr-3 bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
                 <%= link_to admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none google-table-page-delete" do %>
                   <%= image_pack_tag "dashboard/table-action-2.png" %>
                 <% end %>
@@ -100,13 +100,7 @@
           </p>
           <div class="th-color my-4 flex items-center">
             <span class="mr-3">Actions:</span>
-            <%= link_to "Edit", edit_admin_landing_path(landing), class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
-            <button
-              class="outline-none shadow-none focus:outline-none focus:shadow-none mx-4"
-              id="google-table-page-duplicate"
-            >
-              <%= image_pack_tag "dashboard/table-action-1.png" %>
-            </button>
+            <%= link_to "Edit", edit_admin_landing_path(landing), class: "mr-3 bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none border-blue text-blue py-1 px-4 rounded-full border border-solid cool-transition hover:bg-blue hover:text-white" %>
             <%= link_to admin_landing_path(landing), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-transparent outline-none shadow-none focus:outline-none focus:shadow-none" do %>
               <%= image_pack_tag "dashboard/table-action-2.png" %>
             <% end %>
