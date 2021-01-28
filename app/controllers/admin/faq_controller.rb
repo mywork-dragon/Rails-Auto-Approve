@@ -17,7 +17,7 @@ class Admin::FaqController < AdminController
     @faq = Faq.new(position_params)
     if @faq.save
       flash[:notice] = 'Faq created successfully'
-      redirect_to admin_faq_path(@faq)
+      redirect_to admin_faq_index_path
     else
       render action: :new
     end
@@ -31,7 +31,7 @@ class Admin::FaqController < AdminController
     @faq = Faq.find(params[:id])
     if @faq.update(position_params)
       flash[:notice] = 'Faq updated successfully'
-      redirect_to admin_faq_path(@faq)
+      redirect_to admin_faq_index_path
     else
       render action: :edit
     end
