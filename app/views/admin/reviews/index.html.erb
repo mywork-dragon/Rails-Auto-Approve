@@ -41,19 +41,19 @@
           <th class="text-left px-2 align-middle">
             <input type="checkbox" />
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color ml-4">
+          <th class="align-middle text-left px-2 py-4 w-2/6 font-normal th-color ml-4">
             Review
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/3 font-normal th-color">
+          <th class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color">
             Reviewer
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
+          <th class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color">
             Rating
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/5 font-normal th-color">
+          <th class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color">
             Source
           </th>
-          <th class="align-middle text-left px-2 py-4 w-1/2 font-normal th-color">
+          <th class="align-middle text-left px-2 py-4 w-1/6 font-normal th-color">
             Actions
           </th>
         </tr>
@@ -65,7 +65,7 @@
               <input type="checkbox" id="table-checkbox" />
             </td>
             <td class="px-2 py-4 align-middle font-medium">
-              <%= review.content %>
+              <%= review.content.truncate(50) %>
             </td>
             <td class="px-2 py-4 align-middle font-light">
               <%= review.name %>
@@ -101,7 +101,7 @@
           <p class="th-color truncate">
             Review:
             <span class="text-black font-semibold ml-3"
-                ><%= review.content %></span
+                ><%= review.content.truncate(50) %></span
               >
           </p>
           <p class="th-color my-4 truncate">
