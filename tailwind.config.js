@@ -9,6 +9,9 @@ module.exports = {
       current: "currentColor",
       black: colors.black,
       white: colors.white,
+      yellow: colors.amber,
+      green: colors.emerald,
+      indigo: colors.indigo,
       custom: {
         color1: "#b8b8b8",
         color2: "#181a1d",

@@ -1,9 +1,9 @@
 class LandingsController < ApplicationController
   # Show the landing page
   def show
-    @landing = Landing.find_by(path: "/#{params[:id]}")
-    unless can_view_landing?(@landing)
-      render status: :not_found and return
+    @landing = Landing.find_by!(path: "/#{params[:id]}")
+    if !@landing.active? && !current_user
+      render status: :not_found
     end
   end
 

@@ -1,4 +1,6 @@
 class Admin::ReviewSitesController < AdminController
+  before_action :authorize_marketer!
+
   def index
     @sites = ReviewSite.page(params[:page])
   end

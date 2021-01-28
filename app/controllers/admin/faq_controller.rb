@@ -1,4 +1,6 @@
 class Admin::FaqController < AdminController
+  before_action :authorize_marketer!
+
   def index
     @faq = Faq.page(params[:page])
   end
