@@ -7,8 +7,8 @@ class Review < ApplicationRecord
   scope :recent, -> { order(created_at: :desc) }
 
   validates :review_site, presence: true
-  validates :name, :location, length: { maximum: 50 }, presence: true
-  validates :content, length: { maximum: 100 }, presence: true
+  validates :name, presence: true
+  validates :content, presence: true
   validates :rating, inclusion: RATINGS
   validates :url, url: true
 end

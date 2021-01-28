@@ -362,6 +362,7 @@ DEPENDENCIES
   money-rails
   pg (>= 0.18, < 2.0)
   phonelib
+  pry (~> 0.13.1)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rufo
