@@ -6,7 +6,7 @@
     <span>Edit Job</span>
   </label>
 </div>
-<%= simple_form_for @position, url: admin_positions_path do |f| %>
+<%= simple_form_for @position, url: admin_position_path(@position) do |f| %>
   <div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
     <div class="md:w-1/2 w-full">
       <h1 class="md:text-5xl text-xl">Edit Job</h1>
