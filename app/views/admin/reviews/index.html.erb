@@ -73,8 +73,8 @@
             <td class="px-2 py-4 align-middle font-light">
               <%= review.rating %>
             </td>
-            <td class="px-2 py-4 align-middle">
-              <span class="font-light"><%= cl_image_tag review.review_site.logo %></span>
+            <td class="align-middle">
+              <%= cl_image_tag review.review_site.logo.url %>
             </td>
             <td class="align-middle">
               <div class="flex flex-wrap items-center">
