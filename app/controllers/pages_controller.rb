@@ -18,6 +18,9 @@ class PagesController < ApplicationController
     @faq = Faq.all
   end
 
+  def congratulations
+  end
+
   def contact_us
   end
   
