@@ -17,7 +17,7 @@ class Admin::ReviewsController < AdminController
     @review = Review.new(review_params)
     if @review.save
       flash[:notice] = 'Review created successfully'
-      redirect_to admin_review_path(@review)
+      redirect_to admin_reviews_path
     else
       render action: :new
     end
@@ -31,7 +31,7 @@ class Admin::ReviewsController < AdminController
     @review = Review.find(params[:id])
     if @review.update(review_params)
       flash[:notice] = 'Review updated successfully'
-      redirect_to admin_review_path(@review)
+      redirect_to admin_reviews_path
     else
       render action: :edit
     end
