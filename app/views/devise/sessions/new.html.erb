@@ -2,6 +2,6 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-8" }) do |f| %>
   <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
   <%= f.password_field :password, autocomplete: "current-ppassword", placeholder: "Password" %>
-  <%= f.submit "Sign in", class: "bg-indigo-600 hover:bg-indigo-500 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer" %>
+  <%= f.submit "Sign in", class: "hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
   <%= link_to "Forgot Password", new_user_password_path %>
 <% end %>
