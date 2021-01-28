@@ -60,7 +60,7 @@
             <td class="px-2 py-4 align-middle"><%= landing.theme %></td>
             <td class="px-2 py-4 align-middle"><%= landing.path %></td>
             <td class="align-middle">
-              <span class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold capitalize">
+              <span class="<%= landing.active? ? 'table-live-btn' : 'table-off-btn' %> outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none py-1 px-4 rounded-xl font-bold capitalize">
                 <%= landing.state %>
               </span>
             </td>
@@ -94,7 +94,7 @@
           <p class="th-color my-4">
             Status:
             <span
-              class="outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none table-live-btn py-1 px-4 rounded-xl font-bold ml-3 capitalize"
+              class="<%= landing.active? ? 'table-live-btn' : 'table-off-btn' %> outline-none shadow-none focus:outline-none focus:shadow-none border-0 border-none py-1 px-4 rounded-xl font-bold ml-3 capitalize"
               ><%= landing.state %></span
             >
           </p>
