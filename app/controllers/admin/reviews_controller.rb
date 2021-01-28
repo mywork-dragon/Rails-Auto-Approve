@@ -47,7 +47,7 @@ class Admin::ReviewsController < AdminController
 
   def review_params
     params.require(:review).permit(
-      :review_site_id, :name, :content, :location, :url, :rating
+      :review_site_id, :name, :content, :url, :rating
     )
   end
 end
