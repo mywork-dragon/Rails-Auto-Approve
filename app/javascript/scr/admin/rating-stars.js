@@ -1,4 +1,11 @@
 $(document).on('turbolinks:load', function () {
+    var onStar = $('#review_rating').val()
+    var stars = $('#stars li').parent().children("li.star");
+
+    for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass("selected");
+    }
+
   $("#stars li")
     .on("mouseover", function () {
       var onStar = parseInt($(this).data("value"), 10);
@@ -33,5 +40,7 @@ $(document).on('turbolinks:load', function () {
     for (i = 0; i < onStar; i++) {
       $(stars[i]).addClass("selected");
     }
+
+    $('#review_rating').val(onStar);
   });
 });
