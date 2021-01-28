@@ -184,7 +184,36 @@ $(document).ready(function () {
 
   });
 
-  $("#submit-form").click(function () {
+  function formatData(data) {
+    return {
+      first_name: data.firstName,
+      last_name: data.lastName,
+      email: data.email,
+      date_of_birth: data.dateOfBirth,
+      phone: data.phoneNumber,
+      estimated_credit_score: data.creditScore,
+      street1: data.streetAddress,
+      city: data.city,
+      state_code: data.state,
+      zipcode: data.zipCode,
+      last_4_ssn: data.socialSecurity,
+      lien_payoff: data.payoffAmount,
+      lien_payment: data.currentPayment,
+      lien_rate: data.currentInterestRate,
+      desired_term: data.desiredTerm,
+      vehicle_type: data.vehicleType,
+      vehicle_year: data.year,
+      vehicle_make_id: data.make,
+      vehicle_make_name: '',
+      vehicle_model_id: data.model,
+      vehicle_model_name: '',
+      vehicle_mileage: data.mileage,
+      vehicle_vin: data.vin
+    }
+  }
+
+  $("#submit-form").click(function (event) {
+    event.preventDefault()
     if (!validate(3)) return;
 
     var data = {};
@@ -193,17 +222,21 @@ $(document).ready(function () {
       data[item] = $("input[name='" + item + "']").val();
     });
 
+    const postData = formatData(data)    
+
+    console.log(data)
     var jqxhr = $.ajax({
-        url: "https://aa-uat-function-nada.azurewebsites.net/api/quote", // TODO replace url with real
+        url: "/leads",
         method: "POST",
-        data: data,
+        data: { lead: postData },
       })
       .done(function(response) {
-        window.location.href = "get-a-quote-congratulations.html";
+        console.log(response)
+        // window.location.href = "get-a-quote-congratulations.html";
       })
       .fail(function(error) {
         console.log('error', error)
-        window.location.href = "get-a-quote-congratulations.html";
+        // window.location.href = "get-a-quote-congratulations.html";
       });
   });
 
