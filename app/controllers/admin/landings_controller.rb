@@ -17,7 +17,7 @@ class Admin::LandingsController < AdminController
     @landing = Landing.new(landing_params)
     if @landing.save
       flash[:notice] = 'Landing created successfully'
-      redirect_to admin_landing_path(@landing)
+      redirect_to admin_landings_path
     else
       render action: :new
     end
@@ -31,7 +31,7 @@ class Admin::LandingsController < AdminController
     @landing = Landing.find(params[:id])
     if @landing.update(landing_params)
       flash[:notice] = 'Landing updated successfully'
-      redirect_to admin_landing_path(@landing)
+      redirect_to admin_landings_path
     else
       render action: :edit
     end
