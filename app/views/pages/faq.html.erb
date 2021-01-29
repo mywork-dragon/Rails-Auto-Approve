@@ -19,7 +19,7 @@
                   <div class="faq-collapsable-box">
 
                     <% @faq.each_with_index do |faq, index| %>
-                      <div id="faq-list-02" class="collapsable collapsable-slide-new ca-collapsed <%= "ca-default-expanded" if index.eql?(0) %>">
+                      <div id="faq-list-02" class="collapsable collapsable-slide-new ca-collapsed">
                         <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span"><%= faq.question.html_safe %></span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
                         <div class="ca-box">
                           <div class="content-collapsable-inner-div">
