@@ -433,7 +433,7 @@
                                   <span class="label-text">Current Interest Rate</span>
                                   <span class="border"></span>
                                 </label>
-                                <span class="dollar-txt"> <span class="txt">%</span> </span>
+                                <span class="dollar-txt"> <span class="txt">$</span> </span>
                               </div>
                             </div>
 
@@ -686,21 +686,7 @@
         </div>
       </div>
     </section>
-    
-    <section class="customers-reviews-section py-20 xl:bg-contain bg-top bg-no-repeat">
-      <div class="container container-1170 px-4 mx-auto px-24-xs">
 
-        <div class="heading-div mx-auto mb-16 w-full text-center">
-          <h2>Real Customers. Real Reviews. <%= image_pack_tag "icons/custom/smile-icon.svg", class: "img-fluid img-icon" %></h2>
-        </div>
-
-        <div class="owl-slider-main-slider mb-12">
-          <div class="owl-carousel owl-theme customers-customers-owl-div" id="customers-customers-owl">
-            <%= render partial: 'shared/review',  collection: Review.includes(:review_site).recent.limit(9) %>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 
   <footer>
