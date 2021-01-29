@@ -1,5 +1,5 @@
 	<header>
-    <div class="header-div clearfix" >
+    <div class="header-div clearfix <%= yield (:header_class) %>" >
       <div class="inner-top-header-div clearfix">
         <div class="container px-2 mx-auto">
           <div class="row">
@@ -8,7 +8,11 @@
 
                 <div class="logo-div animation-right-fade">
                   <%= link_to root_path, class: "logo_link clearfix" do %>
-                    <%= image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo", alt: "logo" %>
+                    <% if yield (:header_class) == "header-dark-div" %>
+                      <%= image_pack_tag "logo-white.svg", class: "img-fluid logo_img white-logo", alt: "logo" %>
+                    <% else %>
+                      <%= image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo", alt: "logo" %>
+                    <% end %>
                   <% end %>
                 </div>
 
