@@ -7,6 +7,8 @@
   </label>
 </div>
     <%= simple_form_for @landing, url: admin_landings_path do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
         <div class="flex flex-wrap md:mt-5 md:mb-12 items-center">
         <div class="md:w-1/2 w-full">
           <h1 class="md:text-5xl text-xl">New Landing</h1>
