@@ -1,0 +1,39 @@
+ <div class="item">
+  <div class="card-custom-customers-reviews w-full mb-6" >
+    <div class="card-custom-customers-reviews-inner">
+      <div class="card-custom-top">
+        <div class="left-text-div">
+          <div class="img-div flex">
+            <%= image_pack_tag "icons/custom/quote-left-icon.svg", class: "object-contain img-quote" %>
+          </div>
+          <div class="left-user-div">
+            <h5><%= review.name %></h5>
+            <p>
+              <% review_stars(review)[:active].times do %>
+                <span class="review-star-active"></span>
+              <% end %>
+
+              <% review_stars(review)[:blank].times do %>
+                <span class="review-star"></span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="img-right-div flex">
+          <%= cl_image_tag review.review_site.logo, class: "object-contain img-fluid" %>
+        </div>
+      </div>
+      
+      <div class="text-desc-div">
+        <p><%= review.content.truncate(100) %></p>
+        <% if review.content.length > 100 %>
+          <%= link_to review.url, target: :_blank do %>
+          <div class="text-right">
+            <p>Read More</p>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
