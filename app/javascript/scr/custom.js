@@ -14,7 +14,8 @@ window.closeNav = function() {
   $("body").removeClass("overflow-fixed");
 }
 
-$(document).on('turbolinks:load', function () {
+// $(document).on('turbolinks:load', function () {
+$(document).ready(function () {
   $(".cd-shadow-layer").click(function () {
     closeNav();
   });

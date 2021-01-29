@@ -19,7 +19,7 @@
                   <div class="faq-collapsable-box">
 
                     <% @faq.each_with_index do |faq, index| %>
-                      <div id="faq-list-02" class="collapsable collapsable-slide-new ca-collapsed <%= "ca-default-expanded" if index.eql?(0) %>">
+                      <div id="faq-list-02" class="collapsable collapsable-slide-new ca-collapsed">
                         <h5 class="ca-control"> <a href="#"> <span class="text"> <span class="left-text">Q:</span> <span class="text-right-span"><%= faq.question.html_safe %></span> </span>  <span class="bg-custom-icon down-arrow-icon"></span> </a> </h5>
                         <div class="ca-box">
                           <div class="content-collapsable-inner-div">
@@ -43,8 +43,8 @@
               <div class="card-faq-botom-div">
                 <div class="card-faq-botom-div-inner">
                   <h4>Don’t see the answer you’re looking for?</h4>
-                  <p>Check out our resources page for more topics or simply
-                  <%= link_to "contact us", contact_us_path, class: "link" %>.
+                  <p>Check out our resources page for more topics or simply contact us on
+                  <%= link_to "(844) 336-3365", "tel:844-336-3365", class: "link" %>.
                   Our answer gurus are waiting.</p>
                 </div>    
               </div>
@@ -59,7 +59,8 @@
   </div>
 
 <script>
-  $(document).on('turbolinks:load', function () {
+// $(document).on('turbolinks:load', function () {
+  $(document).ready(function () {
     $(".collapsable-slide-new").collapsable({
       fx: "slide",
       fxDuration: 300,

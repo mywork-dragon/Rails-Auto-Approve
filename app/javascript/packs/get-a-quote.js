@@ -1,5 +1,5 @@
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 
 import "stylesheets/get-a-quote";
 global.$ = require("../scr/themes/jquery.min")
@@ -11,7 +11,7 @@ require("../scr/themes/range-slider")
 require("../scr/themes/jquery.collapsable")
 require("../scr/themes/footer")
 require("../scr/themes/flatpickr.min")
-import "../scr/flatpickr"
+import "../scr/themes/flatpickr"
 require("../scr/themes/step-quote-custom")
 require("../scr/themes/custom")
 
