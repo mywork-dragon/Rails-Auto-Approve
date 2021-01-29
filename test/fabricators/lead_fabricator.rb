@@ -27,7 +27,7 @@ Fabricator(:lead) do
   vehicle_vin 'XXXXXXXXXXX'
   vehicle_make_name 'Honda'
   vehicle_mileage 1000
-  vehicle_type { Lead::VEHICLE_TYPES.sample }
+  vehicle_type { Mappings::VehicleTypes.types.sample }
   desired_term 72
 
   lien_name 'Citibank'

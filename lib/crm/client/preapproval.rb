@@ -6,6 +6,8 @@ module Crm
       headers 'Accept' => 'application/json'
       headers 'Content-Type' => 'application/json'
   
+      debug_output $stdout if Rails.env.development?
+
       # Initialize Preapproval
       #
       # @param id [String]
@@ -26,7 +28,7 @@ module Crm
           }.to_json
         )
         Response.new(
-          success?: response.ok?,
+          success: response.ok?,
           body: JSON.parse(response.body)
         )
       end

@@ -1,0 +1,623 @@
+<div class="overlay"></div>
+<div id="wrapper" class="wrapper home-wrapper">
+	<header>
+    <div class="header-div clearfix" >
+      <div class="inner-top-header-div clearfix">
+        <div class="container px-2 mx-auto">
+          <div class="row">
+            <div class="w-full lg:w-1/1 px-2">
+              <div class="header-container">
+
+                <div class="logo-div animation-right-fade">
+                  <a class="logo_link clearfix" href="/">
+                    <%= image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo" %>
+                  </a>
+                </div>
+
+                <nav class="nav-center-div">
+                  <div class="top-nav1">
+                    <div class="cd-shadow-layer"></div>
+                    <div class="nav-m-bar">
+                      <a onclick="openNav()" class="opennav" data-placement="bottom" title="" data-original-title="Menu">
+                        <i class="menu-bars menu-icon"></i>
+                      </a>
+                    </div>
+
+                    <div class="nav-div clearfix" id="mySidenav" >
+                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                      <div class="center-right-div">
+
+                        <div class="left-side animation-left-fade">
+                        </div>
+
+
+                        <div class="right-side animation-left-fade">
+                          <div class="get-quote-header-div">
+                            <div class="get-quote-header-top-div">
+                              <div class="btn-div">
+                                <a href="tel:{{phone}}" class="btn btn-primary-link">{{phone_text}}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </nav>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>	
+    </div><!--  End of header with navigation div  -->
+  </header>
+
+  <div class="main-middle-area main-height-between">
+    
+    <section class="get-quote-main-section responsive-padding-top" id="main-get-quote-section">
+      <div class="get-quote-main-div">
+
+        <div class="container container-720 px-4 mx-auto px-22-xs">
+          <div class="row flex flex-wrap">
+            <div class="w-full lg:w-1/1">
+              
+              <div class="heading-div mx-auto">
+                <h1>Get a <span class="span-color">Quote.</span></h1>
+                <p>Complete the form below to recieve your personalized quote</p>
+              </div>
+
+              <div class="step-forms-main-root">
+                <div class="step-forms-main-row">
+
+                  <div class="step-forms-tabs-top">
+                    <div class="step-forms-tabs-top-row">
+
+                      <ul class="step-forms-tabs-ul" id="step-quote-forms-tabs">
+                        <li class="step-forms-tabs-li active" id="tabs-step-list-header01">
+                          <div class="tabs-box">
+                            <div class="tabs-box-icon">
+                              <span class="rounded-span">
+                                <i class="bg-custom-icon information-outline-icon"></i>
+                              </span>
+                            </div>
+                            <div class="tabs-box-text">
+                              <p>Step 1/3</p>
+                              <h5>Basic Information</h5>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li class="step-forms-tabs-li" id="tabs-step-list-header02">
+                          <div class="tabs-box">
+                            <div class="tabs-box-icon">
+                              <span class="rounded-span">
+                                <i class="bg-custom-icon user-outline-icon"></i>
+                                
+                              </span>
+                            </div>
+                            <div class="tabs-box-text">
+                              <p>Step 2/3</p>
+                              <h5>Personal Information </h5>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li class="step-forms-tabs-li" id="tabs-step-list-header03">
+                          <div class="tabs-box">
+                            <div class="tabs-box-icon">
+                              <span class="rounded-span">
+                                <i class="bg-custom-icon vehicle-outline-icon"></i>
+                              </span>
+                            </div>
+                            <div class="tabs-box-text">
+                              <p>Step 3/3</p>
+                              <h5>Vehicle Information</h5>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+
+                    </div>
+                  </div>
+
+                  <form id="quote-form">
+                    <input type="hidden" name="landing_id" value="<%= @landing.id %>">
+                    <input type="hidden" name="make_name" value="">
+                    <input type="hidden" name="model_name" value="">
+
+                    <div class="step-forms-tabs-body">
+                      <div class="step-forms-tabs-body-row active-step" id="quote-step01">
+
+                        <div class="form-div">
+                          <div class="row flex flex-wrap -mx-6">
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="firstName">
+                                <label class="input-box-label">
+                                  <input type="text" name="firstName" class="form-input" placeholder="&nbsp;" required>
+                                  <span class="label-text">First Name</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="lastName">
+                                <label class="input-box-label">
+                                  <input type="text" name="lastName" class="form-input" placeholder="&nbsp;" required>
+                                  <span class="label-text">Last Name</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="phoneNumber">
+                                <label class="input-box-label">
+                                  <input type="text" name="phoneNumber" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Phone Number</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="email">
+                                <label class="input-box-label">
+                                  <input type="email" name="email" class="form-input" placeholder="&nbsp;" required>
+                                  <span class="label-text">Email Address</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/1 lg:w-1/1 px-6 mb-7">
+                              <div class="input-box-effect range-slider-group">
+                                <div class="form-range-box">
+                                  <p>Estimated Credit Score</p>
+                                  <div class="text-number"> <h3 id="demo">700</h3> </div>
+
+                                  <div class="slider-box slider-box-custom">
+                                    <input type="range" id="credit_score" name="creditScore" min="400" max="850" value="700" class="range-slider-input" />
+
+                                    <div class="range-slider-txt-row">
+                                      <span class="range-slider-left-txt">400</span>
+                                      <span class="range-slider-right-txt">850</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="step-forms-footer-div flex flex-wrap items-center pt-2">
+
+                          <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9 step-footer-content-div">
+                            <div class="btn-bottom-left-div flex flex-wrap items-center w-full md:w-7/12 lg:w-7/12 mb-6 sm:mb-0">
+                              <div class="txt-div-left-bottom-div">
+                                <p>By entering your phone number, you consent to receiving calls and/or texts from Auto Approve by any method. Carrier charges may apply.</p>
+                              </div>
+                            </div>
+                            <div class="btn-bottom-right-div flex flex-wrap justify-end items-center w-full md:w-5/12 lg:w-5/12">
+                              <a href="javascript:void(0)" id="next-step-2" class="btn btn-primary btn-step btn-next">Next Step <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="step-forms-tabs-body-row hidden" id="quote-step02">
+
+                        <div class="form-div">
+
+                          <div class="row flex flex-wrap -mx-6 sm:mb-6 mb-0">
+
+                            <div class="form-col w-full md:w-1/1 lg:w-1/1 px-6 mb-7">
+                              <div class="input-box-effect" id="streetAddress">
+                                <label class="input-box-label">
+                                  <input type="text" name="streetAddress" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Street Address</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-7">
+                              <div class="input-box-effect" id="city">
+                                <label class="input-box-label">
+                                  <input type="text" name="city" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">City</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-2">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="stateSelect">
+                                <input type="text" value="" class="mdl-textfield__input" id="state" readonly>
+                                <input type="hidden" value="" name="state">
+                                <i class="mdl-icon-toggle__label material-icons"></i>
+                                <label for="state" class="mdl-textfield__label">State</label>
+                                <ul for="state" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                  <% Mappings::States::MAPPING.each do |code, label| %>
+                                    <li class="mdl-menu__item" data-val="<%= code %>"><%= label %></li>
+                                  <% end %>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-7">
+                              <div class="input-box-effect" id="zipCode">
+                                <label class="input-box-label">
+                                  <input type="text" name="zipCode" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Zip Code</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect form-group-icon" id="dateOfBirth">
+                                <label class="input-box-label">
+                                  <input type="text" name="dateOfBirth" id="datetime-picker1" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Date of Birth</span>
+                                  <span class="border"></span>
+                                </label>
+                                <span class="icon-group">
+                                  <span class="bg-custom-icon date-icon abs-material-icons" id="dob-click"></span>
+                                </span>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="socialSecurity">
+                                <label class="input-box-label">
+                                  <input type="text" name="socialSecurity" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Social Security (last 4)</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="step-forms-footer-div">
+
+                          <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9">
+                            <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0">
+                              <a href="javascript:void(0)" id="previous-step-1" class="btn btn-pre-back btn-step btn-previous min-h48"> <span class="bg-custom-icon arrow-left-long-blue"></span> Previous Step </a>
+                            </div>
+                            <div class="btn-bottom-right-div flex flex-wrap items-center">
+                              <a href="javascript:void(0)" id="next-step-3" class="btn btn-primary btn-step btn-next min-h48">Next Step <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
+                            </div>
+                          </div>
+
+                          <div class="bottom-text-div max-w-screen-sm mb-7">
+                            <p>Don't see your vehicle listed? We refinance cars, trucks, SUVs, Motorcycles, RVs, Boats and ATVs.
+                              <span class="block">Call us at <a href="tel:{{phone}}" class="link">{{phone_text}}</a> for a quote.</span>
+                            </p>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <div class="step-forms-tabs-body-row hidden" id="quote-step03">
+
+                        <div class="form-div">
+
+                          <div class="row flex flex-wrap -mx-6 sm:mb-6 mb-0">
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="vehicleTypeSelect">
+                                <input type="text" value="" class="mdl-textfield__input" id="vehicleType" readonly>
+                                <input type="hidden" value="" name="vehicleType">
+                                <i class="mdl-icon-toggle__label material-icons"></i>
+                                <label for="vehicleType" class="mdl-textfield__label">Vehicle Type</label>
+                                <ul for="vehicleType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                  <% Mappings::VehicleTypes::MAPPING.each do |label, value| %>
+                                    <li class="mdl-menu__item" data-val="<%= label %>"><%= label %></li>
+                                  <% end %>
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="yearSelect">
+                                <input type="text" value="" class="mdl-textfield__input" id="year" readonly>
+                                <input type="hidden" value="" name="year">
+                                <i class="mdl-icon-toggle__label material-icons"></i>
+                                <label for="year" class="mdl-textfield__label">Year</label>
+                                <ul for="year" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="makeSelect">
+                                <input type="text" value="" class="mdl-textfield__input" id="make" readonly>
+                                <input type="hidden" value="" name="make">
+                                <i class="mdl-icon-toggle__label material-icons"></i>
+                                <label for="make" class="mdl-textfield__label">Make</label>
+                                <ul for="make" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="modelSelect">
+                                <input type="text" value="" class="mdl-textfield__input" id="model" readonly>
+                                <input type="hidden" value="" name="model">
+                                <i class="mdl-icon-toggle__label material-icons"></i>
+                                <label for="model" class="mdl-textfield__label">Model</label>
+                                <ul for="model" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                </ul>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="vin">
+                                <label class="input-box-label">
+                                  <input type="text" name="vin" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">VIN (optional)</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="mileage">
+                                <label class="input-box-label">
+                                  <input type="text" name="mileage" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Mileage (optional)</span>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="row flex flex-wrap -mx-6 mb-4">
+
+                            <div class="form-col w-full md:w-1/1 lg:w-1/1 px-6 mb-3">
+                              <div class="title-heading-div flex flex-wrap">
+                                <h4>LOAN INFORMATION </h4>
+                                <p>(your best guess is fine)</p>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect form-dollar-group-custom" id="currentPayment">
+                                <label class="input-box-label">
+                                  <input type="text" name="currentPayment" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Current Payment</span>
+                                  <span class="border"></span>
+                                </label>
+                                <span class="dollar-txt"> <span class="txt">$</span> </span>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect form-dollar-group-custom" id="currentInterestRate">
+                                <label class="input-box-label">
+                                  <input type="text" name="currentInterestRate" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Current Interest Rate</span>
+                                  <span class="border"></span>
+                                </label>
+                                <span class="dollar-txt"> <span class="txt">$</span> </span>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect form-dollar-group-custom" id="payoffAmount">
+                                <label class="input-box-label">
+                                  <input type="text" name="payoffAmount" class="form-input" placeholder="&nbsp;">
+                                  <span class="label-text">Payoff Amount</span>
+                                  <span class="border"></span>
+                                </label>
+                                <span class="dollar-txt"> <span class="txt">$</span> </span>
+                              </div>
+                            </div>
+
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="desiredTermSelect">
+                                <input type="text" value="" class="mdl-textfield__input" id="desiredTerm" readonly>
+                                <input type="hidden" value="" name="desiredTerm">
+                                <i class="mdl-icon-toggle__label material-icons"></i>
+                                <label for="desiredTerm" class="mdl-textfield__label">Desired Term</label>
+                                <ul for="desiredTerm" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                  <li class="mdl-menu__item" data-val="36">36 Months</li>
+                                  <li class="mdl-menu__item" data-val="48">48 Months</li>
+                                  <li class="mdl-menu__item" data-val="60">60 Months</li>
+                                  <li class="mdl-menu__item" data-val="72">72 Months</li>
+                                  <li class="mdl-menu__item" data-val="80">80 Months</li>
+                                </ul>
+                              </div>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                        <div class="step-forms-footer-div">
+
+                          <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9">
+                            <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0">
+                              <a href="javascript:void(0)" id="previous-step-2" class="btn btn-pre-back btn-step btn-previous min-h48"> <span class="bg-custom-icon arrow-left-long-blue"></span> Previous Step </a>
+                            </div>
+                            <div class="btn-bottom-right-div flex flex-wrap items-center">
+                              <a href="javascript:void(0)" id="submit-form" class="btn btn-primary btn-step btn-next min-h48">Get my instant quote </a>
+                            </div>
+                          </div>
+
+                          <div class="bottom-text-div max-w-screen-sm mb-7">
+                            <p>Don't see your vehicle listed? We refinance cars, trucks, SUVs, Motorcycles, RVs, Boats and ATVs.
+                              <span class="block">Call us at <a href="tel:{{phone}}" class="link">{{phone_text}}</a> for a quote.</span>
+                            </p>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-div">
+      <div class="container container-1170 px-3 mx-auto px-24-xs">
+        <div class="row">
+          <div class="w-full lg:w-1/1">
+
+            <div class="footer-top-div">
+              <div class="flex flex-wrap -mx-3">
+                <div class="footer-top-left-justify w-full md:w-1/2 lg:w-1/2 px-3 mb-6">
+                  <div class="img-footer-logo-div">
+                    <a href="#" class="footer-logo-link">
+                      <%= image_pack_tag "logo-white.svg", class: "object-fit img-footer-logo" %>
+                    </a>
+                  </div>
+                </div>
+                <div class="footer-top-right-justify w-full md:w-1/2 lg:w-1/2 px-3 mb-6">
+                  <div class="get-quote-footer-div">
+                    <div class="get-quote-footer-top-div">
+                      <div class="link-div">
+                        <a href="tel:{{phone}}" class="btn btn-secondary-link">{{phone_text}}</a>
+                      </div>
+                      <div class="btn-div">
+                        <%= link_to "Get a quote", quote_path, class: "btn btn-secondary" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-middle-div">
+              <div class="flex flex-wrap -mx-3">
+                
+                <div class="footer-middle-box w-24 w-full md:w-1/5 lg:w-1/5 px-3 mb-6">             
+                  <div class="footer-col-div">
+                    <div id="footer-list-01" class="collapsable collapsable-slide ca-collapsed">
+                      <h5 class="ca-control"> <a href="#">Products <span class="display-none bg-custom-icon down-arrow-icon"></span> </a> </h5>
+                      <div class="ca-box">
+                        <ul class="list-ul">
+                          <li><%= link_to "Vehicle Refinance", auto_refinance_path, class: "footer-link" %></li>
+                          <li><%= link_to "Lease Purchase", auto_lease_purchase_path, class: "footer-link" %></li>
+                          <li><%= link_to "Motorcycle Refinance", motorcycle_refinance_path, class: "footer-link" %></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="footer-middle-box w-24 w-full md:w-1/5 lg:w-1/5 px-3 mb-6">             
+                  <div class="footer-col-div">
+                    <div id="footer-list-01" class="collapsable collapsable-slide ca-collapsed">
+                      <h5 class="ca-control"> <a href="#">Resources<span class="display-none bg-custom-icon down-arrow-icon"></span> </a> </h5>
+                      <div class="ca-box">
+                        <ul class="list-ul">
+                          <li><%= link_to "FAQ", faq_path, class: "footer-link" %></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="footer-middle-box w-36 w-full md:w-1/4 lg:w-1/5 px-3 mb-6">             
+                  <div class="footer-col-div">
+                    <div id="footer-list-01" class="collapsable collapsable-slide ca-collapsed">
+                      <h5 class="ca-control"> <a href="#">Company <span class="display-none bg-custom-icon down-arrow-icon"></span> </a> </h5>
+                      <div class="ca-box">
+                        <ul class="list-ul list-ul-50">
+                          <li><%= link_to "Why Auto Approve", why_auto_approve_path, class: "footer-link" %></li>
+                          <li><%= link_to "Contact Us", contact_us_path, class: "footer-link" %></li>
+                          <li><%= link_to "Privacy Policy", legal_stuff_path, class: "footer-link" %></li>
+                          <li><%= link_to "Join the Team", careers_path, class: "footer-link" %></li>
+                          <li><%= link_to "Terms Of Service", terms_of_service_path, class: "footer-link" %></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="footer-bottom-div">
+              <div class="flex flex-wrap -mx-3">
+                <div class="footer-bottom-right-justify w-full md:w-1/2 lg:w-1/2 px-3 mb-6">
+
+                  <div class="social-media-div">
+                    <ul class="social-media-ul">
+                      <li>
+                        <a href="https://www.facebook.com/autoapprovellc/" class="social-link">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/AutoApproveRefi" class="social-link">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.instagram.com/autoapprove/" class="social-link">
+                          <i class="fab fa-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.pinterest.com/autoapprove/" class="social-link">
+                          <i class="fab fa-pinterest"></i>
+                        </a>
+                      </li>
+                    </ul>
+  
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- end of wrapper -->
+
+<script>
+  $(document).ready(function() {
+    var startdate;
+    startdate = flatpickr("#datetime-picker1",{
+      altInput: true,
+        disableMobile: "true",
+        enableTime: false,
+        altInput: true,
+        // altFormat: "j F Y",
+        dateFormat: "Y-m-d H:i",
+    });
+     $("#dob-click").click(function() {
+      startdate.toggle()
+    }); 
+  });
+</script>

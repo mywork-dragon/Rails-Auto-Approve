@@ -1,4 +1,6 @@
 class LandingsController < ApplicationController
+  layout 'landing'
+
   # Show the landing page
   def show
     @landing = Landing.find_by!(path: "/#{params[:id]}")

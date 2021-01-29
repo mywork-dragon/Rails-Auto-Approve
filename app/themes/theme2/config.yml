@@ -1,5 +1,0 @@
-variables:
-  hero-message: nil
-  hero-description: nil
-  phone: nil
-  btn-form-submit: nil

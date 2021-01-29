@@ -13,10 +13,16 @@ class Landing < ApplicationRecord
     @theme_instance ||= Theme.new(theme)
   end
 
+  def render(scope)
+    renderer = ERB.new(theme_instance.markup)
+    template = Liquid::Template.parse(renderer.result(scope))
+    template.render(config)
+  end
+
   # Render the template
   #
   # @return [String]
-  def render
+  def render2(view)
     renderer = ERB.new(theme_instance.markup)
     template = Liquid::Template.parse(renderer.result)
     template.render(config)

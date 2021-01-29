@@ -6,6 +6,8 @@ module Crm
       headers 'Accept' => 'application/json'
       headers 'Content-Type' => 'application/json'
   
+      debug_output $stdout if Rails.env.development?
+
       # Initialize our lead
       #
       # @param lead [Lead]
