@@ -14,8 +14,10 @@
 
     <div class="md:w-1/2 w-full flex items-center justify-end">
       <label class="switch">
-        <input type="checkbox" id="live-check" />
-        <span class="slider round"></span>
+        <%= f.input :state, as: :integer do %>
+          <%= f.check_box :state, {id: "live_check"}, "active", "archived" %>
+          <span class="slider round"></span>
+        <% end %>
       </label>
       <span class="ml-2 live-text cool-transition">Live</span>
       <%= f.submit "Create", class:"capitalize bg-custom-color1 text-white px-6 py-2 rounded-full flex ml-4 items-center" %>

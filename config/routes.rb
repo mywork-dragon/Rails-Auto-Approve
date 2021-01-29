@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get '/faq' => 'pages#faq', as: :faq
   get '/congratulations' => 'pages#congratulations', as: :congratulations
   get '/contact-us' => 'pages#contact_us', as: :contact_us
+  get '/congratulations' => 'pages#congratulations', as: :congratulations
   get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
   get '/legal-stuff' => 'pages#legal_stuff', as: :legal_stuff
   get '/page-not-found' => 'pages#page_not_found', as: :page_not_found
