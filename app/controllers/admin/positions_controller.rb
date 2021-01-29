@@ -17,7 +17,7 @@ class Admin::PositionsController < AdminController
     @position = Position.new(position_params)
     if @position.save
       flash[:notice] = 'Position created successfully'
-      redirect_to admin_position_path(@position)
+      redirect_to admin_positions_path
     else
       render action: :new
     end
@@ -31,7 +31,7 @@ class Admin::PositionsController < AdminController
     @position = Position.find(params[:id])
     if @position.update(position_params)
       flash[:notice] = 'Position updated successfully'
-      redirect_to admin_position_path(@position)
+      redirect_to admin_positions_path
     else
       render action: :edit
     end
