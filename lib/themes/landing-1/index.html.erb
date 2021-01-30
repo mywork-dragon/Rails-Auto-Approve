@@ -37,7 +37,7 @@
                           <div class="get-quote-header-div">
                             <div class="get-quote-header-top-div">
                               <div class="btn-div">
-                                <a href="tel:{{phone}}" class="btn btn-primary-link">{{phone_text}}</a>
+                                <a href="tel:{{phone}}" class="btn btn-primary-link">{{phone_label}}</a>
                               </div>
                             </div>
                           </div>
@@ -69,9 +69,9 @@
               
                 <div class="content-banner">
                   <div class="text-content animation-up-fade">
-                    <h4>A Better Way To Refinance Your Automobile</h4>
-                    <h1>Less Paperwork. Less Time. <span class="span-color">Lower Payments.</span></h1>
-                    <p>Rates as low as 2.25% APR*</p>
+                    <h4>{{hero_slogan}}</h4>
+                    <h1>{{hero_title}}<span class="span-color">{{hero_subtitle}}</span></h1>
+                    <p>{{hero_rate}}</p>
                   </div>
                 </div>
                 
@@ -225,7 +225,7 @@
                               </div>
                             </div>
                             <div class="btn-bottom-right-div flex flex-wrap justify-end items-center w-full md:w-5/12 lg:w-5/12">
-                              <a href="javascript:void(0)" id="next-step-2" class="btn btn-primary btn-step btn-next">Next Step <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
+                              <a href="javascript:void(0)" id="next-step-2" class="btn btn-primary btn-step btn-next">{{next_button}} <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
                             </div>
                           </div>
 
@@ -504,7 +504,7 @@
       <div class="container container-1170 px-4 mx-auto px-24-xs">
 
         <div class="heading-div mx-auto mb-12 text-center">
-          <h2>We Make Refinancing Painless. <span class="block">Just 3 Easy Steps.</span> </h2>
+          <h2>{{about_title}}<span class="block">{{about_subtitle}}</span> </h2>
         </div>
 
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -549,18 +549,14 @@
               </div>
             </div>
           </div>
-
         </div>
-        <div class="btn-div flex justify-center text-center">
-          <%= link_to "Start saving today", quote_path, class: "btn btn-primary btn-primary-big" %>
-      </div>
     </section>
 
     <section class="custom-section-03 py-20 xl:bg-contain bg-top bg-no-repeat">
       <div class="container container-1170 px-4 mx-auto ">
 
         <div class="heading-div mx-auto mb-12 text-center">
-          <h2>Why Auto Approve?</h2>
+          <h2>{{why_title}}</h2>
         </div>
 
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -695,7 +691,7 @@
 
         <div class="owl-slider-main-slider mb-12">
           <div class="owl-carousel owl-theme customers-customers-owl-div" id="customers-customers-owl">
-            <%= render partial: 'shared/review',  collection: Review.includes(:review_site).recent.limit(9) %>
+            <%= render partial: "shared/review", collection: Review.includes(:review_site).recent.limit(9) %>
           </div>
         </div>
       </div>

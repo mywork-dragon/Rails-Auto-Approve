@@ -1,5 +1,4 @@
-// $(document).on('turbolinks:load', function () {
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $('#theme_select').on('change', function(event) {
     const theme = $(event.target).find('option:selected').text()
     $.get(`/admin/themes/${theme}/fields`).then(function(result) {

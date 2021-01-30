@@ -243,10 +243,12 @@ $(document).ready(function () {
       .done(function(response) {
         console.log(response)
         // window.location.href = "get-a-quote-congratulations.html";
+        window.location.href = "/congratulations";
       })
       .fail(function(error) {
         console.log('error', error.responseText)
         // window.location.href = "get-a-quote-congratulations.html";
+        window.location.href = "/congratulations";
       });
   });
 
