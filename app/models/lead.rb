@@ -30,6 +30,13 @@ class Lead < ApplicationRecord
   validates :job_months, numericality: { greater_than: -1, less_than: 12 }, allow_blank: true
   validates :job_wages, money: true, allow_blank: true
 
+  # Set birthday from string
+  #
+  # @param val [Mixed]
+  def date_of_birth=(val)
+    self[:date_of_birth] = Chronic.parse(val)
+  end
+
   # Check if lead is synced
   #
   # @return [Boolean]

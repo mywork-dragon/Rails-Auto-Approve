@@ -6,8 +6,9 @@ ruby "2.7.2"
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
 
 gem "bootsnap", ">= 1.4.2", require: false
-gem "cloudinary"
 gem "carrierwave"
+gem "chronic"
+gem "cloudinary"
 gem "devise"
 gem "figaro"
 gem "friendly_id"
@@ -39,7 +40,7 @@ group :development do
   gem "listen", "~> 3.2"
   gem "guard"
   gem "guard-minitest"
-  gem 'pry', '~> 0.13.1'
+  gem "pry", "~> 0.13.1"
   gem "rufo", require: false
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"

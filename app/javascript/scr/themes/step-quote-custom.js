@@ -58,7 +58,7 @@ $(document).ready(function () {
     var ul = $("#yearSelect").find("ul");
     var items = "";
 
-    var jqxhr = $.ajax("https://aa-uat-function-nada.azurewebsites.net/api/years")
+    var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years")
       .done(function(response) {
         const data = response && response.value;
 
@@ -90,7 +90,7 @@ $(document).ready(function () {
   $("#year").on('change', function () {
     var value = $(this).val();
 
-    var jqxhr = $.ajax("https://aa-uat-function-nada.azurewebsites.net/api/years/"+ value + "/makes")
+    var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years/"+ value + "/makes")
       .done(function(response) {
         const data = response && response.value;
 
@@ -119,7 +119,7 @@ $(document).ready(function () {
     var value = parent.val();
     $("input[name='make_name]").val(parent.find('option:selected').text());
 
-    var jqxhr = $.ajax("https://aa-uat-function-nada.azurewebsites.net/api/years/"+ year + "/makes/" + value + "/models")
+    var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years/"+ year + "/makes/" + value + "/models")
       .done(function(response) {
         const data = response && response.value;
 
