@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/congratulations' => 'pages#congratulations', as: :congratulations
   get '/contact-us' => 'pages#contact_us', as: :contact_us
   get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
-  get '/legal-stuff' => 'pages#legal_stuff', as: :legal_stuff
+  get '/privacy-policy' => 'pages#privacy_policy', as: :privacy_policy
   get '/page-not-found' => 'pages#page_not_found', as: :page_not_found
 
   match "/404", to: "errors#not_found", via: :all, as: :not_found
