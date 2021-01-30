@@ -4,7 +4,7 @@ $(document).ready(function () {
   var output = document.getElementById("demo");
 
   // Init values
-  $("#myRange").val(20000);
+  $("#myRange").val(35000);
   $("#month_range").val(48);
   $("#rate2").val(2.25);
 
