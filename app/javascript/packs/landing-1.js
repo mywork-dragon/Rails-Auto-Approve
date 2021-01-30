@@ -8,7 +8,7 @@ global.$ = require("../scr/themes/jquery.min")
 
 require("../scr/themes/material.min")
 require("../scr/themes/rangeslider.min")
-require("../scr/themes/flatpickr.min")
+// require("../scr/themes/flatpickr.min")
 require("../scr/themes/owl.carousel.min")
 require("../scr/themes/range-slider")
 require("../scr/themes/jquery.collapsable")
@@ -17,7 +17,7 @@ require("../scr/themes/footer")
 require("../scr/themes/custom")
 require("../scr/themes/get-owl-slider")
 require("../scr/themes/step-quote-custom")
-import "../scr/flatpickr"
+// import "../scr/flatpickr"
 import "owl.carousel/dist/assets/owl.carousel.min.css";
 
 

@@ -10,8 +10,8 @@ require("../scr/themes/rangeslider.min")
 require("../scr/themes/range-slider")
 require("../scr/themes/jquery.collapsable")
 require("../scr/themes/footer")
-require("../scr/themes/flatpickr.min")
-import "../scr/themes/flatpickr"
+// require("../scr/themes/flatpickr.min")
+// import "../scr/themes/flatpickr"
 require("../scr/themes/step-quote-custom")
 require("../scr/themes/custom")
 
