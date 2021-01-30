@@ -8,10 +8,12 @@ $(document).ready(function () {
   $("#month_range").val(48);
   $("#rate2").val(2.25);
 
-  output.innerHTML = slider.value;
+
+  // value showed to user
+  output.innerHTML = toCommas(slider.value);
 
   slider.oninput = function() {
-    output.innerHTML = this.value;
+    output.innerHTML = toCommas(this.value);
   }
 
   var slider2 = document.getElementById("month_range");
@@ -25,7 +27,6 @@ $(document).ready(function () {
   $(document).ready(function () {
       current_rate_cal();
   } );
-
 
   window.PMT = function(i,n,p){
     return i*p*Math.pow((1+i),n)/(1-Math.pow((1+i),n));
@@ -55,6 +56,12 @@ $(document).ready(function () {
     var interest1=$("#interest1").val();
     var interest2=$("#interest2").val();
     var savings=interest1-interest2;
-    document.getElementById("saving").innerHTML=savings.toFixed(2);
+    document.getElementById("saving").innerHTML=toCommas(savings.toFixed(2));
   }
+
+  // Transform 1000 into 1,0000
+  function toCommas(value) {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
 });
