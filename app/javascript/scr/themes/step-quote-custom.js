@@ -222,6 +222,26 @@ $(document).ready(function () {
     }
   }
 
+  function showSuccessMessage() {
+    if( $('#main-banner-section').length ) {
+      $("#main-banner-section").addClass("hidden");
+    }
+    $("#quote-step03").removeClass("active-step");
+    $("#main-get-quote-section").addClass("hidden");
+    $("#success-section").removeClass("hidden");
+    window.scrollTo(0, 0);
+  };
+
+  function showErrorMessage() {
+    if( $('#main-banner-section').length ) {
+      $("#main-banner-section").addClass("hidden");
+    }
+    $("#quote-step03").removeClass("active-step");
+    $("#main-get-quote-section").addClass("hidden");
+    $("#error-section").removeClass("hidden");
+    window.scrollTo(0, 0);
+  };
+
   $("#submit-form").click(function (event) {
     event.preventDefault()
     if (!validate(3)) return;
@@ -241,14 +261,12 @@ $(document).ready(function () {
         data: { lead: postData },
       })
       .done(function(response) {
+        showSuccessMessage();
         console.log(response)
-        // window.location.href = "get-a-quote-congratulations.html";
-        window.location.href = "/congratulations";
       })
       .fail(function(error) {
-        console.log('error', error.responseText)
-        // window.location.href = "get-a-quote-congratulations.html";
-        window.location.href = "/congratulations";
+        showErrorMessage();
+        console.log('error', error.responseText);
       });
   });
 
