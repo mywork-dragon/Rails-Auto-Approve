@@ -227,7 +227,6 @@ $(document).ready(function () {
       $("#main-banner-section").addClass("hidden");
     }
     $("#quote-step03").removeClass("active-step");
-    $("#main-banner-section").addClass("hidden");
     $("#main-get-quote-section").addClass("hidden");
     $("#success-section").removeClass("hidden");
     window.scrollTo(0, 0);
