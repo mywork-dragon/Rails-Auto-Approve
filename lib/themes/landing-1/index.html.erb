@@ -319,8 +319,10 @@
                           </div>
 
                           <div class="bottom-text-div max-w-screen-sm mb-7">
-                            <p>Don't see your vehicle listed? We refinance cars, trucks, SUVs, Motorcycles, RVs, Boats and ATVs.
-                              <span class="block">Call us at <a href="tel:{{phone}}" class="link">{{phone_label}}</a> for a quote.</span>
+                            <p>By submitting this inquiry, you acknowledge that you have read and agreed to Auto Approve’s Terms of Service and Privacy Policy; 
+                               and you are providing express written consent to Auto Approve and/or its Lending Partners to obtain a copy of your credit report. 
+                               Getting a quote will not affect your credit score. See the <%= link_to 'Terms of Service', terms_of_service_path, class: "link", target: :_blank %> and 
+                               <%= link_to 'Privacy Policy', privacy_policy_path, class: "link", target: :_blank %>.
                             </p>
                           </div>
 
@@ -764,7 +766,7 @@
                         <ul class="list-ul list-ul-50">
                           <li><%= link_to "Why Auto Approve", why_auto_approve_path, class: "footer-link" %></li>
                           <li><%= link_to "Contact Us", contact_us_path, class: "footer-link" %></li>
-                          <li><%= link_to "Privacy Policy", legal_stuff_path, class: "footer-link" %></li>
+                          <li><%= link_to "Privacy Policy", privacy_policy_path, class: "footer-link" %></li>
                           <li><%= link_to "Join the Team", careers_path, class: "footer-link" %></li>
                           <li><%= link_to "Terms Of Service", terms_of_service_path, class: "footer-link" %></li>
                         </ul>

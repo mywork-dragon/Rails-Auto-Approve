@@ -27,7 +27,7 @@ class PagesController < ApplicationController
   def terms_of_service
   end
 
-  def legal_stuff
+  def privacy_policy
   end
 
   def page_not_found
