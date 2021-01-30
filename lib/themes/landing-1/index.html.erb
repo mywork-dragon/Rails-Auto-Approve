@@ -497,6 +497,44 @@
       </div>
     </section>
 
+    <section class="get-quote-main-section mt-6 responsive-padding-top hidden" id="success-section">
+      <div class="get-quote-main-div">
+        <div class="container container-720 px-4 mx-auto px-22-xs">
+          <div class="row flex flex-wrap">
+            <div class="w-full lg:w-1/1">
+              <div class="heading-div mx-auto">
+                <h1><span class="span-color">Congratulations!</span></h1>
+                <p>You are on your way to saving money on our vehicles monthly payment.</p>
+              </div>
+            </div>
+            <div class="text-center mx-auto pt-12">
+              <%= image_pack_tag "congratulations-img.svg", class: "mx-auto" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="get-quote-main-section responsive-padding-top hidden" id="error-section">
+      <div class="get-quote-main-div">
+        <div class="container container-720 px-4 mx-auto px-22-xs">
+          <div class="row flex flex-wrap">
+            <div class="w-full lg:w-1/1">
+              <div class="heading-div mx-auto">
+                <h1>Something went wrong!</h1>
+                <p><%= link_to 'Please click here to try again.', url_for(), class: "underline" %></p>
+              </div>
+              <div class="text-center mx-auto mb-12">
+                <%= image_pack_tag 'icons/atention-purple.png', class: "mx-auto", width: "150" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
     <section class="custom-section-01 py-20 xl:bg-contain bg-top bg-no-repeat">
       <div class="container container-1170 px-4 mx-auto px-24-xs">
 
