@@ -46,6 +46,6 @@ class Admin::LandingsController < AdminController
   private
 
   def landing_params
-    params.require(:landing).permit(:theme, :path, :state, config: {})
+    params.require(:landing).permit(:theme, :source, :path, :state, config: {})
   end
 end

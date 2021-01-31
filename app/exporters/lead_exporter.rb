@@ -11,8 +11,8 @@ class LeadExporter
   # @return [Hash]
   def export
     {
-      source: 'AutoApprove',
-      landingPageUrls: ['/'],
+      source: @lead.landing.source,
+      landingPageUrls: @lead.tracking_urls,
       primaryBorrower: {
         firstName: @lead.first_name,
         lastName: @lead.last_name,

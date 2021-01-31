@@ -1,3 +1,5 @@
+import * as Tracking from '../tracking'
+
 $(document).ready(function () {
 
   var slider = document.getElementById("credit_score");
@@ -190,6 +192,7 @@ $(document).ready(function () {
 
   function formatData(data) {
     return {
+      tracking_urls: Tracking.get(),
       landing_id: data.landing_id,
       first_name: data.firstName,
       last_name: data.lastName,
@@ -232,6 +235,15 @@ $(document).ready(function () {
     window.scrollTo(0, 0);
   };
 
+  function showFailedApproval() {
+    if( $('#main-banner-section').length ) {
+      $("#main-banner-section").addClass("hidden");
+    }
+    $("#quote-step03").removeClass("active-step");
+    $("#main-get-quote-section").addClass("hidden");
+    $("#failed-approval-section").removeClass("hidden");
+  }
+
   function showErrorMessage() {
     if( $('#main-banner-section').length ) {
       $("#main-banner-section").addClass("hidden");
@@ -262,11 +274,15 @@ $(document).ready(function () {
       })
       .done(function(response) {
         showSuccessMessage();
-        console.log(response)
+        console.log('success', response)
       })
       .fail(function(error) {
-        showErrorMessage();
-        console.log('error', error.responseText);
+        if (error.responseText.match(/Failed to create pre-approval/)) {
+          showFailedApproval();
+        } else {
+          showErrorMessage();
+          console.log('error', error.responseText);  
+        }
       });
   });
 

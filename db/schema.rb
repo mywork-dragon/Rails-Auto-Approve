@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_142718) do
+ActiveRecord::Schema.define(version: 2021_01_31_204038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,9 @@ ActiveRecord::Schema.define(version: 2021_01_28_142718) do
     t.integer "state", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "source", default: "", null: false
     t.index ["path"], name: "index_landings_on_path", unique: true
+    t.index ["source"], name: "index_landings_on_source"
     t.index ["state", "path"], name: "index_landings_on_state_and_path"
   end
 
@@ -84,7 +86,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_142718) do
     t.integer "lien_payment_cents"
     t.float "lien_rate"
     t.integer "state", default: 0, null: false
-    t.integer "crm_id"
+    t.string "crm_id"
     t.integer "synced_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -92,6 +94,8 @@ ActiveRecord::Schema.define(version: 2021_01_28_142718) do
     t.string "vehicle_make_name", null: false
     t.integer "vehicle_model_id", null: false
     t.string "vehicle_model_name", null: false
+    t.text "tracking_urls", default: [], null: false, array: true
+    t.index ["crm_id"], name: "index_leads_on_crm_id"
     t.index ["landing_id", "state"], name: "index_leads_on_landing_id_and_state"
     t.index ["state"], name: "index_leads_on_state"
     t.index ["synced_at"], name: "index_leads_on_synced_at"

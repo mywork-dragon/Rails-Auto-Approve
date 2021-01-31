@@ -4,6 +4,7 @@ class Landing < ApplicationRecord
   enum state: { pending: 0, active: 1, archived: 2 }
 
   validates :theme, inclusion: Theme.available
+  validates :source, presence: true
   validates :path, length: { maximum: 255 }, format: { with: /\A\// }, presence: true
 
   # Get a Theme instance

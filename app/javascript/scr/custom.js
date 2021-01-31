@@ -1,3 +1,5 @@
+import * as Tracking from './tracking'
+
 window.openNav = function() {
   $("#mySidenav").addClass("width80");
   $("#nav-res").addClass("opacityon");
@@ -19,6 +21,8 @@ $(document).ready(function () {
   $(".cd-shadow-layer").click(function () {
     closeNav();
   });
+
+  Tracking.set(window.location.href)
 
   $(window).scroll(function () {
     var sticky = $(".header-div"),

@@ -48,7 +48,8 @@ class LeadsController < ApplicationController
       :lien_payoff_cents,
       :lien_payment_cents,
       :lien_rate,
-      :desired_term
+      :desired_term,
+      tracking_urls: []
     )
   end
 end
