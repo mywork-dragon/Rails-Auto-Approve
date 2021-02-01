@@ -25,6 +25,11 @@ $(document).ready(function () {
     2: ["streetAddress", "city", "stateSelect", "zipCode", "dateOfBirth"],
     3: ["vehicleTypeSelect", "yearSelect", "makeSelect", "modelSelect", "currentPayment", "currentInterestRate", "payoffAmount", "desiredTermSelect"],
   };
+
+  // add masks
+  $('#zipCodeMask').mask('00000');
+  $('#dateOfBirthMask').mask('00/00/0000');
+
   function validate(step) {
     var fields = steps[step];
     var valid = true;

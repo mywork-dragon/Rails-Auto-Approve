@@ -19,6 +19,7 @@ require("../scr/themes/get-owl-slider")
 require("../scr/themes/step-quote-custom")
 // import "../scr/flatpickr"
 import "owl.carousel/dist/assets/owl.carousel.min.css";
+global.mask = require('jquery-mask-plugin');
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
