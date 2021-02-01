@@ -28,7 +28,39 @@ $(document).ready(function () {
 
   // add masks
   $('#zipCodeMask').mask('00000');
-  $('#dateOfBirthMask').mask('00/00/0000');
+  $('#dateOfBirthMask').mask('AB/CD/0000', {
+		translation: {
+			A: { pattern: /[0-1]/ },
+			B: { pattern: /[0-9]/ },
+			C: { pattern: /[0-3]/ },
+			D: { pattern: /[0-9]/ }
+		},
+		onKeyPress: function(a, b, c, d) {
+			if (!a) return;
+			let m = a.match(/(\d{1})/g);
+      if (!m) return;
+      if (parseInt(m[0]) === 0) {
+        d.translation.B.pattern = /[1-9]/;
+      } else if (parseInt(m[0]) === 1) {
+        d.translation.B.pattern = /[0-2]/;
+      } else if (parseInt(m[0]) > 1) {
+        c.val("0" + m[0] + "/");
+      } else {
+        d.translation.B.pattern = /[0-9]/;
+      }
+      
+      if (parseInt(m[2]) === 3) {
+				d.translation.D.pattern = /[0-1]/;
+			} else {
+				d.translation.D.pattern = /[0-9]/;
+			}
+			let temp_value = c.val();
+			c.val('');
+			c.unmask().mask('AB/CD/0000', d);
+			c.val(temp_value);
+		}
+	})
+	.keyup();
 
   function validate(step) {
     var fields = steps[step];
