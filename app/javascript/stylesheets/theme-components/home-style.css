@@ -82,7 +82,7 @@
 }
 
 .main-banner-section .banner-div {
-  padding: 70px 0;
+  padding: 5px 0;
   min-height: calc(100vh - 100px);
   z-index: 99;
   height: auto;
@@ -1127,7 +1127,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .main-banner-section {
-    padding: 70px 0 0 0;
+    padding: 5px 0 0 0;
     min-height: 580px;
     background-size: contain;
     background-position: bottom;
