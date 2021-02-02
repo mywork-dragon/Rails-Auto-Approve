@@ -91,9 +91,22 @@
           animation: animation-step 0.6s linear;
 }
 
+.get-quote-main-section .success-message-header {
+  margin-bottom: 0px !important;
+}
+
 .get-quote-main-section .heading-div h1 {
   font-weight: 400;
   font-size: 50px;
+  line-height: 1.2;
+  text-align: center;
+  color: #181a1d;
+  display: block;
+  margin: 0 0 8px 0;
+}
+.get-quote-main-section .heading-div h2 {
+  font-weight: 350;
+  font-size: 40px;
   line-height: 1.2;
   text-align: center;
   color: #181a1d;
