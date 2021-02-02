@@ -15,7 +15,7 @@ $(document).ready(function () {
 
   var currentStep = 1;
   var EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;  // eslint-disable-line
-  var fileds = ["landing_id", "firstName", "lastName", "email", "phoneNumber", "creditScore",
+  var fileds = ["source", "landing_id", "firstName", "lastName", "email", "phoneNumber", "creditScore",
     "streetAddress", "city", "state", "zipCode", "dateOfBirth", "socialSecurity", "make_name", "model_name",
     "vehicleType", "year", "make", "model", "currentPayment", "currentInterestRate", "payoffAmount", "desiredTerm", "vin", "mileage",
   ];
@@ -229,6 +229,7 @@ $(document).ready(function () {
 
   function formatData(data) {
     return {
+      source: data.source,
       tracking_urls: Tracking.get(),
       landing_id: data.landing_id,
       first_name: data.firstName,

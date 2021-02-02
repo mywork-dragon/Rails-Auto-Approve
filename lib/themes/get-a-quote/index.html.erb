@@ -128,6 +128,7 @@
                     <input type="hidden" name="landing_id" value="<%= @landing.id %>">
                     <input type="hidden" name="make_name" value="">
                     <input type="hidden" name="model_name" value="">
+                    <input type="hidden" name="source" value="<%= cookies[:utm_source] %>">
 
                     <div class="step-forms-tabs-body">
                       <div class="step-forms-tabs-body-row active-step" id="quote-step01">
@@ -301,8 +302,8 @@
                           <div class="bottom-text-div max-w-screen-sm mb-7">
                             <p>By submitting this inquiry, you acknowledge that you have read and agreed to Auto Approve’s Terms of Service and Privacy Policy; 
                                and you are providing express written consent to Auto Approve and/or its Lending Partners to obtain a copy of your credit report. 
-                               Getting a quote will not affect your credit score. See the <%= link_to 'Terms of Service', terms_of_service_path, class: "link", target: :_blank %> and 
-                               <%= link_to 'Privacy Policy', privacy_policy_path, class: "link", target: :_blank %>.
+                               Getting a quote will not affect your credit score. See the <%= link_to "Terms of Service", terms_of_service_path, class: "link", target: :_blank %> and 
+                               <%= link_to "Privacy Policy", privacy_policy_path, class: "link", target: :_blank %>.
                             </p>
                           </div>
 
@@ -438,7 +439,7 @@
                                   <li class="mdl-menu__item" data-val="48">48 Months</li>
                                   <li class="mdl-menu__item" data-val="60">60 Months</li>
                                   <li class="mdl-menu__item" data-val="72">72 Months</li>
-                                  <li class="mdl-menu__item" data-val="80">80 Months</li>
+                                  <li class="mdl-menu__item" data-val="84">84 Months</li>
                                 </ul>
                               </div>
                             </div>
@@ -479,8 +480,8 @@
       </div>
     </section>
     
-    <%= render 'shared/congratulations' %>
-    <%= render 'shared/error' %>
+    <%= render "shared/congratulations" %>
+    <%= render "shared/error" %>
 
   </div>
 

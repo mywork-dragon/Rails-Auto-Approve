@@ -11,7 +11,7 @@ class LeadExporter
   # @return [Hash]
   def export
     {
-      source: @lead.landing.source,
+      source: @lead.source || @lead.landing.source,
       landingPageUrls: @lead.tracking_urls,
       primaryBorrower: {
         firstName: @lead.first_name,
