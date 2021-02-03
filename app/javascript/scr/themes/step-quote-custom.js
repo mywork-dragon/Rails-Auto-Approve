@@ -93,30 +93,6 @@ $(document).ready(function () {
     validate(currentStep);
   });
 
-  function init() { // Init years
-    var ul = $("#yearSelect").find("ul");
-    var items = "";
-
-    var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years")
-      .done(function(response) {
-        const data = response && response.value;
-
-        if (data) {
-        const yearsFromApi = data.map( year => year.nadaId);
-        yearsFromApi.forEach(function (item) {
-          items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
-        });
-        ul.html(items);
-        getmdlSelect.init('#yearSelect');
-        }
-      })
-      .fail(function(error) {
-        console.log('error', error)
-      });
-  }
-
-  init();
-
   $(document).on({
     ajaxStart: function(){
       $("body").addClass("loading");
@@ -126,10 +102,77 @@ $(document).ready(function () {
     }
   });
 
+  function isMotorcycle () {
+    return $('#vehicleType').val() === 'Motorcycle';
+  }
+
+  $('#vehicleType').on('change', function () {
+    const ul = $('#yearSelect').find("ul");
+
+    if (isMotorcycle()) {
+      var items = "";
+      const years = [
+        2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014,
+        2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006,
+        2005, 2004, 2003, 2002, 2001, 2000
+      ];
+      years.forEach(function(year) {
+        items = items + "<li class=\"mdl-menu__item\" data-val=\"" + year + "\">" + year + "</li>";
+      });
+      ul.html(items);
+      getmdlSelect.init('#yearSelect');      
+    } else {
+      var items = "";
+      var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years").done(function(response) {
+        const data = response && response.value;
+        if (data) {
+          const yearsFromApi = data.map( year => year.nadaId);
+          yearsFromApi.forEach(function (item) {
+            items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
+          });
+          ul.html(items);
+          getmdlSelect.init('#yearSelect');      
+        }
+      }).fail(function(error) {
+        console.log('error', error)
+      });
+    }
+  });
+
   $("#year").on('change', function () {
     var value = $(this).val();
+    var ul = $("#makeSelect").find("ul");
 
-    var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years/"+ value + "/makes")
+    if (isMotorcycle()) {
+      const makes = {
+        1068: 'BIG DOG MOTORCYCLES',
+        452: 'BMW',
+        8757: 'EXCILE CYCLES',
+        10774: 'HARLEY',
+        3888: 'HARLEY DAVIDSON',
+        474: 'HONDA',
+        1768: 'INDIAN MOTORCYCLE',
+        510: 'KAWASAKI',
+        596: 'KTM',
+        2536: 'MV AGUSTA MOTOR',
+        2678: 'PIAGGIO AND VESPA',
+        3128: 'ROYAL ENFIELD MOTORS',
+        509: 'SUZUKI',
+        565: 'TRIUMPH',
+        567: 'VICTORY',
+        564: 'YAMAHA',
+        0: 'OTHER'
+      };
+
+      var items = "";
+      Object.keys(makes).forEach(function(id) {
+        items = items + "<li class=\"mdl-menu__item\" data-val=\"" + id + "\">" + makes[id] + "</li>";
+      })
+
+      ul.html(items);
+      getmdlSelect.init('#makeSelect');
+    } else {
+      var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years/"+ value + "/makes")
       .done(function(response) {
         const data = response && response.value;
 
@@ -150,43 +193,58 @@ $(document).ready(function () {
       .fail(function(error) {
         console.log('error', error)
       });
+    }
+    $("#make").on('change', makeHandler);
   });
 
   function makeHandler() {
     var year = $("#year").val();
     var parent = $("input[name='make']"); 
     var value = parent.val();
-    $("input[name='make_name]").val(parent.find('option:selected').text());
+    var ul = $("#modelSelect").find("ul");
 
-    var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years/"+ year + "/makes/" + value + "/models")
-      .done(function(response) {
+    if (isMotorcycle()) {
+      const url = `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${value}/modelyear/${year}/vehicleType/motorcycle?format=json`;
+      var jqxhr = $.ajax(url).done(function(response) {
+        const data = response && response.Results;
+        if (data) {
+          var items = "";
+          data.forEach(function(item) {
+            items = items + `<li class="mdl-menu__item" data-val="${item.Model_ID}">${item.Model_Name}</li>`;
+          })
+          ul.html(items);
+          getmdlSelect.init('#modelSelect');
+          $("#model").on('change', modelHandler);
+        }
+      }).fail(function(error) {
+        console.log('error', error)
+      });
+
+    } else {
+      const url = `https://aa-prod-function-nada.azurewebsites.net/api/years/${year}/makes/${value}/models`;
+      var jqxhr = $.ajax(url).done(function(response) {
         const data = response && response.value;
 
         if (data) {
-          var ul = $("#modelSelect").find("ul");
           var items = "";
-
           data.forEach(function (item) {
             items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item.nadaId + "\">" + item.name + "</li>";
           });
-
           ul.html(items);
           getmdlSelect.init('#modelSelect');
           $("#model").on('change', modelHandler);
 
           validate(currentStep);
         }
-      })
-      .fail(function(error) {
+      }).fail(function(error) {
         console.log('error', error)
       });
+    }
   };
 
   function modelHandler() {
     var parent = $("input[name='model']"); 
     var value = parent.val();
-    $("input[name='model_name]").val(parent.find('option:selected').text());
-
     validate(currentStep);
   }
 
