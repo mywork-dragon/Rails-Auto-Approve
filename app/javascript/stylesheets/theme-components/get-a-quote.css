@@ -106,7 +106,7 @@
 }
 .get-quote-main-section .heading-div h2 {
   font-weight: 350;
-  font-size: 40px;
+  font-size: 35px;
   line-height: 1.2;
   text-align: center;
   color: #181a1d;
@@ -455,7 +455,7 @@
 
 @media (max-width: 767px) {
   .get-quote-main-section .get-quote-main-div {
-    padding: 50px 0;
+    padding: 25px 0;
   }
 
   .get-quote-main-section .heading-div h1 {
