@@ -34,7 +34,6 @@ Rails.application.routes.draw do
   get '/motorcycle-refinance' => 'pages#motorcycle_refinance', as: :motorcycle_refinance
   get '/why-auto-approve' => 'pages#why_auto_approve', as: :why_auto_approve
   get '/faq' => 'pages#faq', as: :faq
-  # get '/congratulations' => 'pages#congratulations', as: :congratulations
   get '/contact-us' => 'pages#contact_us', as: :contact_us
   get '/terms-of-service' => 'pages#terms_of_service', as: :terms_of_service
   get '/privacy-policy' => 'pages#privacy_policy', as: :privacy_policy

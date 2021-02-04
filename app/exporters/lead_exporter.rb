@@ -17,6 +17,7 @@ class LeadExporter
         firstName: @lead.first_name,
         lastName: @lead.last_name,
         email: @lead.email,
+        ssn: @lead.last_4_ssn,
         homePhone: @lead.phone,
         dateOfBirth: @lead.date_of_birth.iso8601,
         address: {
