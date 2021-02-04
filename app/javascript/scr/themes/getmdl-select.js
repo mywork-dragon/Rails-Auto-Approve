@@ -25,7 +25,6 @@
 
             var setSelectedItem = function (li) {
                 var value = li.textContent.trim();
-                console.log("🚀 ~ file: getmdl-select.js ~ line 27 ~ whenLoaded ~ getmdlSelect.init('.getmdl-select');")
                 input.value = value;
                 list.forEach(function (li) {
                     li.classList.remove('selected');

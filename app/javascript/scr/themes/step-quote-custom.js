@@ -362,7 +362,6 @@ $(document).ready(function () {
 
     const postData = formatData(data)
 
-    console.log(postData)
     var jqxhr = $.ajax({
         url: "/leads",
         method: "POST",
@@ -370,14 +369,12 @@ $(document).ready(function () {
       })
       .done(function(response) {
         showSuccessMessage();
-        console.log('success', response)
       })
       .fail(function(error) {
         if (error.responseText.match(/Failed to create pre-approval/)) {
           showFailedApproval();
         } else {
           showErrorMessage();
-          console.log('error', error.responseText);  
         }
       });
   });
