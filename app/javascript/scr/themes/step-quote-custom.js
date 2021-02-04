@@ -343,6 +343,7 @@ $(document).ready(function () {
 
     // submit event to google tag
     dataLayer.push({'event' : 'congratulationsPage', 'formName' : 'Congratulations Page'});
+    congratulationsPage
   };
 
   function showFailedApproval() {
