@@ -267,14 +267,14 @@ $(document).ready(function () {
       .addClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header02").addClass("active");
 
+    window.scrollTo(0, 0);
+
     // submit event to google tag
     dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
   });
 
   $("#next-step-3").click(function () {
     if (!validate(2)) return;
-    // submit event to google tag
-    dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
     currentStep = 3;
 
     $("#quote-step03").addClass("active-step");
@@ -290,6 +290,8 @@ $(document).ready(function () {
       .removeClass("active")
       .addClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header03").addClass("active");
+
+    window.scrollTo(0, 0);
 
     // submit event to google tag
     dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
