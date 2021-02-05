@@ -354,6 +354,7 @@ $(document).ready(function () {
     $("#quote-step03").removeClass("active-step");
     $("#main-get-quote-section").addClass("hidden");
     $("#failed-approval-section").removeClass("hidden");
+    window.scrollTo(0, 0);
   }
 
   function showErrorMessage() {
@@ -408,6 +409,7 @@ $(document).ready(function () {
       .addClass("active")
       .removeClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header02").removeClass("active");
+    window.scrollTo(0, 0);
   });
 
   $("#previous-step-2").click(function () {
@@ -423,6 +425,7 @@ $(document).ready(function () {
       .addClass("active")
       .removeClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header03").removeClass("active");
+    window.scrollTo(0, 0);
   });
 
 });
