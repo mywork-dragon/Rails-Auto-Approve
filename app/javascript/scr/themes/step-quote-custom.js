@@ -267,14 +267,14 @@ $(document).ready(function () {
       .addClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header02").addClass("active");
 
+    window.scrollTo(0, 0);
+
     // submit event to google tag
     dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
   });
 
   $("#next-step-3").click(function () {
     if (!validate(2)) return;
-    // submit event to google tag
-    dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
     currentStep = 3;
 
     $("#quote-step03").addClass("active-step");
@@ -290,6 +290,8 @@ $(document).ready(function () {
       .removeClass("active")
       .addClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header03").addClass("active");
+
+    window.scrollTo(0, 0);
 
     // submit event to google tag
     dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
@@ -339,6 +341,7 @@ $(document).ready(function () {
     $("#quote-step03").removeClass("active-step");
     $("#main-get-quote-section").addClass("hidden");
     $("#success-section").removeClass("hidden");
+    
     window.scrollTo(0, 0);
 
     // submit event to google tag
@@ -352,6 +355,8 @@ $(document).ready(function () {
     $("#quote-step03").removeClass("active-step");
     $("#main-get-quote-section").addClass("hidden");
     $("#failed-approval-section").removeClass("hidden");
+    
+    window.scrollTo(0, 0);
   }
 
   function showErrorMessage() {
@@ -406,6 +411,8 @@ $(document).ready(function () {
       .addClass("active")
       .removeClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header02").removeClass("active");
+    
+    window.scrollTo(0, 0);
   });
 
   $("#previous-step-2").click(function () {
@@ -421,6 +428,8 @@ $(document).ready(function () {
       .addClass("active")
       .removeClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header03").removeClass("active");
+    
+    window.scrollTo(0, 0);
   });
 
 });
