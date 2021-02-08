@@ -19,7 +19,7 @@
     <%= render "shared/media_header_tags" %>
     <%= render "shared/gtm_head" %>
     <%= render "shared/full_story_snippet" %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp", rel: :preload %>
     <%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
     <%= yield :page_scripts %>
