@@ -733,6 +733,10 @@ body {
     @apply overflow-y-hidden;
   }
 
+  .hide-mobile{
+    display: none;
+  }
+
   .position-fixed-custom {
     @apply overflow-hidden;
   }
