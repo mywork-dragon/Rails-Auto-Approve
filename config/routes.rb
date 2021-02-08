@@ -24,7 +24,10 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :leads, only: :create
+  resources :leads, only: [:create] do
+    put :step2, on: :member
+    put :step3, on: :member
+  end
   resources :contacts, only: :create
   resources :careers, path: 'join-our-team', only: [:index, :show]
 

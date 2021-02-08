@@ -6,6 +6,30 @@ class LeadExporter
     @lead = lead
   end
 
+  def step1
+    {
+      source: @lead.source || @lead.landing.source,
+      landingPageUrls: @lead.tracking_urls,
+      primaryBorrower: {
+        firstName: @lead.first_name,
+        lastName: @lead.last_name,
+        email: @lead.email,
+        homePhone: @lead.phone,
+      },
+      creditInformation: {
+        primaryBorrower: {
+          estimatedCreditScore: @lead.estimated_credit_score
+        }
+      }
+    }
+  end
+
+  def step2
+  end
+
+  def step3
+  end
+
   # Export the lead
   #
   # @return [Hash]

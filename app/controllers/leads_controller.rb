@@ -10,7 +10,28 @@ class LeadsController < ApplicationController
     end
   end
 
+  def step2
+    lead = Lead.find_by_token(params[:id])
+    response = Leads::Step2.call(lead, lead_params)
+    respond_with_lead(response)
+  end
+
+  def step3
+    lead = Lead.find_by_token(params[:id])
+    response = Leads::Step3.call(lead, lead_params)
+    respond_with_lead(response)
+  end
+
   private
+
+  def respond_with_lead(response)
+    if response.success?
+      render json: { lead: response.lead }
+    else
+      render json: { errors: response.errors },
+        status: :unprocessable_entity
+    end
+  end
 
   def lead_params
     params.require(:lead).permit(

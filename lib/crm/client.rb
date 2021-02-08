@@ -11,6 +11,18 @@ module Crm
       @lead = lead
     end
 
+    def step1
+      Crm::Client::Lead.new(@lead).submit(:step1)
+    end
+
+    def step2
+      Crm::Client::Lead.new(@lead).submit(:step2)
+    end
+
+    def step3
+      Crm::Client::Lead.new(@lead).submit(:step3)
+    end
+
     # Submit a lead
     #
     # @return [OpenStruct]

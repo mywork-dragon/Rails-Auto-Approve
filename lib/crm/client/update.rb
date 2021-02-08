@@ -1,6 +1,6 @@
 module Crm
   class Client
-    class Lead
+    class Update
       include HTTParty
       base_uri ENV['lead_endpoint_url']
       headers 'Accept' => 'application/json'
@@ -18,11 +18,12 @@ module Crm
       # Submit our lead
       #
       # @return [Crm::Client::Response]
-      def submit(method_name)
-        exporter = LeadExporter.new(@lead)
-        response = self.class.post(
+      def submit
+        body = LeadExporter.new(@lead).export
+        body.merge!(id: @lead.crm_id)
+        response = self.class.put(
           '/leadmanagement/api/leads/v2/LandingPage',
-          body: exporter.send(method_name).to_json
+          body: body.to_json
         )
         Response.new(
           success: response.ok?,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_204038) do
+ActiveRecord::Schema.define(version: 2021_02_02_061508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,15 +90,17 @@ ActiveRecord::Schema.define(version: 2021_01_31_204038) do
     t.integer "synced_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "vehicle_make_id", null: false
-    t.string "vehicle_make_name", null: false
-    t.integer "vehicle_model_id", null: false
-    t.string "vehicle_model_name", null: false
+    t.integer "vehicle_make_id"
+    t.string "vehicle_make_name"
+    t.integer "vehicle_model_id"
+    t.string "vehicle_model_name"
     t.text "tracking_urls", default: [], null: false, array: true
+    t.string "token"
     t.index ["crm_id"], name: "index_leads_on_crm_id"
     t.index ["landing_id", "state"], name: "index_leads_on_landing_id_and_state"
     t.index ["state"], name: "index_leads_on_state"
     t.index ["synced_at"], name: "index_leads_on_synced_at"
+    t.index ["token"], name: "index_leads_on_token", unique: true
   end
 
   create_table "positions", force: :cascade do |t|

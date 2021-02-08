@@ -255,12 +255,11 @@ $(document).ready(function () {
   $("#next-step-2").click(function () {
     if (!validate(1)) return;
 
-    currentStep = 2;
+    var data = {};
 
-    $("#quote-step02").addClass("active-step");
-    $("#quote-step01").addClass("hidden");
-    $("#quote-step02").removeClass("hidden");
-    $("#quote-step01").removeClass("active-step");
+    fileds.forEach(function (item) {
+      data[item] = $("input[name='" + item + "']").val();
+    });
 
     $("#step-quote-forms-tabs #tabs-step-list-header01")
       .removeClass("active")
@@ -271,25 +270,66 @@ $(document).ready(function () {
 
     // submit event to google tag
     dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
+    const postData = formatData(data)
+    var jqxhr = $.ajax({
+      url: "/leads",
+      method: "POST",
+      data: { lead: postData },
+    }).done(function(response) {
+      currentStep = 2;
+
+      console.log(response.lead.token);
+      
+      $('input[name="token"]').val(response.lead.token)
+      $("#quote-step02").addClass("active-step");
+      $("#quote-step01").addClass("hidden");
+      $("#quote-step02").removeClass("hidden");
+      $("#quote-step01").removeClass("active-step");
+  
+      $("#step-quote-forms-tabs #tabs-step-list-header01")
+        .removeClass("active")
+        .addClass("done");
+      $("#step-quote-forms-tabs #tabs-step-list-header02").addClass("active");  
+    }).fail(function(response) {
+      showErrorMessage();
+      console.log('error', error.responseText);  
+    });
   });
 
   $("#next-step-3").click(function () {
     if (!validate(2)) return;
     currentStep = 3;
 
-    $("#quote-step03").addClass("active-step");
-    $("#quote-step01").addClass("hidden");
-    $("#quote-step02").addClass("hidden");
-    $("#quote-step03").removeClass("hidden");
-    $("#quote-step02").removeClass("active-step");
+    var data = {};
 
-    $("#step-quote-forms-tabs #tabs-step-list-header01")
-      .removeClass("active")
-      .addClass("done");
-    $("#step-quote-forms-tabs #tabs-step-list-header02")
-      .removeClass("active")
-      .addClass("done");
-    $("#step-quote-forms-tabs #tabs-step-list-header03").addClass("active");
+    fileds.forEach(function (item) {
+      data[item] = $("input[name='" + item + "']").val();
+    });
+
+    const token = $('input[name="token"]').val();
+    const postData = formatData(data)
+    var jqxhr = $.ajax({
+      url: `/leads/${token}`,
+      method: "PUT",
+      data: { lead: postData }
+    }).done(function(response) {
+      console.log(response)
+      currentStep = 3;
+
+      $("#quote-step03").addClass("active-step");
+      $("#quote-step01").addClass("hidden");
+      $("#quote-step02").addClass("hidden");
+      $("#quote-step03").removeClass("hidden");
+      $("#quote-step02").removeClass("active-step");
+  
+      $("#step-quote-forms-tabs #tabs-step-list-header01")
+        .removeClass("active")
+        .addClass("done");
+      $("#step-quote-forms-tabs #tabs-step-list-header02")
+        .removeClass("active")
+        .addClass("done");
+      $("#step-quote-forms-tabs #tabs-step-list-header03").addClass("active");
+    }).fail(function(response) {
 
     window.scrollTo(0, 0);
 
@@ -390,6 +430,7 @@ $(document).ready(function () {
         showSuccessMessage();
       })
       .fail(function(error) {
+        console.log(error)
         if (error.responseText.match(/Failed to create pre-approval/)) {
           showFailedApproval();
         } else {
