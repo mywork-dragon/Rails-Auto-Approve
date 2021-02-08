@@ -11,16 +11,16 @@ module Crm
       @lead = lead
     end
 
-    def step1
-      Crm::Client::Lead.new(@lead).submit(:step1)
+    def create
+      Crm::Client::Create.new(@lead).call
     end
 
-    def step2
-      Crm::Client::Lead.new(@lead).submit(:step2)
+    def update(exporter:)
+      Crm::Client::Update.new(@lead, exporter: exporter).call
     end
 
-    def step3
-      Crm::Client::Lead.new(@lead).submit(:step3)
+    def preapproval
+      Crm::Client::Preapproval.new(@lead.crm_id).call
     end
 
     # Submit a lead

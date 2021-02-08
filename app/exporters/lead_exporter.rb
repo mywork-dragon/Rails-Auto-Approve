@@ -25,9 +25,53 @@ class LeadExporter
   end
 
   def step2
+    {
+      primaryBorrower: {
+        ssn: @lead.last_4_ssn,
+        dateOfBirth: @lead.date_of_birth.try(:iso8601),
+        address: {
+          street1: @lead.street1,
+          street2: @lead.street2,
+          city: @lead.city,
+          state: {
+            id: @lead.state_code,
+            name: Mappings::States::MAPPING[@lead.state_code.to_sym]
+          },
+          zip: @lead.zipcode
+        }
+      }
+    }
   end
 
   def step3
+    {
+      vehicles: [
+        {
+          vehicleType: Mappings::VehicleTypes::MAPPING[@lead.vehicle_type],
+          make: {
+            nadaId: @lead.vehicle_make_id,
+            name: @lead.vehicle_make_name,
+          },
+          model: {
+            nadaId: @lead.vehicle_model_id,
+            name: @lead.vehicle_model_name
+          },
+          year: {
+            nadaId: @lead.vehicle_year.to_s,
+            name: @lead.vehicle_year.to_s
+          },
+          mileage: @lead.vehicle_mileage,
+          vin: @lead.vehicle_vin,
+          requestedLoanTermsInMonths: @lead.desired_term,
+          previousLienholder: {
+            name: @lead.lien_name,
+            payoffAmount: @lead.lien_payoff.to_f,
+            currentPayment: @lead.lien_payment.to_f,
+            currentRate: @lead.lien_rate
+          }
+        }
+      ]
+    }
   end
 
   # Export the lead
@@ -43,7 +87,7 @@ class LeadExporter
         email: @lead.email,
         ssn: @lead.last_4_ssn,
         homePhone: @lead.phone,
-        dateOfBirth: @lead.date_of_birth.iso8601,
+        dateOfBirth: @lead.date_of_birth.try(:iso8601),
         address: {
           street1: @lead.street1,
           street2: @lead.street2,

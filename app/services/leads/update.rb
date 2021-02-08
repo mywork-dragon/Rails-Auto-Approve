@@ -4,11 +4,11 @@ class Leads::Update
   # @param lead [Lead]
   # @param params
   # @return [OpenStruct]
-  def self.call(lead, params, method_name: :step2)
+  def self.call(lead, params, exporter:, preapproval: false)
     if lead.update(params)
-      response = Crm::Client.new(lead).send(method_name)
+      response = Crm::Client.new(lead).update(exporter: exporter)
       if response.success?
-        response.lead.update(state: method_name)
+        lead.send("#{exporter}!")
         OpenStruct.new(success?: true, lead: lead)
       else
         OpenStruct.new(success?: false, errors: response.body)

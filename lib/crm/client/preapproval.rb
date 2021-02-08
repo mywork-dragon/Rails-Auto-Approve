@@ -18,7 +18,7 @@ module Crm
       # Submit for preapproval
       #
       # @return [Crm::Client::Response]
-      def submit
+      def call
         response = self.class.post(
           '/leadmanagement/api/leads/v2/LandingPage/PreApprovalDeal',
           body: {

@@ -12,14 +12,19 @@ class LeadsController < ApplicationController
 
   def step2
     lead = Lead.find_by_token(params[:id])
-    response = Leads::Step2.call(lead, lead_params)
+    response = Leads::Update.call(lead, lead_params, exporter: :step2)
     respond_with_lead(response)
   end
 
   def step3
     lead = Lead.find_by_token(params[:id])
-    response = Leads::Step3.call(lead, lead_params)
-    respond_with_lead(response)
+    response = Leads::Update.call(lead, lead_params, exporter: :step3)
+    if response.success?
+      approval = Leads::Preapproval.call(lead)
+      respond_with_lead(approval)
+    else
+      respond_with_lead(response)
+    end
   end
 
   private

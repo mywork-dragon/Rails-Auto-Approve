@@ -277,8 +277,6 @@ $(document).ready(function () {
       data: { lead: postData },
     }).done(function(response) {
       currentStep = 2;
-
-      console.log(response.lead.token);
       
       $('input[name="token"]').val(response.lead.token)
       $("#quote-step02").addClass("active-step");
@@ -309,7 +307,7 @@ $(document).ready(function () {
     const token = $('input[name="token"]').val();
     const postData = formatData(data)
     var jqxhr = $.ajax({
-      url: `/leads/${token}`,
+      url: `/leads/${token}/step2`,
       method: "PUT",
       data: { lead: postData }
     }).done(function(response) {
@@ -331,11 +329,11 @@ $(document).ready(function () {
       $("#step-quote-forms-tabs #tabs-step-list-header03").addClass("active");
     }).fail(function(response) {
 
-    window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
 
-    // submit event to google tag
-    dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
-
+      // submit event to google tag
+      dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
+    });
   });
 
   function formatData(data) {
@@ -419,11 +417,12 @@ $(document).ready(function () {
       data[item] = $("input[name='" + item + "']").val();
     });
 
+    const token = $('input[name="token"]').val();
     const postData = formatData(data)
 
     var jqxhr = $.ajax({
-        url: "/leads",
-        method: "POST",
+        url: `/leads/${token}/step3`,
+        method: "PUT",
         data: { lead: postData },
       })
       .done(function(response) {

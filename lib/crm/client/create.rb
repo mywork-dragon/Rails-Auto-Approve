@@ -18,9 +18,8 @@ module Crm
       # Submit our lead
       #
       # @return [Crm::Client::Response]
-      def submit
-        body = LeadExporter.new(@lead).export
-        body.merge!(source: 'AutoApprove')
+      def call
+        body = LeadExporter.new(@lead).step1
         response = self.class.post(
           '/leadmanagement/api/leads/v2/LandingPage',
           body: body.to_json

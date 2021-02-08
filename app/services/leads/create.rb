@@ -6,9 +6,9 @@ class Leads::Create
   def self.call(params = {})
     lead = Lead.new(params)
     if lead.save
-      response = Crm::Client.new(lead).step1
+      response = Crm::Client.new(lead).create
       if response.success?
-        lead.update(crm_id: response.body['id'], state: :step1)
+        lead.update!(crm_id: response.body['id'], state: 'step1')
         OpenStruct.new(success?: true, lead: lead)
       else
         OpenStruct.new(success?: false, errors: response.body)

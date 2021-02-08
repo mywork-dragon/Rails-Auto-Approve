@@ -11,15 +11,16 @@ module Crm
       # Initialize our lead
       #
       # @param lead [Lead]
-      def initialize(lead)
+      def initialize(lead, exporter:)
         @lead = lead
+        @exporter = exporter
       end
 
       # Submit our lead
       #
       # @return [Crm::Client::Response]
-      def submit
-        body = LeadExporter.new(@lead).export
+      def call
+        body = LeadExporter.new(@lead).send(@exporter)
         body.merge!(id: @lead.crm_id)
         response = self.class.put(
           '/leadmanagement/api/leads/v2/LandingPage',

@@ -18,7 +18,7 @@ module Crm
       # Submit our lead
       #
       # @return [Crm::Client::Response]
-      def submit(method_name)
+      def call(method_name)
         exporter = LeadExporter.new(@lead)
         response = self.class.post(
           '/leadmanagement/api/leads/v2/LandingPage',
