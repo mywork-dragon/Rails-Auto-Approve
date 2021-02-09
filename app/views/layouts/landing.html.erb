@@ -15,13 +15,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="#5230A2">
 
-    <%= favicon_pack_tag 'favicon.png' %>
+    <%= favicon_pack_tag "favicon.png" %>
     <%= render "shared/media_header_tags" %>
     <%= render "shared/gtm_head" %>
     <%= render "shared/full_story_snippet" %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" %>
-    <%= javascript_pack_tag "#{@landing.theme}", "data-turbolinks-track": "reload" %>
-    <%= stylesheet_pack_tag "#{@landing.theme}", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp", rel: :preload, as: :style %>
+    <%= javascript_pack_tag @landing.theme, "data-turbolinks-track": "reload", defer: true %>
+    <%= stylesheet_pack_tag @landing.theme, "data-turbolinks-track": "reload" %>
   </head>
 
   <body>

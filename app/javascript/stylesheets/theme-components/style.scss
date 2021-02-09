@@ -725,16 +725,16 @@ body {
 }
 
 @media (max-width: 767px) {
+  .hide-mobile{
+    display: none;
+  }
+
   body {
     @apply overflow-x-hidden;
   }
 
   body.overflow-fixed {
     @apply overflow-y-hidden;
-  }
-
-  .hide-mobile{
-    display: none;
   }
 
   .position-fixed-custom {
