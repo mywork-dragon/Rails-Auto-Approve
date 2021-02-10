@@ -29,6 +29,10 @@ class LeadExporter
       primaryBorrower: {
         ssn: @lead.last_4_ssn,
         dateOfBirth: @lead.date_of_birth.try(:iso8601),
+        firstName: @lead.first_name,
+        lastName: @lead.last_name,
+        email: @lead.email,
+        homePhone: @lead.phone,
         address: {
           street1: @lead.street1,
           street2: @lead.street2,
