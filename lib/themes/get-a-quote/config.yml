@@ -1,3 +1,6 @@
 variables:
   phone: "8443363365"
   phone_label: "(844) 336-3365"
+  hero_title_1: Get a
+  hero_title_2: Quote.
+  hero_slogan: "Complete the form below to receive your personalized quote"

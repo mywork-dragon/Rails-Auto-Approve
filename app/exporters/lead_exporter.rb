@@ -8,7 +8,8 @@ class LeadExporter
 
   def step1
     {
-      source: @lead.source || @lead.landing.source,
+      sourceLoanApplicationId: @lead.affiliate_id,
+      source: @lead.source.present? ? @lead.source : @lead.landing.source,
       landingPageUrls: @lead.tracking_urls,
       primaryBorrower: {
         firstName: @lead.first_name,
@@ -49,6 +50,7 @@ class LeadExporter
 
   def step3
     {
+      MortgageBroker: @lead.mortgage_broker,
       vehicles: [
         {
           vehicleType: Mappings::VehicleTypes::MAPPING[@lead.vehicle_type],

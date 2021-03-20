@@ -10,6 +10,9 @@ class Lead < ApplicationRecord
 
   enum state: { pending: 0, step1: 1, step2: 2, step3: 3, preapproval: 4 }
 
+  store_accessor :additional, :mortgage_broker
+
+  validates :source, :affiliate_id, length: { maximum: 255 }
   validates :first_name, :last_name, length: { maximum: 50 }, presence: true
   validates :email, format: { with: Devise.email_regexp }, length: { maximum: 255 }
   validates :phone, presence: true

@@ -11,7 +11,11 @@
 
                 <div class="logo-div animation-right-fade">
                   <a class="logo_link clearfix" href="/">
-                    <%= image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo" %>
+                    <% if @landing.logo.present? %>
+                      <%= cl_image_tag @landing.logo, class: "img-fluid logo_img main-logo" %>
+                    <% else %>
+                      <%= image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo" %>
+                    <% end %>
                   </a>
                 </div>
 
@@ -149,6 +153,7 @@
                     <input type="hidden" name="make_name" value="">
                     <input type="hidden" name="model_name" value="">
                     <input type="hidden" name="source" value="<%= cookies[:utm_source] %>">
+                    <input type="hidden" name="affiliate_id" value="<%= cookies[:affiliate] %>">
                     <input type="hidden" name="token" value="">
 
                     <div class="step-forms-tabs-body">
@@ -160,8 +165,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="firstName">
                                 <label class="input-box-label">
-                                  <input type="text" name="firstName" class="form-input" placeholder="&nbsp;" required>
-                                  <span class="label-text">First Name</span>
+                                  <input type="text" name="firstName" class="form-input" placeholder="First Name" required>
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -170,8 +174,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="lastName">
                                 <label class="input-box-label">
-                                  <input type="text" name="lastName" class="form-input" placeholder="&nbsp;" required>
-                                  <span class="label-text">Last Name</span>
+                                  <input type="text" name="lastName" class="form-input" placeholder="Last Name" required>
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -180,8 +183,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="phoneNumber">
                                 <label class="input-box-label">
-                                  <input type="text" name="phoneNumber" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Phone Number</span>
+                                  <input type="text" name="phoneNumber" id="phoneNumberInput" class="form-input" placeholder="Phone Number">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -190,8 +192,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="email">
                                 <label class="input-box-label">
-                                  <input type="email" name="email" class="form-input" placeholder="&nbsp;" required>
-                                  <span class="label-text">Email Address</span>
+                                  <input type="email" name="email" class="form-input" placeholder="Email Address" required>
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -244,8 +245,7 @@
                             <div class="form-col w-full md:w-1/1 lg:w-1/1 px-6 mb-7">
                               <div class="input-box-effect" id="streetAddress">
                                 <label class="input-box-label">
-                                  <input type="text" name="streetAddress" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Street Address</span>
+                                  <input type="text" name="streetAddress" class="form-input" placeholder="Street Address">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -254,32 +254,28 @@
                             <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-7">
                               <div class="input-box-effect" id="city">
                                 <label class="input-box-label">
-                                  <input type="text" name="city" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">City</span>
+                                  <input type="text" name="city" class="form-input" placeholder="City">
                                   <span class="border"></span>
                                 </label>
                               </div>
                             </div>
-
-                            <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-2">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="stateSelect">
-                                <input type="text" value="" class="mdl-textfield__input" id="state" readonly>
+                                
+                            <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-7">
+                              <div class="input-box-effect" id="stateSelect" >
                                 <input type="hidden" value="" name="state">
-                                <i class="mdl-icon-toggle__label material-icons"></i>
-                                <label for="state" class="mdl-textfield__label">State</label>
-                                <ul for="state" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <select class="select-quote-form" id="state" style="width: 100%">
+                                  <option class="" value="" disabled selected>State</option>
                                   <% Mappings::States::MAPPING.each do |code, label| %>
-                                    <li class="mdl-menu__item" data-val="<%= code %>"><%= label %></li>
+                                    <option class="" value="<%= code %>"><%= label %></option>
                                   <% end %>
-                                </ul>
+                                </select>
                               </div>
                             </div>
-
+                            
                             <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-7">
                               <div class="input-box-effect" id="zipCode">
                                 <label class="input-box-label">
-                                  <input type="text" name="zipCode" id="zipCodeMask" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Zip Code</span>
+                                  <input type="text" name="zipCode" id="zipCodeMask" class="form-input" placeholder="Zip Code">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -288,8 +284,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect form-group-icon" id="dateOfBirth">
                                 <label class="input-box-label">
-                                  <input type="text" name="dateOfBirth" id="dateOfBirthMask" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Date of Birth</span>
+                                  <input type="text" name="dateOfBirth" id="dateOfBirthMask" class="form-input" placeholder="Date of Birth">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -298,8 +293,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="socialSecurity">
                                 <label class="input-box-label">
-                                  <input type="text" name="socialSecurity" class="form-input" maxlength="4" placeholder="&nbsp;">
-                                  <span class="label-text">Social Security (last 4)</span>
+                                  <input type="text" name="socialSecurity" class="form-input" maxlength="4" placeholder="Last 4 Social Security (optional)">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -312,10 +306,10 @@
                          <div class="step-forms-footer-div">
 
                           <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9">
-                            <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0">
+                            <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0 order-down-on-mobile">
                               <a href="javascript:void(0)" id="previous-step-1" class="btn btn-pre-back btn-step btn-previous min-h48"> <span class="bg-custom-icon arrow-left-long-blue"></span> Previous Step </a>
                             </div>
-                            <div class="btn-bottom-right-div flex flex-wrap items-center">
+                            <div class="btn-bottom-right-div flex flex-wrap items-center order-up-on-mobile">
                               <a href="javascript:void(0)" id="next-step-3" class="btn btn-primary btn-step btn-next min-h48">Next Step <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
                             </div>
                           </div>
@@ -339,57 +333,48 @@
                           <div class="row flex flex-wrap -mx-6 sm:mb-6 mb-0">
 
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="vehicleTypeSelect">
-                                <input type="text" value="" class="mdl-textfield__input" id="vehicleType" readonly>
+                              <div class="input-box-effect" id="vehicleTypeSelect">
                                 <input type="hidden" value="" name="vehicleType">
-                                <i class="mdl-icon-toggle__label material-icons"></i>
-                                <label for="vehicleType" class="mdl-textfield__label">Vehicle Type</label>
-                                <ul for="vehicleType" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <select for="vehicleType" id="vehicleType" class="select-quote-form" style="width: 100%">
+                                  <option class="" value="" disabled selected>Vehicle Type</option>
                                   <% Mappings::VehicleTypes::MAPPING.each do |label, value| %>
-                                    <li class="mdl-menu__item" data-val="<%= label %>"><%= label %></li>
+                                    <option class="" value="<%= label %>"><%= label %></option>
                                   <% end %>
-                                </ul>
+                                </select>
                               </div>
                             </div>
 
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="yearSelect">
-                                <input type="text" value="" class="mdl-textfield__input" id="year" readonly>
+                              <div class="input-box-effect" id="yearSelect">
                                 <input type="hidden" value="" name="year">
-                                <i class="mdl-icon-toggle__label material-icons"></i>
-                                <label for="year" class="mdl-textfield__label">Year</label>
-                                <ul for="year" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                </ul>
+                                <select for="year" id="year" class="select-quote-form" style="width: 100%">
+                                  <option class="" value="" disabled selected>Year</option>
+                                </select>
                               </div>
                             </div>
-
+                            
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="makeSelect">
-                                <input type="text" value="" class="mdl-textfield__input" id="make" readonly>
+                              <div class="input-box-effect" id="makeSelect">
                                 <input type="hidden" value="" name="make">
-                                <i class="mdl-icon-toggle__label material-icons"></i>
-                                <label for="make" class="mdl-textfield__label">Make</label>
-                                <ul for="make" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                </ul>
+                                <select for="make" id="make" class="select-quote-form" style="width: 100%">
+                                  <option class="" value="" disabled selected>Make</option>
+                                </select>
                               </div>
                             </div>
 
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="modelSelect">
-                                <input type="text" value="" class="mdl-textfield__input" id="model" readonly>
+                              <div class="input-box-effect" id="modelSelect">
                                 <input type="hidden" value="" name="model">
-                                <i class="mdl-icon-toggle__label material-icons"></i>
-                                <label for="model" class="mdl-textfield__label">Model</label>
-                                <ul for="model" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                </ul>
+                                <select for="model" id="model" class="select-quote-form" style="width: 100%">
+                                  <option class="" value="" disabled selected>Model</option>
+                                </select>
                               </div>
                             </div>
 
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="vin">
                                 <label class="input-box-label">
-                                  <input type="text" name="vin" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">VIN (optional)</span>
+                                  <input type="text" name="vin" class="form-input" placeholder="VIN (optional)">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -398,8 +383,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect" id="mileage">
                                 <label class="input-box-label">
-                                  <input type="text" name="mileage" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Mileage (optional)</span>
+                                  <input type="text" name="mileage" class="form-input" placeholder="Mileage (optional)">
                                   <span class="border"></span>
                                 </label>
                               </div>
@@ -419,8 +403,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect form-dollar-group-custom" id="currentPayment">
                                 <label class="input-box-label">
-                                  <input type="number" name="currentPayment" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Current Payment</span>
+                                  <input type="number" name="currentPayment" class="form-input" placeholder="Current Payment">
                                   <span class="border"></span>
                                 </label>
                                 <span class="dollar-txt"> <span class="txt">$</span> </span>
@@ -430,8 +413,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect form-dollar-group-custom" id="currentInterestRate">
                                 <label class="input-box-label">
-                                  <input type="number" name="currentInterestRate" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Current Interest Rate</span>
+                                  <input type="number" name="currentInterestRate" class="form-input" placeholder="Current Interest Rate">
                                   <span class="border"></span>
                                 </label>
                                 <span class="dollar-txt"> <span class="txt">%</span> </span>
@@ -441,8 +423,7 @@
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
                               <div class="input-box-effect form-dollar-group-custom" id="payoffAmount">
                                 <label class="input-box-label">
-                                  <input type="number" name="payoffAmount" class="form-input" placeholder="&nbsp;">
-                                  <span class="label-text">Payoff Amount</span>
+                                  <input type="number" name="payoffAmount" class="form-input" placeholder="Payoff Amount">
                                   <span class="border"></span>
                                 </label>
                                 <span class="dollar-txt"> <span class="txt">$</span> </span>
@@ -450,18 +431,16 @@
                             </div>
 
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
-                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height" id="desiredTermSelect">
-                                <input type="text" value="" class="mdl-textfield__input" id="desiredTerm" readonly>
+                              <div class="input-box-effect"  id="desiredTermSelect">
                                 <input type="hidden" value="" name="desiredTerm">
-                                <i class="mdl-icon-toggle__label material-icons"></i>
-                                <label for="desiredTerm" class="mdl-textfield__label">Desired Term</label>
-                                <ul for="desiredTerm" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                  <li class="mdl-menu__item" data-val="36">36 Months</li>
-                                  <li class="mdl-menu__item" data-val="48">48 Months</li>
-                                  <li class="mdl-menu__item" data-val="60">60 Months</li>
-                                  <li class="mdl-menu__item" data-val="72">72 Months</li>
-                                  <li class="mdl-menu__item" data-val="84">84 Months</li>
-                                </ul>
+                                <select for="desiredTerm" id="desiredTerm" class="select-quote-form input-box-label" style="width: 100%" required>
+                                  <option class="" value="" disabled selected>Desired Term</option>
+                                  <option class="" value="36">36 Months</option>
+                                  <option class="" value="48">48 Months</option>
+                                  <option class="" value="60">60 Months</option>
+                                  <option class="" value="72">72 Months</option>
+                                  <option class="" value="84">84 Months</option>
+                                </select>
                               </div>
                             </div>
 
@@ -472,10 +451,10 @@
                          <div class="step-forms-footer-div">
 
                           <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9">
-                            <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0">
+                            <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0 order-down-on-mobile">
                               <a href="javascript:void(0)" id="previous-step-2" class="btn btn-pre-back btn-step btn-previous min-h48"> <span class="bg-custom-icon arrow-left-long-blue"></span> Previous Step </a>
                             </div>
-                            <div class="btn-bottom-right-div flex flex-wrap items-center">
+                            <div class="btn-bottom-right-div flex flex-wrap items-center order-up-on-mobile">
                               <a href="javascript:void(0)" id="submit-form" class="btn btn-primary btn-step btn-next min-h48">Get my instant quote </a>
                             </div>
                           </div>
@@ -815,6 +794,10 @@
 
                 </div>
               </div>
+            </div>
+            <div class="text-white">
+              <p class="mb-6">Copyright &copy;<%= Date.current.year %> AutoApprove. All rights reserved.</p>
+              *APR and Fees Disclosure: Auto Approve works with lenders to find you the best Annual Percentage Rate (APR), which is based on factors like your credit history, vehicle and desired payment terms. Fees to complete your loan refinance vary by state and lender; they generally include admin fees, doc fees, DMV and title. Advertised 2.25% APR based on: 2019 model year or newer vehicle, 730 minimum FICO credit score, and loan term up to 72 months. All loans subject to credit and lender approval.
             </div>
 
           </div>

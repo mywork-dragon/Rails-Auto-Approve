@@ -5,6 +5,32 @@
   display: block;
 }
 
+.select-quote-form {
+  letter-spacing: 1px;
+  min-height: 49px;
+  font-size: 16px;
+  border-bottom: 1px solid #aaa !important;
+  background: white;
+  padding-top: 9px;
+  font-weight: 400;
+  line-height: 1.33333;
+  color: #65676a;
+}
+
+.select-quote-form.selected {
+  font-weight: 700 !important;
+  color: #393b3f !important;
+}
+
+/* Placeholder of form */
+input::placeholder,
+textarea::placeholder {
+  font-size: 16px;
+  line-height: 1.33333;
+  font-weight: 400;
+  color: #65676a;
+}
+
 .input-box-effect .input-box-label {
   position: relative;
   margin: auto;
@@ -146,6 +172,15 @@
   border-bottom-color: red;
 }
 
+.input-box-effect.error .select-quote-form {
+  border-bottom-color: red !important;
+}
+
+.input-box-effect.error ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
 .input-box-effect.error .input-box-label .form-input:not(:-moz-placeholder-shown) + span {
   color: red;
 }
@@ -154,7 +189,7 @@
   color: red;
 }
 
-.input-box-effect.error .input-box-label .form-input:not(:placeholder-shown) + span, .input-box-effect.error .input-box-label .form-input:focus + span {
+.input-box-effect.error .input-box-label .form-input + span, .input-box-effect.error .input-box-label .form-input:focus + span {
   color: red;
 }
 

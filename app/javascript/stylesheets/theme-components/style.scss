@@ -725,8 +725,12 @@ body {
 }
 
 @media (max-width: 767px) {
-  .hide-mobile{
-    display: none;
+  .order-up-on-mobile{
+    order: 1;
+    padding-bottom: 25px;
+  }
+  .order-down-on-mobile{
+    order: 2;
   }
 
   body {

@@ -5,6 +5,8 @@ $(document).ready(function () {
   var slider = document.getElementById("credit_score");
   var output = document.getElementById("demo");
 
+  Tracking.set(window.location.href)
+
   if (slider) {
     output.innerHTML = slider.value;
 
@@ -15,18 +17,21 @@ $(document).ready(function () {
 
   var currentStep = 1;
   var EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;  // eslint-disable-line
-  var fileds = ["source", "landing_id", "firstName", "lastName", "email", "phoneNumber", "creditScore",
+  var PHONE_PATTERN = /^\d{3,}-\d{3,}-\d{4,}/i;
+  var fields = ["source", "landing_id", "firstName", "lastName", "email", "phoneNumber", "creditScore", "affiliate_id",
     "streetAddress", "city", "state", "zipCode", "dateOfBirth", "socialSecurity", "make_name", "model_name",
     "vehicleType", "year", "make", "model", "currentPayment", "currentInterestRate", "payoffAmount", "desiredTerm", "vin", "mileage",
+    "mortgageBroker"
   ];
 
   var steps = {
     1: ["firstName", "lastName", "email", "phoneNumber"],
     2: ["streetAddress", "city", "stateSelect", "zipCode", "dateOfBirth"],
-    3: ["vehicleTypeSelect", "yearSelect", "makeSelect", "modelSelect", "currentPayment", "currentInterestRate", "payoffAmount", "desiredTermSelect"],
+    3: ["vehicleTypeSelect", "yearSelect", "makeSelect", "modelSelect", "currentPayment", "currentInterestRate", "payoffAmount", "desiredTermSelect"]
   };
 
   // add masks
+  $('#phoneNumberInput').mask("999-999-9999"); 
   $('#zipCodeMask').mask('00000');
   $('#dateOfBirthMask').mask('AB/CD/0000', {
 		translation: {
@@ -78,6 +83,9 @@ $(document).ready(function () {
       if (!value) { // input.prop("required") &&
         elem.addClass('error');
         valid = false;
+      } else if (input.prop("name") === "phoneNumber" && !PHONE_PATTERN.test(value)) {
+        valid = false
+        elem.addClass('error')
       } else if (input.prop("name") === "email" && !EMAIL_PATTERN.test(value)) { // input.prop("required")
         valid = false;
         elem.addClass('error');
@@ -89,14 +97,6 @@ $(document).ready(function () {
     return valid;
   }
 
-  $("#quote-form").find("input").on("keyup", function() {
-    validate(currentStep);
-  });
-
-  $("#quote-form").find("select").select(function() {
-    validate(currentStep);
-  });
-
   $(document).on({
     ajaxStart: function(){
       $("body").addClass("loading");
@@ -106,36 +106,48 @@ $(document).ready(function () {
     }
   });
 
+  // set hidden field after state select
+  $("#state").on('change', function () {
+    $("#state").addClass('selected');
+    $('input[name="state"]:hidden').val($("#state").val());
+  });
+
   function isMotorcycle () {
     return $('#vehicleType').val() === 'Motorcycle';
   }
 
-  $('#vehicleType').on('change', function () {
-    const ul = $('#yearSelect').find("ul");
+  $("#vehicleType").on('change', function () {
+    $("#vehicleType").addClass('selected');
+    // set hidden field after state select
+    $('input[name="vehicleType"]:hidden').val($("#vehicleType").val());
+
+    // delete previous loaded options before API call 
+    $("#year").empty().append("<option disabled='disabled' SELECTED>Year</option>").removeClass('selected');
+    $('#make').empty().append("<option disabled='disabled' SELECTED>Make</option>").removeClass('selected');
+    $('#model').empty().append("<option disabled='disabled' SELECTED>Model</option>").removeClass('selected');
 
     if (isMotorcycle()) {
-      var items = "";
       const years = [
         2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014,
         2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006,
         2005, 2004, 2003, 2002, 2001, 2000
       ];
+
       years.forEach(function(year) {
-        items = items + "<li class=\"mdl-menu__item\" data-val=\"" + year + "\">" + year + "</li>";
+        var newOption = new Option(year, year);
+        $("#year").append(newOption);
       });
-      ul.html(items);
-      getmdlSelect.init('#yearSelect');      
+
     } else {
       var items = "";
       var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years").done(function(response) {
         const data = response && response.value;
         if (data) {
-          const yearsFromApi = data.map( year => year.nadaId);
-          yearsFromApi.forEach(function (item) {
-            items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item + "\">" + item + "</li>";
+          const yearsFromApi = data.map( year => year.nadaId); 
+          yearsFromApi.forEach(function(year) {
+            var newOption = new Option(year, year);
+            $("#year").append(newOption);
           });
-          ul.html(items);
-          getmdlSelect.init('#yearSelect');      
         }
       }).fail(function(error) {
         console.log('error', error)
@@ -144,8 +156,14 @@ $(document).ready(function () {
   });
 
   $("#year").on('change', function () {
+    $("#year").addClass('selected');
     var value = $(this).val();
-    var ul = $("#makeSelect").find("ul");
+    // set hidden field after state select
+    $('input[name="year"]:hidden').val(value);
+
+    // delete previous loaded options 
+    $('#make').empty().append("<option disabled='disabled' SELECTED>Make</option>").removeClass('selected');
+    $('#model').empty().append("<option disabled='disabled' SELECTED>Model</option>").removeClass('selected');
 
     if (isMotorcycle()) {
       const makes = {
@@ -170,94 +188,91 @@ $(document).ready(function () {
 
       var items = "";
       Object.keys(makes).forEach(function(id) {
-        items = items + "<li class=\"mdl-menu__item\" data-val=\"" + id + "\">" + makes[id] + "</li>";
+        var newOption = new Option(makes[id], id);
+        $("#make").append(newOption);
       })
-
-      ul.html(items);
-      getmdlSelect.init('#makeSelect');
     } else {
       var jqxhr = $.ajax("https://aa-prod-function-nada.azurewebsites.net/api/years/"+ value + "/makes")
       .done(function(response) {
         const data = response && response.value;
-
         if (data) {
-          var ul = $("#makeSelect").find("ul");
-          var items = "";
-
-          data.forEach(function (item) {
-            items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item.nadaId + "\">" + item.name + "</li>";
+          data.forEach(function(item) {
+            var newOption = new Option(item.name, item.nadaId);
+            $("#make").append(newOption);
           });
-
-          ul.html(items);
-          getmdlSelect.init('#makeSelect');
-          $("#make").on('change', makeHandler);
         }
-        validate(currentStep);
       })
       .fail(function(error) {
         console.log('error', error)
       });
     }
-    $("#make").on('change', makeHandler);
   });
 
-  function makeHandler() {
+  $("#make").on('change', function () {
+    $("#make").addClass('selected');
     var year = $("#year").val();
-    var parent = $("input[name='make']"); 
-    var value = parent.val();
-    var ul = $("#modelSelect").find("ul");
+    var value = $("#make").val();
+
+    // set hidden field after state select
+    $('input[name="make"]:hidden').val(value);
+
+    // delete previous loaded model options 
+    $('#model').empty().append("<option disabled='disabled' SELECTED>Model</option>").removeClass('selected');
 
     if (isMotorcycle()) {
       const url = `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${value}/modelyear/${year}/vehicleType/motorcycle?format=json`;
       var jqxhr = $.ajax(url).done(function(response) {
         const data = response && response.Results;
         if (data) {
-          var items = "";
           data.forEach(function(item) {
-            items = items + `<li class="mdl-menu__item" data-val="${item.Model_ID}">${item.Model_Name}</li>`;
-          })
-          ul.html(items);
-          getmdlSelect.init('#modelSelect');
-          $("#model").on('change', modelHandler);
+            var newOption = new Option(item.Model_Name, item.Model_ID);
+            $("#model").append(newOption);
+          });
         }
       }).fail(function(error) {
         console.log('error', error)
       });
-
     } else {
       const url = `https://aa-prod-function-nada.azurewebsites.net/api/years/${year}/makes/${value}/models`;
       var jqxhr = $.ajax(url).done(function(response) {
         const data = response && response.value;
-
         if (data) {
-          var items = "";
-          data.forEach(function (item) {
-            items = items + "<li class=\"mdl-menu__item\" data-val=\"" + item.nadaId + "\">" + item.name + "</li>";
+          data.forEach(function(item) {
+            var newOption = new Option(item.name, item.nadaId);
+            $("#model").append(newOption);
           });
-          ul.html(items);
-          getmdlSelect.init('#modelSelect');
-          $("#model").on('change', modelHandler);
-
-          validate(currentStep);
         }
       }).fail(function(error) {
         console.log('error', error)
       });
     }
-  };
+  });
 
-  function modelHandler() {
-    var parent = $("input[name='model']"); 
-    var value = parent.val();
-    validate(currentStep);
-  }
+  $("#model").on('change', function () {
+    $("#model").addClass('selected');
+    // set hidden field after desiredTerm select
+    $('input[name="model"]:hidden').val($("#model").val());
+  });
+
+  $("#desiredTerm").on('change', function () {
+    $("#desiredTerm").addClass('selected');
+    // set hidden field after desiredTerm select
+    $('input[name="desiredTerm"]:hidden').val($("#desiredTerm").val());
+  });
 
   $("#next-step-2").click(function () {
+    validate(currentStep);
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     if (!validate(1)) return;
+
+    //reset state - TODO need to improve this
+    $('#state').val(undefined).trigger('change');
 
     var data = {};
 
-    fileds.forEach(function (item) {
+    fields.forEach(function (item) {
       data[item] = $("input[name='" + item + "']").val();
     });
 
@@ -266,7 +281,6 @@ $(document).ready(function () {
       .addClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header02").addClass("active");
 
-    window.scrollTo(0, 0);
 
     // submit event to google tag
     dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
@@ -287,7 +301,10 @@ $(document).ready(function () {
       $("#step-quote-forms-tabs #tabs-step-list-header01")
         .removeClass("active")
         .addClass("done");
-      $("#step-quote-forms-tabs #tabs-step-list-header02").addClass("active");  
+      $("#step-quote-forms-tabs #tabs-step-list-header02").addClass("active");
+      $(window).scrollTop(0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;  
     }).fail(function(response) {
       showErrorMessage();
       console.log('error', error.responseText);  
@@ -295,12 +312,17 @@ $(document).ready(function () {
   });
 
   $("#next-step-3").click(function () {
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+
+    validate(currentStep);
     if (!validate(2)) return;
     currentStep = 3;
 
     var data = {};
 
-    fileds.forEach(function (item) {
+    fields.forEach(function (item) {
       data[item] = $("input[name='" + item + "']").val();
     });
 
@@ -327,19 +349,22 @@ $(document).ready(function () {
         .removeClass("active")
         .addClass("done");
       $("#step-quote-forms-tabs #tabs-step-list-header03").addClass("active");
+      $(window).scrollTop(0);
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     }).fail(function(response) {
-
-      window.scrollTo(0, 0);
-
       // submit event to google tag
       dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
     });
   });
 
   function formatData(data) {
+    var urls = Tracking.get();
+  
     return {
       source: data.source,
-      tracking_urls: Tracking.get(),
+      affiliate_id: data.affiliate_id,
+      tracking_urls: urls,
       landing_id: data.landing_id,
       first_name: data.firstName,
       last_name: data.lastName,
@@ -368,7 +393,8 @@ $(document).ready(function () {
       job_title: '',
       job_wages: '',
       job_years: '',
-      job_months: ''
+      job_months: '',
+      mortgage_broker: data.mortgageBroker
     }
   }
 
@@ -380,7 +406,9 @@ $(document).ready(function () {
     $("#main-get-quote-section").addClass("hidden");
     $("#success-section").removeClass("hidden");
     
-    window.scrollTo(0, 0);
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 
     // submit event to google tag
     dataLayer.push({'event' : 'congratulationsPage', 'formName' : 'Congratulations Page'});
@@ -394,7 +422,9 @@ $(document).ready(function () {
     $("#main-get-quote-section").addClass("hidden");
     $("#failed-approval-section").removeClass("hidden");
     
-    window.scrollTo(0, 0);
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
   function showErrorMessage() {
@@ -404,16 +434,22 @@ $(document).ready(function () {
     $("#quote-step03").removeClass("active-step");
     $("#main-get-quote-section").addClass("hidden");
     $("#error-section").removeClass("hidden");
-    window.scrollTo(0, 0);
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   };
 
   $("#submit-form").click(function (event) {
     event.preventDefault()
+    validate(currentStep);
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     if (!validate(3)) return;
 
     var data = {};
 
-    fileds.forEach(function (item) {
+    fields.forEach(function (item) {
       data[item] = $("input[name='" + item + "']").val();
     });
 
@@ -427,6 +463,9 @@ $(document).ready(function () {
       })
       .done(function(response) {
         showSuccessMessage();
+        $(window).scrollTop(0);
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
       })
       .fail(function(error) {
         console.log(error)
@@ -452,7 +491,9 @@ $(document).ready(function () {
       .removeClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header02").removeClass("active");
     
-    window.scrollTo(0, 0);
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   });
 
   $("#previous-step-2").click(function () {
@@ -468,8 +509,10 @@ $(document).ready(function () {
       .addClass("active")
       .removeClass("done");
     $("#step-quote-forms-tabs #tabs-step-list-header03").removeClass("active");
-    
-    window.scrollTo(0, 0);
+
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   });
 
 });

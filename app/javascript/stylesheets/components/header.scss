@@ -29,7 +29,8 @@ header {
 
       .logo_img {
         transition: display ease-in-out 0.5s;
-        width: 190px;
+        // width: 190px;
+        width: auto;
         height: auto;
         object-fit: contain;
         object-position: left;
@@ -591,7 +592,7 @@ header {
       }
 
       .logo_img {
-        width: 100px;
+        width: auto;
         height: 70px;
       }
 
@@ -810,7 +811,7 @@ header {
       }
 
       .logo_img {
-        width: 100px;
+        width: auto;
         height: 70px;
       }
 
