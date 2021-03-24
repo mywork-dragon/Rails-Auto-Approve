@@ -1,0 +1,110 @@
+.auto-refinance-title-section {
+    background: #fff url(../images/newStyle/images/vehicle.svg) no-repeat;
+    background-size: 900px;
+    background-position: calc(100% - 50px) 50%;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .auto-refinance-title-section {
+      background-position: 100%;
+      background-size: 800px;
+    }
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) and (min-width: 1025px) and (max-width: 1290px) {
+    .auto-refinance-title-section {
+      background-position: 100%;
+      background-size: 700px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .auto-refinance-title-section {
+      background-size: 60%;
+      background-position: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .auto-refinance-title-section {
+      background: none;
+    }
+  }
+  
+  .overpaying-section {
+    position: relative;
+  }
+  
+  .overpaying-section::before {
+    content: "";
+    background: url(../images/newStyle/images/piece2.svg) no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  
+  .overpaying-section::after {
+    content: "";
+    background: url(../images/newStyle/images/piece1.svg) no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .overpaying-sub-section {
+    position: relative;
+  }
+  
+  .overpaying-sub-section::before {
+    content: "";
+    background: url(../images/newStyle/images/piece3.svg) no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: -50px;
+    right: 180px;
+    width: 74px;
+    height: 93px;
+  }
+  
+  .auto-approve-section {
+    padding: 50px 0 60px;
+    background: url(../images/newStyle/images/piece4.svg) no-repeat;
+    background-size: 450px 590px;
+    background-position: 0% 130%;
+    margin: 0;
+    position: relative;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) { 
+    .overpaying-section::before {
+      top: 150px;
+      left: 60px;
+      width: 36px;
+      height: 36px;
+    }
+    .overpaying-section::after {
+      top: 55px;
+      right: 90px;
+      width: 20px;
+      height: 20px;
+    }
+    .overpaying-sub-section::before {
+      right: 140px;
+      width: 52px;
+      height: 72px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .overpaying-section::before, .overpaying-section::after, .overpaying-sub-section::before {
+      width: 0px;
+      height: 0px;
+    }
+  }
