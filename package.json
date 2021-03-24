@@ -6,7 +6,6 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "getmdl-select": "^2.0.1",
     "jquery": "^3.5.1",
     "jquery-mask-plugin": "^1.14.16",
     "jquery.collapsable": "^2.0.8",

@@ -1,5 +1,6 @@
 <div class="overlay"></div>
-<div id="wrapper" class="wrapper home-wrapper">
+<div id="wrapper" class="wrapper home-wrapper landing-wrapper">
+
 	<header>
     <div class="header-div clearfix" >
       <div class="inner-top-header-div clearfix">
@@ -60,19 +61,38 @@
     </div><!--  End of header with navigation div  -->
   </header>
 
-  <div class="main-middle-area main-height-between">
+  <div class="main-middle-area">
     
-    <section class="get-quote-main-section responsive-padding-top" id="main-get-quote-section">
+    <section class="main-banner-section responsive-padding-top bg-none" id="main-banner-section">
+      <div class="banner-div">
+
+        <div class="content-banner-root">
+          <div class="container px-2">
+            <div class="row">
+              <div class="w-full lg:w-1/1">
+              
+                <div class="content-banner">
+                  <div class="text-content animation-up-fade">
+                    <h4>{{hero_slogan}}</h4>
+                    <h1>{{hero_title}}<span class="span-color">{{hero_subtitle}}</span></h1>
+                    <p>{{hero_rate}}</p>
+                  </div>
+                </div>
+                
+              </div>  
+            </div>        
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="get-quote-main-section" id="main-get-quote-section">
       <div class="get-quote-main-div">
 
         <div class="container container-720 px-4 mx-auto px-22-xs">
           <div class="row flex flex-wrap">
             <div class="w-full lg:w-1/1">
-              
-              <div class="heading-div mx-auto">
-                <h1>{{hero_title_1}} <span class="span-color">{{hero_title_2}}</span></h1>
-                <p>{{hero_slogan}}</p>
-              </div>
 
               <div class="step-forms-main-root">
                 <div class="step-forms-main-row">
@@ -100,7 +120,7 @@
                             <div class="tabs-box-icon">
                               <span class="rounded-span">
                                 <i class="bg-custom-icon user-outline-icon"></i>
-                                
+
                               </span>
                             </div>
                             <div class="tabs-box-text">
@@ -208,7 +228,7 @@
                               </div>
                             </div>
                             <div class="btn-bottom-right-div flex flex-wrap justify-end items-center w-full md:w-5/12 lg:w-5/12">
-                              <a href="javascript:void(0)" id="next-step-2" class="btn btn-primary btn-step btn-next">Next Step <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
+                              <a href="javascript:void(0)" id="next-step-2" class="btn btn-primary btn-step btn-next">{{next_button}} <span class="bg-custom-icon arrow-right-long white-icon"></span> </a>
                             </div>
                           </div>
 
@@ -241,7 +261,7 @@
                             </div>
                                 
                             <div class="form-col w-full md:w-1/3 lg:w-1/3 px-6 mb-7">
-                              <div class="input-box-effect" class="input-box-effect" id="stateSelect" >
+                              <div class="input-box-effect" id="stateSelect" >
                                 <input type="hidden" value="" name="state">
                                 <select class="select-quote-form" id="state" style="width: 100%">
                                   <option class="" value="" disabled selected>State</option>
@@ -283,7 +303,7 @@
 
                         </div>
 
-                        <div class="step-forms-footer-div">
+                         <div class="step-forms-footer-div">
 
                           <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9">
                             <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0 order-down-on-mobile">
@@ -411,7 +431,7 @@
                             </div>
 
                             <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-2">
-                              <div id="desiredTermSelect">
+                              <div class="input-box-effect"  id="desiredTermSelect">
                                 <input type="hidden" value="" name="desiredTerm">
                                 <select for="desiredTerm" id="desiredTerm" class="select-quote-form input-box-label" style="width: 100%" required>
                                   <option class="" value="" disabled selected>Desired Term</option>
@@ -424,11 +444,20 @@
                               </div>
                             </div>
 
+                            <div class="form-col w-full md:w-1/2 lg:w-1/2 px-6 mb-7">
+                              <div class="input-box-effect" id="mortgageBroker">
+                                <label class="input-box-label">
+                                  <input type="text" name="mortgageBroker" class="form-input" placeholder="Mortgage Broker" required>
+                                  <span class="border"></span>
+                                </label>
+                              </div>
+                            </div>
+                            
                           </div>
 
                         </div>
 
-                        <div class="step-forms-footer-div">
+                         <div class="step-forms-footer-div">
 
                           <div class="btn-bottom-div flex flex-wrap items-center justify-between mb-6 sm:mb-9">
                             <div class="btn-bottom-left-div flex flex-wrap items-center mb-6 sm:mb-0 order-down-on-mobile">
@@ -452,7 +481,7 @@
                   </form>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -463,6 +492,202 @@
     <%= render "shared/congratulations" %>
     <%= render "shared/error" %>
 
+    <section class="custom-section-01 py-20 xl:bg-contain bg-top bg-no-repeat">
+      <div class="container container-1170 px-4 mx-auto px-24-xs">
+
+        <div class="heading-div mx-auto mb-12 text-center">
+          <h2>{{about_title}}<span class="block">{{about_subtitle}}</span> </h2>
+        </div>
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+
+          <div class="card-custom-painless w-full md:w-1/3 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-painless-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "character/character-image-01.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>It starts with a quote</h4>
+                  <p>(SSN not required)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-painless w-full md:w-1/3 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-painless-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "character/character-image-02.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>We’ll work with banks and credit unions to get you the best rate </h4>
+                  <p>(and handle the paperwork)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-painless w-full md:w-1/3 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-painless-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "character/character-image-03.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>Easy as that, you’re paying less on your loan, with more to spend on the things that matter</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="custom-section-03 py-20 xl:bg-contain bg-top bg-no-repeat">
+      <div class="container container-1170 px-4 mx-auto ">
+
+        <div class="heading-div mx-auto mb-12 text-center">
+          <h2>{{why_title}}</h2>
+        </div>
+
+        <div class="flex flex-wrap -mx-3 mb-6">
+
+          <div class="card-custom-approve w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-approve-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "icons/icon-01.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>It’s time to make a change.</h4>
+                  <p>Interest rates today are historically low – most people are paying too much on their auto loan. Now is the time to refinance and lower your monthly payment. We’ll make it happen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-approve w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-approve-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "icons/icon-02.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>Our customers love us.</h4>
+                  <p>With an A+ rating from the Better Business Bureau and a 96% would-recommend rating on LendingTree, you can refinance with us with confidence.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-approve w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-approve-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "icons/icon-03.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>The personalized service you deserve.</h4>
+                  <p>At Auto Approve, you get the service that works for you. Want a human? We’re real people and ready to chat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-approve w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-approve-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "icons/icon-04.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>The deal that’s right for you.</h4>
+                  <p>We’ll work to personally make sure you get the best deal for you. We’re your advocate, getting lenders to compete to find a great fit for your needs. And then we do the paperwork to make it happen. (Yes, we even handle the DMV.)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-approve w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-approve-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "icons/icon-05.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>No mark-ups. Ever.</h4>
+                  <p>Unlike our competitors, we never mark up the rate you pay. Some companies will give you a higher rate than the bank actually offers and pocket the difference. With Auto Approve, your savings are passed on to you directly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-custom-approve w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
+            <div class="card-custom-approve-inner">
+              <div class="p-4">
+                <div class="img-div flex items-center mb-7">
+                  <%= image_pack_tag "icons/icon-06.svg", class: "img-fluid object-contain" %>
+                </div>
+                <div class="text-div">
+                  <h4>More money in your pocket.</h4>
+                  <p>The most important thing we do is? We lower your monthly payments. Refinance with Auto Approve, you’ll have more cash to spend on the things you love. Because, in the end, our mission is more money for what matters to you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="client-product-section py-20 xl:bg-contain bg-top bg-no-repeat">
+      <div class="container container-1170 px-4 mx-auto px-24-xs">
+
+        <div class="flex flex-wrap -mx-3">
+
+          <div class="card-client-product order-01 left-justify w-full md:w-1/3 lg:w-1/3 px-3 mb-6">
+            <div class="card-client-product-inner">
+              <div class="card-client-product-img">
+                <%= image_pack_tag "img-01.png", class: "img-fluid" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-client-product order-02 center-justify w-full md:w-1/3 lg:w-1/3 px-3 mb-6">
+            <div class="card-client-product-inner">
+              <div class="card-client-product-img">
+                <%= image_pack_tag "img-02.png", class: "img-fluid" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-client-product order-03 right-justify w-full md:w-1/3 lg:w-1/3 px-3 mb-6">
+            <div class="card-client-product-inner">
+              <div class="card-client-product-img">
+                <%= image_pack_tag "img-03.png", class: "img-fluid" %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="customers-reviews-section py-20 xl:bg-contain bg-top bg-no-repeat">
+      <div class="container container-1170 px-4 mx-auto px-24-xs">
+
+        <div class="heading-div mx-auto mb-16 w-full text-center">
+          <h2>Real Customers. Real Reviews. <%= image_pack_tag "icons/custom/smile-icon.svg", class: "img-fluid img-icon" %></h2>
+        </div>
+
+        <div class="owl-slider-main-slider mb-12">
+          <div class="owl-carousel owl-theme customers-customers-owl-div" id="customers-customers-owl">
+            <%= render partial: "shared/review", collection: Review.includes(:review_site).recent.limit(9) %>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -553,22 +778,22 @@
                   <div class="social-media-div">
                     <ul class="social-media-ul">
                       <li>
-                        <a href="https://www.facebook.com/autoapprovellc/" class="social-link">
+                        <a href="#" class="social-link">
                           <i class="fab fa-facebook-f"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://twitter.com/AutoApproveRefi" class="social-link">
+                        <a href="#" class="social-link">
                           <i class="fab fa-twitter"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.instagram.com/autoapprove/" class="social-link">
+                        <a href="#" class="social-link">
                           <i class="fab fa-instagram"></i>
                         </a>
                       </li>
                       <li>
-                        <a href="https://www.pinterest.com/autoapprove/" class="social-link">
+                        <a href="#" class="social-link">
                           <i class="fab fa-pinterest"></i>
                         </a>
                       </li>
@@ -589,5 +814,4 @@
       </div>
     </div>
   </footer>
-
 </div><!-- end of wrapper -->

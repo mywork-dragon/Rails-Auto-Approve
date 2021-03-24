@@ -1,102 +1,111 @@
-
-/* Header */
+@keyframes "slideInDown" {
+	0% {
+		transform: translate3d(0,-100%,0);
+		visibility: visible;
+	}
+	100% {
+		transform: translateZ(0);
+	}
+}
+@keyframes "clouldAnimation1" {
+	0% {
+		transform: translateX(0);
+		visibility: visible;
+	}
+	100% {
+		transform: translateX(-100vw);
+	}
+}
+@keyframes "clouldAnimation2" {
+	0% {
+		transform: translateX(100vw);
+		visibility: visible;
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+header {
+	z-index: 9999;
+	position: relative !important;
+}
 .fixed-header {
-  background-color: #fff;
-  position: fixed;
-  z-index: 9999;
-  width: 100%;
-  min-height: 75px;
-  transition: all .5s;
-  top: 0;
-  left: 0;
-
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+	background-color: #fff;
+	position: fixed;
+	z-index: 9999;
+	width: 100%;
+	min-height: 75px;
+	transition: all .5s;
+	top: 0;
+	left: 0;
+	-webkit-animation-name: slideInDown;
+	animation-name: slideInDown;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	.header-phone-number {
+		display: none;
+	}
 }
-
-.fixed-header .header-phone-number {
-  display: none;
-}
-
-@keyframes slideInDown {
-  0% {
-    transform: translate3d(0,-100%,0);
-    visibility: visible;
-  }
-
-  100% {
-    transform: translateZ(0);
-  }
-}
-
 .cloud-anim {
-  width: 100%;
+	width: 100%;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 20px;
+		left: 0px;
+		width: 100vw;
+		height: 50vh;
+		background-image: url(../images/newStyle/images/home-cloud.svg);
+		background-size: contain;
+		background-repeat: repeat-x;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-duration: 240s;
+		animation-delay: -120s;
+		animation-name: clouldAnimation1;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 20px;
+		left: 0px;
+		width: 100vw;
+		height: 50vh;
+		background-image: url(../images/newStyle/images/home-cloud.svg);
+		background-size: contain;
+		background-repeat: repeat-x;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-duration: 240s;
+		animation-delay: -120s;
+		animation-name: clouldAnimation2;
+	}
 }
-
-.cloud-anim::after, .cloud-anim::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 0px;
-  width: 100vw;
-  height: 50vh;
-  background-image: url(../images/newStyle/images/home-cloud.svg);
-  background-size: contain;
-  background-repeat: repeat-x;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 240s;
-  animation-delay: -120s;
-}
-
 @media (max-width: 639px) {
-  .cloud-anim::after, .cloud-anim::before {
-    top: 55vh;
-    animation-duration: 60s;
-    animation-delay: -30s;
-    background-image: url(../images/newStyle/images/home-cloud-mobile.svg);
-  }
+	.cloud-anim {
+		&::after {
+			top: 55vh;
+			animation-duration: 60s;
+			animation-delay: -30s;
+			background-image: url(../images/newStyle/images/home-cloud-mobile.svg);
+		}
+		&::before {
+			top: 55vh;
+			animation-duration: 60s;
+			animation-delay: -30s;
+			background-image: url(../images/newStyle/images/home-cloud-mobile.svg);
+		}
+	}
 }
-.cloud-anim::after {
-  animation-name: clouldAnimation1;
-}
-.cloud-anim::before {
-  animation-name: clouldAnimation2;
-}
-
-@keyframes clouldAnimation1 {
-  0% {
-    transform: translateX(0);
-    visibility: visible;
-  }
-  100% {
-    transform: translateX(-100vw);
-  }
-}
-
-@keyframes clouldAnimation2 {
-  0% {
-    transform: translateX(100vw);
-    visibility: visible;
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 @media (min-width: 840px) and (max-width: 1280px) {
-  .splide {
-    max-width: 800px;
-  }
+	.splide {
+		max-width: 800px;
+	}
 }
-
 @media (max-width: 840px) {
-  .splide {
-    max-width: 368px;
-  }
+	.splide {
+		max-width: 368px;
+	}
 }

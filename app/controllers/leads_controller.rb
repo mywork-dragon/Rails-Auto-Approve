@@ -41,6 +41,7 @@ class LeadsController < ApplicationController
   def lead_params
     params.require(:lead).permit(
       :landing_id,
+      :affiliate_id,
       :source,
       :first_name,
       :last_name,
@@ -62,6 +63,7 @@ class LeadsController < ApplicationController
       :lien_payment,
       :lien_payoff,
       :lien_rate,
+      :mortgage_broker,
       :vehicle_year,
       :vehicle_mileage,
       :vehicle_type,

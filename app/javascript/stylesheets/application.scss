@@ -2,19 +2,17 @@
 @import "tailwindcss/components.css";
 @import "tailwindcss/utilities.css";
 
-
+//NEW
 @import "./components/tailwind";
 @import "./components/style";
 @import "./components/header";
 
-/*
+
 @import "./components/style";
-@import "./components/footer";
-@import "./components/header";
 @import "./components/custom-icons";
 @import "./components/custom-forms";
 @import "./components/general-pages";
-@import "./components/range-custom";
+//@import "./components/range-custom";
 
 @import "./components/home";
 @import "./components/products";
@@ -25,4 +23,3 @@
 @import "./components/page-not-found";
 @import "./components/get-a-quote";
 @import "./components/jquery.sweet-dropdown";
-*/

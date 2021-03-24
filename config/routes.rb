@@ -7,11 +7,7 @@ Rails.application.routes.draw do
     
     resources :categories
     resources :faq
-    resources :landings do
-      collection do 
-        get '/theme/:theme_name' => 'landings#selected_theme_index', as: :theme_landings
-      end
-    end
+    resources :landings
     resources :leads, only: [:index, :show] do
       post :sync, on: :member
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_061508) do
+ActiveRecord::Schema.define(version: 2021_03_06_223716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_061508) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "source", default: "", null: false
+    t.string "logo"
     t.index ["path"], name: "index_landings_on_path", unique: true
     t.index ["source"], name: "index_landings_on_source"
     t.index ["state", "path"], name: "index_landings_on_state_and_path"
@@ -96,6 +97,8 @@ ActiveRecord::Schema.define(version: 2021_02_02_061508) do
     t.string "vehicle_model_name"
     t.text "tracking_urls", default: [], null: false, array: true
     t.string "token"
+    t.string "affiliate_id"
+    t.jsonb "additional", default: {}, null: false
     t.index ["crm_id"], name: "index_leads_on_crm_id"
     t.index ["landing_id", "state"], name: "index_leads_on_landing_id_and_state"
     t.index ["state"], name: "index_leads_on_state"

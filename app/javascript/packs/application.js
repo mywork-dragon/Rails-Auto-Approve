@@ -3,7 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-//require("@rails/ujs").start()
+require("@rails/ujs").start()
 // require("turbolinks").start()
 
 
@@ -11,20 +11,22 @@ import "stylesheets/application"
 
 //global.$ = require("jquery")
 
-//require("jquery.collapsable/dist/jquery.collapsable")
+require("jquery.collapsable/dist/jquery.collapsable")
 //import "rangeslider.js/dist/rangeslider"
 //import "rangeslider.js/dist/rangeslider.css"
-//import owlCarousel from "owl.carousel";
-//import "owl.carousel/dist/assets/owl.carousel.min.css";
+import owlCarousel from "owl.carousel";
+import "owl.carousel/dist/assets/owl.carousel.min.css";
 
-//import "../scr/get-owl-slider"
-import "../scr/custom"
+import "../scr/get-owl-slider"
 //import "../scr/range-slider"
 
-import "../scr/header"
 //import "../scr/footer"
 
 
+//NEW
+
+import "../scr/custom"
+import "../scr/header"
 
 //import "../scr/jquery.sweet-dropdown.min"
 

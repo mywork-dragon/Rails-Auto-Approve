@@ -93,7 +93,7 @@
                   -->
                   
                 </div>
-                <div class="footer-bottom-right-justify w-full md:w-1/2 lg:w-1/2 px-3 mb-6">
+                <div class="footer-bottom-right-justify w-full md:w-1/2 lg:w-1/2 px-3 mb-3">
 
                   <div class="social-media-div">
                     <ul class="social-media-ul">
@@ -124,7 +124,14 @@
                 </div>
               </div>
             </div>
-
+            <div class="text-white">
+              <p class="mb-6">Copyright &copy;<%= Date.current.year %> AutoApprove. All rights reserved.</p>
+              <% if content_for(:rate_notice) %>
+                <%= yield :rate_notice %>
+              <% else %>
+                *APR and Fees Disclosure: Auto Approve works with lenders to find you the best Annual Percentage Rate (APR), which is based on factors like your credit history, vehicle and desired payment terms. Fees to complete your loan refinance vary by state and lender; they generally include admin fees, doc fees, DMV and title. Advertised 2.25% APR based on: 2019 model year or newer vehicle, 730 minimum FICO credit score, and loan term up to 72 months. All loans subject to credit and lender approval.
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

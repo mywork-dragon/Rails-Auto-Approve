@@ -20,7 +20,7 @@ header .header-div .logo-div {
   margin: 0;
   display: flex;
   align-items: flex-end;
-  width: 190px;
+  /* width: 190px; */
   min-height: 70px;
 }
 
@@ -34,7 +34,8 @@ header .header-div .logo-div .logo_link {
 
 header .header-div .logo-div .logo_img {
   transition: display ease-in-out 0.5s;
-  width: 190px;
+  width: fit-content;
+  max-width: none;
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
