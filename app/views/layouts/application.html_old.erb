@@ -20,6 +20,12 @@
     <%= render "shared/gtm_head" %>
     <%= render "shared/full_story_snippet" %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp", rel: :preload, as: :style %>
+    
+    <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=qsoryock2pvnkksftvyera" async="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+
+
     <%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
     <%= yield :page_scripts %>
@@ -27,7 +33,7 @@
 
   <body>
     <%= render "shared/gtm_body" %>
-    <div id="wrapper" class="wrapper">
+    <div>
       <%= render "shared/header" %>
       <div class="main-middle-area">
         <%= yield %>

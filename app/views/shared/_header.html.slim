@@ -1,0 +1,45 @@
+header
+  div id="header" class="py-4 px-20 max-sm:px-4 bg-transparent absolute w-full z-999 max-w-8xl max-lg:flex"
+    div class="mb-4 font-bold text-right text-purple1 text-base max-lg:hidden pr-6 header-phone-number" (844) 336-3365
+    div class="flex-between max-lg:w-full"
+      = link_to root_path do
+        = image_pack_tag 'newStyle/icons/logo.svg', class:"cursor-pointer"
+      end
+      div class="flex-center max-lg:hidden"
+        button class="text-purple1 text-sm font-bold mx-5" 
+          = link_to "Why Auto Approve", why_auto_approve_path
+        div class="dropdown mx-5"
+          button class="text-purple1 text-sm font-bold" Products
+          div class="dropdown-content pt-5 bg-transparent"
+            div class="relative bg-white dropdown-sub-content"
+              div class="triangle"
+              div class="shadow p-4"
+                = link_to auto_refinance_path, class: "flex min-w-max items-center gap-4 py-4" do
+                  = image_pack_tag 'newStyle/icons/taxi2.svg'
+                  div Vehicle Refinance
+                end
+                = link_to auto_lease_purchase_path, class: "flex min-w-max items-center gap-4 py-2" do
+                  = image_pack_tag 'newStyle/icons/percentage.svg', class:"cursor-pointer"
+                  div Lease Purchase
+                end
+                = link_to motorcycle_refinance_path, class: "flex min-w-max items-center gap-4 py-4" do
+                  = image_pack_tag 'newStyle/icons/motorcycle.svg', class:"cursor-pointer"
+                  div Motorcycle Refinance
+                end
+        button class="text-purple1 text-sm font-bold mx-5" Resources
+        = link_to "FAQ", faq_path, class: "text-purple1 text-sm font-bold mx-5"
+      = link_to "Get a quote", quote_path, "data-turbolinks": false, class: "btn-purple btn max-lg:hidden"
+      = image_pack_tag 'newStyle/icons/hamburger.svg', class:"cursor-pointer hidden max-lg:block", id: "hamburger", onClick: 'show_sidemenu()'
+  div id="side-bg" onclick="hide_sidemenu()" class="hidden h-full w-full fixed top-0 left-0 cursor-pointer overflow-hidden bg-black bg-opacity-50 z-9999"
+  div id="side-menu" class="fixed w-72 h-full -right-72 top-0 z-9999 overflow-x-hidden bg-white transition-right duration-700"
+    div class="flex flex-col gap-8 px-4 py-2 text-purple2 text-base font-bold"
+      div class="text-right text-4xl mb-2"
+        a class="p-2" onclick="hide_sidemenu()" href="javascript:void(0)" ×
+      a href="#" Why Auto Approve
+      = link_to "Why Auto Approve", why_auto_approve_path
+      a href="#" Products
+      = link_to "FAQ", faq_path
+      div class="flex flex-col-center gap-2"
+        div (844) 336-3365
+        = link_to "Get a quote", quote_path, class: "btn-purple w-full btn"
+        
