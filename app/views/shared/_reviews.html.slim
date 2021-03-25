@@ -66,3 +66,29 @@ div class="flex-center flex-col bg-purple2 mx-auto py-24 max-sm:py-12 max-xl:px-
             = image_pack_tag 'newStyle/icons/google_logo.svg'
           div class="text-white text-base" Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.
   = link_to "Read more", "#", class: "btn-green btn"
+
+
+= content_for :page_scripts do
+  javascript:
+    document.addEventListener("DOMContentLoaded", function () {
+      new Splide('.splide', {
+        type: 'loop',
+        perPage: 3,
+        autoplay: true,
+        pagination: false,
+        arrows: false,
+        interval: 4000,
+        speed: 4000,
+        waitForTransition: false,
+        perMove: 1,
+        gap: 32,
+        breakpoints: {
+          1280: { perPage: 2, gap: 24 },
+          840: { perPage: 1, gap: 16 },
+        },
+      }).mount();
+      window.addEventListener('scroll', handleScroll);
+    });
+  
+end
+  
