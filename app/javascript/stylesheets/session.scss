@@ -2,4 +2,8 @@
 @import "tailwindcss/components.css";
 @import "tailwindcss/utilities.css";
 
-@import "./admin-components/style_backend.css";
+
+@import "./components/tailwind";
+@import "./components/style";
+
+@import "./admin-components/session.scss";

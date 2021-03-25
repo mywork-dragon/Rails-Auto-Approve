@@ -1,0 +1,19 @@
+doctype html
+html lang="en"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta http-equiv="X-UA-Compatible" content="ie=edge"
+    title Auto Approve
+    = render "shared/bugherd"
+    script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"
+    
+    = favicon_pack_tag 'favicon.png' 
+
+    = stylesheet_pack_tag "session", 'data-turbolinks-track': "reload"
+    = javascript_pack_tag "session", 'data-turbolinks-track': "reload"
+  
+    = yield :page_scripts
+
+  body
+    = yield
