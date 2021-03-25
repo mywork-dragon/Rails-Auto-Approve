@@ -29,4 +29,7 @@ class PagesController < ApplicationController
 
   def page_not_found
   end
+
+  def resources
+  end
 end

@@ -26,7 +26,7 @@ header
                   = image_pack_tag 'newStyle/icons/motorcycle.svg', class:"cursor-pointer"
                   div Motorcycle Refinance
                 end
-        button class="text-purple1 text-sm font-bold mx-5" Resources
+        = link_to "Resources", resources_path, class: "text-purple1 text-sm font-bold mx-5"
         = link_to "FAQ", faq_path, class: "text-purple1 text-sm font-bold mx-5"
       = link_to "Get a quote", quote_path, "data-turbolinks": false, class: "btn-purple btn max-lg:hidden"
       = image_pack_tag 'newStyle/icons/hamburger.svg', class:"cursor-pointer hidden max-lg:block", id: "hamburger", onClick: 'show_sidemenu()'
