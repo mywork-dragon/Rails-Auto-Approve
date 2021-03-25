@@ -1,0 +1,19 @@
+div class="flex"
+  div id="side-bg" onclick="hide_sidemenu()" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity max-3xl:hidden"
+
+  div id="side-menu" class="-translate-x-full ease-in admin-side fixed z-30 inset-y-0 left-0 transition duration-300 transform overflow-y-auto min-lg:translate-x-0 min-lg:static min-lg:inset-0"
+    div class="flex flex-col justify-between h-full"
+      div
+        = image_pack_tag 'newStyle/_icons/logo_white.svg', class:"cursor-pointer mx-14 max-sm:mx-7 mb-24 max-sm:mb-8"
+        div class="admin-side-items"
+          
+          = sidebar_link(admin_path, "Dashboard", "newStyle/_icons/home.svg")
+          = sidebar_link(admin_themes_path, "Themes", "newStyle/_icons/color_palette.svg")
+          = sidebar_link(admin_landings_path, "Landing Pages", "newStyle/_icons/website.svg")
+          = sidebar_link("#", "Resources", "newStyle/_icons/note.svg")
+          = sidebar_link(admin_reviews_path, "Reviews", "newStyle/_icons/like.svg")
+          = sidebar_link(admin_faq_index_path, "FAQ", "newStyle/_icons/close_circled.svg")
+          = sidebar_link(admin_positions_path, "Jobs", "newStyle/_icons/hire.svg")
+          = sidebar_link("#", "Users", "newStyle/_icons/people.svg")
+          
+      = image_pack_tag 'newStyle/_icons/logo_circle.svg', class:"w-12 h-12 cursor-pointer mx-14 max-sm:mx-7"

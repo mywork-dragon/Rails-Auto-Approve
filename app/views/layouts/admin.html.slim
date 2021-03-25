@@ -1,0 +1,25 @@
+doctype html
+html lang="en"
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    meta http-equiv="X-UA-Compatible" content="ie=edge"
+    meta content='initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width' name='viewport'
+    
+    title Auto Approve
+    = render "shared/bugherd"
+
+    = favicon_pack_tag 'favicon.png' 
+
+    = stylesheet_pack_tag "admin", 'data-turbolinks-track': "reload"
+    = javascript_pack_tag "admin", 'data-turbolinks-track': "reload"
+  
+    = yield :page_scripts
+
+  body
+    div class="flex h-screen"
+        = render "admin/shared/sidebar" 
+        = yield
+
+        = yield :end_page_scripts
