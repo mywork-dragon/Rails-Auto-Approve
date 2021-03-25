@@ -1,0 +1,10 @@
+main class="pt-40 pb-16 max-md:pt-20 h-screen"
+  div class="flex max-md:flex-col bg-section"
+    div class="max-md:w-full w-5/12 max-md:px-4 flex flex-col justify-center"
+      div class="mx-auto max-md:mx-0 py-4"
+        div class="text-207 max-sm:text-9xl text-lightgreen" 404
+        div class="text-xl max-sm:text-lg mb-4 text-gray9" Looks like you may be lost.
+        div class="text-xl max-sm:text-lg mb-10 text-gray9" Why don’t you head back home?
+        = link_to "Take me home", root_path, class: "btn-purple btn"
+    div class="max-3xl:hidden max-md:block w-full flex-1 pt-10"
+      = image_pack_tag 'newStyle/images/bg-404.svg'

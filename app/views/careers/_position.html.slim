@@ -1,0 +1,17 @@
+div class="max-w-xl flex gap-8 max-sm:gap-4"
+  div class="w-28 h-28 max-sm:w-12 max-sm:h-12 rounded-full bg-gray1 flex-center"
+    = image_pack_tag 'newStyle/images/user-profile.svg', class:"w-1/2 h-1/2"
+  div class="flex-col flex-1"
+    div class="font-bold text-xl max-sm:text-lg text-gray2 mb-3" 
+      = position.title 
+    div class="text-gray5 text-lg max-sm:text-sm mb-3" 
+      = truncate(strip_tags(position.content), length: 255)
+    div class="flex-between"
+      div class="flex-center"
+        <img class="mr-2" src="icons/location--heart--filled.svg" alt="">
+        span class="text-gray10 text-sm" 
+          = position.location 
+      = link_to career_path(position), class:"flex-center" do
+        span class="mr-3 text-purple2 font-bold" Read more
+        = image_pack_tag 'newStyle/icons/arrow-right-purple.svg'
+      end

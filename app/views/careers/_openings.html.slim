@@ -1,0 +1,12 @@
+- cache("positions", expires_in: 24.hours) do 
+    div class="flex-center flex-col py-32 max-sm:py-16 mx-4"
+      div class="text-gray5 text-50 max-sm:text-3xl text-center mb-24 max-sm:mb-12" Open Roles
+      
+      - if open_positions.present?
+        div class="grid grid-cols-2 max-lg:grid-cols-1 gap-16 max-sm:gap-8 mx-4"
+          = render collection: open_positions, partial: "position", as: :position
+      - else
+        div class="grid grid-cols-1 max-lg:grid-cols-1 gap-16 max-sm:gap-8 mx-4"
+          p class="text-center" There are currently no open positions
+      end 
+end

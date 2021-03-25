@@ -1,0 +1,35 @@
+div class="relative"
+  div class="pt-28 bg-purple2 w-full inline-block"
+    div class="mb-60 max-sm:mb-20"
+
+  div class="bg-gray1 w-full inline-block"
+    div class="max-w-6xl px-24 max-sm:px-6 py-12 max-sm:py-6 bg-white rounded-2xl mx-auto max-lg:mx-4 -mt-32 max-sm:-mt-24 mb-24 max-sm:mb-12"
+      div class="flex-between"
+        = link_to careers_path, class: "flex-center" do
+          = image_pack_tag 'newStyle/icons/BackArrow.svg', class: "mr-2"
+          span class="text-purple2 text-sm font-bold" Back to All News
+        end
+        - if @position.url.present?
+          = link_to "Apply Now", @position.url, class: "btn-purple btn"
+        - else
+          = mail_to @position.email, "Apply Now", class: "btn-purple btn"
+        end
+      div class="flex items-center"
+        div class="w-16 h-16 max-sm:w-8 max-sm:h-8 rounded-full bg-purple2 flex-center mr-6 max-sm:mr-3"
+          = image_pack_tag 'newStyle/icons/user-profile-white.svg', class: "w-1/2 h-1/2"
+        div class="text-gray9 font-bold text-4xl max-sm:text-2xl my-14 max-sm:my-7" 
+          = @position.title
+      
+      div class="mb-14 max-sm:mb-7"
+        div class="text-gray9 font-bold text-3xl max-sm:text-xl mb-4" Subtitle
+        div class="text-gray8 text-lg max-sm:text-base" 
+          = raw @position.content
+      div class="mb-14 max-sm:mb-7"
+        = image_pack_tag 'newStyle/images/_ResourceDetail.svg'
+      
+      
+      - if @position.url.present?
+        = link_to "Apply Now", @position.url, class: "btn-purple btn"
+      - else
+        = mail_to @position.email, "Apply Now", class: "btn-purple btn"
+      end
