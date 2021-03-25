@@ -32,4 +32,7 @@ class PagesController < ApplicationController
 
   def resources
   end
+
+  def resource_detail
+  end
 end
