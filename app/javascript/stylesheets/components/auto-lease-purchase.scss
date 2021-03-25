@@ -1,0 +1,30 @@
+.auto-lease-purchase-title-section {
+  background: #fff url(../images/newStyle/images/lease.svg) no-repeat;
+  background-position: 100% 0%;
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .auto-lease-purchase-title-section {
+    background-position: 115%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) and (min-width: 1025px) and (max-width: 1290px) {
+  .auto-lease-purchase-title-section {
+    background-position: 115% 25%;
+    background-size: 60%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .auto-lease-purchase-title-section {
+    background-size: 60%;
+    background-position: 110% 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .auto-lease-purchase-title-section {
+    background: none;
+  }
+}

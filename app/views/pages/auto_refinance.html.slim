@@ -74,33 +74,8 @@ main class="relative"
             = image_pack_tag 'newStyle/images/plus-gap3.svg', class:"mb-8"
             div class="text-gray4 text-center" The best news is, most GAP coverage is less than $14 a month, so as coverage goes, it offers a pretty great return on investment if you ever actually need it.
 
-    div class="flex-center flex-col pb-24 max-sm:pb-12 auto-approve-section"
-      div class="text-gray5 text-50 max-sm:text-3xl max-w-2xl text-center mb-8" Why Auto Approve?
-      div class="grid grid-cols-3 gap-4 max-xl:grid-cols-2 max-sm:grid-cols-1 mx-4"
-        div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
-          = image_pack_tag 'newStyle/images/Approve_1.svg', class:"mb-8"
-          div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" It’s time to make a change.
-          div class="text-gray4 text-center" Interest rates today are historically low – most people are paying too much on their auto loan. Now is the time to refinance and lower your monthly payment. We’ll make it happen.
-        div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
-          = image_pack_tag 'newStyle/images/Approve_2.svg'
-          div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" Our customers love us.
-          div class="text-gray4 text-center" With an A+ rating from the Better Business Bureau and a 96% would-recommend rating on LendingTree, you can refinance with us with confidence.
-        div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
-          = image_pack_tag 'newStyle/images/Approve_3.svg'
-          div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" The personalized service you deserve.
-          div class="text-gray4 text-center" At Auto Approve, you get the service that works for you. Want a human? We’re real people and ready to chat. Hate the phone? That’s cool too. Do everything online, no humans required.
-        div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
-          = image_pack_tag 'newStyle/images/Approve_4.svg'
-          div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-7 mb-8 text-center" The deal that’s right for you.
-          div class="text-gray4 text-center" We’ll work to personally make sure you get the best deal for you. We’re your advocate, getting lenders to compete to find a great fit for your needs. And then we do the paperwork to make it happen. (Yes, we even handle the DMV.)
-        div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
-          = image_pack_tag 'newStyle/images/Approve_5.svg'
-          div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" No mark-ups. Ever.
-          div class="text-gray4 text-center" Unlike our competitors, we never mark up the rate you pay. Some companies will give you a higher rate than the bank actually offers and pocket the difference. With Auto Approve, your savings are passed on to you directly.
-        div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
-          = image_pack_tag 'newStyle/images/Approve_6.svg'
-          div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" More money in your pocket.
-          div class="text-gray4 text-center" The most important thing we do is? We lower your monthly payments. Refinance with Auto Approve, you’ll have more cash to spend on the things you love. Because, in the end, our mission is more money for what matters to you.
+    
+    = render "shared/why" 
 
     div class="flex-center flex-col pt-36 py-32 max-sm:py-16 bg-gray1"
       div class="text-gray5 text-50 max-sm:text-3xl max-w-2xl text-center mb-4" The right product to save you money.
@@ -119,90 +94,8 @@ main class="relative"
             = link_to "Learn More", motorcycle_refinance_path, class: "font-bold text-base text-lightgreen text-left" 
           = image_pack_tag 'newStyle/images/Frame3.svg'
 
-    div class="flex-center flex-col bg-purple2 mx-auto py-24 max-sm:py-12"
-      div class="flex-center mb-20 max-sm:mb-10 max-sm:mx-4"
-        div class="text-white text-50 max-sm:text-3xl text-center" Real Customers. Real Reviews.
-        = image_pack_tag 'newStyle/icons/smile.svg'
-      div class="grid grid-cols-3 max-lg:grid-cols-1 gap-8 max-sm:gap-4 mb-20 max-sm:mb-10 mx-4"
-        div class="bg-gray2 max-w-sm rounded-2xl px-10 py-12"
-          div class="flex-between mb-8 max-sm:flex-col"
-            div class="flex gap-3.5"
-              = image_pack_tag 'newStyle/icons/quotes.svg'
-              div
-                div class="text-white text-base" Full Name
-                div class="flex-between"
-                  div class="flex-center mt-2 mb-4"
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mr-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="ml-1 fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-            = image_pack_tag 'newStyle/icons/google_logo.svg'
-          div class="text-white text-base" Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.
-        div class="bg-gray2 max-w-sm rounded-2xl px-10 py-12"
-          div class="flex-between mb-8 max-sm:flex-col"
-            div class="flex gap-3.5"
-              = image_pack_tag 'newStyle/icons/quotes.svg'
-              div
-                div class="text-white text-base" Full Name
-                div class="flex-between"
-                  div class="flex-center mt-2 mb-4"
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mr-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="ml-1 fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-            = image_pack_tag 'newStyle/icons/lendingtree_logo.svg'
-          div class="text-white text-base" Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.
-        div class="bg-gray2 max-w-sm rounded-2xl px-10 py-12"
-          div class="flex-between mb-8 max-sm:flex-col"
-            div class="flex gap-3.5"
-              = image_pack_tag 'newStyle/icons/quotes.svg'
-              div
-                div class="text-white text-base" Full Name
-                div class="flex-between"
-                  div class="flex-center mt-2 mb-4"
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mr-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="mx-1 fill-current text-lightgreen" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-                    <svg class="ml-1 fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"><path d="M5.63024 0.533002C6.01342 -0.142373 6.98658 -0.142372 7.36976 0.533003L8.66518 2.81623C8.80762 3.0673 9.0516 3.24456 9.33439 3.30245L11.9062 3.8289C12.6669 3.98463 12.9676 4.91016 12.4437 5.48329L10.6725 7.42086C10.4778 7.63391 10.3846 7.92073 10.4169 8.20757L10.711 10.8162C10.7979 11.5878 10.0106 12.1598 9.30366 11.8386L6.9136 10.7529C6.65079 10.6335 6.34921 10.6335 6.0864 10.7529L3.69634 11.8386C2.98936 12.1598 2.20206 11.5878 2.28903 10.8162L2.58307 8.20757C2.6154 7.92073 2.52221 7.63391 2.32745 7.42086L0.556276 5.48329C0.0323651 4.91016 0.333091 3.98463 1.09382 3.8289L3.66561 3.30245C3.9484 3.24456 4.19238 3.0673 4.33482 2.81623L5.63024 0.533002Z"/></svg>
-            = image_pack_tag 'newStyle/icons/Trustpilot_logo.svg'
-          div class="text-white text-base" Amet minim mollit non deserunt ullamco est aliqua dolor do amet sint Velit officia consequa.
-      = link_to "Read more", "#", class: "btn-green btn"
+    = render "shared/reviews" 
+    = render "shared/resources"
+    = render "shared/brand"  
 
-    div class="flex-center flex-col bg-gray1 py-24 max-sm:py-12"
-      div class="flex-center mb-20 max-sm:mb-10"
-        div class="text-gray5 text-50 max-sm:text-3xl" Resources
-      div class="grid grid-cols-3 max-lg:grid-cols-1 gap-8 max-sm:gap-4 mb-20 max-sm:mb-10 max-sm:flex-col mx-4"
-        div class="relative"
-          = image_pack_tag 'newStyle/images/resource1.png', class:"rounded-3xl"
-          div class="absolute text-white left-10 top-8"
-            div class="text-base text-bold mb-4" Article
-            div class="text-3xl max-sm:text-xl" Article Title
-            div class="text-3xl max-sm:text-xl mb-4" Goes Right Here
-            = image_pack_tag 'newStyle/icons/left-arrow.svg',class:"cursor-pointer"
-        div class="relative"
-          = image_pack_tag 'newStyle/images/resource2.png', class:"rounded-3xl"
-          div class="absolute text-white left-10 top-8"
-            div class="text-base text-bold mb-4" Article
-            div class="text-3xl max-sm:text-xl" Article Title
-            div class="text-3xl max-sm:text-xl mb-4" Here
-            = image_pack_tag 'newStyle/icons/left-arrow.svg', class:"cursor-pointer"
-        div class="relative"
-          = image_pack_tag 'newStyle/images/resource3.png', class:"rounded-3xl"
-          div class="absolute text-white left-10 top-8"
-            div class="text-base text-bold mb-4" Article
-            div class="text-3xl max-sm:text-xl" Article Title
-            div class="text-3xl max-sm:text-xl mb-4" Goes Right Here
-            = image_pack_tag 'newStyle/icons/play.svg', class:"cursor-pointer"
-      = link_to "Resources", "#", class: "btn-purple btn"
 
-    div class="flex-center flex-col"
-      div class="grid grid-cols-3 max-lg:grid-cols-1 gap-8 max-sm:gap-4 mx-auto my-24 max-sm:my-12 mx-4"
-        div class="max-w-sm mx-auto cursor-pointer"
-          = image_pack_tag 'newStyle/images/bbb.svg'
-        div class="max-w-sm mx-auto cursor-pointer"
-          = image_pack_tag 'newStyle/images/Auto+Finance1.svg'
-        div class="max-w-sm mx-auto cursor-pointer"
-          = image_pack_tag 'newStyle/images/Auto+Finance2.svg'
