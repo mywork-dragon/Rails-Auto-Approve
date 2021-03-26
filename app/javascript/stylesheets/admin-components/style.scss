@@ -92,3 +92,121 @@ input:-ms-input-placeholder {
 ::-webkit-scrollbar-track {
     background: #2D3748;
 }
+
+
+
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 50px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+  margin-right: 8px;
+}
+
+.rating label .icon .svg {
+  fill: none;
+}
+
+.rating label:last-child .icon .svg {
+  fill: #E3FCF4; 
+  stroke: #44E0B7; 
+  stroke-width: 0.5;
+}
+
+.rating:not(:hover) label input:checked ~ .icon .svg,
+.rating:hover label:hover input ~ .icon .svg {
+  fill: #44E0B7; 
+}
+
+.source-bar {
+  margin-bottom: 16px;
+}
+
+.source-bar input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.source-bar label {
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #D3D3D4;
+  border-radius: 8px;
+}
+.source-bar label.active {
+  border-color: #44e0b7;
+}
+.source-bar label:hover {
+  border-color: #44e0b7;
+}
+
+.source-bar input[type="radio"]:focus + label {
+  border-color: #44e0b7;
+}
+
+.source-bar input[type="radio"]:checked + label {
+  border-color: #44e0b7;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #898A8D;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #898A8D;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #898A8D;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #898A8D;
+}  
