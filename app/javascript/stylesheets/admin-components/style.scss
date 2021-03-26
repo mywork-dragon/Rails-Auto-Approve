@@ -68,3 +68,16 @@
 ::-webkit-scrollbar-track {
     background: #2D3748;
 }
+
+input::-webkit-input-placeholder {
+  color: #898A8D;
+}
+input:-moz-placeholder {
+  color: #898A8D;
+}
+input::-moz-placeholder {
+  color: #898A8D;
+}
+input:-ms-input-placeholder {
+  color: #898A8D;
+}  

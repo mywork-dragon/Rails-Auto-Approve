@@ -1,0 +1,46 @@
+div class="admin-main"
+  div class="admin-header"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="text-xs pb-2 max-lg:hidden"
+        span class="text-gray2" 
+          span Landing Pages / 
+        span class="text-gray5 ml-1" New Page
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" New Page
+
+  main class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      = simple_form_for @landing, url: admin_landings_path do |f|
+        div class="w-full text-gray5"
+          = f.error_notification
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+          div class="mb-10"
+            = f.input_field :theme, class: "w-full border border-gray12 rounded-lg px-6 py-2", collection: Theme.available, id: "theme_select", placeholder: "Landing page"
+
+          = render "form", f: f
+          
+          div id="fields"
+          
+          div class="flex items-center"
+            label
+              label class="switch"
+                = f.input :state, as: :integer do 
+                  = f.check_box :state, {id: "live", onclick:"onSwitch()"}, "active", "pending"
+                  span class="slider round"
+                end
+              span id="livetext" class="text-gray3 font-bold" Live
+            
+            = f.simple_fields_for :config do |sf|
+              - @landing.config.each do |field, val|
+                = sf.input field.to_sym, input_html: { value: val, class:"w-full border border-gray12 rounded-lg px-6 py-2" }
+              end
+            end
+
+            button type="button" class="border border-gray3 hover:border-purple2 text-purple2 hover:text-white hover:bg-purple2 btn mx-6" Preview
+            = f.submit "Create", class: "bg-gray3 text-white btn hover:bg-gray-500 cursor-pointer"
+      end
+= content_for :end_page_scripts do
+  = javascript_pack_tag "admin_scripts/edit_landing_page", 'data-turbolinks-track': "reload"
+  = javascript_pack_tag "admin_scripts/admin-form", 'data-turbolinks-track': "reload"
+end

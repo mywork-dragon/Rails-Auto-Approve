@@ -1,0 +1,13 @@
+div class="mb-10"
+  = f.full_error :path
+  = f.input_field :path, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Path"
+div class="mb-10"
+  = f.full_error :logo
+  = f.input_field :logo, as: :file, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Logo"
+  - if f.object.logo.present?
+    div class="mb-4"
+      = cl_image_tag f.object.logo
+  end
+div class="mb-10"
+  = f.full_error :source
+  = f.input_field :source, class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-10 focus:text-black", placeholder: "Source"

@@ -6,6 +6,8 @@
 require("@rails/ujs").start()
 //require("turbolinks").start()
 
+
+
 import "stylesheets/admin"
 
 import "../scr/admin/sidebar"
