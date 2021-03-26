@@ -58,3 +58,13 @@
   border-right: 14px solid transparent;
   box-shadow: 10px 5px 80px -12px rgba(0, 0, 0, 0.1);
 }
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E0;
+}
+::-webkit-scrollbar-track {
+    background: #2D3748;
+}
