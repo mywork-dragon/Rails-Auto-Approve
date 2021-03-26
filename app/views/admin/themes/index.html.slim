@@ -1,0 +1,44 @@
+div class="admin-main"
+  div class="admin-header"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" Themes
+        div class="max-2xl:hidden flex items-end"
+          <img class="-mr-6 pb-2" src="../_icons/search.svg" alt="">
+          div class="flex items-end "
+            button class="btn btn-purple flex items-center"
+              span Create New Template
+              = image_pack_tag 'newStyle/_icons/plus-white.svg'
+
+  main id="content" class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      div class="grid grid-cols-3 max-2xl:grid-cols-2 max-md:grid-cols-1 gap-8"
+        - @themes.each do |theme, count|
+          div class="mx-auto"
+            = link_to admin_theme_path(id: theme.name) do
+              div class="card-container cursor-pointer" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave()"
+                = image_tag theme.cover, class:"card"
+                div class="absolute bg-purple2 left-0 bottom-0 flex items-center p-3 rounded-bl-2xl rounded-tr-lg"
+                  = image_pack_tag 'newStyle/_icons/copy_icon.svg'
+                  div class="text-xs font-bold text-white ml-2" = @stats.fetch(theme.name, 0)
+                div class="absolute left-0 top-0 w-full h-full rounded-2xl flex justify-center items-center bg-purple2 opacity-0 view-detail"
+                  div class="text-xl font-bold text-white mr-2" View Details
+                  
+                  = image_pack_tag 'newStyle/_icons/forward_arrow.svg'
+              div class="text-lg text-gray5 mt-4" 
+                = theme.name
+            end
+        end
+          
+        
+
+    div id="preview" class="blockpreview hidden max-sm:mr-6"
+      div id="left-triangle" class="hidden left-triangle"
+      div id="right-triangle" class="hidden right-triangle"
+      div id="top-triangle" class="hidden top-triangle"
+      = image_pack_tag 'newStyle/_images/theme1.svg', class:"blockpreviewshadow rounded-xl mx-3 max-md:mt-3"
+
+= content_for :end_page_scripts do
+  = javascript_pack_tag "admin_scripts/theme", 'data-turbolinks-track': "reload"
+end

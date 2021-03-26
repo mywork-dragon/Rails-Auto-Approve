@@ -1,0 +1,60 @@
+.card-container {
+  position: relative;
+}
+
+.card {
+  width: 340px;
+  height: 208px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.card-container:hover .view-detail {
+  opacity: 0.8;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+}
+
+.blockpreview {
+  position: absolute;
+}
+.blockpreviewshadow {
+  box-shadow: 10px 5px 80px -12px rgba(0, 0, 0, 0.1);
+}
+
+.left-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  border-top: 14px solid transparent;
+  border-right: 12px solid white;
+  border-bottom: 14px solid transparent;
+  box-shadow: 10px 5px 80px -12px rgba(0, 0, 0, 0.1);
+}
+
+.right-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 0;
+  border-top: 14px solid transparent;
+  border-left: 12px solid white;
+  border-bottom: 14px solid transparent;
+  box-shadow: 10px 5px 80px -12px rgba(0, 0, 0, 0.1);
+}
+
+.top-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+  border-left: 14px solid transparent;
+  border-bottom: 12px solid white;
+  border-right: 14px solid transparent;
+  box-shadow: 10px 5px 80px -12px rgba(0, 0, 0, 0.1);
+}
