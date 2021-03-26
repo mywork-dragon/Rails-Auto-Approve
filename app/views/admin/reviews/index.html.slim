@@ -44,8 +44,11 @@ div class="admin-main"
                       = review.name 
                   td class="table-td"
                     p class="flex whitespace-no-wrap"
-                      = review.rating
-                      = image_pack_tag 'newStyle/_icons/star-green.svg'
+                      - i = 0
+                      = while i < review.rating do
+                        = image_pack_tag 'newStyle/_icons/star-green.svg'
+                        - i += 1
+                      end
                   td class="table-td"
                     p class="whitespace-no-wrap"
                       = cl_image_tag review.review_site.logo
