@@ -81,3 +81,14 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
   color: #898A8D;
 }  
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E0;
+}
+::-webkit-scrollbar-track {
+    background: #2D3748;
+}

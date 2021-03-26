@@ -1,0 +1,35 @@
+div class="admin-main"
+  div class="admin-header"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="text-xs pb-2 max-lg:hidden"
+        span class="text-gray2" 
+          = link_to "Jobs", admin_positions_path
+          span class="ml-1" 
+            = "/"
+        span class="text-gray5 ml-1" New Job
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" New Job
+
+  main class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      = simple_form_for @position, url: admin_positions_path, class:"w-full text-gray5" do |f|
+        = render "form", f: f
+        
+        
+        div class="flex items-center"
+          label
+            label class="switch"
+              = f.input :state, as: :integer do 
+                = f.check_box :state, {id: "live", onclick:"onSwitch()"}, "active", "archived"
+                span class="slider round"
+              end
+            span id="livetext" class="text-gray3 font-bold" Live
+
+          = f.submit "Save", class:"bg-gray3 text-white btn hover:bg-gray-500 ml-6 cursor-pointer"
+
+= content_for :end_page_scripts do
+  
+  = javascript_pack_tag "admin_scripts/positions", 'data-turbolinks-track': "reload"
+  
+end
