@@ -31,7 +31,7 @@ div class="admin-main"
               - @landings.each do |landing|
                 tr
                   td class="table-td flex items-center"
-                    = image_tag landing.theme_instance.cover, class:"rounded-md border border-gray11"
+                    = cl_image_tag landing.logo, class:"rounded-md border border-gray11", width:"102", height:"102"
                     span class="text-gray5 font-bold pl-4 whitespace-no-wrap fit-content" 
                       = landing.theme
                   td class="table-td"

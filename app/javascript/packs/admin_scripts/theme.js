@@ -1,4 +1,5 @@
-window.onMouseOver = function (element) {
+window.onMouseOver = function (element,img) {
+  document.getElementById("image-show").src = img;
   var rect = element.getBoundingClientRect();
   var rect1 = document.getElementById("content").getBoundingClientRect();
 

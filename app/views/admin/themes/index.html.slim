@@ -5,7 +5,7 @@ div class="admin-main"
       div class="flex-between"
         div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" Themes
         div class="max-2xl:hidden flex items-end"
-          <img class="-mr-6 pb-2" src="../_icons/search.svg" alt="">
+          = image_pack_tag 'newStyle/_icons/search.svg', class:"-mr-6 pb-2"
           div class="flex items-end "
             button class="btn btn-purple flex items-center"
               span Create New Template
@@ -17,7 +17,7 @@ div class="admin-main"
         - @themes.each do |theme, count|
           div class="mx-auto"
             = link_to admin_theme_path(id: theme.name) do
-              div class="card-container cursor-pointer" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave()"
+              div class="card-container cursor-pointer" onmouseover="onMouseOver(this, '#{theme.cover}')" onmouseleave="onMouseLeave()"
                 = image_tag theme.cover, class:"card"
                 div class="absolute bg-purple2 left-0 bottom-0 flex items-center p-3 rounded-bl-2xl rounded-tr-lg"
                   = image_pack_tag 'newStyle/_icons/copy_icon.svg'
@@ -37,7 +37,7 @@ div class="admin-main"
       div id="left-triangle" class="hidden left-triangle"
       div id="right-triangle" class="hidden right-triangle"
       div id="top-triangle" class="hidden top-triangle"
-      = image_pack_tag 'newStyle/_images/theme1.svg', class:"blockpreviewshadow rounded-xl mx-3 max-md:mt-3"
+      = image_pack_tag 'newStyle/_images/theme1.svg', class:"blockpreviewshadow rounded-xl mx-3 max-md:mt-3", id:"image-show"
 
 = content_for :end_page_scripts do
   = javascript_pack_tag "admin_scripts/theme", 'data-turbolinks-track': "reload"
