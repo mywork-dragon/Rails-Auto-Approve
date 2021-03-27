@@ -227,9 +227,8 @@ module.exports = {
     extend: {
       fontWeight: ['hover'],
       backgroundColor: ['active'],
+      tableLayout: ['hover', 'focus'],
     },
   },
   plugins: [],
-  corePlugins: {
-  },
 };
