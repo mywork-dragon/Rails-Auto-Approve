@@ -243,3 +243,16 @@ textarea:-ms-input-placeholder {
 .custom-file-input:active {
   outline: 0;
 }
+
+input::-webkit-input-placeholder {
+  color: #898A8D;
+}
+input:-moz-placeholder {
+  color: #898A8D;
+}
+input::-moz-placeholder {
+  color: #898A8D;
+}
+input:-ms-input-placeholder {
+  color: #898A8D;
+}    

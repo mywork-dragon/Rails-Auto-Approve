@@ -17,7 +17,7 @@ class Admin::UsersController < AdminController
     @user = User.new(position_params)
     if @user.save
       flash[:notice] = 'User created successfully'
-      redirect_to admin_user_path(@user)
+      redirect_to admin_users_path
     else
       render action: :new
     end
@@ -31,7 +31,7 @@ class Admin::UsersController < AdminController
     @user = User.find(params[:id])
     if @user.update(position_params)
       flash[:notice] = 'User updated successfully'
-      redirect_to admin_user_path(@user)
+      redirect_to admin_users_path
     else
       render action: :edit
     end

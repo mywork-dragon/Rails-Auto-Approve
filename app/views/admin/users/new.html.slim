@@ -1,0 +1,19 @@
+div class="admin-main"
+  div class="admin-header"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="text-xs pb-2 max-lg:hidden"
+        span class="text-gray2" 
+          = link_to "Users", admin_users_path
+          span class="ml-1" 
+            = "/"
+        span class="text-gray5 ml-1" New User
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" New User
+
+  main class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      = simple_form_for @user, url: admin_users_path, :html=> { class:"max-w-xl max-sm:w-full text-gray5" } do |f|
+        = render "form", f: f
+        div  
+          = f.submit "Save", class:"bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500"

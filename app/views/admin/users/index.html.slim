@@ -1,0 +1,51 @@
+div class="admin-main"
+  div class="admin-header pb-0"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="h-6 max-lg:hidden" &nbsp;
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-6" Users
+        div class="max-2xl:hidden flex items-end"
+          = image_pack_tag 'newStyle/_icons/search.svg',class:"-mr-6 pb-2"
+          div class="flex items-end "
+            div class="relative mr-8"
+              input id="search-text" class="pl-7 w-80 text-gray10 border-b border-gray11 py-2 bg-transparent font-bold" type="text" placeholder="Search"
+            = link_to new_admin_user_path, class:"btn btn-purple flex items-center" do
+              span Create a New User
+              = image_pack_tag 'newStyle/_icons/plus-white.svg', class:"ml-4"
+            end
+
+  main class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto"
+        div class="inline-block min-w-full overflow-hidden"
+          table class="min-w-full leading-normal"
+            thead
+              tr
+                th class="table-th min-w-84" Name
+                th class="table-th" Access
+                th class="table-th" Last Login
+                th class="table-th text-center" Actions
+
+            tbody
+              - @users.each do |user|
+                tr
+                  td class="table-td"
+                    span class="text-gray5 font-bold whitespace-no-wrap" 
+                      = user.name
+                  td class="table-td"
+                    p class="text-gray4 whitespace-no-wrap" 
+                      = user.role
+                  td class="table-td"
+                    p class="text-gray4 whitespace-no-wrap" 
+                      = user.created_at.strftime("%b %d %Y")
+                  td class="table-td"
+                    div class="flex items-center w-32 mx-auto"
+                      = link_to "Edit", edit_admin_user_path(user), class:"btn-outline-purple mr-4"
+                      = link_to admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" } do
+                        = image_pack_tag 'newStyle/_icons/delete.svg'
+                      end
+              end
+
+          div class="pt-12 px-12 max-lg:pt-6 flex-center max-lg:justify-start text-gray8"
+            = paginate @users 
