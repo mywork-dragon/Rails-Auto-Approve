@@ -13,7 +13,7 @@ div class="admin-main"
 
   main class="flex-1 overflow-x-hidden overflow-y-auto"
     div class="py-4 px-20 max-lg:p-6"
-      = simple_form_for @position, url: admin_positions_path, class:"w-full text-gray5" do |f|
+      = simple_form_for @position, url: admin_positions_path, :html=> { class:"w-full text-gray5"} do |f|
         = render "form", f: f
         
         
