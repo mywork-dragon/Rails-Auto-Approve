@@ -21,11 +21,8 @@ div class="relative"
           = @position.title
       
       div class="mb-14 max-sm:mb-7"
-        div class="text-gray9 font-bold text-3xl max-sm:text-xl mb-4" Subtitle
         div class="text-gray8 text-lg max-sm:text-base" 
           = raw @position.content
-      div class="mb-14 max-sm:mb-7"
-        = image_pack_tag 'newStyle/images/_ResourceDetail.svg'
       
       
       - if @position.url.present?
