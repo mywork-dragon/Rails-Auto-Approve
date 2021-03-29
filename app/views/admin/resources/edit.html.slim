@@ -1,0 +1,25 @@
+div class="admin-main"
+  div class="admin-header"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="text-xs pb-2 max-lg:hidden"
+        span class="text-gray2" 
+          = link_to "Resources", admin_resources_path
+          span class="ml-1" 
+            = "/"
+        span class="text-gray5 ml-1" Edit Resource
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" Edit Resource
+
+  main class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      div class="w-full text-gray5"
+        form class="max-w-xl max-sm:w-full text-gray5"
+          div class="mb-10"
+            input id="title" type="title" class="w-full border border-gray12 rounded-lg px-6 py-2" placeholder="Add Title Here" 
+          
+          div class="flex items-center"
+            
+
+            button type="button" class="border border-gray3 hover:border-purple2 text-purple2 hover:text-white hover:bg-purple2 btn mx-6" Preview
+            button type="button" class="bg-gray3 text-white btn hover:bg-gray-500" Save

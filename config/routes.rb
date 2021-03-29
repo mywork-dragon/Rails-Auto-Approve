@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get :fields, on: :member
     end
     resources :users
+
+    resources :resources
   end
 
   resources :leads, only: [:create] do
