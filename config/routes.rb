@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       post :sync, on: :member
     end
     resources :positions
+    
+
+
     resources :reviews
     resources :review_sites
     resources :themes, only: [:index, :show] do
@@ -20,6 +23,7 @@ Rails.application.routes.draw do
     resources :users
 
     resources :resources
+    resources :resource_category
   end
 
   resources :leads, only: [:create] do
@@ -40,10 +44,13 @@ Rails.application.routes.draw do
   get '/privacy-policy' => 'pages#privacy_policy', as: :privacy_policy
   get '/page-not-found' => 'pages#page_not_found', as: :page_not_found
   get '/resources' => 'pages#resources', as: :resources
-  get '/resource-detail' => 'pages#resource_detail', as: :resource_detail
+  get '/resource-detail/:slug' => 'pages#resource_detail', as: :resource_detail
 
   match "/404", to: "errors#not_found", via: :all, as: :not_found
   match "/500", to: "errors#internal_server_error", via: :all, as: :internal_error
+
+  post '/admin/attachment/upload' => 'admin/attachments#uploadImages'
+
 
   get '*id', to: 'landings#show', as: :landing
   root 'pages#index'

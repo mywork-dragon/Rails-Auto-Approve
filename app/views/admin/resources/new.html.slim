@@ -13,13 +13,21 @@ div class="admin-main"
 
   main class="flex-1 overflow-x-hidden overflow-y-auto"
     div class="py-4 px-20 max-lg:p-6"
-      div class="w-full text-gray5"
-        form class="max-w-xl max-sm:w-full text-gray5"
-          div class="mb-10"
-            input id="title" type="title" class="w-full border border-gray12 rounded-lg px-6 py-2" placeholder="Add Title Here" 
-          
-          div class="flex items-center"
-            
+      = simple_form_for @resource, url: admin_resources_path, :html=> { class:"w-full text-gray5" } do |f|
+        = render "form", f: f
+                
+        div class="flex items-center"
 
-            button type="button" class="border border-gray3 hover:border-purple2 text-purple2 hover:text-white hover:bg-purple2 btn mx-6" Preview
-            button type="button" class="bg-gray3 text-white btn hover:bg-gray-500" Save
+          label
+            label class="switch"
+              = f.input :state, as: :integer do 
+                = f.check_box :state, {id: "live", onclick:"onSwitch()"}, "live", "pedding"
+                span class="slider round"
+              end
+            span id="livetext" class="text-gray3 font-bold" Live
+
+          = f.submit "Save", class:"ml-4 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500"
+
+= content_for :end_page_scripts do
+  = javascript_pack_tag "admin_scripts/positions", 'data-turbolinks-track': "reload"
+end

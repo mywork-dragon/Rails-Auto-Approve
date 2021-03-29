@@ -1,5 +1,6 @@
 class Admin::PositionsController < AdminController
   before_action :authorize_marketer!
+  
 
   def index
     @positions = Position.page(params[:page])
@@ -42,6 +43,7 @@ class Admin::PositionsController < AdminController
     @position.destroy
     redirect_to admin_positions_path
   end
+
 
   private
 

@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :resources, dependent: :destroy
 
   enum role: { copywriter: 0, marketer: 1, admin: 2 }
 

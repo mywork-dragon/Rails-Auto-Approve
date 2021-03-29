@@ -31,8 +31,18 @@ class PagesController < ApplicationController
   end
 
   def resources
+    @resource_categories = ResourceCategory.where(state: 1)
+    
+    if !params['filter'].empty?
+      @filterCategory = ResourceCategory.where("state = 1 and slug in (?)", params['filter'].split(',') ).select(:id)
+      @resources = Resource.page(params[:page]).where("state = 1 and resource_category_id in (?)", @filterCategory)
+    else
+      @resources = Resource.page(params[:page]).where(state: 1)
+    end
+
   end
 
   def resource_detail
+    @resource = Resource.where(slug: params['slug']).last
   end
 end

@@ -1,6 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-  
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+
+
   window.addEventListener('scroll', handleScroll);
+
+
+  const filters = document.querySelectorAll('.categories')
+
+
+  const filtersParams = urlParams.get('filter').split(',')
+
+  filters.forEach(element => {
+    filtersParams.forEach(f => {
+      if(element.value == f){
+        element.checked = true;
+      }
+    })
+  })
+
 });
 
 
@@ -19,3 +37,16 @@ window.handleScroll = function (ev) {
 }
 
 
+window.filter = function () {
+  const filters = document.querySelectorAll('.categories:checked')
+  let filter = '?filter=';
+  filters.forEach((element,index) => {
+    if(index > 0){
+      filter += ','+element.value
+    }else{
+      filter += element.value
+    }
+  });
+
+  document.location = '/resources'+filter;
+}

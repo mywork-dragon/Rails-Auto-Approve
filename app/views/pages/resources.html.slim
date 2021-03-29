@@ -1,109 +1,50 @@
 div class="relative flex-center"
   div class="pt-28 max-w-6xl mx-4"
-    div class="mt-28 mb-24 max-sm:my-0 max-sm:mb-12">
+    div class="mt-28 mb-24 max-sm:my-0 max-sm:mb-12"
       div class="text-gray5 text-60 max-sm:text-3xl mb-2" Resources
       div class="text-gray5 text-xl" See what’s new with Auto Approve, or use filter and search to find the answers you’re looking for.
 
     div class="w-full flex flex-wrap mb-16"
-      div class="mr-8 mb-3"
-        input type="checkbox" id="filter" name="filter"
-        label for="filter" class="text-gray5 " Filter
-      div class="mr-8 mb-3"
-        input type="checkbox" id="filter" name="filter"
-        label for="filter" class="text-gray5 " Filter
-      div class="mr-8 mb-3"
-        input type="checkbox" id="filter" name="filter"
-        label for="filter" class="text-gray5 " Filter
-      div class="mr-8 mb-3"
-        input type="checkbox" id="filter" name="filter"
-        label for="filter" class="text-gray5 " Filter
-      div class="mr-8 mb-3"
-        input type="checkbox" id="filter" name="filter"
-        label for="filter" class="text-gray5 " Filter
+      
+      - @resource_categories.each do |a| 
+        div class="mr-8 mb-3"
+          = check_box_tag("categories[]",a.slug, false, :onclick=>"filter()", class:"categories")
+          label
+            = a.name
+
+      end
 
     div
-      div class="flex bg-gray1 mb-8 max-sm:flex-col"
-        = image_pack_tag 'newStyle/images/_resource1.svg'
-        div class="p-12 max-sm:p-6"
-          div class="text-gray5 text-28 mb-3 max-sm:text-xl" Excepteur sint occaecat cupidatat non
-          div class="flex w-full flex-wrap text-sm"
-            div class="text-purple1 mr-2 mb-2" Consumer Insights & Research 
-            div class="text-gray8 mr-4 mb-2" | December 9, 2020 | 4 mins
-            div class="flex mb-2"
-              = image_pack_tag 'newStyle/icons/Facebook.svg', class: "cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/Twitter.svg', class:"cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/LinkedIN.svg', class:"cursor-pointer"
-          div class="text-gray8 mb-6" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
-          button class="flex-center"
-            = link_to "Read more", resource_detail_path, class:"mr-3 text-lightgreen font-semibold"
-            = image_pack_tag 'newStyle/icons/arrow-right-green.svg'
-      div class="flex bg-gray1 mb-8 max-sm:flex-col"
-        = image_pack_tag 'newStyle/images/_resource2.svg'
-        div class="p-12 max-sm:p-6"
-          div class="text-gray5 text-28 mb-3 max-sm:text-xl" Excepteur sint occaecat cupidatat non
-          div class="flex w-full flex-wrap text-sm"
-            div class="text-purple1 mr-2 mb-2" Consumer Insights & Research 
-            div class="text-gray8 mr-4 mb-2" | December 9, 2020 | 4 mins
-            div class="flex mb-2"
-              = image_pack_tag 'newStyle/icons/Facebook.svg', class: "cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/Twitter.svg', class:"cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/LinkedIN.svg', class:"cursor-pointer"
-          div class="text-gray8 mb-6" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
-          button class="flex-center"
-            = link_to "Read more", resource_detail_path, class:"mr-3 text-lightgreen font-semibold"
-            = image_pack_tag 'newStyle/icons/arrow-right-green.svg'
-      div class="flex bg-gray1 mb-8 max-sm:flex-col"
-        = image_pack_tag 'newStyle/images/_resource3.svg'
-        div class="p-12 max-sm:p-6"
-          div class="text-gray5 text-28 mb-3 max-sm:text-xl" Excepteur sint occaecat cupidatat non
-          div class="flex w-full flex-wrap text-sm"
-            div class="text-purple1 mr-2 mb-2" Consumer Insights & Research 
-            div class="text-gray8 mr-4 mb-2" | December 9, 2020 | 4 mins
-            div class="flex mb-2"
-              = image_pack_tag 'newStyle/icons/Facebook.svg', class: "cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/Twitter.svg', class:"cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/LinkedIN.svg', class:"cursor-pointer"
-          div class="text-gray8 mb-6" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
-          button class="flex-center"
-            = link_to "Read more", resource_detail_path, class:"mr-3 text-lightgreen font-semibold"
-            = image_pack_tag 'newStyle/icons/arrow-right-green.svg'
-      div class="flex bg-gray1 mb-8 max-sm:flex-col"
-        = image_pack_tag 'newStyle/images/_resource4.svg'
-        div class="p-12 max-sm:p-6"
-          div class="text-gray5 text-28 mb-3 max-sm:text-xl" Excepteur sint occaecat cupidatat non
-          div class="flex w-full flex-wrap text-sm"
-            div class="text-purple1 mr-2 mb-2" Consumer Insights & Research 
-            div class="text-gray8 mr-4 mb-2" | December 9, 2020 | 4 mins
-            div class="flex mb-2"
-              = image_pack_tag 'newStyle/icons/Facebook.svg', class: "cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/Twitter.svg', class:"cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/LinkedIN.svg', class:"cursor-pointer"
-          div class="text-gray8 mb-6" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
-          button class="flex-center"
-            = link_to "Read more", resource_detail_path, class:"mr-3 text-lightgreen font-semibold"
-            = image_pack_tag 'newStyle/icons/arrow-right-green.svg'
-      div class="flex bg-gray1 mb-8 max-sm:flex-col"
-        = image_pack_tag 'newStyle/images/_resource5.svg'
-        div class="p-12 max-sm:p-6"
-          div class="text-gray5 text-28 mb-3 max-sm:text-xl" Excepteur sint occaecat cupidatat non
-          div class="flex w-full flex-wrap text-sm"
-            div class="text-purple1 mr-2 mb-2" Consumer Insights & Research 
-            div class="text-gray8 mr-4 mb-2" | December 9, 2020 | 4 mins
-            div class="flex mb-2"
-              = image_pack_tag 'newStyle/icons/Facebook.svg', class: "cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/Twitter.svg', class:"cursor-pointer mr-2"
-              = image_pack_tag 'newStyle/icons/LinkedIN.svg', class:"cursor-pointer"
-          div class="text-gray8 mb-6" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo
-          button class="flex-center"
-            = link_to "Read more", resource_detail_path, class:"mr-3 text-lightgreen font-semibold"
-            = image_pack_tag 'newStyle/icons/arrow-right-green.svg'
+      - @resources.each do |resource|
+        div class="flex bg-gray1 mb-8 max-sm:flex-col"
+          = cl_image_tag resource.cover, width: '350'
+          div class="p-12 max-sm:p-6"
+            div class="text-gray5 text-28 mb-3 max-sm:text-xl" 
+              = resource.title
+            div class="flex w-full flex-wrap text-sm"
+              div class="text-purple1 mr-2 mb-2" 
+                = resource.resource_category.name
+              div class="text-gray8 mr-4 mb-2" 
+                span | 
+                = resource.created_at.strftime("%b %d %Y")
+              div class="flex mb-2"
+                a href="https://www.facebook.com/sharer/sharer.php?u=https://#{request.host+resource_detail_path(resource.slug)}"
+                  = image_pack_tag 'newStyle/icons/Facebook.svg', class: "cursor-pointer mr-2"
+                a href="https://twitter.com/intent/tweet?url=https://#{request.host+resource_detail_path(resource.slug)}"
+                  = image_pack_tag 'newStyle/icons/Twitter.svg', class:"cursor-pointer mr-2"
+                a href="https://www.linkedin.com/shareArticle?mini=true&url=https://#{request.host+resource_detail_path(resource.slug)}"
+                  = image_pack_tag 'newStyle/icons/LinkedIN.svg', class:"cursor-pointer"
+            div class="text-gray8 mb-6" 
+              = truncate(strip_tags(resource.content), length: 255)
+            button class="flex-center"
+              = link_to "Read more", resource_detail_path(resource.slug), class:"mr-3 text-lightgreen font-semibold"
+              = image_pack_tag 'newStyle/icons/arrow-right-green.svg'
+      end
 
+      
     div class="flex w-full max-sm:flex-col my-20 max-sm:my-10"
       div class="flex items-center flex-1 text-gray8 text-xl mb-3"
-        span class="font-bold mr-2" Page
-        span class="mr-2" 1 2 3 ... 12
-        span class="cursor-pointer text-lightgreen"
-          = image_pack_tag 'newStyle/icons/ForwardArrow.svg'
+        = paginate @resources
       div class="mb-3 flex items-center"
         span class="text-gray2 text-xl font-bold mr-6" Feeling Stuck? 
         = link_to "Contact US", contact_us_path, class:"btn btn-purple"

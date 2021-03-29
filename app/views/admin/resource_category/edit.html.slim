@@ -4,20 +4,20 @@ div class="admin-main"
     div
       div class="text-xs pb-2 max-lg:hidden"
         span class="text-gray2" 
-          = link_to "Resources", admin_resources_path
+          = link_to "Resource Categories", admin_resource_category_index_path
           span class="ml-1" 
             = "/"
-        span class="text-gray5 ml-1" Edit Resource
+        span class="text-gray5 ml-1" Edit Resource Category
       div class="flex-between"
-        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" Edit Resource
-
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-8" Edit Resource Category
 
   main class="flex-1 overflow-x-hidden overflow-y-auto"
     div class="py-4 px-20 max-lg:p-6"
-      = simple_form_for @resource, url: admin_resource_path(@resource), :html=> { class:"w-full text-gray5" } do |f|
+      = simple_form_for @resource_category, url: admin_resource_category_path(@resource_category), :html=> { class:"w-full text-gray5" } do |f|
         = render "form", f: f
                 
         div class="flex items-center"
+
           label
             label class="switch"
               = f.input :state, as: :integer do 
@@ -26,7 +26,7 @@ div class="admin-main"
               end
             span id="livetext" class="text-gray3 font-bold" Live
 
-          = f.submit "Save", class:"ml-5 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500"
+          = f.submit "Save", class:"ml-4 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500"
 
 = content_for :end_page_scripts do
   = javascript_pack_tag "admin_scripts/positions", 'data-turbolinks-track': "reload"
