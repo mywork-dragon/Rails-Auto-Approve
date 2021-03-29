@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_06_223716) do
+ActiveRecord::Schema.define(version: 2021_03_29_184927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -133,6 +139,33 @@ ActiveRecord::Schema.define(version: 2021_03_06_223716) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "resource_categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "state", default: 0, null: false
+    t.string "slug", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_resource_categories_on_slug", unique: true
+    t.index ["state"], name: "index_resource_categories_on_state"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "resource_category_id", null: false
+    t.string "title", null: false
+    t.string "subTitle", null: false
+    t.string "cover"
+    t.text "content"
+    t.string "slug", null: false
+    t.integer "state", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resource_category_id"], name: "index_resources_on_resource_category_id"
+    t.index ["slug"], name: "index_resources_on_slug", unique: true
+    t.index ["state"], name: "index_resources_on_state"
+    t.index ["user_id"], name: "index_resources_on_user_id"
+  end
+
   create_table "review_sites", force: :cascade do |t|
     t.string "name", null: false
     t.string "logo", null: false
@@ -193,5 +226,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_223716) do
   add_foreign_key "category_posts", "posts"
   add_foreign_key "leads", "landings"
   add_foreign_key "posts", "users"
+  add_foreign_key "resources", "resource_categories"
+  add_foreign_key "resources", "users"
   add_foreign_key "reviews", "review_sites"
 end

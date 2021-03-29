@@ -3,10 +3,28 @@ document.addEventListener("DOMContentLoaded", function () {
     toolbarButtons: [
       'fontSize', 'bold', 'italic', 'underline', 'textColor', 'alignLeft', 
       'alignCenter', 'alignRight', 'alignJustify', 'formatOL', 'formatUL',
-      'insertImage', 'insertFile', 'insertTable', 'insertLink', 'emoticons'
+      'insertImage', 'insertTable', 'insertLink', 'emoticons'
     ],
     placeholderText: 'Job description',
-    height: 300
+    height: 300,
+    
+    imageUploadURL: '/admin/attachment/upload.json',
+    imageUploadMethod: 'POST'
+  });
+})
+
+document.addEventListener("DOMContentLoaded", function () {
+  new FroalaEditor('#description-resource', {
+    toolbarButtons: [
+      'fontSize', 'bold', 'italic', 'underline', 'textColor', 'alignLeft', 
+      'alignCenter', 'alignRight', 'alignJustify', 'formatOL', 'formatUL',
+      'insertImage', 'insertTable', 'insertLink', 'emoticons'
+    ],
+    placeholderText: 'Resource description',
+    height: 300,
+    
+    imageUploadURL: '/admin/attachment/upload.json',
+    imageUploadMethod: 'POST'
   });
 })
 
