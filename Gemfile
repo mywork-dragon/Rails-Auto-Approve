@@ -24,6 +24,7 @@ gem "slim"
 gem "turbolinks", "~> 5"
 gem "validate_url"
 gem "webpacker", "~> 4.0"
+gem "slim-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

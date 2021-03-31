@@ -1,4 +1,5 @@
 class LeadsController < ApplicationController
+  
   def create
     response = Leads::Create.call(lead_params)
     if response.success?
@@ -77,7 +78,6 @@ class LeadsController < ApplicationController
       :lien_payoff_cents,
       :lien_payment_cents,
       :lien_rate,
-      :desired_term,
       tracking_urls: []
     )
   end

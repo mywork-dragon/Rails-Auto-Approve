@@ -27,6 +27,6 @@ class Landing < ApplicationRecord
   def render(scope)
     renderer = ERB.new(theme_instance.markup)
     template = Liquid::Template.parse(renderer.result(scope))
-    template.render(config)
+    renderer = Slim::Template.new{template.render(config)}.render
   end
 end

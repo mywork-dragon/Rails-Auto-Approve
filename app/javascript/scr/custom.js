@@ -8,8 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const filters = document.querySelectorAll('.categories')
 
-
-  const filtersParams = urlParams.get('filter').split(',')
+  let params = urlParams.get('filter')
+  if(params){
+    const filtersParams = params.split(',')
+  }
+  
 
   filters.forEach(element => {
     filtersParams.forEach(f => {

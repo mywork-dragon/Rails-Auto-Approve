@@ -1,5 +1,3 @@
-import axios from "axios";
-
 window.humanize = function (str) {
   return str
       .replace(/^[\s_]+|[\s_]+$/g, '')
@@ -14,15 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
   inputElement.addEventListener("change", function(event){
     let options = event.target.options[event.target.options.selectedIndex]
     const theme = options.parentNode.value
-
-    axios({
+    
+    return fetch(`/admin/themes/${theme}/fields`, {
       method: 'GET',
-      url: `/admin/themes/${theme}/fields`
-    }).then(result => {
+    })
+    .then((response) => response.json())
+    .then((result) => {
       let el = document.getElementById("fields");
 
       el.innerHTML = ''
-      Object.keys(result.data).forEach(function (key) {
+      Object.keys(result).forEach(function (key) {
         el.insertAdjacentHTML("beforeend",`
           <div class="mb-10">
             <input
@@ -35,7 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         `)
       })
+    })
+    .catch((error) => {
+      console.error(error);
     });
+
   });
 
 })

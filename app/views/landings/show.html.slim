@@ -1,0 +1,7 @@
+= raw @landing.render(binding)
+
+= render "shared/footer"
+
+= content_for :end_page_scripts do
+  = javascript_pack_tag "themes_scripts/get_a_quote", 'data-turbolinks-track': "reload"
+end

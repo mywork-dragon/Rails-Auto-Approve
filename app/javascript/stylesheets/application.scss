@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities.css";
 
 //NEW
-@import "./components/tailwind";
+@import "./theme-components/tailwind.css";
 @import "./components/style";
 @import "./components/header";
 
@@ -16,8 +16,3 @@
 @import "./components/careers";
 @import "./components/faq";
 
-
-@import "./components/custom-icons";
-@import "./components/custom-forms";
-@import "./components/get-a-quote";
-@import "./components/jquery.sweet-dropdown";
