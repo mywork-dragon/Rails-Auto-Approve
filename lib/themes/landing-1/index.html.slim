@@ -1,8 +1,6 @@
 header
-  div id="header" class="py-4 px-20 max-sm:px-4 bg-transparent absolute w-full z-999 max-w-8xl max-lg:flex"
-    div class="mb-4 font-bold text-right text-purple1 text-base max-lg:hidden pr-6 header-phone-number" 
-      a href="tel:{{phone}}" {{phone_label}}
-    div class="flex-between max-lg:w-full"
+  div id="header" class="flex-center py-4 px-20 max-sm:px-4 bg-transparent absolute w-full z-999 max-w-8xl"
+    div class="flex-between w-full"
       <%= link_to root_path do 
         if @landing.logo.present?
           cl_image_tag @landing.logo, class: "img-fluid logo_img main-logo"
@@ -10,17 +8,35 @@ header
           image_pack_tag "logo.svg", class: "img-fluid logo_img main-logo"
         end
       end %>
-  
+      div class="font-bold text-right text-purple1 text-base max-lg:hidden pr-6"
+        | {{phone_label}}
+        <%= image_pack_tag "newStyle/icons/hamburger.svg", id:"hamburger", onclick:"show_sidemenu()", class: "cursor-pointer hidden max-lg:block" %>
+    
+    div id="side-bg" onclick="hide_sidemenu()" class="hidden h-full w-full fixed top-0 left-0 cursor-pointer overflow-hidden bg-black bg-opacity-50 z-9999"
+      div id="side-menu" class="fixed w-72 h-full -right-72 top-0 z-9999 overflow-x-hidden bg-white transition-right duration-700"
+        div class="flex flex-col px-4 py-2 text-purple2 text-base font-bold"
+          div class="text-right text-4xl mb-2"
+            a class="p-2" onclick="hide_sidemenu()" href="javascript:void(0)"
+              | ×
+          
+          a href="tel:{{phone}}" class="mb-2" {{phone_label}}
 
 main class="relative"
   div class="pt-40 max-sm:pt-20 pb-24 max-sm:pb-16"
     div class="mx-auto max-w-3xl text-center" data-step="1"
-      div class="mb-10"
-        div class="text-50 max-sm:text-3xl text-gray5 mb-2"
-          | {{hero_title_1}}
-          span<> class="text-lightgreen"  {{hero_title_2}}
-        div class="text-base text-gray5 text-center px-4"
-          |  {{hero_slogan}}
+      div class="mb-14 mx-4"
+        div class="text-xl max-sm:text-base font-bold text-purple2 mb-4" 
+          | {{hero_slogan}}
+        
+        div class="text-50 max-sm:text-3xl text-gray5 mb-2 max-sm:tracking-moretight"
+          | {{hero_title}}
+
+        div class="text-50 max-sm:text-3xl text-lightgreen font-bold mb-4"
+          | {{hero_subtitle}}
+
+        div class="text-xl max-sm:text-base text-gray5"
+          | {{hero_rate}}
+      
       div class="flex justify-center mb-20"
         div class="flex items-center justify-center mx-auto px-7 max-sm:px-6 py-3.5 max-sm:py-2 border border-gray12 rounded-22 max-sm:rounded-2xl"
           div class="w-12 h-12 max-sm:w-9 max-sm:h-9 rounded-full bg-purple2 flex-center"
@@ -79,7 +95,7 @@ main class="relative"
             div class="text-xs text-gray4 text-left max-sm:text-center" By entering your phone number, you consent to receiving calls and/or texts from Auto Approve by any method. Carrier charges may apply.
           div class="flex flex-wrap justify-end items-center max-sm:w-full w-5/12 max-sm:px-4"
             button type="submit" onclick="form_step1_submit(event)" class="btn-purple btn flex items-center justify-center gap-x-4 max-sm:w-full" 
-              | Next Step
+              | {{next_button}}
               span
                 <%= image_pack_tag "newStyle/icons/Forward Arrow.svg" %>
 
@@ -167,7 +183,7 @@ main class="relative"
 
           div class="flex items-center max-sm:w-full max-sm:px-3 mb-6"
             button type="submit" onclick="form_step2_submit(event)" class="btn-purple btn flex items-center justify-center gap-x-4 max-sm:w-full" 
-              | Next Step
+              | {{next_button}}
               span
                 <%= image_pack_tag "newStyle/icons/Forward Arrow.svg" %>
 
@@ -301,7 +317,7 @@ main class="relative"
 
           div class="flex items-center max-sm:w-full max-sm:px-3 mb-6"
             button type="submit" onclick="form_step3_submit(event)" class="btn-purple btn flex items-center justify-center gap-x-4 max-sm:w-full"
-              | Next Step
+              | {{next_button}}
               span
                 <%= image_pack_tag "newStyle/icons/Forward Arrow.svg" %>
 
@@ -319,7 +335,7 @@ main class="relative"
         div class="font-bold text-6xl max-md:text-4xl text-gray2 mb-4" Congratulation!
         div class="text-28 max-md:text-xl max-sm:text-lg text-gray2 mb-12 max-sm:mb-6" You are on your way to saving money on our vehicles monthly payment.
         div class="font-bold text-4xl max-md:text-2xl mb-3" What's Next?
-        div class="text-28 max-md:text-xl max-sm:text-lg text-gray2" Your dedicated loan consultant will review your information and reach out to discuss next steps. or call us at 
+        div class="text-28 max-md:text-xl max-sm:text-lg text-gray2" Your dedicated loan consultant will review your information and reach out to discuss {{next_button}}s. or call us at 
           <a href="tel:{{phone}}">
             <b> {{phone_label}}</b>
           </a>
@@ -357,6 +373,65 @@ main class="relative"
           </a>
 
 
+  div class="flex-center flex-col bg-gray1 py-24 max-sm:py-12"
+    div class="text-gray5 text-50 max-sm:text-3xl max-w-3xl text-center mb-20 max-sm:mb-10 max-sm:mx-4"
+      | {{about_title}} 
+      | {{about_subtitle}}
+    div class="grid grid-cols-3 gap-8 max-lg:grid-cols-1 max-sm:gap-4 mx-4"
+      div class="px-8 py-12 max-sm:px-4 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+        <%= image_pack_tag "newStyle/images/Illustration1.svg" %>
+
+        div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-8 mb-1 text-center" It starts with a quote
+        div class="text-gray3 text-center" It starts with a quote
+
+      div class="px-8 py-12 max-sm:px-4 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+        <%= image_pack_tag "newStyle/images/Illustration2.svg" %>
+        div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-8 mb-1 text-center" We’ll work with banks and credit unions to get your the best rate
+        div class="text-gray3 text-center" (and handle the paperwork)
+
+      div class="px-8 py-12 max-sm:px-4 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+        <%= image_pack_tag "newStyle/images/Illustration3.svg" %>
+        div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-8 mb-1 text-center">Easy as that, you’re paying less on your loan, with more to spend on the things that matter</div>
+        div class="text-gray3 text-center"
+
+      button class="btn-purple btn" Start saving today
+
+div class="flex-center flex-col py-24 max-sm:py-12 auto-approve-section"
+  div class="text-gray5 text-50 max-sm:text-3xl max-w-2xl text-center mb-8" 
+    | {{why_title}}
+  div class="grid grid-cols-3 gap-4 max-xl:grid-cols-2 max-sm:grid-cols-1 mx-4"
+    div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+      <%= image_pack_tag 'newStyle/images/Approve_1.svg'%>
+      div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" It’s time to make a change.
+      div class="text-gray4 text-center" Interest rates today are historically low – most people are paying too much on their auto loan. Now is the time to refinance and lower your monthly payment. We’ll make it happen.
+    div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+      <%= image_pack_tag 'newStyle/images/Approve_2.svg'%>
+      div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" Our customers love us.
+      div class="text-gray4 text-center" With an A+ rating from the Better Business Bureau and a 96% would-recommend rating on LendingTree, you can refinance with us with confidence.
+    div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+      <%= image_pack_tag 'newStyle/images/Approve_3.svg'%>
+      div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" The personalized service you deserve.
+      div class="text-gray4 text-center" At Auto Approve, you get the service that works for you. Want a human? We’re real people and ready to chat. Hate the phone? That’s cool too. Do everything online, no humans required.
+    div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+      <%= image_pack_tag 'newStyle/images/Approve_4.svg'%>
+      div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-7 mb-8 text-center" The deal that’s right for you.
+      div class="text-gray4 text-center" We’ll work to personally make sure you get the best deal for you. We’re your advocate, getting lenders to compete to find a great fit for your needs. And then we do the paperwork to make it happen. (Yes, we even handle the DMV.)
+    div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+      <%= image_pack_tag 'newStyle/images/Approve_5.svg'%>
+      div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" No mark-ups. Ever.
+      div class="text-gray4 text-center" Unlike our competitors, we never mark up the rate you pay. Some companies will give you a higher rate than the bank actually offers and pocket the difference. With Auto Approve, your savings are passed on to you directly.
+    div class="py-12 max-sm:py-6 max-w-sm cursor-pointer flex-col-center"
+      <%= image_pack_tag 'newStyle/images/Approve_6.svg'%>
+      div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-10 mb-8 text-center" More money in your pocket.
+      div class="text-gray4 text-center" The most important thing we do is? We lower your monthly payments. Refinance with Auto Approve, you’ll have more cash to spend on the things you love. Because, in the end, our mission is more money for what matters to you.
+
+
+<%= render "shared/reviews" %> 
+<%= render "shared/brand" %>
+
+
+
+
 <%= content_for :end_page_scripts do
-  javascript_pack_tag "themes_scripts/get_a_quote", 'data-turbolinks-track': "reload"
+  javascript_pack_tag "themes_scripts/landing-1", 'data-turbolinks-track': "reload"
 end %>
