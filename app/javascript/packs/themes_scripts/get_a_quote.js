@@ -624,8 +624,9 @@ window.form_step3_submit = function (e) {
       return go_next();
     })
     .catch((error) => {
-      console.log(error.responseText);
-      if (error.responseText.match(/Failed to create pre-approval/)) {
+      console.log(error.response);
+      console.log(error);
+      if (error.match(/Failed to create pre-approval/)) {
         showFailedApproval();
       }else{
         showErrorMessage();

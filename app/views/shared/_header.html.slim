@@ -37,12 +37,15 @@
       div class="flex flex-col gap-8 px-4 py-2 text-purple2 text-base font-bold"
         div class="text-right text-4xl mb-2"
           a class="p-2" onclick="hide_sidemenu()" href="javascript:void(0)" ×
-        a href="#" Why Auto Approve
         = link_to "Why Auto Approve", why_auto_approve_path
-        a href="#" Products
+        = link_to "Vehicle Refinance", auto_refinance_path
+        = link_to "Lease Purchase", auto_lease_purchase_path
+        = link_to "Motorcycle Refinance", motorcycle_refinance_path
+        = link_to "Resources", resources_path
         = link_to "FAQ", faq_path
         div class="flex flex-col-center gap-2"
-          div (844) 336-3365
+          div 
+            | (844) 336-3365
           = link_to "Get a quote", quote_path, class: "btn-green w-full btn"
 
 - else
@@ -84,12 +87,15 @@
       div class="flex flex-col gap-8 px-4 py-2 text-purple2 text-base font-bold"
         div class="text-right text-4xl mb-2"
           a class="p-2" onclick="hide_sidemenu()" href="javascript:void(0)" ×
-        a href="#" Why Auto Approve
         = link_to "Why Auto Approve", why_auto_approve_path
-        a href="#" Products
+        = link_to "Vehicle Refinance", auto_refinance_path
+        = link_to "Lease Purchase", auto_lease_purchase_path
+        = link_to "Motorcycle Refinance", motorcycle_refinance_path
+        = link_to "Resources", resources_path
         = link_to "FAQ", faq_path
         div class="flex flex-col-center gap-2"
-          div (844) 336-3365
+          div 
+            | (844) 336-3365
           = link_to "Get a quote", quote_path, class: "btn-purple w-full btn"
           
 end
