@@ -1,0 +1,49 @@
+<div class="flex md:mt-0 mt-10">
+  <div class="w-full">
+    <%= f.full_error :email %> 
+    <%= f.input_field :title,
+                      class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-10 focus:text-black",
+                      placeholder: "Enter Title" %>
+
+    <p class="text-2xl mb-4 tracking-wide">Application Type</p>
+    <div class="flex md:flex-nowrap flex-wrap items-center justify-between">
+      <div class="md:w-1/2 w-full md:mb-0 mb-1 md:mr-6">
+        <%= f.input_field :location,
+                          class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg focus:text-black",
+                          placeholder: "Location" %>
+        <%= f.full_error :location %> 
+      </div>
+      <div class="md:w-1/2 w-full">
+        <%= f.input_field :email,
+                          class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg focus:text-black",
+                          placeholder: "Enter CTA/Email" %>
+        <%= f.full_error :email %> 
+      </div>
+    </div>
+    <p class="text-2xl mt-8 mb-4 tracking-wide">Content</p>
+    <%= f.hidden_field :content, class: "position-content" %>
+    <div class="bg-white" id="editorQuilljs" style="height: 10rem;">
+      <%= raw(@position.content) %>
+    </div>
+
+    <div class="md:w-1/2 w-full">
+      <%= f.input_field :url,
+                        class: "content w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mt-5 focus:text-black",
+                        placeholder: "Enter url" %>
+      <%= f.full_error :url %> 
+    </div>
+  </div>
+</div>
+
+<%= content_for :end_page_scripts do %>
+  <script>
+    var editor = new Quill('#editorQuilljs', {
+      theme: 'snow'
+    });
+
+    document.querySelector('form').onsubmit = function () {
+      var content = document.querySelector('input[class=position-content]');
+      content.value = editor.root.innerHTML
+    };
+  </script>
+<% end %>
