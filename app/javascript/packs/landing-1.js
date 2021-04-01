@@ -1,5 +1,5 @@
 
-require("@rails/ujs").start()
+//require("@rails/ujs").start()
 
 import "stylesheets/landing-1";
 

@@ -1,5 +1,5 @@
-require("@rails/ujs").start()
-require("turbolinks").start()
+//require("@rails/ujs").start()
+//require("turbolinks").start()
 
 import "stylesheets/session"
 
