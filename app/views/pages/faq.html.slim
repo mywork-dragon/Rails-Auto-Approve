@@ -11,14 +11,14 @@ main class="relative max-w-4xl flex flex-col justify-center mx-auto"
             div class="flex text-gray4 text-xl"
               div Q:
               div class="pl-2" 
-                = faq.question
+                = raw faq.question
             = image_pack_tag 'newStyle/icons/green-below-arrow.svg', id: "faq#{faq.id}_img", class: "m-3", alt: ""
         div id="faq#{faq.id}_grow" class="text-gray4 answer-content"
           div id="faq#{faq.id}_content" class="flex"
             div class="text-xl py-2" A:
             div class="flex flex-col pt-1 pl-3"
               div class="py-2" 
-                = faq.answer
+                = raw faq.answer
       
     end
   div class="mx-auto my-20"

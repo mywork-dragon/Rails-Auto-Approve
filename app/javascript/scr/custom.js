@@ -9,18 +9,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const filters = document.querySelectorAll('.categories')
 
   let params = urlParams.get('filter')
+  let filtersParams = ''
   if(params){
-    const filtersParams = params.split(',')
+    filtersParams = params.split(',')
+
+    filters.forEach(element => {
+      filtersParams.forEach(f => {
+        if(element.value == f){
+          element.checked = true;
+        }
+      })
+    })
   }
   
 
-  filters.forEach(element => {
-    filtersParams.forEach(f => {
-      if(element.value == f){
-        element.checked = true;
-      }
-    })
-  })
+  
 
 });
 
