@@ -108,7 +108,7 @@ window.setItemDisplay = function (id, style) {
     document.getElementById(id).style.display = style;
 }
 
-var cur_page_idx = 0;
+var cur_page_idx = document.getElementById('cur_page_idx').value;
 var form_submitted = false;
 
 // Form step1
@@ -778,14 +778,14 @@ window.go_previous = function () {
 window.showErrorMessage = function () {
   form_submitted = false;
   document.querySelector('[data-step="'+cur_page_idx+'"]').style.display = 'none';
-  cur_page_idx = 0;
+  cur_page_idx = document.getElementById('cur_page_idx').value;
   document.querySelector('[data-step="6"]').style.display = 'block';
 }
 
 window.showFailedApproval = function () {
   form_submitted = false;
   document.querySelector('[data-step="'+cur_page_idx+'"]').style.display = 'none';
-  cur_page_idx = 0;
+  cur_page_idx = document.getElementById('cur_page_idx').value;
   document.querySelector('[data-step="5"]').style.display = 'block';
 }
 

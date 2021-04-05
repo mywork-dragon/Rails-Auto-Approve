@@ -35,6 +35,7 @@ main class="relative"
             <%= image_pack_tag "newStyle/icons/car-icon.svg" %>
 
       form class="px-6" name="form_step1"
+        input type="hidden" id="cur_page_idx" value="1"
         input type="hidden" id="landing_id" name="landing_id" value="<%= @landing.id %>"
         input type="hidden" id="make_name" name="make_name" value=""
         input type="hidden" id="model_name" name="model_name" value=""
