@@ -1,25 +1,84 @@
 import * as Tracking from '../../scr/tracking'
 
 document.addEventListener("DOMContentLoaded", function() {
-  window.addEventListener('scroll', handleScroll);
-
   // submit event to google tag
+
+  let rate = document.getElementById('rate1')
+
+  if(rate){
+    calc_init();
+  }
+
   Tracking.set(window.location.href)
   dataLayer.push({'event' : 'basicInfoForm', 'formName' : 'Basic Info'});
 });
 
-window.handleScroll = function (ev) {
-  let headerElement = document.getElementById("header");
 
-  if (window.scrollY >= 80) {
-    if (!headerElement.classList.contains('fixed-header')) {
-      headerElement.classList.add('fixed-header');
-    }
-  } else {
-    if (headerElement.classList.contains('fixed-header')) {
-      headerElement.classList.remove('fixed-header');
-    }
-  }
+
+
+window.calc_init = function () {
+  document.getElementById('rate1').value = 10;
+  document.getElementById('rate2').value = 2.25;
+  document.getElementById('curLoan').innerHTML = '35,000';
+  document.getElementById('loan_range').value = 35000;
+  document.getElementById('curMonth').innerHTML = 48;
+  document.getElementById('month_range').value = 48;
+  current_rate_cal();
+}
+
+window.onChangeMonth = function (val) {
+  document.getElementById('curMonth').innerHTML = val;
+}
+
+
+window.onChangeLoan = function (val) {
+  var test = formatNum(parseInt(val).toFixed(2));
+  document.getElementById('curLoan').innerHTML = test.substring(0, test.length - 3);
+}
+
+window.isNumberKey = function (evt) {
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode != 46 && charCode > 31
+      && (charCode < 48 || charCode > 57))
+      return false;
+
+  return true;
+}
+
+
+window.PMT = function (i, n, p) {
+  return (i * p * Math.pow(1 + i, n)) / (1 - Math.pow(1 + i, n));
+}
+
+window.current_rate_cal = function () {
+  var rate = document.getElementById('rate1').value;
+  var loan_amount = document.getElementById('loan_range').value;
+  var loan_term = document.getElementById('month_range').value;
+  var payment = PMT(rate / 1200, loan_term, -loan_amount)
+  var interest = payment * loan_term - loan_amount;
+  document.getElementById('interest1').value = interest.toFixed(2);
+  new_rate_cal();
+}
+
+window.new_rate_cal = function () {
+  var rate = document.getElementById('rate2').value;
+  var loan_amount = document.getElementById('loan_range').value;
+  var loan_term = document.getElementById('month_range').value;
+  var payment = PMT(rate / 1200, loan_term, -loan_amount)
+  var interest = payment * loan_term - loan_amount;
+  document.getElementById('interest2').value = interest.toFixed(2);
+  savings();
+}
+
+window.savings = function () {
+  var interest1 = document.getElementById('interest1').value;
+  var interest2 = document.getElementById('interest2').value;
+  var savings = interest1 - interest2;
+  document.getElementById('saving').innerHTML = formatNum(savings.toFixed(2));
+}
+
+window.formatNum = function (n) {
+  return n.replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 // Validation functions
@@ -34,7 +93,6 @@ window.email_validatioin = function (email) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
-
 
 window.length_validation = function (val, len) {
   if (val && String(val).length == len)
@@ -311,6 +369,19 @@ window.onChangeCredit = function (val) {
 
 
 window.form_step0_submit = function (e) {
+  e.preventDefault();
+  form_submitted = true;
+  if (isMobile()) {
+    window.scrollTo({top: 100, behavior: 'smooth'});
+    go_next();
+  } else {
+    window.scrollTo({top: 80, behavior: 'smooth'});
+    go_next();
+  }
+}
+
+
+window.form_step0_submit_mortgate = function (e) {
   e.preventDefault();
   form_submitted = true;
   const firstname = document.getElementById('first_name0').value;
@@ -717,7 +788,6 @@ window.showFailedApproval = function () {
   cur_page_idx = 0;
   document.querySelector('[data-step="5"]').style.display = 'block';
 }
-
 
 
 // scroll window to element that has issue

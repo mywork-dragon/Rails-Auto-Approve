@@ -23,6 +23,6 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4",
     "webpack-dev-server": "^3.11.0"
   },
-  "start": "react-scripts --max_old_space_size=8192 start",
-  "build": "react-scripts --max_old_space_size=8192 build"
+  "start": "react-scripts --max_old_space_size=10048 start",
+  "build": "react-scripts --max_old_space_size=10048 build"
 }

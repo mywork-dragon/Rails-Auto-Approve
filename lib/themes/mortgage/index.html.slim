@@ -68,7 +68,7 @@ main class="relative"
             div id="email_address0_invalid" class="hidden text-red-500 text-left text-xs"
               | invalid email
           
-          button class="btn-purple btn mt-12 max-sm:mt-6 w-full" type="submit" onclick="form_step0_submit(event)"
+          button class="btn-purple btn mt-12 max-sm:mt-6 w-full" type="submit" onclick="form_step0_submit_mortgate(event)"
             | Start Saving Money Now
 
 
@@ -474,5 +474,5 @@ div class="flex-center flex-col py-24 max-sm:py-12 auto-approve-section"
 
 
 <%= content_for :end_page_scripts do
-  javascript_pack_tag "themes_scripts/mortgage", 'data-turbolinks-track': "reload"
+  javascript_pack_tag "themes_scripts/landing", 'data-turbolinks-track': "reload"
 end %>
