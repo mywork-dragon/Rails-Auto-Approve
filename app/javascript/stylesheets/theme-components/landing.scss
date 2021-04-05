@@ -108,6 +108,7 @@
     }
   }
 
+
   /* //////////////////////////// */
 
   /* splide */
@@ -123,14 +124,10 @@
     }
   }
 
-  .box-shadow {
-    box-shadow: 0px 24px 64px -15px rgba(20, 7, 36, 0.2);
-  }  
-
-/* Input */
-input[type="text"]{width: 100% !important;color: #65676A;}
-input[type="email"]{width: 100% !important;color: #65676A;}
-.input-group{position: relative;}
-.inputAnimation{border: 0; border-bottom: 1px solid #BDBEBF; background-color: transparent;padding-top: 1rem;padding-bottom: 0.5rem;width: 100%;}
-.inputAnimation ~ label{position: absolute; left: 0; width: 100%; top: 17px; color: #65676A; transition: 0.3s; z-index: -1; text-align: left;}
-.inputAnimation:focus ~ label, .has-content.inputAnimation ~ label{top: -16px; font-size: 12px; color: #6948B7; transition: 0.3s;}
+  /* Input */
+  input[type="text"]{width: 100% !important;color: #65676A;}
+  input[type="email"]{width: 100% !important;color: #65676A;}
+  .input-group{position: relative;}
+  .inputAnimation{border: 0; border-bottom: 1px solid #BDBEBF; background-color: transparent;padding-top: 1rem;padding-bottom: 0.5rem;width: 100%;}
+  .inputAnimation ~ label{position: absolute; left: 0; width: 100%; top: 17px; color: #65676A; transition: 0.3s; z-index: -1; text-align: left;}
+  .inputAnimation:focus ~ label, .has-content.inputAnimation ~ label{top: -16px; font-size: 12px; color: #6948B7; transition: 0.3s;}
