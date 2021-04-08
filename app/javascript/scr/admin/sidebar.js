@@ -13,3 +13,31 @@ window.hide_sidemenu = function () {
   side_menu.classList.remove("translate-x-0", "ease-out")
   side_menu.classList.add("-translate-x-full", "ease-in")
 }
+
+
+
+
+window.search = function (t) {
+  
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById("search-text");
+  filter = input.value.toUpperCase();
+  
+
+  table = document.getElementsByTagName("table")[0];
+  
+  td = table.getElementsByTagName("td");
+
+  for (i = 0; i < td.length; i++) {
+    span = td[i].getElementsByTagName("span")[0];
+
+    if(span){
+      txtValue = span.textContent || span.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        td[i].closest('tr').style.display = "";
+      } else {
+          td[i].closest('tr').style.display = "none";
+      }
+    }
+  }
+}

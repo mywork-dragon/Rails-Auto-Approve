@@ -10,7 +10,7 @@ div class="admin-main"
           = image_pack_tag 'newStyle/_icons/search.svg', class:"-mr-6 pb-2 max-2xl:hidden "
           div class="flex items-end "
             div class="relative mr-8"
-              input id="search-text" class="pl-7 w-80 text-gray10 border-b border-gray11 py-2 bg-transparent font-bold max-2xl:hidden " type="text" placeholder="Search"
+              input id="search-text" class="pl-7 w-80 text-gray10 border-b border-gray11 py-2 bg-transparent font-bold max-2xl:hidden " type="text" placeholder="Search"  onKeyPress="search()" onChange="search()"
             = link_to new_admin_landing_path, class:"btn btn-purple flex items-center" do
               span Create New Landing Page
               = image_pack_tag 'newStyle/_icons/plus-white.svg', class:"ml-4"
