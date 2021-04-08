@@ -42,7 +42,7 @@ div class="admin-main"
                   td class="table-td"
                     div class="flex items-center w-32 mx-auto"
                       = link_to "Edit", edit_admin_user_path(user), class:"btn-outline-purple mr-4"
-                      = link_to admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" } do
+                      = button_to admin_user_path(user), method: :delete, :onclick => "return confirm('Are you sure?')" do
                         = image_pack_tag 'newStyle/_icons/delete.svg'
                       end
               end

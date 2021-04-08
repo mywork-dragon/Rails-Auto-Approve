@@ -51,9 +51,10 @@ div class="admin-main"
                     td class="table-td"
                       div class="flex items-center w-40 mx-auto"
                         = link_to "Edit", edit_admin_resource_path(resource), class:"btn-outline-purple"
-                        button class="mx-4"
+                        =link_to admin_copy_resource_path(resource), class:"mx-4" do
                           = image_pack_tag 'newStyle/_icons/copy.svg'
-                        = link_to admin_resource_path(resource), method: :delete, data: { confirm: "Are you sure?" } do
+                        end
+                        = button_to admin_resource_path(resource), method: :delete, :onclick => "return confirm('Are you sure?')" do
                           = image_pack_tag 'newStyle/_icons/delete.svg'
                         end
                         

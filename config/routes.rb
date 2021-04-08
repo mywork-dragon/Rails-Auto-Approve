@@ -6,23 +6,29 @@ Rails.application.routes.draw do
   namespace :admin do
     
     resources :categories
+    
     resources :faq
+
     resources :landings
     resources :leads, only: [:index, :show] do
       post :sync, on: :member
     end
     resources :positions
+    get 'positions/:id/copy' => 'positions#copy', as: 'copy_positions'
     
-
-
     resources :reviews
+    get 'reviews/:id/copy' => 'reviews#copy', as: 'copy_reviews'
     resources :review_sites
+
     resources :themes, only: [:index, :show] do
       get :fields, on: :member
     end
+
     resources :users
 
     resources :resources
+    get 'resources/:id/copy' => 'resources#copy', as: 'copy_resource'
+
     resources :resource_category
   end
 

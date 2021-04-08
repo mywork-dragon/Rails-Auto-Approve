@@ -44,6 +44,17 @@ class Admin::ResourcesController < AdminController
     redirect_to admin_resources_path
   end
 
+  def copy
+    @resourceFind = Resource.find(params[:id])
+    @resource = Resource.new
+    @resource.title = @resourceFind.title+' Copy'
+    @resource.subTitle = @resourceFind.subTitle
+    @resource.content = @resourceFind.content
+    @resource.slug = @resourceFind.slug+'-copy'
+    @resource.resource_category_id = @resourceFind.resource_category_id
+    @resource.state = 'pedding'
+  end
+
 
   private
 
