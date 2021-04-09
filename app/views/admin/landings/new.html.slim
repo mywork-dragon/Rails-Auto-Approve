@@ -18,6 +18,8 @@ div class="admin-main"
           = f.error_notification
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
           div class="mb-10"
+            label
+              | Landing Page
             = f.input_field :theme, class: "w-full border border-gray12 rounded-lg px-6 py-2", collection: Theme.available, id: "theme_select", placeholder: "Landing page"
 
           = render "form", f: f

@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
       Object.keys(result).forEach(function (key) {
         el.insertAdjacentHTML("beforeend",`
           <div class="mb-10">
+            <label>
+              ${humanize(key)}
+            </label>
             <input
               type="text"
               name="landing[config][${key}]"

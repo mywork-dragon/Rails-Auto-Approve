@@ -1,13 +1,24 @@
 div class="mb-10"
-  = f.full_error :path
+  label
+    | Path
   = f.input_field :path, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Path"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :path
 div class="mb-10"
-  = f.full_error :logo
+  label
+    | Choose Logo
+    small class="ml-3"
+      | ( 190x60 ) max.
   = f.input_field :logo, as: :file, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Logo"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :logo
   - if f.object.logo.present?
     div class="mb-4"
       = cl_image_tag f.object.logo
   end
 div class="mb-10"
-  = f.full_error :source
+  label
+    | Source
   = f.input_field :source, class: "w-full px-5 py-3 text-xl outline-none focus:outline-none border-custom-color1 border border-solid rounded-lg mb-10 focus:text-black", placeholder: "Source"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :source
