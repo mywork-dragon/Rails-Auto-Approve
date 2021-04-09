@@ -5,7 +5,7 @@ div class="flex-center flex-col bg-gray1 py-24 max-sm:py-12"
     
     - Resource.all.limit(3).each_with_index do |resource, index|
       div class="relative"
-        = cl_image_tag resource.cover, width: '368', height: '324'
+        = cl_image_tag resource.cover, class:"rounded-3xl", style:"width: 368px !important;height: 324px;object-fit: cover;"
         div class="absolute text-white left-10 top-8"
           div class="text-base text-bold mb-4" 
             = resource.resource_category.name
