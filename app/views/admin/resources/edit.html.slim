@@ -26,7 +26,7 @@ div class="admin-main"
               end
             span id="livetext" class="text-gray3 font-bold" Live
 
-          = f.submit "Save", class:"ml-5 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500"
+          = f.submit "Save", class:"ml-5 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500 cursor-pointer"
 
 = content_for :end_page_scripts do
   = javascript_pack_tag "admin_scripts/positions", 'data-turbolinks-track': "reload"
