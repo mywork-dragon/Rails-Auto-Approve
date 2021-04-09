@@ -51,7 +51,7 @@ div class="admin-main"
                       end
                   td class="table-td"
                     p class="whitespace-no-wrap"
-                      = cl_image_tag review.review_site.logo
+                      = cl_image_tag review.review_site.logo, style:"max-width: 78px; max-height:20px;"
                   td class="table-td"
                     div class="flex items-center w-40 mx-auto"
                       = link_to "Edit", edit_admin_review_path(review), class:"btn-outline-purple" 

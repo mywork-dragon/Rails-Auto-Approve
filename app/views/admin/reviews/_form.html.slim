@@ -98,9 +98,9 @@ div class="text-red-500 text-left text-xs"
 div class="text-gray9 text-xl mb-4" Select Source
 
 
-div class="flex flex-wrap source-bar"
-  = f.collection_radio_buttons(:review_site_id, ReviewSite.all , :id, :logo, item_wrapper_tag: false) do |b|
-    = image_tag("#{b.text}") + b.radio_button 
+div class="flex flex-wrap source-bar radio-logo"
+  = f.collection_radio_buttons(:review_site_id, ReviewSite.all , :id, :logo, style:"height: 73px;", class:"radio-logo", item_wrapper_tag: false) do |b|
+    = b.radio_button + image_tag("#{b.text}", style:"max-width: 74px; height: auto;object-fit: contain;", checked: true)
   end
 
 div class="text-red-500 text-left text-xs"
