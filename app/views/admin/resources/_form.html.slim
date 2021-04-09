@@ -12,7 +12,8 @@ div class="mb-10"
   div class="text-red-500 text-left text-xs"
     = f.full_error :subTitle
 div class="mb-10"
-  = f.full_error :cover
+  label
+    | Main Image:
   = f.input_field :cover, as: :file, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "cover"
   - if f.object.cover.present?
     div class="mb-4"
