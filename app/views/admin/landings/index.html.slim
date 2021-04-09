@@ -31,7 +31,11 @@ div class="admin-main"
               - @landings.each do |landing|
                 tr
                   td class="table-td flex items-center"
-                    = cl_image_tag landing.logo, class:"rounded-md border border-gray11", width:"102", height:"102"
+                    - if landing.logo.present?
+                      = cl_image_tag landing.logo, class:"rounded-md border border-gray11", width:"102", height:"102"
+                    - else
+                      = image_pack_tag "logo.svg", class:"rounded-md border border-gray11", width:"102", height:"102"
+                    end
                     span class="text-gray5 font-bold pl-4 whitespace-no-wrap fit-content" 
                       = landing.theme
                   td class="table-td"
