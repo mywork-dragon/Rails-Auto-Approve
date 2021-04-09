@@ -9,17 +9,26 @@ main class="flex max-sm:flex-col pt-40 pb-16 max-sm:pt-20"
   div class="text-gray2 max-sm:w-full w-5/12 max-sm:px-4 flex flex-col justify-center"
     div class="mx-auto max-sm:mx-0 py-4"
       div class="text-50 max-sm:text-3xl mb-9" Contact Us
-      div class="text-xl max-sm:text-lg mb-4" 6200 Shingle Creek Pkwy, Suite 400  
-      div class="text-xl max-sm:text-lg mb-9" Brooklyn Center, MN 55430
+      div class="text-xl max-sm:text-lg mb-4" 
+        | 6200 Shingle Creek Pkwy, Suite 400
+      div class="text-xl max-sm:text-lg mb-9" 
+        | Brooklyn Center, MN 55430
       div class="flex items-center text-lg max-sm:text-base mb-6"
         span class="mr-3"
           = image_pack_tag 'newStyle/icons/phone.svg'
-        span (360) 352-6133 
-        span class="text-xs" (fax: 360 352 4133)
+        span 
+          a<> href="tel:8443363365" target="_blank" 
+            | (844) 336-3365 
+          
+        span class="text-xs ml-2"
+          
+          a href="fax:3603524133" target="_blank" (fax: 360 352 4133)
       div class="flex items-center text-lg max-sm:text-base"
         span class="mr-3"
           = image_pack_tag 'newStyle/icons/mail.svg'
-        span info@autoapprove.com
+        span 
+          a href="mailto:info@autoapprove.com" target="_blank" 
+            | info@autoapprove.com
 
   div class="max-sm:w-full w-7/12 py-4 max-sm:px-4"
     div class="w-full"
