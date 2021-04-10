@@ -17,7 +17,10 @@ div class="grid grid-cols-2 max-xl:grid-cols-1 gap-4 mb-8"
       = f.full_error :email
 
 
-div class="grid grid-cols-1 max-xl:grid-cols-1 gap-4 mb-8"
-  = f.input_field :content,id:"description", class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Job Description"
-  div class="text-red-500 text-left text-xs" 
+div class="mb-10"
+  = f.hidden_field :content, id: "content-quil"
+  div class="bg-white" id="editorQuilljs" style="height: 10rem;"
+    = raw(@position.content) 
+    
+  div class="text-red-500 text-left text-xs"
     = f.full_error :content

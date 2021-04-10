@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var editor = new FroalaEditor('#description', {
+  /*var editor = new FroalaEditor('#description', {
     toolbarButtons: [
       'fontSize', 'bold', 'italic', 'underline', 'textColor', 'alignLeft', 
       'alignCenter', 'alignRight', 'alignJustify', 'formatOL', 'formatUL',
@@ -10,11 +10,40 @@ document.addEventListener("DOMContentLoaded", function () {
     
     imageUploadURL: '/admin/attachment/upload.json',
     imageUploadMethod: 'POST'
-  });
+  });*/
 })
 
 document.addEventListener("DOMContentLoaded", function () {
-  new FroalaEditor('#description-resource', {
+  
+  var edit = new Quill('#editorQuilljs', {
+    theme: 'snow',
+    modules: {
+      toolbar: [
+          [{ 'header': [1, 2, 3, false] }],
+          [{ 'color': [] }, { 'background': [] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+          [{ 'indent': '-1'}, { 'indent': '+1' }],
+          ['clean'],
+          [ 'link', 'image', 'video', 'formula' ],
+      ]
+    },
+    placeholder: 'Content',
+
+    imageUploadURL: '/admin/attachment/upload.json',
+    imageUploadMethod: 'POST'
+
+  });
+
+  document.querySelector('form').onsubmit = function () {
+    var content = document.getElementById('content-quil');
+
+    console.log('content :>> ', content);
+    content.value = edit.root.innerHTML
+  };
+  
+  /*new FroalaEditor('#description-resource', {
     toolbarButtons: [
       'fontSize', 'bold', 'italic', 'underline', 'textColor', 'alignLeft', 
       'alignCenter', 'alignRight', 'alignJustify', 'formatOL', 'formatUL',
@@ -25,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     imageUploadURL: '/admin/attachment/upload.json',
     imageUploadMethod: 'POST'
-  });
+  });*/
 })
 
 // Validation functions
@@ -76,16 +105,7 @@ window.form_submit = function (e) {
   
   if (title_valid && location_valid && catemail_valid) {
     // submit
-    var editor = new FroalaEditor('#description', {
-      toolbarButtons: [
-        'fontSize', 'bold', 'italic', 'underline', 'textColor', 'alignLeft', 
-        'alignCenter', 'alignRight', 'alignJustify', 'formatOL', 'formatUL',
-        'insertImage', 'insertFile', 'insertTable', 'insertLink', 'emoticons'
-      ],
-      placeholderText: 'Job description',
-      height: 300
-    });
-    editor.html.get(); // value of description
+    
     document.getElementById('live').checked; // live value
 
     return true
