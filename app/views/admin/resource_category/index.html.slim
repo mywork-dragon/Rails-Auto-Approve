@@ -46,7 +46,7 @@ div class="admin-main"
                         = resource_category.state
                     td class="table-td"
                       div class="flex items-center w-40 mx-auto"
-                        = link_to "Edit", edit_admin_resource_category_path(resource_category), class:"btn-outline-purple mx-4"
+                        = link_to "Edit", edit_admin_resource_category_path(resource_category.id), class:"btn-outline-purple mx-4"
                         
                         
                         = button_to admin_resource_category_path(resource_category), method: :delete, :onclick => "return confirm('Are you sure?')" do
