@@ -37,7 +37,7 @@ div class="admin-main"
       div id="left-triangle" class="hidden left-triangle"
       div id="right-triangle" class="hidden right-triangle"
       div id="top-triangle" class="hidden top-triangle"
-      = image_pack_tag 'newStyle/_images/theme1.svg', class:"blockpreviewshadow rounded-xl mx-3 max-md:mt-3", id:"image-show"
+      = image_pack_tag 'newStyle/_images/theme1.svg', class:"blockpreviewshadow rounded-xl mx-3 max-md:mt-3", id:"image-show",style:"object-fit: cover; object-position: top; max-height:500px;"
 
 = content_for :end_page_scripts do
   = javascript_pack_tag "admin_scripts/theme", 'data-turbolinks-track': "reload"
