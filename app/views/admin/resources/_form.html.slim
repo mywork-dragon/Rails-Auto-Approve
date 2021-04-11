@@ -22,11 +22,15 @@ div class="mb-10"
   div class="text-red-500 text-left text-xs"
     = f.full_error :cover
 div class="mb-10"
-  = f.text_area :content, id:"description-resource", class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Content"
+
+  = f.hidden_field :content, id: "content-quil"
+  div class="bg-white" id="editorQuilljs" style="height: 10rem;"
+    = raw(@resource.content) 
+    
   div class="text-red-500 text-left text-xs"
     = f.full_error :content
 
-
+  
 
 div class="mb-10"
   = f.input_field :slug, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Slug"
