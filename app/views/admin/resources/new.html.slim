@@ -16,7 +16,7 @@ div class="admin-main"
       = simple_form_for @resource, url: admin_resources_path, :html=> { class:"w-full text-gray5" } do |f|
         = render "form", f: f
                 
-        div class="flex items-center"
+        div class="flex items-center mb-5"
 
           label
             label class="switch"
@@ -26,7 +26,7 @@ div class="admin-main"
               end
             span id="livetext" class="text-gray3 font-bold" Live
 
-          = f.submit "Save", class:"ml-4 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500 cursor-pointer"
+        = f.submit "Save", class:"ml-4 bg-gray3 text-white btn max-sm:w-full hover:bg-gray-500 cursor-pointer"
 
 = content_for :end_page_scripts do
   = javascript_pack_tag "admin_scripts/positions", 'data-turbolinks-track': "reload"

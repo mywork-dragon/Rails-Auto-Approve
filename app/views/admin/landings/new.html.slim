@@ -26,7 +26,7 @@ div class="admin-main"
           
           div id="fields"
           
-          div class="flex items-center"
+          div class="flex items-center mb-5"
             label
               label class="switch"
                 = f.input :state, as: :integer do 
@@ -41,8 +41,8 @@ div class="admin-main"
               end
             end
 
-            button type="button" class="border border-gray3 hover:border-purple2 text-purple2 hover:text-white hover:bg-purple2 btn mx-6" Preview
-            = f.submit "Create", class: "bg-gray3 text-white btn hover:bg-gray-500 cursor-pointer"
+          button type="button" class="border border-gray3 hover:border-purple2 text-purple2 hover:text-white hover:bg-purple2 btn mx-6" Preview
+          = f.submit "Create", class: "bg-gray3 text-white btn hover:bg-gray-500 cursor-pointer"
       end
 = content_for :end_page_scripts do
   = javascript_pack_tag "admin_scripts/edit_landing_page", 'data-turbolinks-track': "reload"

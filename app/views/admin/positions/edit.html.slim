@@ -17,7 +17,7 @@ div class="admin-main"
         = render "form", f: f
         
         
-        div class="flex items-center"
+        div class="flex items-center mb-5"
           label
             label class="switch"
               = f.input :state, as: :integer do 
@@ -26,7 +26,7 @@ div class="admin-main"
               end
             span id="livetext" class="text-gray3 font-bold" Live
 
-          = f.submit "Save", class:"bg-gray3 text-white btn hover:bg-gray-500 ml-6 cursor-pointer"
+        = f.submit "Save", class:"bg-gray3 text-white btn hover:bg-gray-500 ml-6 cursor-pointer"
 
 = content_for :end_page_scripts do
   
