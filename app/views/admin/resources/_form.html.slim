@@ -14,7 +14,8 @@ div class="mb-10"
 div class="mb-10"
   label
     | Main Image:
-  = f.input_field :cover, as: :file, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "cover"
+  = f.file_field :cover,accept: 'image/*', class: "w-full border border-gray12 rounded-lg px-6 py-2"
+
   - if f.object.cover.present?
     div class="mb-4"
       = cl_image_tag f.object.cover
