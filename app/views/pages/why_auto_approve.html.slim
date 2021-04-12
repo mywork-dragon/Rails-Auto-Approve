@@ -155,7 +155,7 @@ main class="relative"
     
     div class="grid grid-cols-3 max-lg:grid-cols-1 gap-8 max-sm:gap-4 mb-20 max-sm:mb-10 max-sm:flex-col mx-4"
     
-      - Resource.all.limit(3).each_with_index do |resource, index|
+      - Resource.where(state: 1).limit(3).each_with_index do |resource, index|
         div class="relative"
           = cl_image_tag resource.cover, class:"rounded-3xl", style:"width: 368px !important;height: 324px;object-fit: cover;"
           div class="absolute text-white left-10 top-8"

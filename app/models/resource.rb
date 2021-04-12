@@ -10,5 +10,5 @@ class Resource < ApplicationRecord
   validates :title, length: { maximum: 100 }, presence: true
   validates :subTitle, length: { maximum: 100 }, presence: true
   validates :content, :cover, presence: true
-  validates :slug, length: { maximum: 255 }, format: { with: /\A\// }, presence: true
+  validates :slug, length: { maximum: 255 }, presence: true
 end
