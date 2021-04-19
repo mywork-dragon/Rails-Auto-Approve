@@ -16,6 +16,20 @@ div class="mb-10"
     div class="mb-4"
       = cl_image_tag f.object.logo
   end
+div class="mb-10 hidden" id="background"
+  label
+    | Choose Background
+    small class="ml-3"
+      | ( 1600x730 ).
+  = f.input_field :background, as: :file, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "background"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :background
+  - if f.object.background.present?
+    div class="mb-4"
+      = cl_image_tag f.object.background
+  end
+
+
 div class="mb-10"
   label
     | Source

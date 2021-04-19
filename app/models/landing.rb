@@ -2,6 +2,7 @@ class Landing < ApplicationRecord
   has_many :leads, dependent: :destroy
 
   mount_uploader :logo, LandingLogoUploader
+  mount_uploader :background, LandingBackgroundUploader
   enum state: { pending: 0, active: 1, archived: 2 }
 
   validates :theme, inclusion: Theme.available

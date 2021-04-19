@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_184927) do
+ActiveRecord::Schema.define(version: 2021_04_19_204118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_184927) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "source", default: "", null: false
     t.string "logo"
+    t.string "background"
     t.index ["path"], name: "index_landings_on_path", unique: true
     t.index ["source"], name: "index_landings_on_source"
     t.index ["state", "path"], name: "index_landings_on_state_and_path"

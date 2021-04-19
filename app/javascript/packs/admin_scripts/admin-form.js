@@ -9,9 +9,26 @@ window.humanize = function (str) {
 document.addEventListener("DOMContentLoaded", function () {
   var inputElement = document.getElementById("theme_select");
 
+  var landing_theme = document.getElementById("landing_theme");
+  
+  if(landing_theme){
+    const themeLoading = landing_theme.value
+    if(themeLoading == 'step-1-image-a' || themeLoading == 'step-1-image-b'){
+      document.getElementById('background').classList.remove('hidden');
+    }else{
+      document.getElementById('background').classList.add('hidden');
+    }
+  }
+
   inputElement.addEventListener("change", function(event){
     let options = event.target.options[event.target.options.selectedIndex]
     const theme = options.parentNode.value
+
+    if(theme == 'step-1-image-a' || theme == 'step-1-image-b'){
+      document.getElementById('background').classList.remove('hidden');
+    }else{
+      document.getElementById('background').classList.add('hidden');
+    }
     
     return fetch(`/admin/themes/${theme}/fields`, {
       method: 'GET',
