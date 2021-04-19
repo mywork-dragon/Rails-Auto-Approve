@@ -6,8 +6,8 @@ variables:
   hero_rate: "Rates as low as 2.25% APR*"
   next_button: "Next Step"
 
-  hero_title_2.1: "Get a"
-  hero_title_2.2: "Quote."
+  hero_title_1: "Get a"
+  hero_title_2: "Quote."
   hero_subtitle_2: "Complete the form below to recieve your personalized quote"
   
 
