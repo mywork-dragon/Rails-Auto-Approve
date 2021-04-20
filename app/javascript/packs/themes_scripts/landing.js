@@ -758,6 +758,10 @@ window.go_next = function () {
     cur_page_idx++;
     document.querySelector('[data-step="'+cur_page_idx+'"]').style.display = 'block';
   }
+
+  if(cur_page_idx == 4){
+    hideContentPage()
+  }
 }
 
 // go previous step 
@@ -773,6 +777,7 @@ window.go_previous = function () {
     cur_page_idx--;
     document.querySelector('[data-step="'+cur_page_idx+'"]').style.display = 'block';
   }
+
 }
 
 window.showErrorMessage = function () {
@@ -780,6 +785,7 @@ window.showErrorMessage = function () {
   document.querySelector('[data-step="'+cur_page_idx+'"]').style.display = 'none';
   cur_page_idx = document.getElementById('cur_page_idx').value;
   document.querySelector('[data-step="6"]').style.display = 'block';
+  hideContentPage()
 }
 
 window.showFailedApproval = function () {
@@ -787,8 +793,16 @@ window.showFailedApproval = function () {
   document.querySelector('[data-step="'+cur_page_idx+'"]').style.display = 'none';
   cur_page_idx = document.getElementById('cur_page_idx').value;
   document.querySelector('[data-step="5"]').style.display = 'block';
+
+  hideContentPage()
 }
 
+window.hideContentPage = function () {
+  let content = document.getElementsByClassName('content-page')
+  for (var i = 0; i < content.length; i++) {
+    content[i].style.display = 'none'
+  }
+}
 
 // scroll window to element that has issue
 window.scroll_window = function (id) {
