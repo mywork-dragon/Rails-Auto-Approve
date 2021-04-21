@@ -28,7 +28,7 @@
                     = image_pack_tag 'newStyle/icons/motorcycle.svg', class:"cursor-pointer"
                     div Motorcycle Refinance
                   end
-          = link_to "Resources", resources_path, class: "text-white text-sm font-bold mx-5"
+          = link_to "Resources", resources_path, class: "text-white text-sm font-bold mx-5" unless Rails.env.production?
           = link_to "FAQ", faq_path, class: "text-white text-sm font-bold mx-5"
         = link_to "Get a quote", quote_path, "data-turbolinks": false, class: "btn-green btn max-lg:hidden"
         = image_pack_tag 'newStyle/icons/hamburger.svg', class:"cursor-pointer hidden max-lg:block", id: "hamburger", onClick: 'show_sidemenu()'
