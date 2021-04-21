@@ -24,6 +24,7 @@ module AutoApprove
       g.helper false
       g.test_framework :minitest, spec: true, fixture_replacement: :fabrication
       g.fixture_replacement :fabrication, dir: "test/fabricators"
+      g.template_engine :slim
     end
     config.to_prepare do
       Devise::SessionsController.layout 'sessions'

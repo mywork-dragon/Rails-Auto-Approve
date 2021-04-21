@@ -1,0 +1,33 @@
+.auto-refinance-title-section {
+    background: #fff url(../images/newStyle/images/vehicle.svg) no-repeat;
+    background-size: 900px;
+    background-position: calc(100% - 50px) 50%;
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .auto-refinance-title-section {
+      background-position: 100%;
+      background-size: 800px;
+    }
+  }
+  
+  @media (min-width: 1025px) and (max-width: 1440px) and (min-width: 1025px) and (max-width: 1290px) {
+    .auto-refinance-title-section {
+      background-position: 100%;
+      background-size: 700px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .auto-refinance-title-section {
+      background-size: 60%;
+      background-position: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .auto-refinance-title-section {
+      background: none;
+    }
+  }
+  

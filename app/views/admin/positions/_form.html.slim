@@ -1,0 +1,26 @@
+div class="mb-8"
+  = f.input_field :title, id:"title", class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Job Title Here", oninput:"onTextValidation(event)"
+
+div class="text-gray9 mb-4" Application Type
+div class="grid grid-cols-2 max-xl:grid-cols-1 gap-4 mb-8"
+  div
+    = f.input_field :location, class: "w-full border border-gray12 rounded-lg px-6 py-2", id:"location", placeholder: "Location", oninput:"onTextValidation(event)"
+    
+    
+    div id="location_required" class="text-red-500 text-left text-xs" 
+      = f.full_error :location
+
+  div
+    = f.input_field :email, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Enter CTA/Email", id:"cta_email", oninput:"onTextValidation(event)"
+    
+    div class="text-red-500 text-left text-xs" 
+      = f.full_error :email
+
+
+div class="mb-10"
+  = f.hidden_field :content, id: "content-quil"
+  div class="bg-white" id="editorQuilljs" style="height: 10rem;"
+    = raw(@position.content) 
+    
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :content

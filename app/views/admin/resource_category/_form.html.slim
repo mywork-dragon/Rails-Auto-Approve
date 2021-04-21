@@ -1,0 +1,8 @@
+div class="mb-10"
+  = f.input_field :name, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Title"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :name
+div class="mb-10"
+  = f.input_field :slug, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Slug"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :slug

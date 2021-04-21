@@ -35,7 +35,7 @@ class Theme
   #
   # @return [String]
   def markup
-    File.read(File.join(@path, 'index.html.erb'))
+    File.read(File.join(@path, 'index.html.slim'))
   end
 
   # Get the names of all themes

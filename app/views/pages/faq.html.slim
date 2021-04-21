@@ -1,0 +1,44 @@
+= content_for :metaTitle do 
+  | Auto Loan FAQ | Learn About Refinancing And Its Benefits
+end
+= content_for :metaDescription do 
+  | Have a lot of questions regarding vehicle refinance? Auto Approve provides clear answers to your questions. Read on to learn more about how to refinance a car.
+end
+
+main class="relative max-w-4xl flex flex-col justify-center mx-auto"
+  div class="pt-40 max-sm:pt-28 pb-16 max-sm:pb-10 px-4 text-center"
+    div class="text-6xl text-gray5 mb-5 max-sm:text-3xl" FAQ
+    div class="text-lg max-sm:text-sm text-gray8" These are the questions we get asked the most,
+    div class="text-lg max-sm:text-sm text-gray8" so we thought we’d answer them for you here.
+  div class="flex flex-col px-4"
+    - @faq.each do |faq|
+      div class="border-b border-gray12 py-4"
+        a id="faq#{faq.id}" class="cursor-pointer" onclick="onViewContent(this.id)"
+          div class="flex justify-between items-start py-2"
+            div class="flex text-gray4 text-xl"
+              div Q:
+              div class="pl-2" 
+                = raw faq.question
+            = image_pack_tag 'newStyle/icons/green-below-arrow.svg', id: "faq#{faq.id}_img", class: "m-3", alt: ""
+        div id="faq#{faq.id}_grow" class="text-gray4 answer-content"
+          div id="faq#{faq.id}_content" class="flex"
+            div class="text-xl py-2" A:
+            div class="flex flex-col pt-1 pl-3"
+              div class="py-2" 
+                = raw faq.answer
+      
+    end
+  div class="mx-auto my-20"
+    div class="flex flex-col p-12 mx-4 bg-gray1"
+      div class="font-bold text-xl text-gray2 mb-4" Don’t see the answer you’re looking for?
+      div class="text-gray2" 
+        span Check out our resources page for more topics or simply 
+        = link_to contact_us_path, class: "text-lightgreen cursor-pointer" do
+          span contact us
+        end
+        span . Our answer gurus are waiting.
+
+
+= content_for :page_scripts do
+  = javascript_pack_tag "page_scripts/faq", 'data-turbolinks-track': "reload"
+end

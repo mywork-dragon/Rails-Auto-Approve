@@ -1,0 +1,16 @@
+div id="form-login" class="w-full h-screen bg-gray13 max-sm:bg-white flex justify-center items-center"
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "bg-white w-102 max-sm:w-full flex flex-col justify-center text-center py-10 px-12 max-sm:p-8 z-999" }) do |f| 
+    div class="mx-auto"
+      = image_pack_tag 'newStyle/_icons/logo-only.svg'
+    div class="text-37 text-gray5 mt-3" Sign In
+    div class="w-full input-group mt-14"
+      = f.email_field :email, autofocus: true, autocomplete: "email",  id:"email", class: "inputAnimation pt-4 pb-1.5", oninput:"onEmail(event)"
+      label Email Address
+      div id="email_required" class="hidden text-red-500 text-left text-xs" required
+      div id="email_invalid" class="hidden text-red-500 text-left text-xs" invalid email
+    div class="w-full input-group mt-10"
+      = f.password_field :password, autocomplete: "password", id:"password", class: "inputAnimation pt-4 pb-1.5", oninput:"onTextValidation(event)"
+      label Password
+      div id="password_required" class="hidden text-red-500 text-left text-xs" required
+    = f.submit "Sign in", class: "btn-purple btn mt-12 max-sm:mt-6 w-full mt-6 cursor-pointer", onclick:"form_submit(event)"
+    = link_to "Forgot Password?", new_user_password_path, class:"text-purple2 text-sm mt-4"

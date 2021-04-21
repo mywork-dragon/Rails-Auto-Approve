@@ -1,0 +1,23 @@
+div class="mb-8"
+  = f.input_field :name, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Review Site Name"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :name
+
+div class="text-gray9 text-xl mb-2" Upload Logo
+div class="mb-10"
+  div class="border border-dashed rounded-2xl border-gray14 pt-8 pb-6 flex flex-col justify-center text-center"
+    - if f.object.logo.model.name
+      = cl_image_tag f.object.logo, id:"site_logo", width:"47", height:"35", class:"mx-auto"
+    - else 
+      = image_pack_tag 'newStyle/_icons/alt_icon.svg', id:"site_logo", width:"47", height:"35", class:"mx-auto"
+    end
+    div class="text-gray5 mt-4" Upload Image
+    div class="text-gray5 font-bold mt-4" Review Site Logo
+    div class=""
+      = f.input_field :logo, id:"site_logo_file", class: "custom-file-input mt-5", placeholder: "Source Link", as: :file, onchange:"onImage(this)", accept:"image/*" 
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :logo
+
+= content_for :end_page_scripts do
+  = javascript_pack_tag "admin_scripts/review_site", 'data-turbolinks-track': "reload"
+end

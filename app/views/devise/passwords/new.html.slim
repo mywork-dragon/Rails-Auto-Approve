@@ -1,0 +1,12 @@
+div class="w-full h-screen bg-gray13 max-sm:bg-white flex justify-center items-center"
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class:"bg-white w-102 max-sm:w-full flex flex-col justify-center text-center py-10 px-12 max-sm:p-8 z-999" }) do |f|
+    div class="mx-auto"
+      = image_pack_tag 'newStyle/_icons/logo-only.svg'
+    div class="text-28 text-gray5 mt-3" Forgot Your Password?
+    div class="text-sm text-gray9 mt-3" Enter your email below and we’ll send a link to update your password
+    div class="w-full input-group mt-14"
+      = f.email_field :email, required: true, autocomplete: "email", id:"email", class:"inputAnimation pt-4 pb-1.5", oninput:"onEmail(event)" 
+      label Email Address
+      div id="email_required" class="hidden text-red-500 text-left text-xs" required
+      div id="email_invalid" class="hidden text-red-500 text-left text-xs" invalid email
+    = f.button :submit, "Send password link", class:"btn-purple btn mt-12 max-sm:mt-6 w-full mt-6 cursor-pointer", onclick:"form_submit(event)" 

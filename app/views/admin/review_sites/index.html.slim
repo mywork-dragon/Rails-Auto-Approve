@@ -1,0 +1,58 @@
+div class="admin-main"
+  div class="admin-header pb-0"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="h-6 max-lg:hidden" &nbsp;
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-6" Reviews
+        div class=" flex items-end"
+          = image_pack_tag 'newStyle/_icons/search.svg',class:"-mr-6 pb-2 max-2xl:hidden"
+          div class="flex items-end "
+            div class="relative mr-8"
+              input id="search-text" class="pl-7 w-80 text-gray10 border-b border-gray11 py-2 bg-transparent font-bold max-2xl:hidden" type="text" placeholder="Search"  onKeyPress="search()" onChange="search()"
+            = link_to new_admin_review_site_path, class:"btn btn-purple flex items-center" do
+              span Create New Review
+              = image_pack_tag 'newStyle/_icons/plus-white.svg', class:"ml-4"
+            end
+
+  main class="flex-1 overflow-x-hidden overflow-y-auto"
+    div class="py-4 px-20 max-lg:p-6"
+      div class="flex pb-6"
+        div class="cursor-pointer p-1 text-gray10 mr-5" 
+          = link_to "Reviews", admin_reviews_path
+        div class="cursor-pointer p-1 text-gray5 font-bold border-b border-lightgreen" 
+          = link_to "Review Sites", admin_review_sites_path
+
+      div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto"
+        div class="inline-block min-w-full rounded-2xl overflow-hidden"
+          table class="min-w-full leading-normal"
+            thead
+              tr
+                th class="table-th min-w-64" Site Name
+                th class="table-th" Date Added
+                th class="table-th" Logo
+                th class="table-th text-center" style="text-align: center !important;" Actions
+            tbody
+              - @sites.each do |site|
+                tr
+                  td class="table-td"
+                    span class="text-gray5 font-bold whitespace-no-wrap fit-content" 
+                      = site.name
+                  td class="table-td"
+                    p class="text-gray4 whitespace-no-wrap" 
+                      = site.created_at.strftime("%b %d %Y")
+                  td class="table-td"
+                    p class="whitespace-no-wrap"
+                      = cl_image_tag site.logo, style:"max-width: 78px; max-height:20px;"
+                  td class="table-td"
+                    div class="flex items-center w-40 mx-auto"
+                      = link_to "Edit", edit_admin_review_site_path(site), class:"btn-outline-purple" 
+                      
+                      
+                      = button_to admin_review_path(site), method: :delete, :onclick => "return confirm('Are you sure?')" do
+                        = image_pack_tag 'newStyle/_icons/delete.svg'
+              end
+
+
+div class="py-3 px-2"
+  = paginate @sites

@@ -43,6 +43,17 @@ class Admin::ReviewsController < AdminController
     redirect_to admin_reviews_path
   end
 
+  def copy
+    @reviewFind = Review.find(params[:id])
+
+    @review = Review.new
+    @review.review_site_id = @reviewFind.review_site_id
+    @review.name = @reviewFind.name+' - Copy'
+    @review.content = @reviewFind.content
+    @review.url = @reviewFind.url
+    @review.rating = @reviewFind.rating
+  end
+
   private
 
   def review_params

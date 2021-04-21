@@ -1,0 +1,17 @@
+div class="w-full h-screen bg-gray13 max-sm:bg-white flex justify-center items-center"
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class:"bg-white w-102 max-sm:w-full flex flex-col justify-center text-center py-10 px-12 max-sm:p-8 z-999" }) do |f|
+    div class="mx-auto"
+      = image_pack_tag 'newStyle/_icons/logo-only.svg'
+    div class="text-28 text-gray5 mt-3" Password Reset
+    div class="text-sm text-gray9 mt-3" Please enter your new password below
+    div class="w-full input-group mt-14"
+      = f.password_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), id:"newpassword", class:"inputAnimation pt-4 pb-1.5", oninput:"onTextValidation(event)"
+      label New Password
+      div id="newpassword_required" class="hidden text-red-500 text-left text-xs" required
+    div class="w-full input-group mt-10"
+      = f.password_field :password_confirmation, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), id:"confirmpassword", class:"inputAnimation pt-4 pb-1.5", oninput:"onConfirmValidation(event)"
+      label Confirm Password
+      div id="password_notmatch" class="hidden text-red-500 text-left text-xs" password doesn't match
+    = f.submit "Send password link", class: "btn-purple btn mt-12 max-sm:mt-6 w-full mt-6 cursor-pointer", onclick:"form_submit(event)"
+    
+      

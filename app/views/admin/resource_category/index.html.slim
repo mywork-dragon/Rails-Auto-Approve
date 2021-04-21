@@ -1,0 +1,56 @@
+div class="admin-main"
+  div class="admin-header pb-0"
+    = render "admin/shared/mobile_sidebar"
+    div
+      div class="h-6 max-lg:hidden" &nbsp;
+      div class="flex-between"
+        div class="text-4xl max-sm:text-2xl text-gray5 max-lg:pt-6" Resource Categories
+        div class="flex items-end"
+          = image_pack_tag 'newStyle/_icons/search.svg',class:"max-2xl:hidden -mr-6 pb-2"
+          div class="flex items-end "
+            div class="relative mr-8"
+              input id="search-text" class="max-2xl:hidden pl-7 w-80 text-gray10 border-b border-gray11 py-2 bg-transparent font-bold" type="text" placeholder="Search"  onKeyPress="search()" onChange="search()"
+            = link_to new_admin_resource_category_path, class:"btn btn-purple flex items-center" do
+              span Create a New Resource Categories
+              = image_pack_tag 'newStyle/_icons/plus-white.svg', class:"ml-4"
+            end
+
+    main class="flex-1 overflow-x-hidden overflow-y-auto"
+      div class="py-4 px-20 max-lg:p-6"
+        div class="flex pb-6"
+          div class="cursor-pointer p-1 text-gray10 mr-5" 
+            = link_to "Resources", admin_resources_path
+          div class="cursor-pointer p-1 text-gray5 font-bold border-b border-lightgreen" 
+            = link_to "Resource Categories", admin_resource_category_index_path
+      div class="py-4 px-20 max-lg:p-6"
+        div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto"
+          div class="inline-block min-w-full rounded-2xl overflow-hidden"
+            table class="min-w-full leading-normal"
+              thead
+                tr
+                  th class="table-th min-w-64" Title
+                  th class="table-th" Slug
+                  th class="table-th" Status
+                  th class="table-th text-center" Actions
+              tbody
+                - @resource_categories.each do |resource_category|
+                  tr
+                    td class="table-td"
+                      span class="text-gray5 font-bold whitespace-no-wrap fit-content" 
+                        = resource_category.name
+                    td class="table-td"
+                      p class="text-gray4 whitespace-no-wrap" 
+                        = resource_category.slug
+                    td class="table-td"
+                      p class="status-#{resource_category.state} whitespace-no-wrap fit-content" 
+                        = resource_category.state
+                    td class="table-td"
+                      div class="flex items-center w-40 mx-auto"
+                        = link_to "Edit", edit_admin_resource_category_path(resource_category.id), class:"btn-outline-purple mx-4"
+                        
+                        
+                        = button_to admin_resource_category_path(resource_category), method: :delete, :onclick => "return confirm('Are you sure?')" do
+                          = image_pack_tag 'newStyle/_icons/delete.svg'
+                        end
+                        
+                end

@@ -24,6 +24,8 @@ gem "slim"
 gem "turbolinks", "~> 5"
 gem "validate_url"
 gem "webpacker", "~> 4.0"
+gem "slim-rails"
+gem 'quilljs-rails'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -45,6 +47,8 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "ed25519"
+  gem "bcrypt_pbkdf"
 end
 
 group :test do

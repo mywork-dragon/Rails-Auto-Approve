@@ -1,0 +1,39 @@
+div class="mb-10"
+  = f.input_field :title, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Title"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :title
+
+div class="mb-10"
+  = f.collection_select :resource_category_id, ResourceCategory.all, :id, :name, prompt: true
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :resource_category_id
+div class="mb-10"
+  = f.input_field :subTitle, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Sub Title"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :subTitle
+div class="mb-10"
+  label
+    | Main Image:
+  = f.file_field :cover,accept: 'image/*', class: "w-full border border-gray12 rounded-lg px-6 py-2"
+
+  - if f.object.cover.present?
+    div class="mb-4"
+      = cl_image_tag f.object.cover
+  end
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :cover
+div class="mb-10"
+
+  = f.hidden_field :content, id: "content-quil"
+  div class="bg-white" id="editorQuilljs" style="height: 10rem;"
+    = raw(@resource.content) 
+    
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :content
+
+  
+
+div class="mb-10"
+  = f.input_field :slug, class: "w-full border border-gray12 rounded-lg px-6 py-2", placeholder: "Slug"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :slug

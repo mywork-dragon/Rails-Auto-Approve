@@ -1,5 +1,6 @@
 class Admin::PositionsController < AdminController
   before_action :authorize_marketer!
+  
 
   def index
     @positions = Position.page(params[:page])
@@ -42,6 +43,20 @@ class Admin::PositionsController < AdminController
     @position.destroy
     redirect_to admin_positions_path
   end
+
+  def copy
+    @positionFind = Position.find(params[:id])
+    @position = Position.new
+
+    @position.title = @positionFind.title+' - Copy'
+    @position.content = @positionFind.content
+    @position.location = @positionFind.location
+    @position.url = @positionFind.url
+    @position.email = @positionFind.email
+    @position.state = 0
+
+  end
+
 
   private
 

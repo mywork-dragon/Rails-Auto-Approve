@@ -1,0 +1,28 @@
+div class="mb-4"
+  div
+    = f.input_field :name, class:"w-full border border-gray12 rounded-lg px-6 py-2", placeholder:"First Name", autocomplete:"given-name"
+    
+    div class="text-red-500 text-left text-xs"
+      = f.full_error :name
+
+div class="mb-4"
+  = f.input_field :role, collection: User.roles.keys, class:"w-full border border-gray12 rounded-lg px-6 py-2"
+  
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :role
+
+div class="mb-4"
+  = f.input_field :email, class:"w-full border border-gray12 rounded-lg px-6 py-2", placeholder:"Email Address", autocomplete:"email"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :email
+
+
+div class="mb-4"
+  = f.password_field :password, class:"w-full border border-gray12 rounded-lg px-6 py-2", placeholder:"Password", autocomplete:"email"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :password
+
+div class="mb-4"
+  = f.password_field :password_confirmation, class:"w-full border border-gray12 rounded-lg px-6 py-2", placeholder:"Confim password", autocomplete:"email"
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :password_confirmation

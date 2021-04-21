@@ -1,0 +1,32 @@
+.motorcycle-refinance-title-section {
+  background: #fff url(../images/newStyle/images/motorcycle.svg) no-repeat;
+  background-size: 900px;
+  background-position: calc(100% - 50px) 50%;
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .motorcycle-refinance-title-section {
+    background-position: 125%;
+    background-size: 900px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) and (min-width: 1025px) and (max-width: 1290px) {
+  .motorcycle-refinance-title-section {
+    background-position: 125%;
+    background-size: 65%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .motorcycle-refinance-title-section {
+    background-size: 68%;
+    background-position: 125% 95px;
+  }
+}
+
+@media (max-width: 768px) {
+  .motorcycle-refinance-title-section {
+    background: none;
+  }
+}

@@ -1,358 +1,82 @@
-.main-half-banner-aa-section {
-  padding: 100px 0 0 0;
-  min-height: 750px;
-  z-index: 999;
-  @apply relative m-0;
-
-  .half-banner-aa-div {
-    padding: 70px 0;
-    z-index: 99;
-    @apply relative m-0 h-full;
-
-    &.why-auto-approve-bg-01 {
-      background: #fff url(../images/background/why-auto-approve-bg.svg) no-repeat;
-      background-size: 500px;
-      background-position: calc(100% - 25%) 80px;
-      min-height: 650px;
-      @apply flex items-center;
-    }
-  }
-
-  .content-banner-root {
-    padding: 60px 0 60px 0;
-    @apply m-0 relative flex items-center justify-center w-full h-full;
-
-    .text-content {
-      margin: 0 auto;
-      padding: 0 20px;
-      max-width: 600px;
-
-      h4 {
-        font-size: 21px;
-        line-height: 1.5;
-        letter-spacing: 0.1em;
-        margin: 0 0 5px 0;
-        @apply text-blue uppercase font-bold;
-      }
-
-      h1 {
-        font-size: 58px;
-        line-height: 1.3;
-        margin: 0 0 5px 0;
-        @apply text-custom-color2 font-normal;
-
-        .span-color {
-          @apply text-green block font-bold;
-        }
-      }
-
-      p {
-        font-size: 21px;
-        line-height: 35px;
-        margin: 0 0 10px 0;
-        @apply text-custom-color2 font-normal not-italic;
-      }
-    }
-  }
-}
-
-.our-story-section {
-  margin: 0 0 40px 0;
-  @apply p-0;
-
-  .ready-bg {
-    background: url(../images/background/ready-bg.jpg) no-repeat;
-    background-size: cover;
-  }
-  .heading-div {
-    padding: 0 0 15px 0;
-    z-index: 2;
-    margin: 0 auto;
-    @apply relative;
-
-    h2 {
-      font-size: 50px;
-      line-height: 1.5;
-      margin: 0 0 15px 0;
-      @apply relative;
-    }
-  }
-
-  .our-story-div {
-    padding: 65px 0 35px 0;
-    margin: 0 auto;
-    @apply relative bg-custom-color3;
-
-    &::before {
-      content: "";
-      width: 31px;
-      height: 30px;
-      background: url("data:image/svg+xml,%3Csvg width='31' height='30' viewBox='0 0 31 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.9133 8.95273L10.898 29.4734C10.5145 29.8904 9.9471 30.0652 9.4068 29.9329C8.8665 29.8005 8.43402 29.3807 8.27007 28.8294L0.413422 2.58425C0.247561 2.03393 0.374289 1.43348 0.74655 1.00584C1.11881 0.578204 1.68101 0.387251 2.2244 0.503884L29.1031 6.24259C29.6567 6.36554 30.1033 6.78942 30.2712 7.35125C30.4392 7.91308 30.3023 8.52538 29.9133 8.95273Z' fill='%237F61CD'/%3E%3C/svg%3E%0A")
-        no-repeat;
-      @apply inline-block absolute bg-contain;
-    }
-
-    &::after {
-      content: "";
-      width: 61px;
-      height: 61px;
-      background: url("data:image/svg+xml,%3Csvg width='61' height='61' viewBox='0 0 61 61' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='61' height='59.9958' rx='29.9979' transform='matrix(-1 0 0 1 61 0.287598)' fill='%239FF3DD'/%3E%3C/svg%3E%0A")
-        no-repeat;
-      @apply inline-block absolute bg-contain;
-    }
-
-    &.story-pattern-div01 {
-      &::before {
-        top: 40px;
-        left: 125px;
-      }
-
-      &::after {
-        bottom: -30px;
-        right: 55px;
-      }
-    }
-
-    .center-container {
-      margin: 0 auto 30px auto;
-      max-width: 950px;
-      @apply w-full p-4;
-
-      .center-text-div {
-        p {
-          font-size: 16px;
-          line-height: 27px;
-          word-break: break-word;
-          margin: 0 0 25px 0;
-          @apply block font-normal text-center text-custom-color2;
-        }
-      }
-    }
-  }
-}
-
-.ready-section {
-  margin: 0 0 40px 0;
-  background: url(../images/background/ready-bg.jpg) no-repeat;
-  background-size: cover;
-  @apply p-0;
-
-  .heading-div {
-    padding: 0 0 15px 0;
-    z-index: 2;
-    margin: 0 auto;
-    @apply relative;
-
-    h2 {
-      font-size: 50px;
-      line-height: 1.5;
-      margin: 0 0 15px 0;
-      color: white !important;
-      @apply relative;
-    }
-  }
-
-  .our-story-div {
-    padding: 65px 0 35px 0;
-    margin: 0 auto;
-    @apply relative;
-
-    .center-container {
-      margin: 0 auto 30px auto;
-      max-width: 950px;
-      @apply w-full p-4;
-
-      .center-text-div {
-        &.small-text {
-          p {
-            font-size: 12px;
-            font-weight: 700;
-          }
-        }
-
-        p {
-          font-size: 16px;
-          line-height: 27px;
-          word-break: break-word;
-          margin: 0 auto 25px auto;
-          max-width: 75%;
-          color: white !important;
-          @apply block font-normal text-center;
-        }
-      }
-    }
-  }
+.why-auto-approve-title-section {
+  background: #fff url(../images/newStyle/images/AutoApprove.svg) no-repeat; 
+  background-size: 500px;
+  background-position: 75% 80px;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
-  .main-half-banner-aa-section {
-    .half-banner-aa-div {
-      &.why-auto-approve-bg-01 {
-        background-size: 450px;
-        background-position: calc(100% - 25%) 90px;
-      }
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .main-half-banner-aa-section {
-    padding: 70px 0 0 0;
-    min-height: 580px;
-
-    .half-banner-aa-div {
-      padding: 0;
-      margin: 0;
-      min-height: calc(100vh - 70px);
-      background-size: cover;
-      background-position: center;
-      padding-bottom: 330px;
-
-      &.why-auto-approve-bg-01 {
-        background-position: center calc(100% - 36px);
-        background-size: 84%;
-      }
-    }
-
-    .content-banner-root {
-      padding: 50px 0 20px 0;
-      min-height: calc(100vh - 400px);
-
-      .text-content {
-        padding: 0 8px;
-        @apply text-center;
-
-        h4 {
-          font-size: 14px;
-          margin: 0 0 10px 0;
-        }
-
-        h1 {
-          font-size: 36px;
-          margin: 0 0 10px 0;
-
-          .span-color {
-            @apply inline-block;
-          }
-        }
-
-        p {
-          font-size: 16px;
-          margin: 0 0 10px 0;
-        }
-      }
-    }
-  }
-
-  .our-story-section {
-    padding: 20px 0 0 0;
-
-    .container {
-      @apply p-0;
-    }
-
-    .our-story-div {
-      padding: 60px 20px 45px 20px;
-
-      &::before {
-        @apply hidden;
-      }
-
-      &::after {
-        @apply hidden;
-      }
-
-      .center-container {
-        @apply p-0 m-0;
-
-        .center-text-div {
-          p {
-            font-size: 14px;
-            line-height: 24px;
-            margin: 0 0 20px 0;
-          }
-        }
-      }
-    }
-
-    .heading-div {
-      padding: 0 0 10px 0;
-
-      h2 {
-        font-size: 30px;
-      }
-    }
+  .why-auto-approve-title-section {
+    background-size: 450px;
+    background-position: 75% 90px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .main-half-banner-aa-section {
-    padding: 70px 0 0 0;
-    min-height: 580px;
-
-    .half-banner-aa-div {
-      &.why-auto-approve-bg-01 {
-        background-size: 45%;
-        min-height: 510px;
-        background-position: 85% center;
-      }
-    }
-
-    .content-banner-root {
-      padding: 50px 0 50px 0;
-
-      .text-content {
-        padding: 0 8px;
-        max-width: 370px;
-        @apply m-0 w-full;
-
-        h4 {
-          font-size: 14px;
-          margin: 0 0 10px 0;
-        }
-
-        h1 {
-          font-size: 36px;
-          margin: 0 0 10px 0;
-
-          .span-color {
-            @apply inline-block;
-          }
-        }
-
-        p {
-          font-size: 16px;
-          margin: 0 0 10px 0;
-        }
-      }
-    }
+  .why-auto-approve-title-section {
+    background-size: 45%;
+    min-height: 510px;
+    background-position: 85%;
   }
+}
 
-  .our-story-section {
-    .heading-div {
-      max-width: 550px;
+@media (max-width: 768px) {
+  .why-auto-approve-title-section {
+    background: none;
+    min-height: auto;
+  }
+}
 
-      h2 {
-        font-size: 30px;
-      }
-    }
+.overpaying-section {
+  position: relative;
+}
 
-    .our-story-div {
-      padding: 70px 24px 55px 24px;
+.overpaying-section::after {
+  content: "";
+  background: url(../images/newStyle/images/piece1.svg) no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 60px;
+  left: 120px;
+  width: 30px;
+  height: 30px;
+}
 
-      &::before {
-        width: 20px;
-        height: 21px;
-      }
+.overpaying-sub-section {
+  position: relative;
+}
 
-      &::after {
-        width: 36px;
-        height: 36px;
-      }
+.overpaying-sub-section::before {
+  content: "";
+  background: url(../images/newStyle/images/piece2.svg) no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: -30px;
+  right: 180px;
+  width: 60px;
+  height: 60px;
+}
 
-      .center-container {
-        @apply p-0 m-0;
-      }
-    }
+@media (min-width: 768px) and (max-width: 1023px) { 
+  .overpaying-section::after {
+    top: 55px;
+    left: 90px;
+    width: 20px;
+    height: 20px;
+  }
+  .overpaying-sub-section::before {
+    right: 140px;
+    width: 40px;
+    height: 40px;
+    bottom: -20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .overpaying-section::after, .overpaying-sub-section::before {
+    width: 0px;
+    height: 0px;
   }
 }

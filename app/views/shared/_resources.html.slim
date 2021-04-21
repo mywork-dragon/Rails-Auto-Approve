@@ -1,0 +1,38 @@
+div class="flex-center flex-col bg-gray1 py-24 max-sm:py-12"
+  div class="flex-center mb-20 max-sm:mb-10"
+    div class="text-gray5 text-50 max-sm:text-3xl" Resources
+  div class="grid grid-cols-3 max-lg:grid-cols-1 gap-8 max-sm:gap-4 mb-20 max-sm:mb-10 max-sm:flex-col mx-4"
+    
+    - Resource.where(state: 1).limit(3).each_with_index do |resource, index|
+      div class="relative"
+        = cl_image_tag resource.cover, class:"rounded-3xl", style:"width: 368px !important;height: 324px;object-fit: cover;"
+        div class="absolute text-white left-10 top-8"
+          div class="text-base text-bold mb-4" 
+            = resource.resource_category.name
+          div class="text-3xl max-sm:text-xl" 
+            = resource.title
+          
+        
+            - if index == 0
+              div class="text-3xl max-sm:text-xl mb-4" Goes Right Here
+              div class="cursor-pointer arrow-div"
+                = link_to resource_detail_path(resource.slug) do
+                  = image_pack_tag 'newStyle/icons/left-arrow.svg'
+                end
+            - if index == 1
+              div class="text-3xl max-sm:text-xl mb-4" Here
+              div class="cursor-pointer arrow-div"
+                = link_to resource_detail_path(resource.slug) do
+                  = image_pack_tag 'newStyle/icons/left-arrow.svg', class: "arrow-img"
+                end
+            - if index == 2
+              div class="text-3xl max-sm:text-xl mb-4" Goes Right Here
+              div class="cursor-pointer flex-center spin circle"
+                = link_to resource_detail_path(resource.slug) do
+                  = image_pack_tag 'newStyle/icons/play.svg', class: "ml-1"
+                end
+            end
+    end
+    
+  = link_to "Resources", resources_path, class: "btn-purple btn"
+  

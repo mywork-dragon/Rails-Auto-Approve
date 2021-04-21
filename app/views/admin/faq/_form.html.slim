@@ -1,0 +1,10 @@
+div class="mb-8"
+  = f.text_area :question, class:"w-full border border-gray12 rounded-lg px-6 py-4 h-72 max-sm:h-48", placeholder:"Question..." 
+  
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :question
+div class="mb-8"
+  = f.text_area :answer, class:"w-full border border-gray12 rounded-lg px-6 py-4 h-72 max-sm:h-48", placeholder:"Answer..." 
+  
+  div class="text-red-500 text-left text-xs"
+    = f.full_error :answer

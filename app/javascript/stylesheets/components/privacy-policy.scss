@@ -1,0 +1,21 @@
+.list-item {
+  position: relative;
+}
+
+.list-item::before {
+  content: "";
+  height: 5px;
+  width: 5px;
+  left: 15px;
+  top: 12px;
+  background-color: #44e0b7;
+  border-radius: 9999px;
+  display: inline-block;
+  position: absolute;
+}
+
+@media (max-width: 639px) {
+  .list-item::before {
+    top: 8px;
+  }
+}

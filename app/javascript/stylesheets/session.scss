@@ -1,5 +1,5 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
-@import "./admin-components/style_backend.css";
+@import "./components/tailwind";
+@import "./components/style";
+
+@import "./admin-components/session";
