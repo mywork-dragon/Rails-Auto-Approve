@@ -28,6 +28,9 @@ html
 
   body
     = render "shared/gtm_body"
+
+    div id="loading" class="hidden-loading"
+      = image_pack_tag 'loading.gif', style:"width: 50px;height: auto;object-fit: contain;"
     div
       = yield
     

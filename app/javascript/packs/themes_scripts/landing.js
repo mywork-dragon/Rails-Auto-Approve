@@ -199,7 +199,7 @@ window.onSelectVehicle = function (e){
       document.getElementById('year').append(newOption);
     });
   }else{
-
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`https://aa-prod-function-nada.azurewebsites.net/api/years`, 
       {
         method: 'GET',
@@ -216,9 +216,12 @@ window.onSelectVehicle = function (e){
           document.getElementById('year').append(newOption);
         });
       }
+
+      document.getElementById('loading').classList.add('hidden-loading');
     })
     .catch((error) => {
       console.log(error);
+      document.getElementById('loading').classList.add('hidden-loading');
     });
   }
 }
@@ -260,6 +263,7 @@ window.onSelectYear = function (e){
     })
   }else{
 
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`https://aa-prod-function-nada.azurewebsites.net/api/years/${value}/makes`, 
       {
         method: 'GET',
@@ -277,10 +281,12 @@ window.onSelectYear = function (e){
         });
       }
 
+      document.getElementById('loading').classList.add('hidden-loading');
 
     })
     .catch((error) => {
       console.log(error);
+      document.getElementById('loading').classList.add('hidden-loading');
     });
 
   }
@@ -297,6 +303,7 @@ window.onSelectMake= function (e){
 
   if(vehicle == 'Motorcycle'){
     
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${value}/modelyear/${year}/vehicleType/motorcycle?format=json`, 
       {
         method: 'GET',
@@ -314,9 +321,11 @@ window.onSelectMake= function (e){
         });
       }
 
+      document.getElementById('loading').classList.add('hidden-loading');
     })
     .catch((error) => {
       console.log(error);
+      document.getElementById('loading').classList.add('hidden-loading');
     });
 
 
@@ -324,6 +333,7 @@ window.onSelectMake= function (e){
 
   }else{
 
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`https://aa-prod-function-nada.azurewebsites.net/api/years/${year}/makes/${value}/models`, 
       {
         method: 'GET',
@@ -341,9 +351,11 @@ window.onSelectMake= function (e){
         });
       }
 
+      document.getElementById('loading').classList.add('hidden-loading');
     })
     .catch((error) => {
       console.log(error);
+      document.getElementById('loading').classList.add('hidden-loading');
     });
 
   }
@@ -477,6 +489,7 @@ window.form_step1_submit = function (e) {
     const tokenCsrf = document.querySelector('[name=csrf-token]').content
     
 
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`/leads`, 
       {
         method: 'POST',
@@ -491,11 +504,13 @@ window.form_step1_submit = function (e) {
     .then((result) => {
       document.getElementById('token').value = result.lead.token
 
+      document.getElementById('loading').classList.add('hidden-loading');
       return go_next();
     })
     .catch((error) => {
       showErrorMessage();
       console.log(error);
+      document.getElementById('loading').classList.add('hidden-loading');
     });
     
   }
@@ -632,6 +647,7 @@ window.form_step2_submit = function (e) {
     
     const tokenCsrf = document.querySelector('[name=csrf-token]').content
     
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`/leads/${token}/step2`, 
       {
         method: 'PUT',
@@ -646,12 +662,13 @@ window.form_step2_submit = function (e) {
     .then((result) => {
       
 
+      document.getElementById('loading').classList.add('hidden-loading');
       return go_next();
     })
     .catch((error) => {
       showErrorMessage();
       dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
-      console.log(error);
+      document.getElementById('loading').classList.add('hidden-loading');
     });
     
 
@@ -721,6 +738,7 @@ window.form_step3_submit = function (e) {
     
     const tokenCsrf = document.querySelector('[name=csrf-token]').content
     
+    document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`/leads/${token}/step3`, 
       {
         method: 'PUT',
@@ -735,14 +753,16 @@ window.form_step3_submit = function (e) {
     .then((result) => {
       
 
+      document.getElementById('loading').classList.add('hidden-loading');
       return go_next();
     })
     .catch((error) => {
-      console.log(error.responseText);
       if (error.responseText.match(/Failed to create pre-approval/)) {
         showFailedApproval();
+        document.getElementById('loading').classList.add('hidden-loading');
       }else{
         showErrorMessage();
+        document.getElementById('loading').classList.add('hidden-loading');
       }
       
     });
