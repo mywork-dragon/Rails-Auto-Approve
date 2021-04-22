@@ -27,6 +27,9 @@ window.handleStar = function (radio) {
 
 
 function changeLogo(event) {
-  document.getElementsByClassName("active")[0]?.classList.remove("active");
+  let active = document.getElementsByClassName("active")[0]
+  if(active){
+    active.classList.remove("active");
+  }
   event.path[1].classList.add('active');
 }
