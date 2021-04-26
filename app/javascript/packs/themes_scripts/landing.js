@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   Tracking.set(window.location.href)
-  dataLayer.push({'event' : 'basicInfoForm', 'formName' : 'Basic Info'});
+  
 });
 
 
@@ -483,12 +483,9 @@ window.form_step1_submit = function (e) {
       "lead": postData
     }
 
-    // submit event to google tag
-    dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
-    
     const tokenCsrf = document.querySelector('[name=csrf-token]').content
     
-
+    
     document.getElementById('loading').classList.remove('hidden-loading');
     fetch(`/leads`, 
       {
@@ -505,6 +502,8 @@ window.form_step1_submit = function (e) {
       document.getElementById('token').value = result.lead.token
 
       document.getElementById('loading').classList.add('hidden-loading');
+      // submit event to google tag
+      dataLayer.push({'event' : 'basicInfoForm', 'formName' : 'Basic Info'});
       return go_next();
     })
     .catch((error) => {
@@ -625,7 +624,6 @@ window.form_step2_submit = function (e) {
     }
   }
 
-
   if (streetaddress_valid && city_valid && state_valid && zipcode_valid && birthdate_valid && socialsecurity_valid)
   {
     
@@ -640,10 +638,8 @@ window.form_step2_submit = function (e) {
       }
     });
 
-
     const token = document.getElementById("token").value;
     const postData = formatData(data)
-
     
     const tokenCsrf = document.querySelector('[name=csrf-token]').content
     
@@ -660,22 +656,18 @@ window.form_step2_submit = function (e) {
     )
     .then((response) => response.json())
     .then((result) => {
-      
-
       document.getElementById('loading').classList.add('hidden-loading');
+
+      // submit event to google tag
+      dataLayer.push({'event' : 'personalInfoForm', 'formName' : 'Personal Info'});
+      
       return go_next();
     })
     .catch((error) => {
       showErrorMessage();
-      dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
       document.getElementById('loading').classList.add('hidden-loading');
     });
-    
-
   }
-  
-  
-
 }
 
 // Form step3
@@ -751,9 +743,10 @@ window.form_step3_submit = function (e) {
     )
     .then((response) => response.json())
     .then((result) => {
-      
-
       document.getElementById('loading').classList.add('hidden-loading');
+
+      // submit event to google tag
+      dataLayer.push({'event' : 'vehicleDetailsForm', 'formName' : 'Vehicle Details'});
       return go_next();
     })
     .catch((error) => {
@@ -780,6 +773,8 @@ window.go_next = function () {
   }
 
   if(cur_page_idx == 4){
+    // submit event to google tag
+    dataLayer.push({'event' : 'congratulationsPage', 'formName' : 'Congratulations Page'});
     hideContentPage()
   }
 }
