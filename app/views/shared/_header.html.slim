@@ -28,7 +28,7 @@
                     = image_pack_tag 'newStyle/icons/motorcycle.svg', class:"cursor-pointer"
                     div Motorcycle Refinance
                   end
-          = link_to "Resources", resources_path, class: "text-white text-sm font-bold mx-5" unless Rails.env.production?
+          / = link_to "Resources", resources_path, class: "text-white text-sm font-bold mx-5" unless Rails.env.production?
           = link_to "FAQ", faq_path, class: "text-white text-sm font-bold mx-5"
         = link_to "Get a quote", quote_path, "data-turbolinks": false, class: "btn-green btn max-lg:hidden"
         = image_pack_tag 'newStyle/icons/hamburger.svg', class:"cursor-pointer hidden max-lg:block", id: "hamburger", onClick: 'show_sidemenu()'
@@ -41,7 +41,7 @@
         = link_to "Vehicle Refinance", auto_refinance_path
         = link_to "Lease Purchase", auto_lease_purchase_path
         = link_to "Motorcycle Refinance", motorcycle_refinance_path
-        = link_to "Resources", resources_path
+        / = link_to "Resources", resources_path unless Rails.env.production?
         = link_to "FAQ", faq_path
         div class="flex flex-col-center gap-2"
           div 
@@ -78,7 +78,7 @@
                     = image_pack_tag 'newStyle/icons/motorcycle.svg', class:"cursor-pointer"
                     div Motorcycle Refinance
                   end
-          = link_to "Resources", resources_path, class: "text-purple1 text-sm font-bold mx-5"
+          = link_to "Resources", resources_path, class: "text-purple1 text-sm font-bold mx-5" unless Rails.env.production?
           = link_to "FAQ", faq_path, class: "text-purple1 text-sm font-bold mx-5"
         = link_to "Get a quote", quote_path, "data-turbolinks": false, class: "btn-purple btn max-lg:hidden"
         = image_pack_tag 'newStyle/icons/hamburger.svg', class:"cursor-pointer hidden max-lg:block", id: "hamburger", onClick: 'show_sidemenu()'
@@ -91,7 +91,7 @@
         = link_to "Vehicle Refinance", auto_refinance_path
         = link_to "Lease Purchase", auto_lease_purchase_path
         = link_to "Motorcycle Refinance", motorcycle_refinance_path
-        = link_to "Resources", resources_path
+        = link_to "Resources", resources_path unless Rails.env.production?
         = link_to "FAQ", faq_path
         div class="flex flex-col-center gap-2"
           div 
