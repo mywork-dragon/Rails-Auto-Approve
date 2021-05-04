@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   Tracking.set(window.location.href)
   
+  var inputs = document.getElementsByTagName('inputAnimation');
+
+  for (var i = 0; i < inputs.length; i++) {
+    var input = inputs[i];
+    input.addEventListener('input', function() {
+      var bg = this.value ? 'has-content' : '';
+      this.classList.add(bg);
+    });
+  }
 });
 
 

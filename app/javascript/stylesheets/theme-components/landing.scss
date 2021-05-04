@@ -193,3 +193,10 @@
   .inputAnimation{border: 0; border-bottom: 1px solid #BDBEBF; background-color: transparent;padding-top: 1rem;padding-bottom: 0.5rem;width: 100%;}
   .inputAnimation ~ label{position: absolute; left: 0; width: 100%; top: 17px; color: #65676A; transition: 0.3s; z-index: -1; text-align: left;}
   .inputAnimation:focus ~ label, .has-content.inputAnimation ~ label{top: -16px; font-size: 12px; color: #6948B7; transition: 0.3s;}
+
+  .inputAnimation:-webkit-autofill ~ label,
+  .inputAnimation:-webkit-autofill:hover ~ label,
+  .inputAnimation:-webkit-autofill:focus ~ label,
+  .inputAnimation:-webkit-autofill:active ~ label {
+    top: -16px; font-size: 12px; color: #6948B7; transition: 0.3s;
+  }
