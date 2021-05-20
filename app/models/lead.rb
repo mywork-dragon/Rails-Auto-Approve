@@ -23,7 +23,7 @@ class Lead < ApplicationRecord
   validates :state_code, inclusion: Mappings::States.codes, if: :step2?
   validates :zipcode, length: { is: 5 }, if: :step2?
   validates :vehicle_year, presence: true, if: :step3?
-  validates :vehicle_make_id, :vehicle_model_id, presence: true, if: :step3?
+  validates :vehicle_make_name, :vehicle_model_name, presence: true, if: :step3?
   validates :vehicle_vin, length: { maximum: 100 }, if: :step3?
   validates :vehicle_type, inclusion: Mappings::VehicleTypes.types, if: :step3?
   validates :desired_term, numericality: true, inclusion: DESIRED_TERMS, if: :step3?

@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-
 window.calc_init = function () {
   document.getElementById('rate1').value = 10;
   document.getElementById('rate2').value = 2.25;
@@ -188,6 +186,15 @@ window.get_select_validation = function (value, id) {
   }
 }
 
+window.vehicleType = function () {
+  const vehicle = document.getElementById('vehicle_type').value;
+  if (vehicle == 'Motorcycle') {
+    return 'Motorcycle';
+  } else {
+    return 'UsedCar';
+  }
+}
+
 
 //Select Vehicle Step 3
 window.onSelectVehicle = function (e){
@@ -195,179 +202,90 @@ window.onSelectVehicle = function (e){
   document.getElementById('make').innerHTML = "<option disabled='disabled' SELECTED>Make</option>"
   document.getElementById('model').innerHTML = "<option disabled='disabled' SELECTED>Model</option>"
 
-  if(e.target.value == 'Motorcycle'){
-    const years = [
-      2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014,
-      2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006,
-      2005, 2004, 2003, 2002, 2001, 2000
-    ];
-
-
-    years.forEach(function(year) {
-      var newOption = new Option(year, year);
-      document.getElementById('year').append(newOption);
-    });
-  }else{
-    document.getElementById('loading').classList.remove('hidden-loading');
-    fetch(`https://aa-prod-function-nada.azurewebsites.net/api/years`, 
-      {
-        method: 'GET',
-      }
-    )
-    .then((response) => response.json())
-    .then((result) => {
-      
-      const data = result && result.value;
-      if (data) {
-        const yearsFromApi = data.map( year => year.nadaId); 
-        yearsFromApi.forEach(function(year) {
-          var newOption = new Option(year, year);
-          document.getElementById('year').append(newOption);
-        });
-      }
-
-      document.getElementById('loading').classList.add('hidden-loading');
-    })
-    .catch((error) => {
-      console.log(error);
-      document.getElementById('loading').classList.add('hidden-loading');
-    });
-  }
+  fetch(`https://sf-prod01.approveengine.com/vehicle/api/nada/years?vehicleType=${vehicleType()}`, 
+    {
+      method: 'GET',
+    }
+  )
+  .then((response) => response.json())
+  .then((result) => {
+    if (result) {
+      const el = document.getElementById('year');
+      const yearsFromApi = result.map(year => year.name); 
+      yearsFromApi.forEach(function(year) {
+        var newOption = new Option(year, year);
+        el.append(newOption);
+      });
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 }
+
+// vehicleType=UsedCar
+// vehicleType=Motorcycle
 
 //Select Year Step 3
 window.onSelectYear = function (e){
-  const vehicle = document.getElementById('vehicle_type').value;
-  
-  
   document.getElementById('make').innerHTML = "<option disabled='disabled' SELECTED>Make</option>"
   document.getElementById('model').innerHTML = "<option disabled='disabled' SELECTED>Model</option>"
 
   const value = e.target.value
 
-  if(vehicle == 'Motorcycle'){
-    const makes = {
-      1068: 'BIG DOG MOTORCYCLES',
-      452: 'BMW',
-      8757: 'EXCILE CYCLES',
-      10774: 'HARLEY',
-      3888: 'HARLEY DAVIDSON',
-      474: 'HONDA',
-      1768: 'INDIAN MOTORCYCLE',
-      510: 'KAWASAKI',
-      596: 'KTM',
-      2536: 'MV AGUSTA MOTOR',
-      2678: 'PIAGGIO AND VESPA',
-      3128: 'ROYAL ENFIELD MOTORS',
-      509: 'SUZUKI',
-      565: 'TRIUMPH',
-      567: 'VICTORY',
-      564: 'YAMAHA',
-      0: 'OTHER'
-    };
-
-    Object.keys(makes).forEach(function(id) {
-      var newOption = new Option(makes[id], id);
-      document.getElementById('make').append(newOption);
-    })
-  }else{
-
-    document.getElementById('loading').classList.remove('hidden-loading');
-    fetch(`https://aa-prod-function-nada.azurewebsites.net/api/years/${value}/makes`, 
-      {
-        method: 'GET',
-      }
-    )
-    .then((response) => response.json())
-    .then((result) => {
-      
-      const data = result && result.value;
-      
-      if (data) {
-        data.forEach(function(item) {
-          var newOption = new Option(item.name, item.nadaId);
-          document.getElementById('make').append(newOption);
-        });
-      }
+  fetch(`https://sf-prod01.approveengine.com/vehicle/api/nada/years/${value}/makes?vehicleType=${vehicleType()}`, 
+    {
+      method: 'GET',
+    }
+  )
+  .then((response) => response.json())
+  .then((result) => {      
+    if (result) {
+      result.forEach(function(item) {
+        var newOption = new Option(item.name, item.name);
+        document.getElementById('make').append(newOption);
+      });
+    }
 
       document.getElementById('loading').classList.add('hidden-loading');
 
-    })
-    .catch((error) => {
-      console.log(error);
-      document.getElementById('loading').classList.add('hidden-loading');
-    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+}
 
-  }
+window.onSelectModel = function (e) {
+  var value = e.target.value;
+  document.getElementById('model_name').value = value;
 }
 
 //Select Make Step 3
 window.onSelectMake= function (e){
-  const vehicle = document.getElementById('vehicle_type').value;
-
   var year = document.getElementById('year').value;
   var value = e.target.value;
   
   document.getElementById('model').innerHTML = "<option disabled='disabled' SELECTED>Model</option>"
+  document.getElementById('make_name').value = value;
 
-  if(vehicle == 'Motorcycle'){
-    
-    document.getElementById('loading').classList.remove('hidden-loading');
-    fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/${value}/modelyear/${year}/vehicleType/motorcycle?format=json`, 
-      {
-        method: 'GET',
-      }
-    )
-    .then((response) => response.json())
-    .then((result) => {
-      
-      const data = result && result.value;
-      
-      if (data) {
-        data.forEach(function(item) {
-          var newOption = new Option(item.Model_Name, item.Model_ID);
-          document.getElementById('model').append(newOption);
-        });
-      }
+  fetch(`https://sf-prod01.approveengine.com/vehicle/api/nada/years/${year}/makes/${value}/models?vehicleType=${vehicleType()}`, 
+    {
+      method: 'GET',
+    }
+  )
+  .then((response) => response.json())
+  .then((result) => {      
+    if (result) {
+      result.forEach(function(item) {
+        var newOption = new Option(item.name, item.nadaId);
+        document.getElementById('model').append(newOption);
+      });
+    }
 
-      document.getElementById('loading').classList.add('hidden-loading');
-    })
-    .catch((error) => {
-      console.log(error);
-      document.getElementById('loading').classList.add('hidden-loading');
-    });
-
-
-
-
-  }else{
-
-    document.getElementById('loading').classList.remove('hidden-loading');
-    fetch(`https://aa-prod-function-nada.azurewebsites.net/api/years/${year}/makes/${value}/models`, 
-      {
-        method: 'GET',
-      }
-    )
-    .then((response) => response.json())
-    .then((result) => {
-      
-      const data = result && result.value;
-      
-      if (data) {
-        data.forEach(function(item) {
-          var newOption = new Option(item.name, item.nadaId);
-          document.getElementById('model').append(newOption);
-        });
-      }
-
-      document.getElementById('loading').classList.add('hidden-loading');
-    })
-    .catch((error) => {
-      console.log(error);
-      document.getElementById('loading').classList.add('hidden-loading');
-    });
-
-  }
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 }
 
 
@@ -446,7 +364,7 @@ window.form_step0_submit_mortgate = function (e) {
 
 
 var fields = ["source", "landing_id", "first_name", "last_name", "email_address", "phone_number", "credit_score", "affiliate_id",
-  "street_address", "city", "state", "zip_code", "birth_date", "social_security", "make_name", "model_name",
+  "street_address", "unit_suite", "city", "state", "zip_code", "birth_date", "social_security", "make_name", "model_name",
   "vehicle_type", "year", "make", "model", "current_payment", "current_interest", "payoff_amount", "desired_term", "vin", "mileage",
   "mortgageBroker"
 ];
@@ -874,6 +792,7 @@ window.formatData = function (data) {
     phone: data.phone_number,
     estimated_credit_score: data.credit_score? data.credit_score: '',
     street1: data.street_address? data.street_address : '',
+    street2: data.unit_suite? data.unit_suite : '',
     city: data.city? data.city : '',
     state_code: data.state? data.state : '',
     zipcode: data.zip_code? data.zip_code : '',
