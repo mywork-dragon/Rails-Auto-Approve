@@ -134,13 +134,14 @@ window.get_required_validation = function (value, id) {
 window.get_phone_validation = function (value) {
   if (required_validation(value)) {
     setItemDisplay('phone_required', 'none');
-    if (length_validation(value, phone_length)) {
+    if (length_validation(value, phone_length) && !value.match(/^1/)) {
       setItemDisplay('phone_invalid', 'none');
       return true;
     } else {
       setItemDisplay('phone_invalid', 'block');
       return false;
     }
+    
   } else {
     setItemDisplay('phone_required', 'block');
     setItemDisplay('phone_invalid', 'none');

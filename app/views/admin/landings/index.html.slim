@@ -24,6 +24,8 @@ div class="admin-main"
             thead
               tr
                 th class="table-th min-w-84" Page Name
+                th class="table-th" Theme
+                th class="table-th" Path
                 th class="table-th" Date Created
                 th class="table-th" Live
                 th class="table-th text-center" Actions
@@ -32,12 +34,12 @@ div class="admin-main"
                 tr
                   td class="table-td flex items-center"
                     - if landing.logo.present?
-                      = cl_image_tag landing.logo, class:"rounded-md border border-gray11", width:"102", height:"102"
+                      = cl_image_tag landing.logo, class:"rounded-md", width:"102", height:"102"
                     - else
-                      = image_pack_tag "logo.svg", class:"rounded-md border border-gray11", width:"102", height:"102"
+                      = image_pack_tag "logo.svg", class:"rounded-md", width:"102", height:"102"
                     end
-                    span class="text-gray5 font-bold pl-4 whitespace-no-wrap fit-content" 
-                      = landing.theme
+                  td class="table-td"= landing.theme
+                  td class="table-td"= link_to landing.path, landing.path, target: :_blank
                   td class="table-td"
                     p class="text-gray4 whitespace-no-wrap" 
                       = landing.created_at.strftime("%b %d %Y")

@@ -21,90 +21,73 @@ header
           
           a href="tel:{{phone}}" class="mb-2" {{phone_label}}
 
-main class="relative w-screen overflow-x-hidden"
-  div class="pt-56 pb-24 max-sm:pb-16 max-sm:pt-28 max-w-8xl mx-auto"
-    div class="flex-center flex-col max-sm:mx-4" data-step="0"
-      div class="font-bold text-xl max-sm:text-base text-purple2 mb-2 text-center"
-        | {{hero_slogan}}
-      div class="font-bold text-50 max-sm:text-3xl text-gray5 mb-2 text-center max-sm:max-w-xxs"
-        | {{hero_title}}
-      div class="font-bold text-50 max-sm:text-3xl text-lightgreen mb-2"
-        | {{hero_subtitle}}
-      div class="font-bold text-xl max-sm:text-base text-gray5 mb-8"
-        | {{hero_rate}}
 
-      form class="flex-center flex-col mx-auto mt-24 max-sm:mt-12 fit-content bg-gray1 rounded-2xl py-12 max-sm:pt-6"
-        input type="hidden" id="cur_page_idx" value="0"
-        div class="text-4xl max-sm:text-2xl text-left text-gray5 px-16 max-xl:px-4 my-3 w-full"
-          | Calculate your savings
-        div class="grid grid-cols-2 max-lg:grid-cols-1 gap-16 max-sm:gap-8 mx-16 max-xl:mx-4"
-          div class="max-w-md"
-            div class="mb-9"
-              div class="text-xs text-purple1 font-bold"
-                | Loan Amount
-              div class="flex font-bold text-gray6"
-                span class="text-base pt-2 max-sm:pt-0"
-                  | $
-                div id="curLoan" class="px-1 text-32 max-sm:text-xl"
-              input type="range" id="loan_range" min="5000" max="85000" oninput="onChangeLoan(this.value)" onchange="current_rate_cal()" class="w-full range"
-              div class="flex-between text-xs text-gray7 font-bold"
-                div
-                  | $5,000
-                div
-                  | $85,000
 
-            div class="mb-9"
-              div class="text-xs text-purple1 font-bold"
-                | Loan Term
-              div class="flex items-end font-bold text-gray6"
-                div id="curMonth" class="text-32 max-sm:text-xl -mb-2 max-sm:mb-0"
-                span class="text-base px-1"
-                  | months
 
-              input type="range" id="month_range" min="48" max="84" step="12" oninput="onChangeMonth(this.value)" onchange="current_rate_cal()" class="w-full range"
-              div class="flex-between text-xs text-gray7"
-                div
-                  | 48 months
-                div
-                  | 84 months
 
-            div class="flex"
-              div class="flex-1 mr-14"
-                div class="text-xs mb-2.5 text-purple1 font-bold"
-                  | Current Rate (APR)
-                div class="relative mb-3 w-full flex flex-wrap items-stretch"
-                  input type="text" id="rate1" oninput="current_rate_cal()" onkeypress="return isNumberKey(event)" class="relative py-2 px-2 pr-10 w-full bg-white rounded shadow outline-none text-base text-gray6 font-bold placeholder-gray-400 focus:outline-none focus:shadow-outline"
-                  input type="hidden" id="interest1" 
-                  span class="absolute right-0 z-10 py-2 pr-2 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray7 text-center flex-center"
-                    | %
+main class="relative"
 
-              div class="flex-1"
-                div class="text-xs mb-2.5 text-purple1 font-bold"
-                  | New Rate (APR)
-                div class="relative mb-3 w-full flex flex-wrap items-stretch"
-                  input type="text" id="rate2" oninput="new_rate_cal()" onkeypress="return isNumberKey(event)" class="relative py-2 px-2 pr-10 w-full bg-white rounded shadow outline-none text-base text-gray6 font-bold placeholder-gray-400 focus:outline-none focus:shadow-outline"
-                  input type="hidden" id="interest2" 
-                  span class="absolute right-0 z-10 py-2 pr-2 w-8 h-full leading-snug bg-transparent rounded text-base font-normal text-gray7 text-center flex-center"
-                    | %
+  div class="pt-40 max-sm:pt-20 pb-24 max-sm:pb-16"
+    div class="grid grid-cols-2 max-lg:grid-cols-1 gap-8 mx-16 max-xl:mx-8 max-sm:mx-4 mx-auto max-w-6xl text-center" data-step="0"
+      div class="text-left max-w-md max-lg:text-center max-lg:mx-auto my-auto"
+        div class="text-50 max-sm:text-3xl text-gray5 mb-2 max-sm:tracking-moretight"
+          | {{hero_title}}
 
-          div class="my-3 max-w-md pl-10 pt-8 rounded-2xl h-75 max-sm:h-48 bg-white"
-            div class="text-base mb-3 text-gray5 font-bold"
-              | You could save
-            div class="text-90 max-sm:text-3xl text-purple2 font-bold mb-2"
-              | $
-              span id="saving"
-            div class="text-purple1 mb-9 font-bold"
-              | in interest
-            button class="btn-purple btn" type="submit" onclick="form_step0_submit(event)"
-              | Start saving today
-    
+        div class="text-50 max-sm:text-3xl text-lightgreen font-bold mb-4"
+          | {{hero_subtitle}}
+
+
+        div class="text-xl max-sm:text-base font-bold text-purple2 mb-4"
+          | {{hero_slogan}}
+
+        div class="text-xl max-sm:text-base text-gray5"
+          | {{hero_rate}}
+
+      div class="flex justify-end max-sm:justify-center max-lg:mx-auto max-sm:m-initial"
+        form class="box-shadow rounded-xl min-w-sm p-12 max-sm:p-6 min-w-120 max-sm:min-w-full" name="form_step0"
+          input type="hidden" id="cur_page_idx" value="0"
+          div class="text-28 max-sm:text-lg text-purple2 font-bold mb-12 max-sm:mb-6"
+            | START SAVING TODAY
+          div class="w-full input-group mb-6"
+            input id="first_name0" class="inputAnimation" autocomplete="given-name" type="text" oninput="onTextValidation(event)"
+            label
+              | First Name
+            div id="first_name0_required" class="hidden text-red-500 text-left text-xs"
+              required
+
+          div class="w-full input-group mb-6"
+            input id="last_name0" class="inputAnimation" autocomplete="family-name" type="text" oninput="onTextValidation(event)"
+            label
+              | Last Name
+            div id="last_name0_required" class="hidden text-red-500 text-left text-xs" 
+              | required
+
+          div class="w-full input-group mb-6"
+            input id="email_address0" class="inputAnimation" autocomplete="email" type="email" oninput="onEmail(event)"
+            label
+              | Email Address
+            div id="email_address0_required" class="hidden text-red-500 text-left text-xs"
+              | required
+            div id="email_address0_invalid" class="hidden text-red-500 text-left text-xs"
+              | invalid email
+          
+          button class="btn-purple btn mt-12 max-sm:mt-6 w-full" type="submit" onclick="form_step0_submit_mortgate(event)"
+            | Start Saving Money Now
+
+
     div class="hidden mx-auto max-w-3xl text-center" data-step="1"
       div class="mb-10"
-        div class="text-50 max-sm:text-3xl text-gray5 mb-2"
-          | Get a
-          span<> class="text-lightgreen" Quote.
-        div class="text-base text-gray5 text-center px-4"
-          |  {{hero_slogan}}
+        div class="text-xl max-sm:text-base font-bold text-purple2 mb-4" 
+          | {{hero_slogan}}
+        
+        div class="text-50 max-sm:text-3xl text-gray5 mb-2 max-sm:tracking-moretight"
+          | {{hero_title}}
+
+        div class="text-50 max-sm:text-3xl text-lightgreen font-bold mb-4"
+          | {{hero_subtitle}}
+
+        div class="text-xl max-sm:text-base text-gray5"
+          | {{hero_rate}}
       div class="flex justify-center mb-20"
         div class="flex items-center justify-center mx-auto px-7 max-sm:px-6 py-3.5 max-sm:py-2 border border-gray12 rounded-22 max-sm:rounded-2xl"
           div class="w-12 h-12 max-sm:w-9 max-sm:h-9 rounded-full bg-purple2 flex-center"
@@ -139,6 +122,7 @@ main class="relative w-screen overflow-x-hidden"
           div class="w-full input-group max-sm:cursor-pointer"
             input id="phone_number" class="inputAnimation" autocomplete="tel" type="text" oninput="onPhone(event)"
             label Phone Number
+
             div class="text-gray10 text-2.25 text-left" Example: xxx-xxx-xxxx
             div id="phone_required" class="hidden text-red-500 text-left text-xs" required
             div id="phone_invalid" class="hidden text-red-500 text-left text-xs" invalid phone
@@ -171,12 +155,17 @@ main class="relative w-screen overflow-x-hidden"
     <!-- page 2 -->
     div class="hidden mx-auto max-w-3xl text-center" data-step="2"
       div class="mb-10"
-        div class="text-50 max-sm:text-3xl text-gray5 mb-2" 
-          | Get a
-          span<> class="text-lightgreen"
-            | Quote.
-        div class="text-base text-gray5 text-center px-4" 
+        div class="text-xl max-sm:text-base font-bold text-purple2 mb-4" 
           | {{hero_slogan}}
+        
+        div class="text-50 max-sm:text-3xl text-gray5 mb-2 max-sm:tracking-moretight"
+          | {{hero_title}}
+
+        div class="text-50 max-sm:text-3xl text-lightgreen font-bold mb-4"
+          | {{hero_subtitle}}
+
+        div class="text-xl max-sm:text-base text-gray5"
+          | {{hero_rate}}
 
       div class="flex justify-center mb-20"
         div class="flex items-center justify-center mx-auto px-7 max-sm:px-4 py-3.5 max-sm:py-2 border border-gray12 rounded-22 max-sm:rounded-2xl"
@@ -267,12 +256,17 @@ main class="relative w-screen overflow-x-hidden"
     <!-- page 3 -->
     div class="hidden mx-auto max-w-3xl text-center" data-step="3"
       div class="mb-10"
-        div class="text-50 max-sm:text-3xl text-gray5 mb-2" 
-          | Get a
-          span<> class="text-lightgreen"
-            | Quote.
-        div class="text-base text-gray5 text-center px-4" 
+        div class="text-xl max-sm:text-base font-bold text-purple2 mb-4" 
           | {{hero_slogan}}
+        
+        div class="text-50 max-sm:text-3xl text-gray5 mb-2 max-sm:tracking-moretight"
+          | {{hero_title}}
+
+        div class="text-50 max-sm:text-3xl text-lightgreen font-bold mb-4"
+          | {{hero_subtitle}}
+
+        div class="text-xl max-sm:text-base text-gray5"
+          | {{hero_rate}}
       div class="flex justify-center mb-20"
         div class="flex items-center justify-center mx-auto px-7 max-sm:px-4 py-3.5 max-sm:py-2 border border-gray12 rounded-22 max-sm:rounded-2xl"
           div class="pr-7 max-sm:pr-4"
@@ -464,7 +458,10 @@ main class="relative w-screen overflow-x-hidden"
         <%= image_pack_tag "newStyle/images/Illustration3.svg" %>
         div class="font-bold text-2xl max-sm:text-xl text-gray2 mt-8 mb-1 text-center">Easy as that, you’re paying less on your loan, with more to spend on the things that matter</div>
         div class="text-gray3 text-center"
+
       <%= link_to "Start saving today", quote_path, class:"btn-purple btn" %>
+
+
 
 div class="flex-center flex-col py-24 max-sm:py-12 auto-approve-section content-page"
   div class="text-gray5 text-50 max-sm:text-3xl max-w-2xl text-center mb-8" 
@@ -496,12 +493,10 @@ div class="flex-center flex-col py-24 max-sm:py-12 auto-approve-section content-
       div class="text-gray4 text-center" The most important thing we do is? We lower your monthly payments. Refinance with Auto Approve, you’ll have more cash to spend on the things you love. Because, in the end, our mission is more money for what matters to you.
 
 
-
 <%= render "shared/reviews" %> 
 <%= render "shared/brand" %>
 
 
-
 <%= content_for :end_page_scripts do
-  javascript_pack_tag "themes_scripts/landing"
+  javascript_pack_tag "themes_scripts/landing", 'data-turbolinks-track': "reload"
 end %>

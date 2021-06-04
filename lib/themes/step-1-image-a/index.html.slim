@@ -63,6 +63,7 @@ main class="relative"
                 div class="w-full input-group mb-4"
                   input id="phone_number" class="inputAnimation" autocomplete="tel" type="text" oninput="onPhone(event)"
                   label Phone Number
+                  div class="text-gray10 text-2.25 text-left" Example: xxx-xxx-xxxx
                   div id="phone_required" class="hidden text-red-500 text-left text-xs" required
                   div id="phone_invalid" class="hidden text-red-500 text-left text-xs" invalid phone
                   
@@ -307,6 +308,7 @@ main class="relative"
 
         div class="text-left text-gray4 max-sm:text-center"
           div Don't see your vehicle listed? We refinance cars, trucks, SUVs, Motorcycles, RVs, Boats and ATVs.
+          div.mb-2 Auto Approve has an A+ rating with the <a href="https://www.bbb.org/" target="_blank">BBB</a> and is located at <a href="https://www.google.com/maps/search/6200+Shingle+Creek+Pkwy+Suite+400,+Brooklyn+Center,+MN+55430?entry=gmail&source=g" target="_blank">6200 Shingle Creek Pkwy Suite 400, Brooklyn Center, MN 55430</a>. Auto Approve works with lenders to find its customers the best terms and APR, which are based on factors like credit history, vehicle and desired payment terms.  Loan amounts, costs and fees vary by state and lender; they generally include admin fees, doc fees, DMV and title fees, depending on the lender and period of repayment. There is no fee to obtain a quote and all refinancing related costs are included in the amount financed so there are no out of pocket costs!  For more information, please go to <a href="http://autoapprove.com/">AutoApprove.com</a>
           div 
             | Call us at 
             <a href="tel:{{phone}}" class="text-lightgreen"> {{phone_label}} </a>
@@ -316,12 +318,13 @@ main class="relative"
     <!-- page 4 -->
     div class="hidden mx-24 max-md:mx-8 max-sm:mx-4 bg-gray1 congrate-section my-24 max-sm:my-12" data-step="4"
       div class="flex flex-col max-w-5xl justify-center text-center mx-auto px-4 pt-20 pb-10 max-md:pt-12 congrate-sub-section"
-        div class="font-bold text-6xl max-md:text-4xl text-gray2 mb-4" Congratulation!
+        div class="font-bold text-6xl max-md:text-4xl text-gray2 mb-4" Congratulations!
         div class="text-28 max-md:text-xl max-sm:text-lg text-gray2 mb-12 max-sm:mb-6" You are on your way to saving money on our vehicles monthly payment.
         div class="font-bold text-4xl max-md:text-2xl mb-3" What's Next?
         div class="text-28 max-md:text-xl max-sm:text-lg text-gray2" 
-          | Your dedicated loan consultant will review your information and reach out to discuss next steps. or call us at 
-          b {{phone_label}}
+          | Your dedicated loan consultant will review your information and reach out to discuss next steps. Or call us at 
+          b
+            | {{phone_label}}
         div class="mx-auto flex-center"
           <%= image_pack_tag "newStyle/images/medal.svg", class:"max-sm:w-30" %>
 
@@ -350,9 +353,10 @@ main class="relative"
         div class="text-28 max-md:text-xl text-gray2 mb-10" 
           | Please 
           a<> class="text-lightgreen cursor-pointer" onClick="location.reload();" click here
-          | to try again Or call us as at 
+          | to try again or call us as at 
           a href="tel:{{phone}}"
-            b {{phone_label}}
+            b
+              | {{phone_label}}
 
 
   
